@@ -14,6 +14,7 @@ from sqlalchemy import (
     Text,
     Time,
     UniqueConstraint,
+    CheckConstraint,
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -71,6 +72,7 @@ class Content(Base):
     user_state: Mapped[UserContentState | None] = relationship(
         back_populates="content", cascade="all, delete-orphan", uselist=False
     )
+    projects: Mapped[list[Project]] = relationship(back_populates="content")
 
 
 class ScheduleRule(Base):
@@ -291,3 +293,152 @@ class UserContentState(Base):
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
 
     content: Mapped[Content] = relationship(back_populates="user_state")
+
+
+class Project(Base):
+    __tablename__ = "project"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    slug: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
+    name_ko: Mapped[str] = mapped_column(String(255), nullable=False)
+    content_id: Mapped[int | None] = mapped_column(ForeignKey("content.id"))
+    summary: Mapped[str | None] = mapped_column(Text)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+
+    content: Mapped[Content | None] = relationship(back_populates="projects")
+    stages: Mapped[list[ProjectStage]] = relationship(back_populates="project", cascade="all, delete-orphan")
+    dependencies: Mapped[list[ProjectStageDependency]] = relationship(
+        back_populates="project", cascade="all, delete-orphan"
+    )
+    materials: Mapped[list[ProjectMaterial]] = relationship(
+        back_populates="project", cascade="all, delete-orphan"
+    )
+
+
+class ProjectStage(Base):
+    __tablename__ = "project_stage"
+    __table_args__ = (UniqueConstraint("project_id", "seed_key", name="uq_project_stage_seed_key"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    project_id: Mapped[int] = mapped_column(ForeignKey("project.id"), nullable=False)
+    seed_key: Mapped[str] = mapped_column(String(200), nullable=False)
+    name: Mapped[str] = mapped_column(String(255), nullable=False)
+    description: Mapped[str | None] = mapped_column(Text)
+    order_no: Mapped[int] = mapped_column(Integer, nullable=False)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+
+    project: Mapped[Project] = relationship(back_populates="stages")
+    materials: Mapped[list[ProjectMaterial]] = relationship(back_populates="stage")
+    user_state: Mapped[UserProjectStageState | None] = relationship(
+        back_populates="stage", cascade="all, delete-orphan", uselist=False
+    )
+
+
+class ProjectStageDependency(Base):
+    __tablename__ = "project_stage_dependency"
+    __table_args__ = (
+        UniqueConstraint("project_id", "seed_key", name="uq_project_stage_dependency_seed_key"),
+        CheckConstraint("stage_id <> depends_on_stage_id", name="ck_project_stage_dependency_distinct"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    project_id: Mapped[int] = mapped_column(ForeignKey("project.id"), nullable=False)
+    stage_id: Mapped[int] = mapped_column(ForeignKey("project_stage.id"), nullable=False)
+    depends_on_stage_id: Mapped[int] = mapped_column(ForeignKey("project_stage.id"), nullable=False)
+    seed_key: Mapped[str] = mapped_column(String(200), nullable=False)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+
+    project: Mapped[Project] = relationship(back_populates="dependencies")
+    stage: Mapped[ProjectStage] = relationship(foreign_keys=[stage_id])
+    depends_on_stage: Mapped[ProjectStage] = relationship(foreign_keys=[depends_on_stage_id])
+
+
+class Material(Base):
+    __tablename__ = "material"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    key: Mapped[str] = mapped_column(String(160), unique=True, nullable=False)
+    name_ko: Mapped[str] = mapped_column(String(255), nullable=False)
+    unit: Mapped[str] = mapped_column(String(64), nullable=False)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+
+    project_materials: Mapped[list[ProjectMaterial]] = relationship(back_populates="material")
+    inventory: Mapped[UserMaterialInventory | None] = relationship(
+        back_populates="material", cascade="all, delete-orphan", uselist=False
+    )
+
+
+class ProjectMaterial(Base):
+    __tablename__ = "project_material"
+    __table_args__ = (
+        UniqueConstraint("project_id", "seed_key", name="uq_project_material_seed_key"),
+        CheckConstraint("required_quantity >= 0", name="ck_project_material_required_nonnegative"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    project_id: Mapped[int] = mapped_column(ForeignKey("project.id"), nullable=False)
+    stage_id: Mapped[int | None] = mapped_column(ForeignKey("project_stage.id"))
+    material_id: Mapped[int] = mapped_column(ForeignKey("material.id"), nullable=False)
+    seed_key: Mapped[str] = mapped_column(String(200), nullable=False)
+    required_quantity: Mapped[float] = mapped_column(Float, nullable=False)
+    order_no: Mapped[int] = mapped_column(Integer, nullable=False)
+    notes: Mapped[str | None] = mapped_column(Text)
+    source_entity_type: Mapped[str | None] = mapped_column(String(64))
+    source_entity_seed_key: Mapped[str | None] = mapped_column(String(200))
+    active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+
+    project: Mapped[Project] = relationship(back_populates="materials")
+    stage: Mapped[ProjectStage | None] = relationship(back_populates="materials")
+    material: Mapped[Material] = relationship(back_populates="project_materials")
+    sources: Mapped[list[ProjectMaterialSource]] = relationship(
+        back_populates="project_material", cascade="all, delete-orphan"
+    )
+
+
+class ProjectMaterialSource(Base):
+    __tablename__ = "project_material_source"
+    __table_args__ = (
+        UniqueConstraint("project_material_id", "seed_key", name="uq_project_material_source_seed_key"),
+        CheckConstraint(
+            "quantity_per_completion IS NULL OR quantity_per_completion >= 0",
+            name="ck_project_material_source_quantity_nonnegative",
+        ),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    project_material_id: Mapped[int] = mapped_column(ForeignKey("project_material.id"), nullable=False)
+    content_id: Mapped[int] = mapped_column(ForeignKey("content.id"), nullable=False)
+    seed_key: Mapped[str] = mapped_column(String(220), nullable=False)
+    quantity_per_completion: Mapped[float | None] = mapped_column(Float)
+    notes: Mapped[str | None] = mapped_column(Text)
+    order_no: Mapped[int] = mapped_column(Integer, nullable=False)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+
+    project_material: Mapped[ProjectMaterial] = relationship(back_populates="sources")
+    content: Mapped[Content] = relationship()
+
+
+class UserMaterialInventory(Base):
+    __tablename__ = "user_material_inventory"
+    __table_args__ = (CheckConstraint("quantity >= 0", name="ck_user_material_inventory_nonnegative"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    material_id: Mapped[int] = mapped_column(ForeignKey("material.id"), unique=True, nullable=False)
+    quantity: Mapped[float] = mapped_column(Float, default=0, nullable=False)
+    note: Mapped[str | None] = mapped_column(Text)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+
+    material: Mapped[Material] = relationship(back_populates="inventory")
+
+
+class UserProjectStageState(Base):
+    __tablename__ = "user_project_stage_state"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    stage_id: Mapped[int] = mapped_column(ForeignKey("project_stage.id"), unique=True, nullable=False)
+    completed: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    note: Mapped[str | None] = mapped_column(Text)
+    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+
+    stage: Mapped[ProjectStage] = relationship(back_populates="user_state")

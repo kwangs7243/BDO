@@ -2,19 +2,20 @@
 
 목표: 단순 숙제 체크리스트가 아니라, **검은사막 콘텐츠 위키 + 진행도 + 반복 숙제 + 프로젝트/재료 트래커 + 근거 관리**를 하나로 묶는 로컬 웹앱.
 
-현재 구현 milestone은 **V1.7D — Account & Progression Foundation**이다.
+현재 구현 milestone은 **V1.8A — Project Tracker Foundation**이다.
 
 ## 현재 baseline
 
 - Source: 145
 - Content: 259 (모두 active)
 - 지식 역할: FACT 193 / STRATEGY 17 / MEASUREMENT 11
-- 테스트: 143개 수집, 마지막 전체 실행 143 passed
+- Project Tracker: Project 1 / Stage 4 / Material 9 / ProjectMaterial 9 / MaterialSource 9
+- 테스트: 161개 수집, 마지막 전체 실행 161 passed
 - 주요 데이터 영역: Routine, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss, Account / Main Quest / Adventure Log / Magnus Progression Foundation
 
 ## 제품 목표 사용 시나리오
 
-아래 목록은 장기 제품 목표다. 현재 구현된 시나리오는 대시보드·주간 체크리스트, Content 상세·근거 확인, Prompt Bridge이며, Project/material 부족량 추적과 JSON import/export는 아직 구현되지 않았다.
+아래 목록은 장기 제품 목표다. 현재 구현된 시나리오는 대시보드·주간 체크리스트, Content 상세·근거 확인, Prompt Bridge와 Project/material backend 부족량 추적이다. Project frontend와 JSON import/export는 아직 구현되지 않았다.
 
 1. "수렵 한번 해볼까?" → 수렵 페이지 진입 → 왜 하는지 / 준비물 / 장비 / 시작 루트 / 체크리스트 / 추천 다음 단계 확인.
 2. "이번 주 뭐 안 했지?" → 주간 대시보드 → 초기화 규칙별로 남은 콘텐츠 확인.
@@ -49,7 +50,7 @@
 
 ## 현재 범위와 AI 원칙
 
-현재 V1.7D까지 비용이 발생하는 AI 연동 없이 V1.5의 로컬 Prompt Bridge 원칙을 유지한다.
+현재 V1.8A까지 비용이 발생하는 AI 연동 없이 V1.5의 로컬 Prompt Bridge 원칙을 유지한다.
 
 - OpenAI API: 사용 안 함
 - 타사 LLM API: 사용 안 함
@@ -57,7 +58,7 @@
 - Fine-tuning: 사용 안 함
 - Prompt Bridge: 사용
 
-앱이 DB 조회, reset 계산, 완료 상태와 source verification을 처리한 뒤 사용자가 ChatGPT에 직접 붙여넣을 prompt를 생성한다. project/material 계산은 관련 모델과 함께 후속 milestone로 남겼다. 상세 명세는 `docs/specs/002-prompt-bridge/spec.md`를 따른다.
+앱이 DB 조회, reset 계산, 완료 상태와 source verification을 처리한 뒤 사용자가 ChatGPT에 직접 붙여넣을 prompt를 생성한다. Project/material 모델과 shortage 계산은 V1.8A backend에 구현했지만 Prompt Bridge project context는 아직 연결하지 않았다. 상세 명세는 `docs/specs/002-prompt-bridge/spec.md`를 따른다.
 
 ## 현재 구현된 데이터 기반
 
@@ -78,8 +79,10 @@
 - Markdown 미리보기, clipboard 복사와 실패 시 수동 선택, `.md` 다운로드
 - Routine과 해양, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss seed
 - Account / Main Quest / Adventure Log / Magnus Progression Foundation seed
+- Project/Stage DAG, Material projection, global inventory와 stage completion 상태
+- Carrack Advance backend tracker와 결정적 shortage 계산
 
-정본 seed 형식은 `docs/data/SEED_FORMAT.md`, 구현 snapshot은 `handoff/V16A_SNAPSHOT.md`에 기록한다. 프로젝트/재료 스키마가 없는 이번 milestone에서는 `project_optimizer`를 만들지 않았다.
+정본 seed 형식은 `docs/data/SEED_FORMAT.md`, V1.8A 구현 결과는 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`에 기록한다. `project_optimizer`와 Project Prompt Bridge 연동은 아직 구현하지 않았다.
 
 ## 실행
 
@@ -122,12 +125,12 @@ uv run uvicorn app.main:app --reload
 
 ## 검증 명령과 결과
 
-2026-09-04 기준 backend 테스트 143개가 수집되며, 마지막 전체 실행 기록은 143 passed다.
+2026-09-05 기준 backend 테스트 161개가 수집되며, 마지막 전체 실행 기록은 161 passed다.
 
 ```powershell
 cd backend
 uv run pytest
-# 143 passed
+# 161 passed
 
 cd ../frontend
 npm run typecheck
@@ -136,4 +139,4 @@ npm run test
 npm run build
 ```
 
-V1.6A 기반 구조는 `handoff/V16A_SNAPSHOT.md`, V1.7 데이터 팩 결과는 `handoff/V17A_COMBAT_FOUNDATION_REPORT.md`, `handoff/V17B_GRIND_SPOT_REPORT.md`, `handoff/V17C_BOSS_BLACK_SHRINE_REPORT.md`, `handoff/V17D_ACCOUNT_PROGRESSION_REPORT.md`에 기록되어 있다.
+V1.6A 기반 구조는 `handoff/V16A_SNAPSHOT.md`, V1.7 데이터 팩 결과는 `handoff/V17A_COMBAT_FOUNDATION_REPORT.md`, `handoff/V17B_GRIND_SPOT_REPORT.md`, `handoff/V17C_BOSS_BLACK_SHRINE_REPORT.md`, `handoff/V17D_ACCOUNT_PROGRESSION_REPORT.md`에 기록되어 있다. V1.8A Project Tracker backend foundation은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`에 기록한다.

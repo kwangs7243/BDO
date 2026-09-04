@@ -128,6 +128,60 @@ seed가 관리하는 중첩 엔티티는 사람이 읽을 수 있는 안정적�
 
 단일 로컬 사용자의 명시적 상태다. V1.6A에서는 checklist 완료 여부로 자동 추론하지 않는다.
 
+## V1.8A Project Tracker 엔티티
+
+게임 지식의 원본은 기존 Content/evidence에 둔다. 아래 Project 계열 정본은 계산에 적합한 normalized projection이며, `source_entity_type`과 `source_entity_seed_key`로 원본 Requirement 또는 Section을 추적한다. 사용자 입력은 seed-managed 정본과 분리한다.
+
+### project / project_stage / project_stage_dependency
+
+`project`:
+
+- `slug` unique stable identity, `name_ko`, nullable `content_id`
+- `summary`, `active`
+
+`project_stage`:
+
+- `project_id`, `seed_key`, `name`, nullable `description`
+- `order_no`, `active`
+- `(project_id, seed_key)` unique
+
+`project_stage_dependency`:
+
+- `project_id`, `stage_id`, `depends_on_stage_id`, `seed_key`, `active`
+- 자기 자신 참조는 DB 제약과 importer validation으로 거부하며, 순환 DAG는 importer가 거부한다.
+
+### material / project_material / project_material_source
+
+`material`:
+
+- 표시명이 아닌 stable `key` unique, `name_ko`, `unit`, `active`
+
+`project_material`:
+
+- `project_id`, nullable `stage_id`, `material_id`, `seed_key`
+- `required_quantity >= 0`, `order_no`, nullable `notes`, `active`
+- nullable `source_entity_type`, `source_entity_seed_key`
+
+`project_material_source`:
+
+- `project_material_id`, 기존 `content_id`, `seed_key`
+- nullable `quantity_per_completion >= 0`, nullable `notes`, `order_no`, `active`
+- 정본에서 정확한 1회 획득량을 확인할 수 없으면 `quantity_per_completion=null`로 둔다.
+
+### user_material_inventory / user_project_stage_state
+
+`user_material_inventory`:
+
+- `material_id` unique, `quantity >= 0`, nullable `note`, `updated_at`
+- 프로젝트별 예약량이 아닌 material별 전역 사용자 재고다.
+
+`user_project_stage_state`:
+
+- `stage_id` unique, `completed`, nullable `completed_at`, nullable `note`, `updated_at`
+- 미완료로 되돌리면 `completed_at`을 null로 만든다.
+
+seed 재수입은 두 user table을 수정하거나 archive하지 않는다. 부족량은 backend가 `max(required_quantity - owned_quantity, 0)`으로 결정적으로 계산한다.
+
 ## Period key 예시
 
 - 일일 KST 00:00: `D:2026-09-02`
@@ -137,10 +191,9 @@ seed가 관리하는 중첩 엔티티는 사람이 읽을 수 있는 안정적�
 
 **절대 `checked=false` 일괄 UPDATE로 초기화하지 않는다.**
 
-## V1.6A 이후로 연기된 모델
+## 후속 milestone로 연기된 모델
 
-- `project`, `project_stage`, `material`, `project_material`, `user_material_inventory`
 - `character`, `character_role`
 - `life_skill_profile`
 
-이 항목은 설계 의도만 유지하며 V1.6A DB에는 stub 테이블을 만들지 않는다.
+이 항목은 설계 의도만 유지하며 현재 DB에는 stub 테이블을 만들지 않는다.

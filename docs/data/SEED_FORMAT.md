@@ -1,4 +1,4 @@
-# V1.6A Seed Format
+# Seed Format (V1.8A baseline)
 
 ## 정본 파일
 
@@ -6,7 +6,7 @@
 - `data/seed_contents.json`: 콘텐츠와 중첩 지식·일정·체크리스트·관계·근거
 - importer: `backend/app/seed.py`
 
-두 파일은 UTF-8 JSON 배열이다. V1.6A에서는 대량 분할보다 한 콘텐츠의 변경을 한곳에서 검토할 수 있는 현재 통합 파일을 유지한다.
+`seed_sources.json`과 `seed_contents.json`은 UTF-8 JSON 배열이다. V1.8A의 선택 파일 `seed_projects.json`은 `materials`와 `projects` 배열을 가진 UTF-8 JSON 객체다. 기존 두 파일만 가진 임시 seed directory에서는 project import를 건너뛰어 과거 회귀 테스트와 importer 호환성을 유지한다.
 
 ## 안정 key 규칙
 
@@ -199,6 +199,67 @@ DB의 Evidence `seed_key`는 `{claim seed_key}::{source id}`로 만들어진다.
 ```
 
 전체 canonical 행과 나머지 claim들은 `data/seed_contents.json`의 `blood-altar` 항목을 사용한다.
+
+## V1.8A Project seed 형식
+
+`seed_projects.json`의 최상위 구조는 다음과 같다.
+
+```json
+{
+  "materials": [
+    {"key": "stable-material-key", "name_ko": "표시 이름", "unit": "개", "active": true}
+  ],
+  "projects": [
+    {
+      "slug": "project-slug",
+      "name_ko": "프로젝트 이름",
+      "content_slug": "existing-content-slug",
+      "summary": "설명",
+      "active": true,
+      "stages": [
+        {"seed_key": "project-slug.stage.prepare", "name": "준비", "order_no": 1}
+      ],
+      "stage_dependencies": [
+        {
+          "seed_key": "project-slug.dependency.finish-prepare",
+          "stage_seed_key": "project-slug.stage.finish",
+          "depends_on_stage_seed_key": "project-slug.stage.prepare"
+        }
+      ],
+      "project_materials": [
+        {
+          "seed_key": "project-slug.material.example",
+          "stage_seed_key": "project-slug.stage.prepare",
+          "material_key": "stable-material-key",
+          "required_quantity": 10,
+          "order_no": 1,
+          "source_entity_type": "content_requirement",
+          "source_entity_seed_key": "existing-content-slug.requirement-key",
+          "sources": [
+            {
+              "seed_key": "project-slug.material.example.source.content",
+              "content_slug": "existing-source-content",
+              "quantity_per_completion": null,
+              "notes": "정확한 1회 획득량이 없으면 null",
+              "order_no": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+- Material identity는 표시명 대신 전역 unique `key`를 사용한다.
+- Project 하위 `seed_key`는 `{project slug}.`로 시작해야 하며 부모 범위에서 유일해야 한다.
+- `content_slug`, stage 참조, material 참조와 `source_entity_*` 참조는 기존 정본 row가 존재해야 한다.
+- `source_entity_type`은 현재 `content_requirement` 또는 `content_section`만 허용한다.
+- `required_quantity`와 값이 존재하는 `quantity_per_completion`은 0 이상이어야 한다.
+- stage dependency의 자기 참조와 순환은 import 오류다.
+- 현재 canonical 파일에서 빠진 Project 계열 row는 hard delete하지 않고 `active=false`로 archive한다.
+- 동일 stable key를 다시 import하면 기존 ID를 유지하며 값을 갱신한다.
+- `UserMaterialInventory`와 `UserProjectStageState`는 사용자 소유이므로 seed에 작성하지 않으며 importer도 수정하거나 archive하지 않는다.
 
 ## 검토 절차
 
