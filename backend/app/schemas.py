@@ -144,6 +144,8 @@ class ProjectMaterialOut(BaseModel):
     required_quantity: float
     owned_quantity: float
     shortage: float
+    inventory_note: str | None
+    inventory_updated_at: datetime | None
     notes: str | None
     order_no: int
     source_entity_type: str | None

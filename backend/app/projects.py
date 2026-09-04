@@ -92,7 +92,8 @@ def get_project_detail(session: Session, slug: str) -> ProjectDetailOut | None:
     ):
         if not item.active:
             continue
-        owned = item.material.inventory.quantity if item.material.inventory else 0.0
+        inventory = item.material.inventory
+        owned = inventory.quantity if inventory else 0.0
         sources = [
             ProjectMaterialSourceOut(
                 seed_key=source.seed_key,
@@ -115,6 +116,8 @@ def get_project_detail(session: Session, slug: str) -> ProjectDetailOut | None:
                 required_quantity=item.required_quantity,
                 owned_quantity=owned,
                 shortage=_shortage(item.required_quantity, owned),
+                inventory_note=inventory.note if inventory else None,
+                inventory_updated_at=_aware_utc(inventory.updated_at) if inventory else None,
                 notes=item.notes,
                 order_no=item.order_no,
                 source_entity_type=item.source_entity_type,

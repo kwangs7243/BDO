@@ -149,3 +149,78 @@ export interface PromptRender {
   estimated_tokens: number
   over_budget: boolean
 }
+
+export interface ProjectSummary {
+  slug: string
+  name_ko: string
+  content_slug: string | null
+  active: boolean
+  completed_stage_count: number
+  total_stage_count: number
+  shortage_material_count: number
+}
+
+export interface ProjectMaterialSource {
+  seed_key: string
+  content_slug: string
+  content_name_ko: string
+  quantity_per_completion: number | null
+  notes: string | null
+  order_no: number
+}
+
+export interface ProjectMaterial {
+  seed_key: string
+  material_key: string
+  name_ko: string
+  unit: string
+  stage_seed_key: string | null
+  required_quantity: number
+  owned_quantity: number
+  shortage: number
+  inventory_note: string | null
+  inventory_updated_at: string | null
+  notes: string | null
+  order_no: number
+  source_entity_type: string | null
+  source_entity_seed_key: string | null
+  sources: ProjectMaterialSource[]
+}
+
+export interface ProjectStage {
+  id: number
+  seed_key: string
+  name: string
+  description: string | null
+  order_no: number
+  completed: boolean
+  completed_at: string | null
+  note: string | null
+  dependencies: string[]
+}
+
+export interface ProjectDetail {
+  slug: string
+  name_ko: string
+  content_slug: string | null
+  summary: string | null
+  active: boolean
+  stages: ProjectStage[]
+  materials: ProjectMaterial[]
+}
+
+export interface MaterialInventory {
+  material_key: string
+  quantity: number
+  note: string | null
+  updated_at: string
+}
+
+export interface ProjectStageState {
+  project_slug: string
+  stage_id: number
+  completed: boolean
+  completed_at: string | null
+  note: string | null
+  updated_at: string
+}
