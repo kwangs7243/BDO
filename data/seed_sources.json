@@ -1287,5 +1287,23 @@
       "published_at": "2026-06-30",
       "retrieved_at": "2026-09-04T12:00:00+09:00",
       "region": "global"
-    }
+    },
+    {
+      "id": "adventure-log-bookshelf-guide",
+      "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=313",
+      "title": "Adventure Log Bookshelf",
+      "publisher": "Pearl Abyss",
+      "source_type": "official_guide",
+      "published_at": null,
+      "retrieved_at": "2026-09-04T12:00:00+09:00",
+      "region": "KR",
+      "notes": "Current adventure-log unlock conditions and family-wide reward structure"
+    },
+    {"id":"new-adventurer-main-quest-guide","url":"https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=284","title":"New Adventurer Main Quest Guide","publisher":"Pearl Abyss","source_type":"official_guide","published_at":null,"retrieved_at":"2026-09-04T12:00:00+09:00","region":"KR","notes":"Starting branches, simplified quests, and major regional progression after Mediah"},
+    {"id":"quest-system-guide","url":"https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=21","title":"Quest System Guide","publisher":"Pearl Abyss","source_type":"official_guide","published_at":null,"retrieved_at":"2026-09-04T12:00:00+09:00","region":"KR","notes":"General rules for main quests and quest requirements"},
+    {"id":"morning-land-main-quest-guide","url":"https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=314","title":"Land of the Morning Light Main Quest Guide","publisher":"Pearl Abyss","source_type":"official_guide","published_at":null,"retrieved_at":"2026-09-04T12:00:00+09:00","region":"KR","notes":"Entry conditions and Tale Collection progression structure"},
+    {"id":"jordaine-saga-update-2024-02-07","url":"https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=11714","title":"2024-02-07 Update - Jordine Saga","publisher":"Pearl Abyss","source_type":"official_patch","published_at":"2024-02-07","retrieved_at":"2026-09-04T12:00:00+09:00","region":"KR","notes":"Official revamp combining the Serendia and Calpheon main quests as the Jordine Saga"},
+    {"id":"family-stat-quest-history","url":"https://www.kr.playblackdesert.com/ko-KR/Adventure/History?_groupMasterNo=9723","title":"Kamasylvia and Odyllita Family Stat Quest History","publisher":"Pearl Abyss","source_type":"official_history","published_at":null,"retrieved_at":"2026-09-04T12:00:00+09:00","region":"KR","notes":"Family-wide DP 1 and AP 1 quest rewards after the corresponding main quests"},
+    {"id":"hyperboost-progression-2026","url":"https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=15920","title":"2026 Hyper Boost Progression Guide","publisher":"Pearl Abyss","source_type":"official_gm_note","published_at":"2026-08-05","retrieved_at":"2026-09-04T12:00:00+09:00","region":"KR","notes":"Current family-wide AP and DP rewards from main quests and Igor Bartali's Adventure Log"},
+    {"id":"morning-land-launch-2023-03-29","url":"https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=10062","title":"2023-03-29 Update - Land of the Morning Light","publisher":"Pearl Abyss","source_type":"official_patch","published_at":"2023-03-29","retrieved_at":"2026-09-04T12:00:00+09:00","region":"KR","notes":"Black Shrine boss unlocks tied to completed Tale Collections"}
 ]
