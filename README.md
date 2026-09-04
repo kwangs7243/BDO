@@ -2,15 +2,15 @@
 
 목표: 단순 숙제 체크리스트가 아니라, **검은사막 콘텐츠 위키 + 진행도 + 반복 숙제 + 프로젝트/재료 트래커 + 근거 관리**를 하나로 묶는 로컬 웹앱.
 
-현재 구현 milestone은 **V1.7C — Boss / Black Shrine / World Boss Deep Pack**이다.
+현재 구현 milestone은 **V1.7D — Account & Progression Foundation**이다.
 
 ## 현재 baseline
 
-- Source: 137
-- Content: 238 (모두 active)
-- 지식 역할: FACT 167 / STRATEGY 17 / MEASUREMENT 11
-- 테스트: 134개 수집, 마지막 전체 실행 134 passed
-- 주요 데이터 영역: Routine, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss
+- Source: 145
+- Content: 259 (모두 active)
+- 지식 역할: FACT 193 / STRATEGY 17 / MEASUREMENT 11
+- 테스트: 143개 수집, 마지막 전체 실행 143 passed
+- 주요 데이터 영역: Routine, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss, Account / Main Quest / Adventure Log / Magnus Progression Foundation
 
 ## 제품 목표 사용 시나리오
 
@@ -49,7 +49,7 @@
 
 ## 현재 범위와 AI 원칙
 
-현재 V1.7C까지 비용이 발생하는 AI 연동 없이 V1.5의 로컬 Prompt Bridge 원칙을 유지한다.
+현재 V1.7D까지 비용이 발생하는 AI 연동 없이 V1.5의 로컬 Prompt Bridge 원칙을 유지한다.
 
 - OpenAI API: 사용 안 함
 - 타사 LLM API: 사용 안 함
@@ -77,6 +77,7 @@
 - 구조화 지식을 포함하는 `content_onboarding`, `weekly_review` Prompt Bridge
 - Markdown 미리보기, clipboard 복사와 실패 시 수동 선택, `.md` 다운로드
 - Routine과 해양, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss seed
+- Account / Main Quest / Adventure Log / Magnus Progression Foundation seed
 
 정본 seed 형식은 `docs/data/SEED_FORMAT.md`, 구현 snapshot은 `handoff/V16A_SNAPSHOT.md`에 기록한다. 프로젝트/재료 스키마가 없는 이번 milestone에서는 `project_optimizer`를 만들지 않았다.
 
@@ -121,12 +122,12 @@ uv run uvicorn app.main:app --reload
 
 ## 검증 명령과 결과
 
-2026-09-04 기준 backend 테스트 134개가 수집되며, 마지막 전체 실행 기록은 134 passed다.
+2026-09-04 기준 backend 테스트 143개가 수집되며, 마지막 전체 실행 기록은 143 passed다.
 
 ```powershell
 cd backend
 uv run pytest
-# 134 passed
+# 143 passed
 
 cd ../frontend
 npm run typecheck
@@ -135,4 +136,4 @@ npm run test
 npm run build
 ```
 
-V1.6A 기반 구조는 `handoff/V16A_SNAPSHOT.md`, V1.7 데이터 팩 결과는 `handoff/V17A_COMBAT_FOUNDATION_REPORT.md`, `handoff/V17B_GRIND_SPOT_REPORT.md`, `handoff/V17C_BOSS_BLACK_SHRINE_REPORT.md`에 기록되어 있다.
+V1.6A 기반 구조는 `handoff/V16A_SNAPSHOT.md`, V1.7 데이터 팩 결과는 `handoff/V17A_COMBAT_FOUNDATION_REPORT.md`, `handoff/V17B_GRIND_SPOT_REPORT.md`, `handoff/V17C_BOSS_BLACK_SHRINE_REPORT.md`, `handoff/V17D_ACCOUNT_PROGRESSION_REPORT.md`에 기록되어 있다.
