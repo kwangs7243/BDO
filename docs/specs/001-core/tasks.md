@@ -1,5 +1,7 @@
 # Tasks — first implementation milestone
 
+> V1.7D 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
+
 ## Milestone A: working vertical slice
 
 - [x] Create `frontend/` React+TS+Vite
@@ -19,28 +21,30 @@
 
 ## Milestone B: user value
 - [ ] Project/material tables
-- [ ] Migrate Carrack Advance data
-- [ ] Carrack detail with stage checklist and shortages
-- [ ] Weekly reset groups
-- [ ] Sunday payout group
-- [ ] Life hub + Gathering/Fishing/Sailing seed pages
+- [ ] Migrate Carrack Advance data — 구조화된 Carrack seed는 있으나 Project/material 모델로의 이관은 미완료
+- [ ] Carrack detail with stage checklist and shortages — 일반 Content 상세는 제공하지만 재료 부족량 계산은 미구현
+- [x] Weekly reset groups
+- [x] Sunday payout group
+- [ ] Life hub + Gathering/Fishing/Sailing seed pages — V1.6 해양·생활 seed는 반영되었으나 전용 Life hub 화면은 미구현
 - [ ] JSON export/import
 
 ## Milestone C: broad catalog
-- [ ] Blood Altar
-- [ ] Black Shrine variants (verify current rules before seed)
-- [ ] Pit of Undying
-- [ ] Atoraxxion regions
+- [x] Blood Altar
+- [x] Black Shrine variants (current rules verified in V1.7C seed)
+- [x] Pit of Undying
+- [x] Atoraxxion regions
 - [ ] Last Gladiius
-- [ ] Garmoth/Vell
-- [ ] Dark Rift (non-weekly recurring)
-- [ ] guild bosses
-- [ ] adventure logs
-- [ ] Magnus
-- [ ] fairy/pets/workers/nodes
-- [ ] remaining life skills
+- [x] Garmoth/Vell
+- [x] Dark Rift (non-weekly recurring)
+- [ ] guild bosses — Khan seed는 반영되었으나 길드 우두머리 전체 범위 완료 근거는 없음
+- [ ] adventure logs — V1.7D에서 Foundation과 이고르 바탈리·마가한의 서 대표 데이터는 구현했으나 전체 Adventure Log Deep Pack은 미완료
+- [ ] Magnus — V1.7D에서 progression foundation과 주요 checkpoint는 구현했으나 퍼즐·지역별 상세를 포함한 Deep Pack은 미완료
+- [ ] fairy/pets/workers/nodes — workers/nodes는 V1.6I에 반영되었으나 fairy/pets는 미완료
+- [ ] remaining life skills — V1.6F-H 생활 심화 seed는 반영되었으나 전체 생활 범위 완료로 정의되지 않음
 
 ## Definition of done for any content seed
+
+아래 항목은 프로젝트 전체 완료 현황이 아니라 새 Content/seed를 추가할 때마다 적용하는 검수 체크리스트다.
 - [ ] summary/purpose
 - [ ] prerequisites
 - [ ] first-time steps

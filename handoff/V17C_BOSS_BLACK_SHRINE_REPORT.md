@@ -21,11 +21,12 @@ Schema, migration 파일, backend API, frontend/UI, Prompt Bridge, AI 기능과 
 | Content | 192 | 238 | +46 |
 | Claim 선언 | 860 | 943 | +83 |
 | Evidence row | 1,081 | 1,176 | +95 |
-| Relation | 301 | 372 | +71 |
+| Relation | 272 | 343 | +71 |
 | superseded Evidence | 52 | 56 | +4 |
 | needs_review Evidence | 21 | 36 | +15 |
 
 Claim은 `seed_contents.json`의 claim 선언 수이고, Evidence는 claim별 `source_ids`가 importer에서 개별 row로 확장된 수다.
+Relation은 같은 파일의 각 Content에 선언된 `relations` 항목을 직접 합산한 값이다.
 
 지식 역할은 전체 seed 기준 FACT 167, STRATEGY 17, MEASUREMENT 11이다. V1.7C 추가분은 FACT 73, STRATEGY 5, MEASUREMENT 0이며, `announced_not_live` 4건과 `temporary_known_issue` 1건은 별도 역할로 저장했다.
 
