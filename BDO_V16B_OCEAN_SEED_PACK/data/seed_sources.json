@@ -1,0 +1,194 @@
+[
+  {
+    "id": "official-guide-root",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki",
+    "title": "모험가 가이드",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "공식 가이드 검색 시작점"
+  },
+  {
+    "id": "weekly-reset-2021",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=6125",
+    "title": "7월 28일 (수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "notes": "일반 주간 의뢰 재수주 기준을 목요일 00시로 통일한 근거"
+  },
+  {
+    "id": "blood-altar-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=168",
+    "title": "피의 제단",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "주간 최고 기록 기반, 일요일 00시 보상"
+  },
+  {
+    "id": "world-boss-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=89",
+    "title": "월드 우두머리 레이드",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "가모스 주 3회/목요일 초기화, 벨 출현 등"
+  },
+  {
+    "id": "pit-weekly-2025",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=14289",
+    "title": "7월 23일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "notes": "불멸의 나락 일일→주간 전환"
+  },
+  {
+    "id": "ator-orze-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=409",
+    "title": "아토락시온 : 오르제키아",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "주간 보상 제한 및 추천 능력치"
+  },
+  {
+    "id": "ator-yolu-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=309",
+    "title": "아토락시온 : 요루나키아",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "가문당 주 1회 보상"
+  },
+  {
+    "id": "ator-reset-patch",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=7543",
+    "title": "2월 16일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "notes": "아토락시온 목요일 00시 주간 초기화 근거"
+  },
+  {
+    "id": "gladius-2026",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15136",
+    "title": "1월 28일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "notes": "최후의 글라디우스 주간 우두머리"
+  },
+  {
+    "id": "gladius-balance-2026",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15783",
+    "title": "6월 24일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "notes": "최후의 글라디우스 권장 표기 공격력 330 언급"
+  },
+  {
+    "id": "life-unification-2026-09-02",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=16141",
+    "title": "9월 2일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "notes": "생활 장비 통합 최신 기준"
+  },
+  {
+    "id": "cooking-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=102",
+    "title": "요리",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "요리 입문/재료/노드"
+  },
+  {
+    "id": "node-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=25",
+    "title": "거점",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "거점/공헌도/일꾼 기반"
+  },
+  {
+    "id": "artifact-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=272",
+    "title": "유물/광명석",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "유물 획득 및 생활 유물 기본 근거; 9/2 변경은 최신 패치와 함께 사용"
+  },
+  {
+    "id": "carrack-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295",
+    "title": "중범선 만들기",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "중범선 증축식/대양 프로젝트"
+  },
+  {
+    "id": "daily-weekly-reset-gm-2023",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/News/Detail?countryType=ko-kr&groupContentNo=10577",
+    "title": "검은사막이 처음인 모험가 여러분을 위해 준비한 A to Z!",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_gm",
+    "published_at": "2023-07-25",
+    "region": "KR"
+  },
+  {
+    "id": "ocean-barter-rework-2024-03-27",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=11951",
+    "title": "3월 27일(수) 업데이트 안내 (최종 수정 : 2024-05-22 11:50)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2024-03-27",
+    "region": "KR"
+  },
+  {
+    "id": "ocean-quest-rework-2025-02-05",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13508",
+    "title": "2월 5일(수) 업데이트 안내 (최종 수정 : 2025-04-28 17:08)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-02-05",
+    "region": "KR"
+  },
+  {
+    "id": "ocean-iliya-consolidation-2025-05-14",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/News/Detail?countryType=ko-kr&groupContentNo=13955",
+    "title": "5월 14일(수) 업데이트 안내 (최종 수정 : 2025-05-19 18:55)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-05-14",
+    "region": "KR"
+  },
+  {
+    "id": "sailing-special-pass-2026",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/News/Detail?countryType=ko-kr&groupContentNo=16054",
+    "title": "중범선 제작 속도 UP, 항해 스페셜 패스",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_forum",
+    "published_at": "2026-08-19",
+    "region": "KR"
+  },
+  {
+    "id": "sailing-special-pass-shop-2026",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=16066",
+    "title": "8월 19일(수) 펄 상점 패키지 및 신규 상품 소개",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_forum",
+    "published_at": "2026-08-19",
+    "region": "KR"
+  },
+  {
+    "id": "ocean-event-2026-08-26",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=16091",
+    "title": "[항해&교역] 종합 선물 세트 도착 (feat. 치로 장비 제작 속도 UP)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_forum",
+    "published_at": "2026-08-26",
+    "region": "KR"
+  },
+  {
+    "id": "current-events-2026-09-02",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/News/Detail?groupContentNo=13733",
+    "title": "[진행중인 이벤트 모아보기]",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_forum",
+    "published_at": "2026-09-02",
+    "region": "KR"
+  }
+]

@@ -1,0 +1,1291 @@
+[
+  {
+    "id": "official-guide-root",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki",
+    "title": "모험가 가이드",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "공식 가이드 검색 시작점"
+  },
+  {
+    "id": "weekly-reset-2021",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=6125",
+    "title": "7월 28일 (수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "notes": "일반 주간 의뢰 재수주 기준을 목요일 00시로 통일한 근거"
+  },
+  {
+    "id": "blood-altar-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=168",
+    "title": "피의 제단",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "주간 최고 기록 기반, 일요일 00시 보상"
+  },
+  {
+    "id": "world-boss-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=89",
+    "title": "월드 우두머리 레이드",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "가모스 주 3회/목요일 초기화, 벨 출현 등"
+  },
+  {
+    "id": "pit-weekly-2025",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=14289",
+    "title": "7월 23일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "notes": "불멸의 나락 일일→주간 전환"
+  },
+  {
+    "id": "ator-orze-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=409",
+    "title": "아토락시온 : 오르제키아",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "주간 보상 제한 및 추천 능력치"
+  },
+  {
+    "id": "ator-yolu-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=309",
+    "title": "아토락시온 : 요루나키아",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "가문당 주 1회 보상"
+  },
+  {
+    "id": "ator-reset-patch",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=7543",
+    "title": "2월 16일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "notes": "아토락시온 목요일 00시 주간 초기화 근거"
+  },
+  {
+    "id": "gladius-2026",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15136",
+    "title": "1월 28일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "notes": "최후의 글라디우스 주간 우두머리"
+  },
+  {
+    "id": "gladius-balance-2026",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15783",
+    "title": "6월 24일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "notes": "최후의 글라디우스 권장 표기 공격력 330 언급"
+  },
+  {
+    "id": "life-unification-2026-09-02",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=16141",
+    "title": "9월 2일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "notes": "생활 장비 통합, 생활 광명석 개편, 생활 연금석·청명의 보주·채집 기운 변경의 최신 기준",
+    "published_at": "2026-09-02",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "cooking-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=102",
+    "title": "요리",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "요리 입문/재료/노드"
+  },
+  {
+    "id": "node-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=25",
+    "title": "거점",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "거점/공헌도/일꾼 기반"
+  },
+  {
+    "id": "artifact-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=272",
+    "title": "유물/광명석",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "유물·광명석 기본 구조와 마가한의 유물 근거; 2026-09-02 변경은 최신 패치 우선",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "carrack-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295",
+    "title": "중범선 만들기",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "notes": "중범선 증축식/대양 프로젝트"
+  },
+  {
+    "id": "daily-weekly-reset-gm-2023",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/News/Detail?countryType=ko-kr&groupContentNo=10577",
+    "title": "검은사막이 처음인 모험가 여러분을 위해 준비한 A to Z!",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_gm",
+    "published_at": "2023-07-25",
+    "region": "KR"
+  },
+  {
+    "id": "ocean-barter-rework-2024-03-27",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=11951",
+    "title": "3월 27일(수) 업데이트 안내 (최종 수정 : 2024-05-22 11:50)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2024-03-27",
+    "region": "KR"
+  },
+  {
+    "id": "ocean-quest-rework-2025-02-05",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13508",
+    "title": "2월 5일(수) 업데이트 안내 (최종 수정 : 2025-04-28 17:08)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-02-05",
+    "region": "KR"
+  },
+  {
+    "id": "ocean-iliya-consolidation-2025-05-14",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/News/Detail?countryType=ko-kr&groupContentNo=13955",
+    "title": "5월 14일(수) 업데이트 안내 (최종 수정 : 2025-05-19 18:55)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-05-14",
+    "region": "KR"
+  },
+  {
+    "id": "sailing-special-pass-2026",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/News/Detail?countryType=ko-kr&groupContentNo=16054",
+    "title": "중범선 제작 속도 UP, 항해 스페셜 패스",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_forum",
+    "published_at": "2026-08-19",
+    "region": "KR"
+  },
+  {
+    "id": "sailing-special-pass-shop-2026",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=16066",
+    "title": "8월 19일(수) 펄 상점 패키지 및 신규 상품 소개",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_forum",
+    "published_at": "2026-08-19",
+    "region": "KR"
+  },
+  {
+    "id": "ocean-event-2026-08-26",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=16091",
+    "title": "[항해&교역] 종합 선물 세트 도착 (feat. 치로 장비 제작 속도 UP)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_forum",
+    "published_at": "2026-08-26",
+    "region": "KR"
+  },
+  {
+    "id": "current-events-2026-09-02",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/News/Detail?groupContentNo=13733",
+    "title": "[진행중인 이벤트 모아보기]",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_forum",
+    "published_at": "2026-09-02",
+    "region": "KR"
+  },
+  {
+    "id": "barter-improvement-2026-04-15",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=15451",
+    "title": "4월 15일(수) 업데이트 안내 (최종 수정 : 2026-04-24 20:05)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2026-04-15",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "ocean-progression-2026-08-26",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=16107",
+    "title": "8월 26일(수) 업데이트 안내 (최종 수정 : 2026-09-02 10:47)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2026-08-26",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "sea-crystal-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=376",
+    "title": "해원석",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "barter-route-distance-community-2026-05-31",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Forum/ForumTopic/Detail?_forumListType=3&_topicNo=152574",
+    "title": "6-7단 교역에 대한 거리 정리",
+    "publisher": "omote23-KR",
+    "source_type": "community_guide",
+    "published_at": "2026-05-31",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "ocean-all-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=243",
+    "title": "대양의 모든 것",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "ocean-crew-roles-2025",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Adventure/History?_groupMasterNo=13697",
+    "title": "부선장과 선원 관리 UI",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "carrack-sailor-fishing-2025",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Adventure/History?_groupMasterNo=13994",
+    "title": "중범선 선원 자동 낚시",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "hollow-maretta-update-2023-11-22",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=11292",
+    "title": "11월 22일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2023-11-22",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "treasure-items-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=194",
+    "title": "보물 아이템 만들기",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "ebenruth-update-2025-02-12",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13537",
+    "title": "2월 12일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-02-12",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "panokseon-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=374",
+    "title": "판옥선",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "black-shrine-donghae-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=315",
+    "title": "검은 사당 - 동해도편",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "black-shrine-hwanghae-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=404",
+    "title": "검은 사당 - 황해도편",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "blood-altar-challenge-2026-07-15",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15878",
+    "title": "7월 15일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2026-07-15",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "atoraxxion-unification-2025-12-17",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=14944",
+    "title": "12월 17일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-12-17",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "dark-rift-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=244",
+    "title": "어둠의 틈",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "dark-rift-reward-2026-01-14",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15070",
+    "title": "1월 14일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2026-01-14",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "garmoth-reward-2024-05-29",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=12254",
+    "title": "5월 29일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2024-05-29",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "growth-milestone-2026-08-26",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15761",
+    "title": "하이퍼부스트와 함께, 차근차근 장비 성장 이정표",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_gm",
+    "published_at": "2026-08-26",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "edania-throne-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=417",
+    "title": "에다나의 권좌",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "edania-inner-boss-2026-08-12",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=16025",
+    "title": "8월 12일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2026-08-12",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "infinite-potion-weekly-2024-09-11",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=12824",
+    "title": "9월 11일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2024-09-11",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "mythical-horse-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=355",
+    "title": "꿈결 환상마(몽상)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "mythical-horse-update-2023-07-12",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=10666",
+    "title": "7월 12일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2023-07-12",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "imperial-delivery-history",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Adventure/History?_groupMasterNo=13111",
+    "title": "황실 제작 납품 개선",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "imperial-stock-refresh",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=12266",
+    "title": "5월 31일(금) 서버 순차 점검 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_notice",
+    "published_at": "2024-05-31",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "routine-special-lineup-2026-01-08",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15057",
+    "title": "풍성한 보상을 한 눈에, 검은사막 스페셜 라인업",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_gm",
+    "published_at": "2026-01-08",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "life-family-levels-2024-04-17",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=12046",
+    "title": "4월 17일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2024-04-17",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "life-mastery-prione-2025-01-08",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13398",
+    "title": "1월 8일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-01-08",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "life-mastery-history",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Adventure/History?_groupMasterNo=8418",
+    "title": "생활 숙련도 / 채집물 획득 확률 및 거래소 상한가 개선",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "life-client-fix-2026-09-02",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=16144",
+    "title": "9월 2일(수) 최신 버전 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2026-09-02",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "floamos-2023-02-15",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=9834",
+    "title": "2월 15일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2023-02-15",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "energy-profile-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=14",
+    "title": "내 정보",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "energy-advanced-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=30",
+    "title": "기운 고급편",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "gathering-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=97",
+    "title": "채집",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "processing-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=98",
+    "title": "가공",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "processing-stone-history",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Adventure/History?_groupMasterNo=8452",
+    "title": "가공석 통합",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "life-clothes-2025-08-27",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=14434",
+    "title": "8월 27일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-08-27",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "farming-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=94",
+    "title": "재배",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "farming-overhaul-2026-06-04",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15694",
+    "title": "6월 4일(목) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2026-06-04",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "farming-moles-2026-06-17",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15751",
+    "title": "6월 17일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2026-06-17",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "old-moon-seed-pouch-2025-07-09",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=14224",
+    "title": "7월 9일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-07-09",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "fishing-basic-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=107",
+    "title": "낚시 기초편",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "fishing-advanced-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=108",
+    "title": "낚시 고급편",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "fish-freshness-2025-05-21",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13995",
+    "title": "5월 21일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-05-21",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "fishing-improvement-history",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Adventure/History?_groupMasterNo=13112",
+    "title": "낚시 콘텐츠 개선",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "mystical-fish-tank-2023-08-02",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=10724",
+    "title": "올 여름은 바닷 속 수궁에서 시원하고 즐겁게!",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_event",
+    "published_at": "2023-08-02",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "mystical-fish-tank-rules-2024-08-28",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=12739",
+    "title": "8월 28일(수) 펄 상점 패키지 및 신규 상품 소개",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_notice",
+    "published_at": "2024-08-28",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "fish-encyclopedia-2025-04-16",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13826",
+    "title": "4월 16일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-04-16",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "alchemy-basic-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=99",
+    "title": "연금 기초 가이드",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "alchemy-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100",
+    "title": "연금",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "alchemy-stone-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=101",
+    "title": "연금석",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "alchemy-products-2024-03-20",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=11917",
+    "title": "3월 20일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2024-03-20",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "training-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=103",
+    "title": "조련",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "dream-horse-awakening-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=350",
+    "title": "환상마 각성 확률 증가 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "rare-wild-horses-2025-12-23",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=14989",
+    "title": "12월 23일(화) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-12-23",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "hunting-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=106",
+    "title": "수렵",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "hunting-enhancement-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=435",
+    "title": "화승총, 저격총, 낚싯대 및 찌 강화 실패 시 강화 단계 하락 확률 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "sniper-reward-rework-2023-05-03",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=10269",
+    "title": "5월 3일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2023-05-03",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "marni-sniper-crafting-2026-03-25",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15352",
+    "title": "3월 25일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2026-03-25",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "marni-sniper-enhancement-2026-04-01",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15388",
+    "title": "4월 1일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2026-04-01",
+    "retrieved_at": "2026-09-03T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "contribution-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=24",
+    "title": "공헌도",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "worker-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=95",
+    "title": "일꾼",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "worker-overhaul-2023-05-24",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=10369",
+    "title": "5월 24일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2023-05-24",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "worker-convenience-2025-01-22",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13457",
+    "title": "1월 22일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-01-22",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "work-management-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=96",
+    "title": "작업 관리",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "house-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=92",
+    "title": "집",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "crafting-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=93",
+    "title": "제작",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "storage-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=39",
+    "title": "창고",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "silver-unification-history",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Adventure/History?_groupMasterNo=9726",
+    "title": "캐릭터 및 창고 내 보유 은화 통합",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "magnus-storage-history",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Adventure/History?_groupMasterNo=9720",
+    "title": "다른 지역 창고 이용 가능",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "magnus-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=305",
+    "title": "어비스 원 : 마그누스",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "remote-storage-sale-history",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Adventure/History?_groupMasterNo=13871",
+    "title": "다른 마을 창고 아이템 판매",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "royal-workshop-history",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Adventure/History?_groupMasterNo=13110",
+    "title": "왕실 공방",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "royal-workshop-2024-11-20",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13142",
+    "title": "11월 20일(수) 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2024-11-20",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "combat-stat-bonus-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=416",
+    "title": "공격력 및 방어력 구간 보너스",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "combat-system-rework-2025-07-23",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=14289",
+    "title": "2025년 7월 23일 전투 시스템 개편",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-07-23",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "crystal-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=310",
+    "title": "수정 가이드",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "item-drop-rate-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=345",
+    "title": "아이템 획득 확률 증가",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "item-drop-applicability-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=301",
+    "title": "아이템 획득 증가 효과 적용 범위",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "item-drop-benefits-history",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Adventure/History?_groupMasterNo=8461",
+    "title": "아이템 획득 확률 증가 효과 변경 이력",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_history",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "agris-fever-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=175",
+    "title": "아그리스의 열기",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "church-buff-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=375",
+    "title": "교회 버프",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "camp-church-rework-2025-12-30",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15012",
+    "title": "2025년 12월 30일 야영지 및 교회 버프 개편",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-12-30",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "combat-gear-a-to-j-2026-04-22",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Forum/ForumTopic/Detail?_topicNo=151286",
+    "title": "전투 장비 A부터 J까지",
+    "publisher": "Pearl Abyss Community",
+    "source_type": "community_strategy",
+    "published_at": "2026-04-22",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "hyper-boost-gear-strategy-2026-08-19",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Forum/ForumTopic/Detail?_topicNo=156089",
+    "title": "하이퍼 부스트 장비 스펙업 가이드 정리",
+    "publisher": "Pearl Abyss Community",
+    "source_type": "community_strategy",
+    "published_at": "2026-08-19",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "softcap-strategy-2025-07-29",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Forum/ForumTopic/Detail?_topicNo=137536",
+    "title": "공방합과 소프트캡을 고려한 성장 전략",
+    "publisher": "Pearl Abyss Community",
+    "source_type": "community_strategy",
+    "published_at": "2025-07-29",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "grind-selection-strategy-2025-11-18",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Forum/ForumTopic/Detail?_topicNo=142984",
+    "title": "[신규/복귀 모험가] - 인게임에서 내게 맞는 사냥터 찾아보기",
+    "publisher": "Pearl Abyss Community",
+    "source_type": "community_strategy",
+    "published_at": "2025-11-18",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "combat-guide-index-2026-02-28",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Forum/ForumTopic/Detail?_topicNo=149199",
+    "title": "검은사막을 하며 도움이 될 글 목록",
+    "publisher": "Pearl Abyss Community",
+    "source_type": "community_index",
+    "published_at": "2026-02-28",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "grind-profit-update-2026-06-10",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=15720",
+    "title": "6월 10일(수) 업데이트 안내 - 사냥터 수익 및 전리품 조정",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch_notes",
+    "published_at": "2026-06-10",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "dehkia-party-spots-2026-01-14",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=15070",
+    "title": "1월 14일(수) 업데이트 안내 - 데키아의 등불 파티 사냥터",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch_notes",
+    "published_at": "2026-01-14",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "dehkia-flow-update-2026-01-28",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=15136",
+    "title": "1월 28일(수) 업데이트 안내 - 데키아 사냥터 흐름 개선",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch_notes",
+    "published_at": "2026-01-28",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "black-energy-overflow-2026-03-18",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=15332",
+    "title": "3월 18일(수) 업데이트 안내 - 검은 기운의 범람지",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch_notes",
+    "published_at": "2026-03-18",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "gabinya-coastal-cliff-2026-07-29",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=15966",
+    "title": "7월 29일(수) 업데이트 안내 - 가비냐 해안 절벽",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch_notes",
+    "published_at": "2026-07-29",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "edania-internal-launch-2026-08-12",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=16025",
+    "title": "8월 12일(수) 업데이트 안내 - 에다니아 내부 사냥터",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch_notes",
+    "published_at": "2026-08-12",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "edania-internal-balance-2026-08-19",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=16063",
+    "title": "8월 19일(수) 업데이트 안내 - 에다니아 내부 사냥터 조정",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch_notes",
+    "published_at": "2026-08-19",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "edania-internal-balance-2026-09-02",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=16141",
+    "title": "9월 2일(수) 업데이트 안내 - 사건의 지평선 전리품 조정",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch_notes",
+    "published_at": "2026-09-02",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "marni-combat-analyzer-2026-08-05",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=15998",
+    "title": "8월 5일(수) 업데이트 안내 - 마르니의 전투 분석기",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch_notes",
+    "published_at": "2026-08-05",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "edania-external-history-2026-09-04",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Adventure/History?groupMasterNo=14463",
+    "title": "에다니아 외부 사냥터 업데이트 히스토리",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_history",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "hexe-pet-bottleneck-2026-07-17",
+    "url": "https://www.reddit.com/r/blackdesertonline/comments/1uz2r6h/is_marni_hexe_just_better_suited_to_faster_and/",
+    "title": "Is Marni Hexe better suited to faster and larger AOE classes?",
+    "publisher": "Reddit r/blackdesertonline",
+    "source_type": "community_strategy",
+    "published_at": "2026-07-17",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "GLOBAL"
+  },
+  {
+    "id": "hexe-economy-discussion-2026-08-10",
+    "url": "https://www.reddit.com/r/blackdesertonline/comments/1vk9m70/hexe_more_money_per_hr_than_edina_at_1800gs/",
+    "title": "Hexe income discussion at high gear",
+    "publisher": "Reddit r/blackdesertonline",
+    "source_type": "community_strategy",
+    "published_at": "2026-08-10",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "GLOBAL"
+  },
+  {
+    "id": "orzekea-dsr-tungrad-2026-06-11",
+    "url": "https://www.reddit.com/r/blackdesertonline/comments/1u2szo9/orzekea_vs_dsrtungrad/",
+    "title": "Orzekea versus Darkseekers Retreat and Tungrad discussion",
+    "publisher": "Reddit r/blackdesertonline",
+    "source_type": "community_strategy",
+    "published_at": "2026-06-11",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "GLOBAL"
+  },
+  {
+    "id": "silver-at-1600ap-2026-08-14",
+    "url": "https://www.reddit.com/r/blackdesertonline/comments/1volo6a/silver_per_hour_at_1600ap/",
+    "title": "Silver per hour at 1600 AP discussion",
+    "publisher": "Reddit r/blackdesertonline",
+    "source_type": "community_strategy",
+    "published_at": "2026-08-14",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "GLOBAL"
+  },
+  {
+    "id": "v17b-provided-measurement-pack-2026-09-04",
+    "url": "attachment://b902d37c-2b3b-4e3e-b4f3-7c1ccf094a0c/pasted-text.txt",
+    "title": "V1.7B Grind Spot Deep Pack - provided measurement records",
+    "publisher": "User-provided research pack",
+    "source_type": "community_measurement",
+    "published_at": "2026-09-04",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "edania-internal-hotfix-2026-08-13",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=16043",
+    "title": "8월 13일(목) 임시 점검 업데이트 안내 - 에메시아 전리품 조정",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch_notes",
+    "published_at": "2026-08-13",
+    "retrieved_at": "2026-09-04T12:00:00+09:00",
+    "region": "KR"
+  },
+    {
+      "id": "songakshi-high-calamity-2026-07-08",
+      "url": "https://www.kr.playblackdesert.com/ko-kr/News/Detail?groupContentNo=15844",
+      "title": "7월 8일 업데이트 안내 - 손각시 팔·구·십재시니",
+      "publisher": "Pearl Abyss",
+      "source_type": "official_patch_notes",
+      "published_at": "2026-07-08",
+      "retrieved_at": "2026-09-04T12:00:00+09:00",
+      "region": "KR"
+    },
+    {
+      "id": "morning-land-boss-balance-2026-02-04",
+      "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15169",
+      "title": "2월 4일 업데이트 안내 - 아침의 나라 우두머리 조정",
+      "publisher": "Pearl Abyss",
+      "source_type": "official_patch_notes",
+      "published_at": "2026-02-04",
+      "retrieved_at": "2026-09-04T12:00:00+09:00",
+      "region": "KR"
+    },
+    {
+      "id": "heidel-ball-boss-announcements-2026",
+      "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?ADContent=v_noticecreator&ADMedium=kr_notice&ADSource=youtube_content_none&ADTrackerName=none&ADcampaign=heidel&countryType=ko-KR&gameCode=101&groupContentNo=15943",
+      "title": "2026 하이델 연회 - 우두머리 및 검은사당 향후 계획",
+      "publisher": "Pearl Abyss",
+      "source_type": "official_announcement",
+      "published_at": "2026-07-25",
+      "retrieved_at": "2026-09-04T12:00:00+09:00",
+      "region": "KR"
+    },
+    {
+      "id": "known-issues-current-2026-09-04",
+      "url": "https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=4",
+      "title": "현재 확인 중인 현상",
+      "publisher": "Pearl Abyss",
+      "source_type": "official_known_issues",
+      "published_at": null,
+      "retrieved_at": "2026-09-04T12:00:00+09:00",
+      "region": "KR"
+    },
+    {
+      "id": "hwanghae-party-strategy-2026-07-27",
+      "url": "https://www.reddit.com/r/blackdesertonline/comments/1v86p3p/party_boss_shrine/",
+      "title": "Party Boss Shrine - current party difficulty discussion",
+      "publisher": "Reddit / r/blackdesertonline",
+      "source_type": "community_discussion",
+      "published_at": "2026-07-27",
+      "retrieved_at": "2026-09-04T12:00:00+09:00",
+      "region": "global"
+    },
+    {
+      "id": "hwanghae-party-mode-2026-07-31",
+      "url": "https://www.reddit.com/r/blackdesertonline/comments/1vc5znz/party_shrine_mode/",
+      "title": "Party Shrine Mode - PUG experience discussion",
+      "publisher": "Reddit / r/blackdesertonline",
+      "source_type": "community_discussion",
+      "published_at": "2026-07-31",
+      "retrieved_at": "2026-09-04T12:00:00+09:00",
+      "region": "global"
+    },
+    {
+      "id": "hwanghae-hyperboost-party-2026-07-30",
+      "url": "https://www.reddit.com/r/blackdesertonline/comments/1vb9189/having_to_do_the_party_bosses_for_the_hyperboost/",
+      "title": "Hyper Boost party boss routing discussion",
+      "publisher": "Reddit / r/blackdesertonline",
+      "source_type": "community_discussion",
+      "published_at": "2026-07-30",
+      "retrieved_at": "2026-09-04T12:00:00+09:00",
+      "region": "global"
+    },
+    {
+      "id": "black-shrine-party-guide-current",
+      "url": "https://www.blackdesertfoundry.com/black-shrine-party-guide/",
+      "title": "Black Shrine Party Guide",
+      "publisher": "Black Desert Foundry",
+      "source_type": "third_party_guide",
+      "published_at": null,
+      "retrieved_at": "2026-09-04T12:00:00+09:00",
+      "region": "global"
+    },
+    {
+      "id": "donghae-c8-strategy-2026-06-30",
+      "url": "https://www.reddit.com/r/blackdesertonline/comments/1ujgdoc/c8_black_shrine_tips/",
+      "title": "C8 Black Shrine tips - post high-Calamity discussion",
+      "publisher": "Reddit / r/blackdesertonline",
+      "source_type": "community_discussion",
+      "published_at": "2026-06-30",
+      "retrieved_at": "2026-09-04T12:00:00+09:00",
+      "region": "global"
+    }
+]

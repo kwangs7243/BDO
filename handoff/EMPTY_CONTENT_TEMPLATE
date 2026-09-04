@@ -1,0 +1,21 @@
+{
+  "slug": "replace-with-stable-content-slug",
+  "name_ko": "REPLACE 콘텐츠명",
+  "category": "REPLACE_EXISTING_CATEGORY",
+  "subcategory": null,
+  "summary": null,
+  "purpose": null,
+  "party_type": null,
+  "difficulty": null,
+  "status": "active",
+  "last_verified_at": "YYYY-MM-DD",
+  "requirements": [],
+  "sections": [],
+  "steps": [],
+  "rewards": [],
+  "schedules": [],
+  "checklists": [],
+  "relations": [],
+  "evidence": []
+}
+

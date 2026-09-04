@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>검은사막 개인 대시보드</title>
+<style>
+:root{
+  --bg:#0f1115; --panel:#171a20; --panel2:#1d2129; --line:#2b313c; --text:#eef2f7; --muted:#9aa5b4;
+  --ok:#4ade80; --warn:#fbbf24; --bad:#fb7185; --blue:#60a5fa; --violet:#a78bfa; --accent:#f59e0b;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{color:#93c5fd;text-decoration:none} a:hover{text-decoration:underline}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;padding:22px 14px;border-right:1px solid var(--line);background:#0c0e12}
+.brand{font-weight:800;font-size:20px;margin:0 8px 18px}.brand small{display:block;font-size:11px;color:var(--muted);font-weight:500;margin-top:4px}
+.nav button{width:100%;text-align:left;border:0;background:transparent;color:var(--muted);padding:10px 12px;border-radius:9px;margin:2px 0}.nav button:hover,.nav button.active{background:var(--panel2);color:var(--text)}
+.side-foot{position:absolute;left:14px;right:14px;bottom:16px;color:var(--muted);font-size:11px;line-height:1.5}
+.main{padding:26px;max-width:1500px;width:100%;margin:0 auto}
+.topbar{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;margin-bottom:18px}.topbar h1{margin:0;font-size:28px}.sub{color:var(--muted);font-size:13px;margin-top:6px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 11px;border-radius:9px}.btn:hover{background:var(--panel2)}.btn.danger{color:#fecdd3}.btn.primary{border-color:#475569;background:#1f2937}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:16px 0 22px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px}.stat .n{font-size:24px;font-weight:800}.stat .l{font-size:12px;color:var(--muted);margin-top:3px}
+.section{display:none}.section.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:16px}.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-7{grid-column:span 7}.span-6{grid-column:span 6}.span-5{grid-column:span 5}.span-4{grid-column:span 4}
+.card h2,.card h3{margin:0 0 12px}.card h2{font-size:18px}.card h3{font-size:15px}.hint{color:var(--muted);font-size:12px;line-height:1.5}.divider{height:1px;background:var(--line);margin:14px 0}
+.task{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;padding:10px 0;border-bottom:1px solid #242a33}.task:last-child{border-bottom:0}.task input[type=checkbox]{width:18px;height:18px;margin-top:2px}.task.done .task-title{text-decoration:line-through;color:#758092}.task-title{font-weight:650}.task-desc{color:var(--muted);font-size:12px;line-height:1.45;margin-top:4px}.badge{font-size:11px;border:1px solid var(--line);padding:3px 7px;border-radius:999px;color:var(--muted);white-space:nowrap}.badge.core{color:#bbf7d0;border-color:#166534;background:#102219}.badge.optional{color:#fde68a;border-color:#854d0e;background:#231b0b}.badge.locked{color:#cbd5e1}.badge.event{color:#ddd6fe;border-color:#5b21b6;background:#1f1636}
+.progress{height:8px;background:#262c35;border-radius:99px;overflow:hidden;margin-top:8px}.progress>div{height:100%;background:linear-gradient(90deg,#3b82f6,#8b5cf6);width:0}.progress-line{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted)}
+.mat-row{display:grid;grid-template-columns:minmax(170px,1.7fr) 85px 85px 85px minmax(170px,1.5fr);gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid #242a33}.mat-row.header{font-size:11px;color:var(--muted);font-weight:700}.mat-row input{width:100%;background:#11151b;border:1px solid var(--line);color:var(--text);padding:6px 7px;border-radius:7px}.short{font-size:12px;color:var(--muted)}
+.life-card{border-left:3px solid #374151}.life-head{display:flex;justify-content:space-between;gap:10px;align-items:center}.life-head select{background:#11151b;color:var(--text);border:1px solid var(--line);padding:5px 8px;border-radius:7px}.mini-list{margin:10px 0 0;padding-left:18px;color:#d7dee8;font-size:13px;line-height:1.7}.mini-list li::marker{color:#64748b}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:8px;font-size:13px;margin:7px 0}.kv b{color:#cbd5e1}.note{width:100%;min-height:82px;background:#11151b;border:1px solid var(--line);border-radius:9px;color:var(--text);padding:9px;resize:vertical}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.tab{border:1px solid var(--line);background:#11151b;color:var(--muted);padding:6px 9px;border-radius:8px}.tab.active{background:#263041;color:white}.hidden{display:none!important}
+.source{font-size:12px;color:var(--muted);padding:8px 0;border-bottom:1px solid #242a33}.source:last-child{border:0}
+.toast{position:fixed;right:22px;bottom:22px;background:#111827;border:1px solid #374151;border-radius:10px;padding:10px 13px;font-size:12px;opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:translateY(0)}
+@media(max-width:950px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.nav{display:flex;overflow:auto}.nav button{width:auto;white-space:nowrap}.side-foot{display:none}.main{padding:18px}.stats{grid-template-columns:repeat(2,1fr)}.span-8,.span-7,.span-6,.span-5,.span-4{grid-column:span 12}.mat-row{grid-template-columns:1.5fr 72px 72px 72px}.mat-row>*:last-child{grid-column:1/-1}.topbar{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">검은사막 개인 대시보드<small>로컬 저장 · KST 자동 초기화</small></div>
+    <div class="nav" id="nav"></div>
+    <div class="side-foot">데이터는 이 브라우저의 localStorage에만 저장됩니다.<br>가끔 JSON 백업을 내려받아 두는 것을 권장합니다.</div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div><h1 id="pageTitle">오늘</h1><div class="sub" id="clock"></div></div>
+      <div class="actions">
+        <button class="btn" id="exportBtn">JSON 백업</button>
+        <button class="btn" id="importBtn">백업 복원</button>
+        <input class="hidden" id="importFile" type="file" accept="application/json" />
+        <button class="btn danger" id="resetBtn">현재 탭 체크 초기화</button>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n" id="dailyStat">0/0</div><div class="l">오늘 완료</div></div>
+      <div class="stat"><div class="n" id="weeklyStat">0/0</div><div class="l">이번 주 완료</div></div>
+      <div class="stat"><div class="n" id="carrackStat">0%</div><div class="l">점진 재료 입력 기준</div></div>
+      <div class="stat"><div class="n" id="lifeStat">0/0</div><div class="l">생활 기반 완료</div></div>
+    </div>
+
+    <section id="today" class="section active"></section>
+    <section id="weekly" class="section"></section>
+    <section id="progress" class="section"></section>
+    <section id="life" class="section"></section>
+    <section id="carrack" class="section"></section>
+    <section id="periodic" class="section"></section>
+    <section id="sources" class="section"></section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const VERSION = 3;
+const STORAGE_KEY = 'bdo_personal_dashboard_v3';
+const KST = 'Asia/Seoul';
+const navItems = [
+  ['today','오늘'],['weekly','이번 주'],['progress','장기 내실'],['life','생활 기반'],['carrack','중범선 : 점진'],['periodic','주기성 / 이벤트'],['sources','근거 / 링크']
+];
+const SOURCES = [
+  ['2026-09-02 생활 장비/생활 개편 공식 업데이트','https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=16141'],
+  ['올비아 아카데미 GM 노트','https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15094'],
+  ['검은사당 보상 자동 지급 개선 (2026-04-15)','https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=15451'],
+  ['피의 제단 모험가 가이드','https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=168'],
+  ['불멸의 나락 주간화 업데이트','https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=14289'],
+  ['최후의 글라디우스 주간 우두머리 개선 (2026-01-28)','https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15136'],
+  ['에다니아 내부 우두머리/주간 의뢰 (2026-08-12)','https://www.kr.playblackdesert.com/ko-kr/News/Detail?countryType=ko-kr&groupContentNo=16025'],
+  ['항해 스페셜 패스','https://www.kr.playblackdesert.com/ko-kr/News/Detail?countryType=ko-kr&groupContentNo=16054'],
+  ['항해/교역 기간 이벤트 (2026-08-26~09-09)','https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-kr&groupContentNo=16091'],
+  ['중범선 증축 가이드','https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=295'],
+  ['최근 주간 숙제 커뮤니티 정리 (2025-12-30, 참고용)','https://www.inven.co.kr/board/black/3583/1990961'],
+  ['하이퍼부스트 성장 루트 (2026-08, 커뮤니티 검증 보조)','https://m.inven.co.kr/board/black/3584/58951']
+];
+const DAILY = [
+  {id:'daily_iliya',cat:'항해',title:'활기찬 일리야 섬',desc:'물물교환 15회 · 주요 보상: 순수한 진주 결정 2 / 아교 8 / 순수한 암초 조각 8 / 증착합판 10 / 협상 상급 1 / 까마귀 주화 50',tag:'core'},
+  {id:'daily_supply',cat:'항해',title:'보급물자 운송(오킬루아의 눈)',desc:'협상 하급 2 / 까마귀 주화 100',tag:'core'},
+  {id:'daily_charity',cat:'항해',title:'길드는 자선단체가 아니다',desc:'점진 추천 선택: 파도빛이 감도는 규격 각목 5',tag:'core'},
+  {id:'daily_self',cat:'항해',title:'제 몸 하나는 스스로 지켜야',desc:'점진 추천 선택: 콕스해적단의 유물(전투) 3',tag:'core'},
+  {id:'daily_winwin',cat:'항해',title:'너도 좋고, 나도 좋고',desc:'점진 추천 선택: 짙은 파도빛이 감도는 규격 각목 4',tag:'core'},
+  {id:'daily_youngmoon',cat:'항해',title:'그믐달 어린 해왕류 사냥꾼',desc:'달의 비늘 합판 10 / 달의 핏줄 아마포 3 / 심해의 눈물 1. 성체 일일 3종과 상호 배타.',tag:'core'},
+  {id:'daily_farm',cat:'생활',title:'재배 상태 확인',desc:'작물 성장/가지치기/벌레/수확 타이밍 확인. 사용 중인 생활 루틴이면 체크.',tag:'optional'},
+  {id:'daily_fishing',cat:'생활',title:'자낚 결과 정리',desc:'물고기 판매/창고 정리/낚싯대 내구 확인. 자낚을 돌린 날만 체크.',tag:'optional'}
+];
+const WEEKLY = [
+  {id:'w_otter',cat:'항해',title:'어린 해달 상인들을 위해',desc:'산호 조각 50 + 오색빛 산호 조각 5 제출 · 심해초 45 + 홍조 15 + 오킬루아 주화 15',tag:'core'},
+  {id:'w_population',cat:'항해',title:'개체수 증가 보고',desc:'어린 해왕류 20 · 전투 유물 2',tag:'core'},
+  {id:'w_candidum',cat:'항해',title:'그믐달 길드의 칸디둠 사냥꾼',desc:'일반/퀘스트 대상 칸디둠 확인 · 점진 추천 선택: 홍조빛 해저단괴 4 · 까마귀 주화 500',tag:'core'},
+  {id:'w_nineshark',cat:'항해',title:'그믐달 길드의 나인샤크 사냥꾼',desc:'점진 추천 선택: 심해의 눈물 2 · 까마귀 주화 500',tag:'core'},
+  {id:'w_blackrust',cat:'항해',title:'그믐달 길드의 검은무쇠이빨 사냥꾼',desc:'⚠ 이름 앞 태그 없는 퀘스트 대상 일반 검은무쇠이빨 · 추천: 전투 유물 6 · 까마귀 주화 500',tag:'core'},
+  {id:'w_iliya100',cat:'항해',title:'교역의 중심 일리야 섬',desc:'물물교환 100회 · 까마귀 주화 200 + 지원 상자',tag:'core'},
+  {id:'w_blackshrine1',cat:'전투/내실',title:'검은사당 I 개인 토벌',desc:'동해도/개인 토벌에서 가능한 최고 효율 기록 남기기. 2026-04부터 주간 보상은 일요일 00시 이후 흑정령 선물함으로 자동 지급.',tag:'core'},
+  {id:'w_blackshrine2',cat:'전투/내실',title:'검은사당 II 파티 토벌',desc:'황해도 파티 토벌 해금 시. 흑정령 주간 의뢰/파티 모집 여부를 함께 확인하고 가능한 보스만 진행.',tag:'optional'},
+  {id:'w_bloodaltar',cat:'전투/내실',title:'피의 제단 주간 기록',desc:'한 주 최고 클리어 단계 기준 1회 보상 · 일요일 00시 자동 지급. 현재 단계 올리는 날만 해도 됨.',tag:'core'},
+  {id:'w_pit',cat:'전투/내실',title:'불멸의 나락 주간',desc:'2025-07 이후 일일 다회 → 주간 1회 구조. 까마귀 둥지/불멸의 나락 해금 후.',tag:'core'},
+  {id:'w_gladius',cat:'전투/내실',title:'최후의 글라디우스 주간 우두머리',desc:'일레즈라/아토마기아의 심장 토벌. 2026 공식 안내 기준 권장 표기 공격력 330 이상.',tag:'core'},
+  {id:'w_academy',cat:'성장',title:'올비아 아카데미 주간 의뢰/주화 확인',desc:'아카데미 졸업/교환 완료 전까지 우선. 주화 상점에서 남은 핵심 보상 교환.',tag:'core'},
+  {id:'w_atto',cat:'파티',title:'아토락시온 주간 보스런',desc:'파티 콘텐츠. 해금/의욕 있을 때. 최근 주간 루틴에 포함되는 대표 파티 숙제.',tag:'optional'},
+  {id:'w_edania',cat:'고스펙',title:'에다니아 권좌/내부 우두머리 주간',desc:'스펙과 지역 진행이 충분할 때만. 예: 일부 주간은 표기 405/485 이상 요구.',tag:'locked'},
+  {id:'w_guild',cat:'길드',title:'길드 우두머리 / 길드 주간 일정 확인',desc:'길드 일정에 따라 참여. 개인 고정 리셋 숙제와 분리해 두되 놓치지 않게 표시.',tag:'optional'},
+  {id:'w_worldboss',cat:'월드보스',title:'벨 / 가모스 등 주간 참여 여부 확인',desc:'시간표는 인게임/공식 최신 시간표 기준. 필요한 우두머리만 사용자 루틴으로 유지.',tag:'optional'},
+  {id:'w_dreamhorse',cat:'생활',title:'꿈결마 재료 주간 루틴',desc:'꿈결마를 실제 목표로 잡을 때만. 고비뿌리/몽상의 깃털 계열 주간·그랑프리 등 해금 상태에 따라 체크.',tag:'optional'},
+  {id:'w_fishingcontest',cat:'생활',title:'주간 낚시대회 참여 여부',desc:'참여할 주에만 해당 주 어종/지역을 확인. 자낚 루틴과 별개.',tag:'optional'}
+];
+const LONGTERM = [
+  {id:'p_carrack',group:'대양',title:'에페리아 중범선 : 점진 제작',status:'진행중',note:'현재 최우선 장기 프로젝트'},
+  {id:'p_adventurelogs',group:'내실',title:'모험일지 공방/가문 보너스 정리',status:'진행중',note:'이고르 바탈리 등 실제 보상 있는 일지 우선'},
+  {id:'p_mainquests',group:'내실',title:'주요 메인 의뢰 정리',status:'진행중',note:'필요 해금/보상 있는 지역 우선'},
+  {id:'p_fairy',group:'편의',title:'요정 핵심 스킬 세팅',status:'확인필요',note:'응원/손길 등 현재 상태 기록'},
+  {id:'p_pets',group:'편의',title:'반려동물 세대/줍기 속도',status:'진행중',note:'사냥 효율/생활 특기 확인'},
+  {id:'p_workers',group:'생활',title:'주요 생산 거점/일꾼 기반',status:'진행중',note:'벨리아/동해도 등 이미 손댄 곳부터 확정'},
+  {id:'p_lifechars',group:'생활',title:'생활 캐릭터 역할 분담 확정',status:'미정',note:'란(가방/무게) · 샤이 · 해양 캐릭터 역할'},
+  {id:'p_magnus',group:'편의',title:'마그누스/창고 편의 해금 상태 점검',status:'확인필요',note:'미완료 구간이 있으면 장기 체크'},
+  {id:'p_crystals',group:'전투',title:'수정/유물/광명석 세팅 완성',status:'진행중',note:'현재 캐릭터/사냥터 기준으로 검증'},
+  {id:'p_worldbossalts',group:'편의',title:'월드 우두머리 주차 캐릭 정리',status:'확인필요',note:'시즌 졸업 캐릭 활용 가능'}
+];
+const LIFE = [
+  {id:'common',name:'공통 생활 장비',status:'진행중',items:['올비아 아카데미 생활 장비 보상 확보','플로아모스 액세서리 확보','2026-09-02 통합 생활 장비 UI에 실제 장착 상태 확인','생활 유물/초원 광명석 세팅 준비','생활 연금석/공용 효과 장비 확인','기능성 의상 → 매듭 변환/활성 조건 필요한 것만 정리'],note:'플로아모스/아카데미 보상은 사용자 확보 확인. 나머지는 9/2 개편 후 재검증 필요.'},
+  {id:'gather',name:'채집',status:'기반필요',items:['주력 채집 도구 정하기','채집복/숙련 세팅 확인','기운 회복 수단/별채/음식 등 루틴 정리','주 수익 채집물 1~2개만 선정','채집 캐릭터 위치 고정 여부 결정'],note:'샤이를 후보로 두되 역할은 아직 미확정.'},
+  {id:'fish',name:'낚시',status:'진행중',items:['자낚용 낚싯대/찌 세팅 확인','자동낚시 시간 감소 세팅 확인','가방 칸/물고기 폐기 등급 설정','판매 루트/거리 보너스 루틴 정리','낚시 펫/생활 버프 확인'],note:'사용자가 이미 자낚을 여러 날 돌리고 있음. 란의 기존 가방 투자를 활용하기 좋음.'},
+  {id:'hunt',name:'수렵',status:'미착수',items:['화승총 준비','도축용 도구 준비','수렵복/숙련 세팅','연금/요리로 이어지는 부산물 사용처 정리','입문 수렵터 1곳 선정'],note:'급하지 않으면 기반만 체크하고 나중에 시작.'},
+  {id:'cook',name:'요리',status:'기반필요',items:['요리 캐릭터 확정','주거지/요리 도구 위치 확정','요리 시간 단축 세팅','주요 노드/재료 창고 정리','황실 요리 납품 여부 결정'],note:'샤이 생산 캐릭터 후보.'},
+  {id:'alchemy',name:'연금',status:'기반필요',items:['연금 캐릭터 확정','주거지/연금 도구 위치 확정','연금 시간 단축 세팅','혈액/수액/약초 주요 재료 노드 정리','황실 연금/주 생산품 여부 결정'],note:'샤이 생산 캐릭터 후보. 2026-08 공식 고급 가이드 존재.'},
+  {id:'process',name:'가공',status:'진행중',items:['가공 캐릭터 확정','무게 세팅(일반 장비 포함) 준비','대량가공 가능한 장비/석 확인','가공 창고 도시 1곳 고정','원재료→중간재→완제품 흐름 정리'],note:'란의 기존 무게 투자를 활용하는 안이 실용적. 샤이가 필수는 아님.'},
+  {id:'train',name:'조련',status:'미착수',items:['조련 캐릭터/주차 마을 결정','말 포획/레벨링 기본 장비','마차/마구 필요 여부','자동이동/탑승물 경험치 버프 루틴','꿈결마 장기 목표는 별도 프로젝트로 분리'],note:'지금 당장 최우선은 아님.'},
+  {id:'farm',name:'재배',status:'진행중',items:['울타리 설치 위치 고정','작물/마력 씨앗 운영 방식 확정','품종개량 vs 수확 기준 정리','재배 부산물 사용처 정리','접속할 때 확인할 최소 루틴 정하기'],note:'사용자가 이미 꾸준히 재배 중.'},
+  {id:'sail',name:'항해 / 교역',status:'진행중',items:['무역선 보급/선원 건강 관리 루틴','항해 일일/주간 자동 체크','물교 단계별 교역품 재고 유지','중범선 점진 재료 트래킹','중범선 이후 치로/팔라시 장비는 별도 후속 프로젝트'],note:'현재 최우선 생활 분야.'}
+];
+const CARRACK_MATS = [
+  ['홍조빛 해저단괴',90,'파란장비','주간 어린 해달 + 칸디둠 / 물교'],['강화된 섬나무 증착합판',300,'파란장비','4단계 물교'],['심해초 줄기',205,'파란장비','어린 해달 주간 + 4단계 물교'],['대양의 견고한 현철',150,'파란장비','4단계 물교'],['순수한 진주 결정',45,'파란장비','3단계 물교'],['콕스해적단 유물(협상 하급)',60,'파란장비','2단계 물교'],['콕스해적단 유물(전투)',120,'파란장비','일일/주간 + 4~5단계 물교'],['달의 비늘이 새겨진 합판',400,'파란장비','어린 해왕류 일일 + 5단계 물교'],['파도빛이 감도는 규격 각목',180,'파란장비','길드는 자선단체가 아니다'],['순수한 암초 조각',180,'파란장비','3단계 물교'],['콕스해적단 유물(협상 상급)',30,'파란장비','4단계 물교'],['빛나는 코발트 주괴',30,'파란장비','4단계 물교'],['달의 핏줄이 새겨진 아마포',180,'점진본체','어린 해왕류 일일'],['짙은 파도빛이 감도는 규격 각목',144,'점진본체','너도 좋고, 나도 좋고'],['화려한 암염 주괴',35,'점진본체','5단계 물교 / 화려한 지원 상자'],['화려한 진주 결정',35,'점진본체','5단계 물교 / 화려한 지원 상자'],['심해의 눈물',42,'점진본체','나인샤크 주간 + 5단계 물교']
+];
+const CARRACK_GEAR = [
+  {name:'흑룡 선수상',base:'황동 선수상 +10',mats:'홍조 50 / 증착합판 300 / 심해초 125 / 현철 150'},
+  {name:'개량형 장갑',base:'강화 장갑 +10',mats:'순수 진주 45 / 협상 하급 60 / 전투 유물 60 / 달비늘 합판 200'},
+  {name:'메이나 함포',base:'베리샤 함포 +10',mats:'파도빛 각목 180 / 전투 유물 60 / 달비늘 합판 200 / 순수 암초 180'},
+  {name:'비층 바람 돛',base:'하얀 바람 돛 +10',mats:'홍조 40 / 협상 상급 30 / 심해초 80 / 코발트 30'}
+];
+const PERIODIC = [
+  {id:'event_pass',title:'항해 스페셜 패스 400 물교',desc:'1 물교 = 1점. 종료/보상 수령 마감: 2026-09-22 정기점검 전.',until:'2026-09-22',tag:'event'},
+  {id:'event_ocean1',title:'[이벤트][주간] 바닷길을 가로막는 위협',desc:'굶주린 해왕류 3 · 까마귀 주화 2,000',until:'2026-09-09',tag:'event'},
+  {id:'event_ocean2',title:'[이벤트][주간] 바다의 질서를 위협하는 공포',desc:'어린 해왕류 5 · 점진 목표면 까마귀 주화 2,000 선택 권장',until:'2026-09-09',tag:'event'},
+  {id:'periodic_rift',title:'어둠의 틈 생성 확인',desc:'고정 주간 리셋 아님. 생성된 것만 몰아서 처리하는 주기성 항목.',until:null,tag:'optional'},
+  {id:'periodic_events',title:'진행 중 이벤트 모아보기 확인',desc:'주 1회 정도 공식 이벤트 목록에서 기간제 보상/핫타임 확인.',until:null,tag:'optional'}
+];
+function blankState(){return {version:VERSION,dailyKey:'',weeklyKey:'',daily:{},weekly:{},customDaily:[],customWeekly:[],longterm:{},life:{},lifeNotes:{},carrack:{},carrackGear:{},periodic:{},notes:{global:''},passCount:0};}
+function load(){try{const x=JSON.parse(localStorage.getItem(STORAGE_KEY));return Object.assign(blankState(),x||{});}catch(e){return blankState();}}
+let state=load();
+function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state));updateStats();}
+function kstParts(d=new Date()){const p=new Intl.DateTimeFormat('en-CA',{timeZone:KST,year:'numeric',month:'2-digit',day:'2-digit',weekday:'short',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(d);const o={};p.forEach(x=>o[x.type]=x.value);return o;}
+function dailyKey(){const p=kstParts();return `${p.year}-${p.month}-${p.day}`;}
+function weeklyKey(){const p=kstParts();const base=new Date(`${p.year}-${p.month}-${p.day}T12:00:00+09:00`);const day=base.getUTCDay(); // KST noon still same weekday in UTC enough for date math
+  const kstDay=new Date(base.toLocaleString('en-US',{timeZone:KST})).getDay();
+  const delta=(kstDay-4+7)%7; base.setDate(base.getDate()-delta); const q=kstParts(base); return `${q.year}-${q.month}-${q.day}`;}
+function resetPeriods(){const dk=dailyKey(),wk=weeklyKey();if(state.dailyKey!==dk){state.dailyKey=dk;state.daily={};}if(state.weeklyKey!==wk){state.weeklyKey=wk;state.weekly={};}save();}
+function esc(s){return String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+function taskHTML(t,group){const checked=!!state[group][t.id];return `<div class="task ${checked?'done':''}" data-id="${t.id}"><input type="checkbox" ${checked?'checked':''} data-group="${group}" data-id="${t.id}"><div><div class="task-title">${esc(t.title)}</div><div class="task-desc">${esc(t.desc)}</div></div><span class="badge ${t.tag}">${t.tag==='core'?'핵심':t.tag==='optional'?'선택':t.tag==='locked'?'보류':'이벤트'}</span></div>`}
+function renderToday(){const all=[...DAILY,...(state.customDaily||[])];const cats=[...new Set(all.map(x=>x.cat))];document.getElementById('today').innerHTML=`<div class="grid">${cats.map(c=>`<div class="card span-6"><h2>${esc(c)}</h2>${all.filter(x=>x.cat===c).map(x=>taskHTML(x,'daily')).join('')}</div>`).join('')}<div class="card span-12"><h2>내 일일 항목 추가</h2><div class="actions"><input id="customDailyTitle" placeholder="예: 황실 요리 납품" style="flex:1;min-width:220px;background:#11151b;border:1px solid var(--line);color:var(--text);padding:8px;border-radius:8px"><button class="btn" id="addDailyBtn">추가</button></div><div class="hint">추가한 항목도 매일 00:00 KST에 체크만 자동 초기화됩니다.</div></div><div class="card span-12"><h2>오늘 메모</h2><textarea class="note" data-note="today" placeholder="오늘 발견한 재료, 다음에 할 것 등">${esc(state.notes.today||'')}</textarea></div></div>`;}
+function renderWeekly(){const all=[...WEEKLY,...(state.customWeekly||[])];const cats=[...new Set(all.map(x=>x.cat))];document.getElementById('weekly').innerHTML=`<div class="grid"><div class="card span-12"><h2>주간 기준</h2><div class="hint">체크 상태는 <b>목요일 00:00 KST</b>에 자동 초기화. 다만 검은사당/피의 제단처럼 보상 산정·지급 시점이 일요일인 콘텐츠는 설명에 따로 표시.</div></div>${cats.map(c=>`<div class="card span-6"><h2>${esc(c)}</h2>${all.filter(x=>x.cat===c).map(x=>taskHTML(x,'weekly')).join('')}</div>`).join('')}<div class="card span-12"><h2>내 주간 항목 추가</h2><div class="actions"><input id="customWeeklyTitle" placeholder="예: 길드 특정 주간" style="flex:1;min-width:220px;background:#11151b;border:1px solid var(--line);color:var(--text);padding:8px;border-radius:8px"><button class="btn" id="addWeeklyBtn">추가</button></div><div class="hint">추가한 항목도 목요일 00:00 KST에 체크만 자동 초기화됩니다.</div></div></div>`;}
+function renderProgress(){const rows=LONGTERM.map(x=>{const s=state.longterm[x.id]||x.status;return `<div class="task"><input type="checkbox" ${s==='완료'?'checked':''} data-long="${x.id}"><div><div class="task-title">${esc(x.title)}</div><div class="task-desc">${esc(x.group)} · ${esc(x.note)}</div></div><select data-long-select="${x.id}" class="badge"><option ${s==='미정'?'selected':''}>미정</option><option ${s==='확인필요'?'selected':''}>확인필요</option><option ${s==='미착수'?'selected':''}>미착수</option><option ${s==='진행중'?'selected':''}>진행중</option><option ${s==='완료'?'selected':''}>완료</option></select></div>`}).join('');document.getElementById('progress').innerHTML=`<div class="grid"><div class="card span-8"><h2>장기 프로젝트 / 내실</h2>${rows}</div><div class="card span-4"><h2>사용 원칙</h2><div class="hint">여기는 반복 초기화되지 않는다. 실제로 끝난 것만 완료 처리하고, 새 프로젝트는 JSON 데이터 편집 없이 화면에서 상태만 관리한다.</div><div class="divider"></div><h3>우선순위</h3><ol class="mini-list"><li>중범선 : 점진</li><li>주간/기간제 놓치지 않기</li><li>생활 기반 역할 분담</li><li>전투 내실/모험일지</li></ol></div></div>`;}
+function renderLife(){document.getElementById('life').innerHTML=`<div class="grid">${LIFE.map(x=>{const st=state.life[x.id]||x.status;const done=st==='완료';return `<div class="card span-6 life-card"><div class="life-head"><h2>${esc(x.name)}</h2><select data-life="${x.id}"><option ${st==='미착수'?'selected':''}>미착수</option><option ${st==='기반필요'?'selected':''}>기반필요</option><option ${st==='진행중'?'selected':''}>진행중</option><option ${st==='완료'?'selected':''}>완료</option></select></div><ul class="mini-list">${x.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul><div class="divider"></div><div class="hint">${esc(x.note)}</div><textarea class="note" data-life-note="${x.id}" placeholder="내 장비/캐릭/위치 메모">${esc(state.lifeNotes[x.id]||'')}</textarea></div>`}).join('')}</div>`;}
+function carrackRow(m){const [name,target,use,src]=m;const cur=Number(state.carrack[name]||0);const lack=Math.max(0,target-cur);return `<div class="mat-row"><b>${esc(name)}</b><input type="number" min="0" value="${cur}" data-mat="${esc(name)}"><span>${target}</span><span>${lack}</span><span class="short">${esc(use)} · ${esc(src)}</span></div>`;}
+function renderCarrack(){const gear=CARRACK_GEAR.map((g,i)=>{const a=state.carrackGear['g'+i]||{};return `<div class="card span-6"><h3>${esc(g.name)}</h3><label class="task"><input type="checkbox" data-gear="g${i}_base" ${a.base?'checked':''}><div><div class="task-title">${esc(g.base)} 준비</div></div></label><label class="task"><input type="checkbox" data-gear="g${i}_craft" ${a.craft?'checked':''}><div><div class="task-title">제작 완료</div><div class="task-desc">${esc(g.mats)}</div></div></label><label class="task"><input type="checkbox" data-gear="g${i}_plus" ${a.plus?'checked':''}><div><div class="task-title">+10 완료</div></div></label></div>`}).join('');document.getElementById('carrack').innerHTML=`<div class="grid"><div class="card span-12"><h2>항해 스페셜 패스</h2><div class="progress-line"><span>물물교환 횟수</span><b><span id="passNum">${Number(state.passCount||0)}</span> / 400</b></div><input type="number" min="0" max="400" value="${Number(state.passCount||0)}" data-pass style="margin-top:8px;width:120px;background:#11151b;border:1px solid var(--line);color:var(--text);padding:7px;border-radius:7px"><div class="progress"><div style="width:${Math.min(100,Number(state.passCount||0)/4)}%"></div></div><div class="hint" style="margin-top:8px">선택상자는 자연수급/일퀘/주간/물교 후 실제 부족량을 보고 마지막에 사용.</div></div>${gear}<div class="card span-12"><h2>재료 트래커</h2><div class="mat-row header"><span>재료</span><span>보유</span><span>목표</span><span>부족</span><span>용도 / 주요 수급</span></div>${CARRACK_MATS.map(carrackRow).join('')}</div><div class="card span-12"><h2>점진 본체 최종 체크</h2><div class="hint">+10 흑룡 선수상 / +10 개량형 장갑 / +10 메이나 함포 / +10 비층 바람 돛 + 아마포 180 + 짙은 각목 144 + 화려한 암염 35 + 화려한 진주 35 + 심해의 눈물 42</div></div></div>`;}
+function renderPeriodic(){document.getElementById('periodic').innerHTML=`<div class="grid"><div class="card span-12"><h2>주간 초기화와 분리한 항목</h2><div class="hint">기간제 이벤트와 생성형 콘텐츠는 목요일 초기화 체크리스트에 섞지 않는다.</div></div>${PERIODIC.map(x=>{const chk=!!state.periodic[x.id];return `<div class="card span-6"><div class="task ${chk?'done':''}"><input type="checkbox" data-periodic="${x.id}" ${chk?'checked':''}><div><div class="task-title">${esc(x.title)}</div><div class="task-desc">${esc(x.desc)}${x.until?` · 종료 ${x.until}`:''}</div></div><span class="badge ${x.tag}">${x.tag==='event'?'기간제':'주기성'}</span></div></div>`}).join('')}</div>`;}
+function renderSources(){document.getElementById('sources').innerHTML=`<div class="grid"><div class="card span-8"><h2>검증 링크</h2>${SOURCES.map(([t,u])=>`<div class="source"><a href="${u}" target="_blank" rel="noreferrer">${esc(t)}</a></div>`).join('')}</div><div class="card span-4"><h2>데이터 기준</h2><div class="hint">2026-09-02 기준. 패치로 변하기 쉬운 보상/장비/주간 구조는 공식 업데이트 우선. 커뮤니티 자료는 실제 루틴/사용성 보조로만 사용.</div><div class="divider"></div><h3>앱 특성</h3><ul class="mini-list"><li>인터넷 없이 열림</li><li>서버 전송 없음</li><li>체크/수량 브라우저 저장</li><li>JSON 백업/복원 가능</li></ul></div></div>`;}
+function renderAll(){renderToday();renderWeekly();renderProgress();renderLife();renderCarrack();renderPeriodic();renderSources();bind();updateStats();}
+function bind(){const adb=document.getElementById('addDailyBtn');if(adb)adb.onclick=()=>addCustom('daily');const awb=document.getElementById('addWeeklyBtn');if(awb)awb.onclick=()=>addCustom('weekly');document.querySelectorAll('input[data-group]').forEach(el=>el.onchange=()=>{state[el.dataset.group][el.dataset.id]=el.checked;save();renderAll();});document.querySelectorAll('textarea[data-note]').forEach(el=>el.oninput=()=>{state.notes[el.dataset.note]=el.value;save();});document.querySelectorAll('select[data-long-select]').forEach(el=>el.onchange=()=>{state.longterm[el.dataset.longSelect]=el.value;save();renderAll();});document.querySelectorAll('input[data-long]').forEach(el=>el.onchange=()=>{state.longterm[el.dataset.long]=el.checked?'완료':'진행중';save();renderAll();});document.querySelectorAll('select[data-life]').forEach(el=>el.onchange=()=>{state.life[el.dataset.life]=el.value;save();updateStats();});document.querySelectorAll('textarea[data-life-note]').forEach(el=>el.oninput=()=>{state.lifeNotes[el.dataset.lifeNote]=el.value;save();});document.querySelectorAll('input[data-mat]').forEach(el=>el.onchange=()=>{state.carrack[el.dataset.mat]=Math.max(0,Number(el.value||0));save();renderCarrack();bind();});document.querySelectorAll('input[data-gear]').forEach(el=>el.onchange=()=>{const [g,k]=el.dataset.gear.split('_');state.carrackGear[g]=state.carrackGear[g]||{};state.carrackGear[g][k]=el.checked;save();});document.querySelectorAll('input[data-periodic]').forEach(el=>el.onchange=()=>{state.periodic[el.dataset.periodic]=el.checked;save();renderPeriodic();bind();});const pass=document.querySelector('input[data-pass]');if(pass)pass.onchange=()=>{state.passCount=Math.min(400,Math.max(0,Number(pass.value||0)));save();renderCarrack();bind();};}
+function addCustom(kind){const isDaily=kind==='daily';const input=document.getElementById(isDaily?'customDailyTitle':'customWeeklyTitle');const title=(input?.value||'').trim();if(!title)return;const arr=isDaily?(state.customDaily||[]):(state.customWeekly||[]);arr.push({id:`custom_${kind}_${Date.now()}`,cat:'내 항목',title,desc:'사용자 추가 항목',tag:'optional'});if(isDaily)state.customDaily=arr;else state.customWeekly=arr;save();renderAll();toast('항목 추가 완료');}
+function updateStats(){const allD=[...DAILY,...(state.customDaily||[])],allW=[...WEEKLY,...(state.customWeekly||[])];const d=allD.filter(x=>state.daily[x.id]).length,w=allW.filter(x=>state.weekly[x.id]).length;document.getElementById('dailyStat').textContent=`${d}/${allD.length}`;document.getElementById('weeklyStat').textContent=`${w}/${allW.length}`;let target=0,have=0;CARRACK_MATS.forEach(([n,t])=>{target+=t;have+=Math.min(t,Number(state.carrack[n]||0));});document.getElementById('carrackStat').textContent=`${Math.round(have/target*100)||0}%`;const lc=LIFE.filter(x=>(state.life[x.id]||x.status)==='완료').length;document.getElementById('lifeStat').textContent=`${lc}/${LIFE.length}`;}
+function setTab(id){document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));const t=navItems.find(x=>x[0]===id);document.getElementById('pageTitle').textContent=t?t[1]:id;location.hash=id;}
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1800);}
+function exportData(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`bdo-dashboard-backup-${dailyKey()}.json`;a.click();URL.revokeObjectURL(a.href);}
+function importData(file){const r=new FileReader();r.onload=()=>{try{state=Object.assign(blankState(),JSON.parse(r.result));save();resetPeriods();renderAll();toast('백업 복원 완료');}catch(e){alert('JSON 백업 파일을 읽지 못했습니다.');}};r.readAsText(file);}
+function resetCurrent(){const id=(location.hash||'#today').slice(1);if(!confirm(`${navItems.find(x=>x[0]===id)?.[1]||id}의 체크 상태를 초기화할까요?`))return;if(id==='today')state.daily={};else if(id==='weekly')state.weekly={};else if(id==='periodic')state.periodic={};else if(id==='carrack'){state.carrackGear={};}else if(id==='progress')state.longterm={};else if(id==='life')state.life={};save();renderAll();toast('초기화 완료');}
+function init(){const nav=document.getElementById('nav');navItems.forEach(([id,label])=>{const b=document.createElement('button');b.textContent=label;b.dataset.tab=id;b.onclick=()=>setTab(id);nav.appendChild(b);});resetPeriods();renderAll();const hash=(location.hash||'#today').slice(1);setTab(navItems.some(x=>x[0]===hash)?hash:'today');document.getElementById('exportBtn').onclick=exportData;document.getElementById('importBtn').onclick=()=>document.getElementById('importFile').click();document.getElementById('importFile').onchange=e=>e.target.files[0]&&importData(e.target.files[0]);document.getElementById('resetBtn').onclick=resetCurrent;setInterval(()=>{const p=kstParts();document.getElementById('clock').textContent=`KST ${p.year}-${p.month}-${p.day} ${p.weekday} ${p.hour}:${p.minute}:${p.second} · 일일 00:00 / 주간 목요일 00:00 자동 초기화`;resetPeriods();},1000);}
+init();
+</script>
+</body>
+</html>

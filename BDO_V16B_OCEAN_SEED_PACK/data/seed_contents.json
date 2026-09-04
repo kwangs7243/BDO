@@ -1,0 +1,5717 @@
+[
+  {
+    "slug": "weekly-quest-framework",
+    "name_ko": "주간 의뢰 공통 규칙",
+    "category": "system",
+    "summary": "일반 주간 의뢰 재수주는 목요일 00:00 KST 기준. 콘텐츠별 예외/보상 지급 규칙은 별도 schedule로 저장.",
+    "status": "active",
+    "last_verified_at": "2026-09-02",
+    "schedules": [
+      {
+        "seed_key": "weekly-quest-framework.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "weekly",
+        "weekday": 3,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "notes": "일반 주간 의뢰 재수주 기준: 목요일 00:00 KST"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "weekly-quest-framework.weekly-check",
+        "name": "주간 의뢰 확인",
+        "recurrence_scope": "weekly",
+        "period_rule_seed_key": "weekly-quest-framework.quest-reset",
+        "items": [
+          {
+            "seed_key": "weekly-quest-framework.weekly-check.status",
+            "label": "이번 주 주간 의뢰 상태 확인",
+            "details": "콘텐츠별 예외와 보상 지급 일정은 별도 일정으로 확인"
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "weekly-quest-framework.summary",
+        "entity_type": "content",
+        "entity_seed_key": "weekly-quest-framework",
+        "claim_key": "summary",
+        "source_ids": [
+          "weekly-reset-2021"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "일반 주간 의뢰 재수주 기준을 목요일 00시로 통일한 근거"
+      },
+      {
+        "seed_key": "weekly-quest-framework.schedule.quest-reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "weekly-quest-framework.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "weekly-reset-2021"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "목요일 00:00 KST 재수주 기준"
+      }
+    ]
+  },
+  {
+    "slug": "blood-altar",
+    "name_ko": "피의 제단",
+    "category": "combat_pve",
+    "summary": "단계형 3인 콘텐츠. 주간 최고 기록에 따른 보상이 일요일 00시에 지급됨.",
+    "purpose": "주간 최고 기록에 따른 보상을 받기 위해 진행하는 단계형 콘텐츠.",
+    "party_type": "party",
+    "status": "active",
+    "last_verified_at": "2026-09-02",
+    "requirements": [
+      {
+        "seed_key": "blood-altar.party-size",
+        "kind": "party",
+        "title": "파티 구성",
+        "description": "3인 콘텐츠다.",
+        "structured_value": {
+          "party_size": 3
+        },
+        "requirement_level": "required"
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "blood-altar.weekly-record",
+        "phase": "repeat",
+        "title": "주간 최고 기록 진행",
+        "description": "단계형 콘텐츠를 진행해 주간 최고 기록을 남긴다.",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "blood-altar.weekly-record-reward",
+        "name": "주간 최고 기록 보상",
+        "reward_type": "weekly_reward",
+        "is_choice": false,
+        "notes": "일요일 00:00 KST 지급",
+        "order_no": 1
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "blood-altar.why",
+        "section_type": "why",
+        "title": "왜 하는가",
+        "body_markdown": "주간 최고 기록에 따른 보상을 받기 위해 진행한다."
+      },
+      {
+        "seed_key": "blood-altar.payout-warning",
+        "section_type": "common_mistakes",
+        "title": "보상 지급과 초기화 구분",
+        "body_markdown": "일요일 00:00 보상 지급은 체크리스트 초기화 규칙과 같은 의미가 아니다."
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "blood-altar.reward-payout",
+        "rule_type": "reward_payout",
+        "recurrence_type": "weekly",
+        "weekday": 6,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "notes": "주간 최고 기록 보상 지급: 일요일 00:00 KST"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "blood-altar.weekly-record-check",
+        "name": "피의 제단 주간 기록",
+        "recurrence_scope": "weekly",
+        "items": [
+          {
+            "seed_key": "blood-altar.weekly-record-check.status",
+            "label": "이번 주 최고 기록 상태 확인"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "blood-altar.weekly-framework",
+        "to_content_slug": "weekly-quest-framework",
+        "relation_type": "related",
+        "note": "일반 주간 reset과 일요일 보상 지급을 구분하기 위한 관련 시스템 항목"
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "blood-altar.summary",
+        "entity_type": "content",
+        "entity_seed_key": "blood-altar",
+        "claim_key": "summary",
+        "source_ids": [
+          "blood-altar-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "단계형 3인 콘텐츠와 주간 최고 기록 보상"
+      },
+      {
+        "seed_key": "blood-altar.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "blood-altar",
+        "claim_key": "purpose",
+        "source_ids": [
+          "blood-altar-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "주간 최고 기록 기반 보상 목적"
+      },
+      {
+        "seed_key": "blood-altar.requirement.party-size",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "blood-altar.party-size",
+        "claim_key": "description",
+        "source_ids": [
+          "blood-altar-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "3인 콘텐츠"
+      },
+      {
+        "seed_key": "blood-altar.step.weekly-record",
+        "entity_type": "content_step",
+        "entity_seed_key": "blood-altar.weekly-record",
+        "claim_key": "description",
+        "source_ids": [
+          "blood-altar-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "주간 최고 기록 기반"
+      },
+      {
+        "seed_key": "blood-altar.reward.weekly-record",
+        "entity_type": "reward",
+        "entity_seed_key": "blood-altar.weekly-record-reward",
+        "claim_key": "reward",
+        "source_ids": [
+          "blood-altar-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "주간 최고 기록 보상"
+      },
+      {
+        "seed_key": "blood-altar.schedule.reward-payout",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "blood-altar.reward-payout",
+        "claim_key": "schedule.reward_payout",
+        "source_ids": [
+          "blood-altar-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "일요일 00:00 보상 지급"
+      },
+      {
+        "seed_key": "blood-altar.section.why",
+        "entity_type": "content_section",
+        "entity_seed_key": "blood-altar.why",
+        "claim_key": "body",
+        "source_ids": [
+          "blood-altar-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "주간 최고 기록 보상 목적"
+      },
+      {
+        "seed_key": "blood-altar.section.payout-warning",
+        "entity_type": "content_section",
+        "entity_seed_key": "blood-altar.payout-warning",
+        "claim_key": "body",
+        "source_ids": [
+          "blood-altar-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "보상 지급 일정은 reset과 별도 모델링"
+      }
+    ]
+  },
+  {
+    "slug": "pit-of-undying",
+    "name_ko": "불멸의 나락",
+    "category": "combat_pve",
+    "summary": "2025-07-23부터 반복 결투 의뢰가 주간 1회 구조로 변경됨.",
+    "status": "active",
+    "last_verified_at": "2026-09-02",
+    "checklists": [
+      {
+        "seed_key": "pit-of-undying.weekly-quest",
+        "name": "불멸의 나락 주간 의뢰",
+        "recurrence_scope": "weekly",
+        "items": [
+          {
+            "seed_key": "pit-of-undying.weekly-quest.status",
+            "label": "이번 주 반복 결투 의뢰 상태 확인"
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "pit-of-undying.summary",
+        "entity_type": "content",
+        "entity_seed_key": "pit-of-undying",
+        "claim_key": "summary",
+        "source_ids": [
+          "pit-weekly-2025"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "2025-07-23 일일에서 주간 구조로 전환"
+      }
+    ]
+  },
+  {
+    "slug": "garmoth",
+    "name_ko": "가모스",
+    "category": "world_boss",
+    "summary": "토벌 보상은 주 3회까지, 목요일 00시 기준 초기화.",
+    "status": "active",
+    "last_verified_at": "2026-09-02",
+    "schedules": [
+      {
+        "seed_key": "garmoth.attempt-reset",
+        "rule_type": "attempt_reset",
+        "recurrence_type": "weekly",
+        "weekday": 3,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "notes": "주 3회 토벌 보상 횟수 초기화: 목요일 00:00 KST"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "garmoth.weekly-reward",
+        "name": "가모스 주간 보상",
+        "recurrence_scope": "weekly",
+        "period_rule_seed_key": "garmoth.attempt-reset",
+        "items": [
+          {
+            "seed_key": "garmoth.weekly-reward.status",
+            "label": "이번 주 토벌 보상 횟수 확인"
+          }
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "garmoth.summary",
+        "entity_type": "content",
+        "entity_seed_key": "garmoth",
+        "claim_key": "summary",
+        "source_ids": [
+          "world-boss-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "주 3회 보상과 목요일 초기화"
+      },
+      {
+        "seed_key": "garmoth.schedule.attempt-reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "garmoth.attempt-reset",
+        "claim_key": "schedule.attempt_reset",
+        "source_ids": [
+          "world-boss-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "목요일 00:00 KST 횟수 초기화"
+      }
+    ]
+  },
+  {
+    "slug": "vell",
+    "name_ko": "벨",
+    "category": "world_boss",
+    "summary": "공식 월드 우두머리 시간표 기반 출현 콘텐츠. 출현/보상 규칙은 가이드에서 별도 구조화.",
+    "status": "active",
+    "last_verified_at": "2026-09-02",
+    "evidence": [
+      {
+        "seed_key": "vell.summary",
+        "entity_type": "content",
+        "entity_seed_key": "vell",
+        "claim_key": "summary",
+        "source_ids": [
+          "world-boss-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "공식 월드 우두머리 시간표 기반"
+      }
+    ]
+  },
+  {
+    "slug": "life-common-gear",
+    "name_ko": "생활 통합 장비",
+    "category": "life",
+    "summary": "2026-09-02 가문 단위 생활 통합 장비 UI 개편 기준.",
+    "purpose": "가문 단위 생활 통합 장비 개편 기준을 확인하기 위한 콘텐츠.",
+    "status": "active",
+    "last_verified_at": "2026-09-02",
+    "sections": [
+      {
+        "seed_key": "life-common-gear.overview",
+        "section_type": "overview",
+        "title": "한눈에 보기",
+        "body_markdown": "2026-09-02 적용된 가문 단위 생활 통합 장비 UI 개편을 기준으로 한다."
+      },
+      {
+        "seed_key": "life-common-gear.preparation",
+        "section_type": "preparation",
+        "title": "준비 정보 범위",
+        "body_markdown": "생활 장비 정보는 가문 단위 통합 장비 UI 기준으로 정리한다."
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "life-common-gear.summary",
+        "entity_type": "content",
+        "entity_seed_key": "life-common-gear",
+        "claim_key": "summary",
+        "source_ids": [
+          "life-unification-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "생활 장비 통합 최신 기준"
+      },
+      {
+        "seed_key": "life-common-gear.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "life-common-gear",
+        "claim_key": "purpose",
+        "source_ids": [
+          "life-unification-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "가문 단위 생활 통합 장비 개편"
+      },
+      {
+        "seed_key": "life-common-gear.section.overview",
+        "entity_type": "content_section",
+        "entity_seed_key": "life-common-gear.overview",
+        "claim_key": "body",
+        "source_ids": [
+          "life-unification-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "2026-09-02 개편 기준"
+      },
+      {
+        "seed_key": "life-common-gear.section.preparation",
+        "entity_type": "content_section",
+        "entity_seed_key": "life-common-gear.preparation",
+        "claim_key": "body",
+        "source_ids": [
+          "life-unification-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-02",
+        "note": "가문 단위 통합 장비 UI 기준"
+      }
+    ]
+  },
+  {
+    "slug": "carrack-advance",
+    "name_ko": "에페리아 중범선 : 점진",
+    "category": "ocean_project",
+    "summary": "에페리아 무역선에서 증축하는 물물교환 특화 중범선. +10 무역선 파란 장비 4종과 점진 전용 본체 재료가 필요하다.",
+    "purpose": "적재량이 높은 중범선 점진을 제작하고 물물교환·대양 콘텐츠의 운용 기반을 완성한다.",
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "carrack-advance.starting-ship",
+        "kind": "item",
+        "title": "출발 선박",
+        "description": "에페리아 무역선에서 에페리아 중범선 : 점진으로 증축한다.",
+        "requirement_level": "required",
+        "order_no": 1
+      },
+      {
+        "seed_key": "carrack-advance.requirement.blue-gear-plus10",
+        "kind": "gear",
+        "title": "+10 무역선 파란 장비 4종",
+        "description": "흑룡 선수상, 개량형 장갑, 메이나 함포, 비층 바람 돛을 각각 +10까지 강화해야 한다.",
+        "structured_value": {
+          "count": 4,
+          "enhancement": 10,
+          "items": [
+            "에페리아 무역선 : 흑룡 선수상",
+            "에페리아 무역선 : 개량형 장갑",
+            "에페리아 무역선 : 메이나 함포",
+            "에페리아 무역선 : 비층 바람 돛"
+          ]
+        },
+        "requirement_level": "required",
+        "order_no": 2
+      },
+      {
+        "seed_key": "carrack-advance.requirement.body-materials",
+        "kind": "item",
+        "title": "점진 본체 재료",
+        "description": "달의 핏줄이 새겨진 아마포 180, 짙은 파도빛이 감도는 규격 각목 144, 화려한 암염 주괴 35, 화려한 진주 결정 35, 심해의 눈물 42가 필요하다.",
+        "structured_value": {
+          "달의 핏줄이 새겨진 아마포": 180,
+          "짙은 파도빛이 감도는 규격 각목": 144,
+          "화려한 암염 주괴": 35,
+          "화려한 진주 결정": 35,
+          "심해의 눈물": 42
+        },
+        "requirement_level": "required",
+        "order_no": 3
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "carrack-advance.confirm-upgrade-path",
+        "phase": "preparation",
+        "order_no": 1,
+        "title": "증축 경로 확인",
+        "description": "에페리아 무역선에서 중범선 점진으로 이어지는 증축 경로를 확인한다.",
+        "checkable": false
+      },
+      {
+        "seed_key": "carrack-advance.step.prepare-green-gear",
+        "phase": "preparation",
+        "order_no": 2,
+        "title": "무역선 녹색 장비 4종 +10",
+        "description": "팔라시에게 구입하는 황동 선수상·강화 장갑·베리샤 함포·하얀 바람 돛을 각각 +10까지 강화한다.",
+        "checkable": true
+      },
+      {
+        "seed_key": "carrack-advance.step.craft-blue-gear",
+        "phase": "preparation",
+        "order_no": 3,
+        "title": "무역선 파란 장비 4종 제작",
+        "description": "에페리아 1-4번지 2층 선박 부품 공방 4단계에서 흑룡 선수상·개량형 장갑·메이나 함포·비층 바람 돛을 제작한다.",
+        "checkable": true
+      },
+      {
+        "seed_key": "carrack-advance.step.enhance-blue-gear",
+        "phase": "preparation",
+        "order_no": 4,
+        "title": "파란 장비 4종 +10",
+        "description": "제작한 파란 장비 4종을 파도의 블랙스톤으로 +10까지 강화한다.",
+        "checkable": true
+      },
+      {
+        "seed_key": "carrack-advance.step.collect-body-materials",
+        "phase": "preparation",
+        "order_no": 5,
+        "title": "점진 본체 재료 수집",
+        "description": "아마포 180, 짙은 각목 144, 화려한 암염 35, 화려한 진주 35, 심해의 눈물 42를 확보한다.",
+        "checkable": true
+      },
+      {
+        "seed_key": "carrack-advance.step.upgrade",
+        "phase": "reward",
+        "order_no": 6,
+        "title": "점진 증축",
+        "description": "나루터지기 증축 메뉴에서 요구 장비와 재료를 투입하여 에페리아 중범선 : 점진으로 증축한다.",
+        "checkable": true
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "carrack-advance.why",
+        "section_type": "why",
+        "title": "왜 점진인가",
+        "body_markdown": "점진은 적재량이 높아 물물교환에 가장 유리한 중범선이다.",
+        "order_no": 1
+      },
+      {
+        "seed_key": "carrack-advance.section.body-recipe",
+        "section_type": "preparation",
+        "title": "점진 본체 요구량",
+        "body_markdown": "+10 무역선 파란 장비 4종과 달의 핏줄이 새겨진 아마포 180, 짙은 파도빛이 감도는 규격 각목 144, 화려한 암염 주괴 35, 화려한 진주 결정 35, 심해의 눈물 42가 필요하다.",
+        "order_no": 2
+      },
+      {
+        "seed_key": "carrack-advance.section.blue-gear-recipes",
+        "section_type": "preparation",
+        "title": "무역선 파란 장비 4종 제작식",
+        "body_markdown": "### 흑룡 선수상\n- +10 에페리아 무역선 : 황동 선수상 ×1\n- 홍조빛 해저단괴 ×50\n- 강화된 섬나무 증착합판 ×300\n- 심해초 줄기 ×125\n- 대양의 견고한 현철 ×150\n\n### 개량형 장갑\n- +10 에페리아 무역선 : 강화 장갑 ×1\n- 순수한 진주 결정 ×45\n- 콕스해적단의 유물(협상 하급) ×60\n- 콕스해적단의 유물(전투) ×60\n- 달의 비늘이 새겨진 합판 ×200\n\n### 메이나 함포\n- +10 에페리아 무역선 : 베리샤 함포 ×1\n- 파도빛이 감도는 규격 각목 ×180\n- 콕스해적단의 유물(전투) ×60\n- 달의 비늘이 새겨진 합판 ×200\n- 순수한 암초 조각 ×180\n\n### 비층 바람 돛\n- +10 에페리아 무역선 : 하얀 바람 돛 ×1\n- 홍조빛 해저단괴 ×40\n- 콕스해적단의 유물(협상 상급) ×30\n- 심해초 줄기 ×80\n- 빛나는 코발트 주괴 ×30",
+        "order_no": 3
+      },
+      {
+        "seed_key": "carrack-advance.section.blue-gear-aggregate",
+        "section_type": "notes",
+        "title": "파란 장비 재료 총합",
+        "body_markdown": "파란 무역선 장비 4종 전체 기준 재료 합계:\n\n- 홍조빛 해저단괴 90\n- 강화된 섬나무 증착합판 300\n- 심해초 줄기 205\n- 대양의 견고한 현철 150\n- 순수한 진주 결정 45\n- 콕스해적단의 유물(협상 하급) 60\n- 콕스해적단의 유물(전투) 120\n- 달의 비늘이 새겨진 합판 400\n- 파도빛이 감도는 규격 각목 180\n- 순수한 암초 조각 180\n- 콕스해적단의 유물(협상 상급) 30\n- 빛나는 코발트 주괴 30",
+        "order_no": 4
+      },
+      {
+        "seed_key": "carrack-advance.section.current-acquisition-warning",
+        "section_type": "common_mistakes",
+        "title": "현재 의뢰 보상은 최신 패치를 우선",
+        "body_markdown": "중범선 모험가 가이드의 제작식은 현재 요구량 확인에 사용한다. 다만 일부 의뢰명·일일 획득량 표기는 2025년 이후 개편 이전 정보가 남아 있으므로, 반복 의뢰의 현재 보상 수량은 2025-02-05/2025-05-14 패치를 우선한다.",
+        "order_no": 5
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "carrack-advance.summary",
+        "entity_type": "content",
+        "entity_seed_key": "carrack-advance",
+        "claim_key": "summary",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "에페리아 무역선에서 증축하는 물물교환 특화 중범선. +10 무역선 파란 장비 4종과 점진 전용 본체 재료가 필요하다."
+      },
+      {
+        "seed_key": "carrack-advance.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "carrack-advance",
+        "claim_key": "purpose",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "적재량이 높은 중범선 점진을 제작하고 물물교환·대양 콘텐츠의 운용 기반을 완성한다."
+      },
+      {
+        "seed_key": "carrack-advance.requirement.starting-ship",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "carrack-advance.starting-ship",
+        "claim_key": "description",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "무역선에서 점진으로 증축"
+      },
+      {
+        "seed_key": "carrack-advance.evidence.requirement.blue-gear-plus10",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "carrack-advance.requirement.blue-gear-plus10",
+        "claim_key": "description",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진에 +10 무역선 파란 장비 4종 필요"
+      },
+      {
+        "seed_key": "carrack-advance.evidence.requirement.body-materials",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "carrack-advance.requirement.body-materials",
+        "claim_key": "structured_value",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진 본체 재료 수량"
+      },
+      {
+        "seed_key": "carrack-advance.step.confirm-path",
+        "entity_type": "content_step",
+        "entity_seed_key": "carrack-advance.confirm-upgrade-path",
+        "claim_key": "description",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "무역선에서 점진으로 이어지는 증축 경로"
+      },
+      {
+        "seed_key": "carrack-advance.evidence.step.prepare-green-gear",
+        "entity_type": "content_step",
+        "entity_seed_key": "carrack-advance.step.prepare-green-gear",
+        "claim_key": "description",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "파란 장비 제작 전 +10 녹색 장비 준비"
+      },
+      {
+        "seed_key": "carrack-advance.evidence.step.craft-blue-gear",
+        "entity_type": "content_step",
+        "entity_seed_key": "carrack-advance.step.craft-blue-gear",
+        "claim_key": "description",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "에페리아 1-4번지 2층 공방 4단계 제작"
+      },
+      {
+        "seed_key": "carrack-advance.evidence.step.enhance-blue-gear",
+        "entity_type": "content_step",
+        "entity_seed_key": "carrack-advance.step.enhance-blue-gear",
+        "claim_key": "description",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "파란 장비 +10 강화"
+      },
+      {
+        "seed_key": "carrack-advance.evidence.step.collect-body-materials",
+        "entity_type": "content_step",
+        "entity_seed_key": "carrack-advance.step.collect-body-materials",
+        "claim_key": "description",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진 본체 재료 요구량"
+      },
+      {
+        "seed_key": "carrack-advance.evidence.step.upgrade",
+        "entity_type": "content_step",
+        "entity_seed_key": "carrack-advance.step.upgrade",
+        "claim_key": "description",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "나루터지기 증축 메뉴"
+      },
+      {
+        "seed_key": "carrack-advance.section.why",
+        "entity_type": "content_section",
+        "entity_seed_key": "carrack-advance.why",
+        "claim_key": "body",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진은 높은 적재량으로 물물교환에 유리"
+      },
+      {
+        "seed_key": "carrack-advance.evidence.section.body-recipe",
+        "entity_type": "content_section",
+        "entity_seed_key": "carrack-advance.section.body-recipe",
+        "claim_key": "body",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진 본체 요구량"
+      },
+      {
+        "seed_key": "carrack-advance.evidence.section.blue-gear-recipes",
+        "entity_type": "content_section",
+        "entity_seed_key": "carrack-advance.section.blue-gear-recipes",
+        "claim_key": "body",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "무역선 파란 장비 4종 제작식"
+      },
+      {
+        "seed_key": "carrack-advance.evidence.section.blue-gear-aggregate",
+        "entity_type": "content_section",
+        "entity_seed_key": "carrack-advance.section.blue-gear-aggregate",
+        "claim_key": "body",
+        "source_ids": [
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "4종 제작식을 합산한 파란 장비 재료 총합"
+      },
+      {
+        "seed_key": "carrack-advance.evidence.section.current-acquisition-warning",
+        "entity_type": "content_section",
+        "entity_seed_key": "carrack-advance.section.current-acquisition-warning",
+        "claim_key": "body",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05",
+          "ocean-iliya-consolidation-2025-05-14"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "모험가 가이드의 일부 반복 의뢰 표기가 최신 패치와 불일치하므로 최신 패치를 우선"
+      }
+    ],
+    "subcategory": "ship_upgrade",
+    "rewards": [],
+    "schedules": [],
+    "checklists": [],
+    "relations": []
+  },
+  {
+    "slug": "ocean-iliya-daily-barter",
+    "name_ko": "[물물교환][일일] 활기찬 일리야 섬",
+    "category": "ocean_project",
+    "subcategory": "barter_daily",
+    "summary": "물물교환 15회를 진행하는 일리야 섬 통합 일일 의뢰. 2025-05-14부터 기존 I~III가 하나로 통합되었다.",
+    "purpose": "무역선 파란 장비 제작 재료와 까마귀 주화를 매일 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "ocean-iliya-daily-barter.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "일리야 섬 주민 NPC / 통합 의뢰",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "ocean-iliya-daily-barter.section.consolidation",
+        "section_type": "notes",
+        "title": "통합 이력",
+        "body_markdown": "2025-05-14 업데이트로 `[물물교환][일일] 활기찬 일리야 섬 I~III`가 삭제되고 `활기찬 일리야 섬` 하나로 통합되었다. 목표는 물물교환 15회이며 통합 전 전체 보상과 동일하다.",
+        "order_no": 1
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "ocean-iliya-daily-barter.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "물물교환 15회 진행",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "ocean-iliya-daily-barter.reward.pure-pearl",
+        "name": "순수한 진주 결정",
+        "reward_type": "quest_reward",
+        "amount": 2,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.reward.deep-memory-glue",
+        "name": "심해의 기억이 담긴 아교",
+        "reward_type": "quest_reward",
+        "amount": 8,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 2
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.reward.pure-reef",
+        "name": "순수한 암초 조각",
+        "reward_type": "quest_reward",
+        "amount": 8,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 3
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.reward.enhanced-plywood",
+        "name": "강화된 섬나무 증착합판",
+        "reward_type": "quest_reward",
+        "amount": 10,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 4
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.reward.parley-expert",
+        "name": "콕스해적단의 유물(협상 상급)",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 5
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.reward.crow-coins",
+        "name": "까마귀 주화",
+        "reward_type": "quest_reward",
+        "amount": 50,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 6
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "ocean-iliya-daily-barter.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "daily",
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "일일 의뢰: 매일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "ocean-iliya-daily-barter.checklist.daily",
+        "name": "[물물교환][일일] 활기찬 일리야 섬 완료",
+        "recurrence_scope": "daily",
+        "period_rule_seed_key": "ocean-iliya-daily-barter.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "ocean-iliya-daily-barter.checklist.daily.complete",
+            "order_no": 1,
+            "label": "[물물교환][일일] 활기찬 일리야 섬 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "ocean-iliya-daily-barter.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "ocean-iliya-daily-barter",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-iliya-consolidation-2025-05-14",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "물물교환 15회를 진행하는 일리야 섬 통합 일일 의뢰. 2025-05-14부터 기존 I~III가 하나로 통합되었다."
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "ocean-iliya-daily-barter",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-iliya-consolidation-2025-05-14",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "무역선 파란 장비 제작 재료와 까마귀 주화를 매일 확보한다."
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "ocean-iliya-daily-barter.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-iliya-consolidation-2025-05-14",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 일리야 섬 주민 NPC / 통합 의뢰"
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "ocean-iliya-daily-barter.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-iliya-consolidation-2025-05-14",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "물물교환 15회 진행"
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.reward.pure-pearl",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-iliya-daily-barter.reward.pure-pearl",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-iliya-consolidation-2025-05-14",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 순수한 진주 결정"
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.reward.deep-memory-glue",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-iliya-daily-barter.reward.deep-memory-glue",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-iliya-consolidation-2025-05-14",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 심해의 기억이 담긴 아교"
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.reward.pure-reef",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-iliya-daily-barter.reward.pure-reef",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-iliya-consolidation-2025-05-14",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 순수한 암초 조각"
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.reward.enhanced-plywood",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-iliya-daily-barter.reward.enhanced-plywood",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-iliya-consolidation-2025-05-14",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 강화된 섬나무 증착합판"
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.reward.parley-expert",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-iliya-daily-barter.reward.parley-expert",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-iliya-consolidation-2025-05-14",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 콕스해적단의 유물(협상 상급)"
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.reward.crow-coins",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-iliya-daily-barter.reward.crow-coins",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-iliya-consolidation-2025-05-14",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 까마귀 주화"
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.section.consolidation",
+        "entity_type": "content_section",
+        "entity_seed_key": "ocean-iliya-daily-barter.section.consolidation",
+        "claim_key": "body",
+        "source_ids": [
+          "ocean-iliya-consolidation-2025-05-14",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "통합 이력"
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "ocean-iliya-daily-barter.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일일 의뢰: 매일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "ocean-iliya-daily-barter.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "ocean-iliya-daily-barter.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-iliya-consolidation-2025-05-14",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "ocean-supply-transport-oquilla",
+    "name_ko": "[일일] 보급물자 운송 (오킬루아의 눈)",
+    "category": "ocean_project",
+    "subcategory": "sailing_daily",
+    "summary": "일리야 섬 다리오에게서 받아 오킬루아의 눈 라비켈에게 보급물자를 180분 안에 전달하는 일일 의뢰.",
+    "purpose": "콕스해적단의 유물(협상 하급)과 까마귀 주화를 매일 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "ocean-supply-transport-oquilla.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "일리야 섬 다리오",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "ocean-supply-transport-oquilla.section.time-limit",
+        "section_type": "preparation",
+        "title": "제한 시간",
+        "body_markdown": "2025-02-05 업데이트에서 제한 시간이 60분에서 180분으로 늘어났다.",
+        "order_no": 1
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "ocean-supply-transport-oquilla.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "일리야 섬 다리오의 보급물자를 오킬루아의 눈 라비켈에게 180분 이내 전달",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "ocean-supply-transport-oquilla.reward.parley-beginner",
+        "name": "콕스해적단의 유물(협상 하급)",
+        "reward_type": "quest_reward",
+        "amount": 2,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "ocean-supply-transport-oquilla.reward.crow-coins",
+        "name": "까마귀 주화",
+        "reward_type": "quest_reward",
+        "amount": 100,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 2
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "ocean-supply-transport-oquilla.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "daily",
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "일일 의뢰: 매일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "ocean-supply-transport-oquilla.checklist.daily",
+        "name": "[일일] 보급물자 운송 (오킬루아의 눈) 완료",
+        "recurrence_scope": "daily",
+        "period_rule_seed_key": "ocean-supply-transport-oquilla.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "ocean-supply-transport-oquilla.checklist.daily.complete",
+            "order_no": 1,
+            "label": "[일일] 보급물자 운송 (오킬루아의 눈) 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "ocean-supply-transport-oquilla.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "ocean-supply-transport-oquilla.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "ocean-supply-transport-oquilla",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일리야 섬 다리오에게서 받아 오킬루아의 눈 라비켈에게 보급물자를 180분 안에 전달하는 일일 의뢰."
+      },
+      {
+        "seed_key": "ocean-supply-transport-oquilla.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "ocean-supply-transport-oquilla",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "콕스해적단의 유물(협상 하급)과 까마귀 주화를 매일 확보한다."
+      },
+      {
+        "seed_key": "ocean-supply-transport-oquilla.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "ocean-supply-transport-oquilla.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 일리야 섬 다리오"
+      },
+      {
+        "seed_key": "ocean-supply-transport-oquilla.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "ocean-supply-transport-oquilla.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일리야 섬 다리오의 보급물자를 오킬루아의 눈 라비켈에게 180분 이내 전달"
+      },
+      {
+        "seed_key": "ocean-supply-transport-oquilla.evidence.reward.parley-beginner",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-supply-transport-oquilla.reward.parley-beginner",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 콕스해적단의 유물(협상 하급)"
+      },
+      {
+        "seed_key": "ocean-supply-transport-oquilla.evidence.reward.crow-coins",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-supply-transport-oquilla.reward.crow-coins",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 까마귀 주화"
+      },
+      {
+        "seed_key": "ocean-supply-transport-oquilla.evidence.section.time-limit",
+        "entity_type": "content_section",
+        "entity_seed_key": "ocean-supply-transport-oquilla.section.time-limit",
+        "claim_key": "body",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "제한 시간"
+      },
+      {
+        "seed_key": "ocean-supply-transport-oquilla.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "ocean-supply-transport-oquilla.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일일 의뢰: 매일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "ocean-supply-transport-oquilla.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "ocean-supply-transport-oquilla.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-daily-guild-charity",
+    "name_ko": "[일일] 길드는 자선단체가 아니다",
+    "category": "ocean_project",
+    "subcategory": "sailing_daily",
+    "summary": "어린 해왕류 2마리를 쫓아내고 점진 파란 장비 재료 선택 보상을 받는 오킬루아 일일 의뢰.",
+    "purpose": "메이나 함포 제작에 필요한 파도빛이 감도는 규격 각목을 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-daily-guild-charity.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 셰르엄 리키 인근 병사",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [],
+    "steps": [
+      {
+        "seed_key": "oquilla-daily-guild-charity.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "어린 해왕류 2마리 쫓아내기",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-daily-guild-charity.reward.oquilla-coin",
+        "name": "오킬루아 기념 주화",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "oquilla-daily-guild-charity.reward.wave-timber",
+        "name": "파도빛이 감도는 규격 각목",
+        "reward_type": "quest_reward",
+        "amount": 5,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-daily-guild-charity.choice-1",
+        "recommendation": "중범선 : 점진 제작 중이라면 파도빛이 감도는 규격 각목 5개를 우선 추천한다.",
+        "notes": null,
+        "order_no": 2
+      },
+      {
+        "seed_key": "oquilla-daily-guild-charity.reward.violent-plywood",
+        "name": "난폭한 파도가 새겨진 합판",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-daily-guild-charity.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 3
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-daily-guild-charity.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "daily",
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "일일 의뢰: 매일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-daily-guild-charity.checklist.daily",
+        "name": "[일일] 길드는 자선단체가 아니다 완료",
+        "recurrence_scope": "daily",
+        "period_rule_seed_key": "oquilla-daily-guild-charity.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-daily-guild-charity.checklist.daily.complete",
+            "order_no": 1,
+            "label": "[일일] 길드는 자선단체가 아니다 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "oquilla-daily-guild-charity.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "oquilla-daily-guild-charity.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-guild-charity",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "어린 해왕류 2마리를 쫓아내고 점진 파란 장비 재료 선택 보상을 받는 오킬루아 일일 의뢰."
+      },
+      {
+        "seed_key": "oquilla-daily-guild-charity.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-guild-charity",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "메이나 함포 제작에 필요한 파도빛이 감도는 규격 각목을 확보한다."
+      },
+      {
+        "seed_key": "oquilla-daily-guild-charity.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-daily-guild-charity.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 셰르엄 리키 인근 병사"
+      },
+      {
+        "seed_key": "oquilla-daily-guild-charity.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-daily-guild-charity.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "어린 해왕류 2마리 쫓아내기"
+      },
+      {
+        "seed_key": "oquilla-daily-guild-charity.evidence.reward.oquilla-coin",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-guild-charity.reward.oquilla-coin",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 오킬루아 기념 주화"
+      },
+      {
+        "seed_key": "oquilla-daily-guild-charity.evidence.reward.wave-timber",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-guild-charity.reward.wave-timber",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 파도빛이 감도는 규격 각목"
+      },
+      {
+        "seed_key": "oquilla-daily-guild-charity.evidence.reward.wave-timber.recommendation",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-guild-charity.reward.wave-timber",
+        "claim_key": "recommendation",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "중범선 : 점진 제작 중이라면 파도빛이 감도는 규격 각목 5개를 우선 추천한다."
+      },
+      {
+        "seed_key": "oquilla-daily-guild-charity.evidence.reward.violent-plywood",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-guild-charity.reward.violent-plywood",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 난폭한 파도가 새겨진 합판"
+      },
+      {
+        "seed_key": "oquilla-daily-guild-charity.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-daily-guild-charity.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일일 의뢰: 매일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "oquilla-daily-guild-charity.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "oquilla-daily-guild-charity.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-daily-self-defense",
+    "name_ko": "[일일] 제 몸 하나는 스스로 지켜야",
+    "category": "ocean_project",
+    "subcategory": "sailing_daily",
+    "summary": "헤카루 1마리를 처치하고 점진 파란 장비 재료 선택 보상을 받는 오킬루아 일일 의뢰.",
+    "purpose": "개량형 장갑·메이나 함포에 총 120개 필요한 콕스해적단의 유물(전투)을 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-daily-self-defense.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 셰르엄 리키 인근 병사",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [],
+    "steps": [
+      {
+        "seed_key": "oquilla-daily-self-defense.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "헤카루 1마리 처치",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-daily-self-defense.reward.oquilla-coin",
+        "name": "오킬루아 기념 주화",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "oquilla-daily-self-defense.reward.combat-artifact",
+        "name": "콕스해적단의 유물(전투)",
+        "reward_type": "quest_reward",
+        "amount": 3,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-daily-self-defense.choice-1",
+        "recommendation": "중범선 : 점진 제작 중이라면 콕스해적단의 유물(전투) 3개를 우선 추천한다.",
+        "notes": null,
+        "order_no": 2
+      },
+      {
+        "seed_key": "oquilla-daily-self-defense.reward.refined-support",
+        "name": "정교하게 다듬어진 지지대",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-daily-self-defense.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 3
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-daily-self-defense.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "daily",
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "일일 의뢰: 매일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-daily-self-defense.checklist.daily",
+        "name": "[일일] 제 몸 하나는 스스로 지켜야 완료",
+        "recurrence_scope": "daily",
+        "period_rule_seed_key": "oquilla-daily-self-defense.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-daily-self-defense.checklist.daily.complete",
+            "order_no": 1,
+            "label": "[일일] 제 몸 하나는 스스로 지켜야 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "oquilla-daily-self-defense.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "oquilla-daily-self-defense.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-self-defense",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "헤카루 1마리를 처치하고 점진 파란 장비 재료 선택 보상을 받는 오킬루아 일일 의뢰."
+      },
+      {
+        "seed_key": "oquilla-daily-self-defense.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-self-defense",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "개량형 장갑·메이나 함포에 총 120개 필요한 콕스해적단의 유물(전투)을 확보한다."
+      },
+      {
+        "seed_key": "oquilla-daily-self-defense.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-daily-self-defense.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 셰르엄 리키 인근 병사"
+      },
+      {
+        "seed_key": "oquilla-daily-self-defense.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-daily-self-defense.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "헤카루 1마리 처치"
+      },
+      {
+        "seed_key": "oquilla-daily-self-defense.evidence.reward.oquilla-coin",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-self-defense.reward.oquilla-coin",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 오킬루아 기념 주화"
+      },
+      {
+        "seed_key": "oquilla-daily-self-defense.evidence.reward.combat-artifact",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-self-defense.reward.combat-artifact",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 콕스해적단의 유물(전투)"
+      },
+      {
+        "seed_key": "oquilla-daily-self-defense.evidence.reward.combat-artifact.recommendation",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-self-defense.reward.combat-artifact",
+        "claim_key": "recommendation",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "중범선 : 점진 제작 중이라면 콕스해적단의 유물(전투) 3개를 우선 추천한다."
+      },
+      {
+        "seed_key": "oquilla-daily-self-defense.evidence.reward.refined-support",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-self-defense.reward.refined-support",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 정교하게 다듬어진 지지대"
+      },
+      {
+        "seed_key": "oquilla-daily-self-defense.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-daily-self-defense.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일일 의뢰: 매일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "oquilla-daily-self-defense.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "oquilla-daily-self-defense.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-daily-mutual-benefit",
+    "name_ko": "[일일] 너도 좋고, 나도 좋고",
+    "category": "ocean_project",
+    "subcategory": "sailing_daily",
+    "summary": "표류추적자 1마리를 처치하고 점진 본체 재료 선택 보상을 받는 오킬루아 일일 의뢰.",
+    "purpose": "점진 본체에 144개 필요한 짙은 파도빛이 감도는 규격 각목을 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 셰르엄 리키 인근 병사",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [],
+    "steps": [
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "표류추적자 1마리 처치",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.reward.oquilla-coin",
+        "name": "오킬루아 기념 주화",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.reward.dense-timber",
+        "name": "짙은 파도빛이 감도는 규격 각목",
+        "reward_type": "quest_reward",
+        "amount": 4,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-daily-mutual-benefit.choice-1",
+        "recommendation": "중범선 : 점진 제작 중이라면 짙은 파도빛이 감도는 규격 각목 4개를 우선 추천한다.",
+        "notes": null,
+        "order_no": 2
+      },
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.reward.wave-glue",
+        "name": "파도의 흔적이 담긴 접착제",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-daily-mutual-benefit.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 3
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "daily",
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "일일 의뢰: 매일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.checklist.daily",
+        "name": "[일일] 너도 좋고, 나도 좋고 완료",
+        "recurrence_scope": "daily",
+        "period_rule_seed_key": "oquilla-daily-mutual-benefit.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-daily-mutual-benefit.checklist.daily.complete",
+            "order_no": 1,
+            "label": "[일일] 너도 좋고, 나도 좋고 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-mutual-benefit",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "표류추적자 1마리를 처치하고 점진 본체 재료 선택 보상을 받는 오킬루아 일일 의뢰."
+      },
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-mutual-benefit",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진 본체에 144개 필요한 짙은 파도빛이 감도는 규격 각목을 확보한다."
+      },
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-daily-mutual-benefit.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 셰르엄 리키 인근 병사"
+      },
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-daily-mutual-benefit.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "표류추적자 1마리 처치"
+      },
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.evidence.reward.oquilla-coin",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-mutual-benefit.reward.oquilla-coin",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 오킬루아 기념 주화"
+      },
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.evidence.reward.dense-timber",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-mutual-benefit.reward.dense-timber",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 짙은 파도빛이 감도는 규격 각목"
+      },
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.evidence.reward.dense-timber.recommendation",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-mutual-benefit.reward.dense-timber",
+        "claim_key": "recommendation",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "중범선 : 점진 제작 중이라면 짙은 파도빛이 감도는 규격 각목 4개를 우선 추천한다."
+      },
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.evidence.reward.wave-glue",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-mutual-benefit.reward.wave-glue",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 파도의 흔적이 담긴 접착제"
+      },
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-daily-mutual-benefit.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일일 의뢰: 매일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "oquilla-daily-mutual-benefit.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "oquilla-daily-mutual-benefit.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-daily-young-sea-monster-hunter",
+    "name_ko": "[일일] 그믐달 어린 해왕류 사냥꾼",
+    "category": "ocean_project",
+    "subcategory": "sailing_daily",
+    "summary": "어린 해왕류 5마리를 처치해 점진에 직접 쓰이는 달의 비늘 합판·아마포·심해의 눈물을 한 번에 받는 핵심 일일 의뢰.",
+    "purpose": "점진 파란 장비와 본체 재료를 매일 직접 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 라비켈",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.section.mutual-exclusion",
+        "section_type": "common_mistakes",
+        "title": "성체 일일 3종과 상호 배타",
+        "body_markdown": "이 의뢰를 수주 또는 완료한 상태에서는 `[일일] 그믐달 길드의 칸디둠/나인샤크/검은무쇠이빨 사냥꾼`을 수주할 수 없다. 반대로 성체 일일 3종 중 하나를 수주·완료한 상태에서도 이 의뢰를 수주할 수 없다.",
+        "order_no": 1
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "어린 해왕류 5마리 처치",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.reward.moon-plywood",
+        "name": "달의 비늘이 새겨진 합판",
+        "reward_type": "quest_reward",
+        "amount": 10,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.reward.moon-flax",
+        "name": "달의 핏줄이 새겨진 아마포",
+        "reward_type": "quest_reward",
+        "amount": 3,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 2
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.reward.tear-ocean",
+        "name": "심해의 눈물",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 3
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.reward.oquilla-coin",
+        "name": "오킬루아 기념 주화",
+        "reward_type": "quest_reward",
+        "amount": 3,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 4
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "daily",
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "일일 의뢰: 매일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.checklist.daily",
+        "name": "[일일] 그믐달 어린 해왕류 사냥꾼 완료",
+        "recurrence_scope": "daily",
+        "period_rule_seed_key": "oquilla-daily-young-sea-monster-hunter.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-daily-young-sea-monster-hunter.checklist.daily.complete",
+            "order_no": 1,
+            "label": "[일일] 그믐달 어린 해왕류 사냥꾼 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-young-sea-monster-hunter",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "어린 해왕류 5마리를 처치해 점진에 직접 쓰이는 달의 비늘 합판·아마포·심해의 눈물을 한 번에 받는 핵심 일일 의뢰."
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-young-sea-monster-hunter",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진 파란 장비와 본체 재료를 매일 직접 확보한다."
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-daily-young-sea-monster-hunter.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 라비켈"
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-daily-young-sea-monster-hunter.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "어린 해왕류 5마리 처치"
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.evidence.reward.moon-plywood",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-young-sea-monster-hunter.reward.moon-plywood",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 달의 비늘이 새겨진 합판"
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.evidence.reward.moon-flax",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-young-sea-monster-hunter.reward.moon-flax",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 달의 핏줄이 새겨진 아마포"
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.evidence.reward.tear-ocean",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-young-sea-monster-hunter.reward.tear-ocean",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 심해의 눈물"
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.evidence.reward.oquilla-coin",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-young-sea-monster-hunter.reward.oquilla-coin",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 오킬루아 기념 주화"
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.evidence.section.mutual-exclusion",
+        "entity_type": "content_section",
+        "entity_seed_key": "oquilla-daily-young-sea-monster-hunter.section.mutual-exclusion",
+        "claim_key": "body",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "성체 일일 3종과 상호 배타"
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-daily-young-sea-monster-hunter.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일일 의뢰: 매일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "oquilla-daily-young-sea-monster-hunter.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "oquilla-daily-young-sea-monster-hunter.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-daily-candidum-hunter",
+    "name_ko": "[일일] 그믐달 길드의 칸디둠 사냥꾼",
+    "category": "ocean_project",
+    "subcategory": "sailing_daily",
+    "summary": "칸디둠 1마리 처치 후 까마귀 주화와 선박 장비 관련 선택 보상을 받는 성체 해왕류 일일 의뢰.",
+    "purpose": "중범선 이후 선박 장비 재료 또는 강화 재료를 확보하는 대안 일일 의뢰.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 라비켈",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.section.mutual-exclusion",
+        "section_type": "common_mistakes",
+        "title": "어린 해왕류 일일과 상호 배타",
+        "body_markdown": "`[일일] 그믐달 어린 해왕류 사냥꾼`을 수주 또는 완료했다면 성체 일일 3종을 수주할 수 없다. 점진 본체·파란 장비 재료가 목표라면 두 계열의 보상을 비교하고 선택한다.",
+        "order_no": 1
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "칸디둠 1마리 처치",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.reward.oquilla-coin",
+        "name": "오킬루아 기념 주화",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.reward.crow-coins",
+        "name": "까마귀 주화",
+        "reward_type": "quest_reward",
+        "amount": 100,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 2
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.reward.wave-black-stone",
+        "name": "파도의 블랙스톤",
+        "reward_type": "quest_reward",
+        "amount": 14,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-daily-candidum-hunter.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 3
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.reward.post-carrack-material",
+        "name": "난폭한 파도가 새겨진 합판",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-daily-candidum-hunter.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 4
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "daily",
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "일일 의뢰: 매일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.checklist.daily",
+        "name": "[일일] 그믐달 길드의 칸디둠 사냥꾼 완료",
+        "recurrence_scope": "daily",
+        "period_rule_seed_key": "oquilla-daily-candidum-hunter.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-daily-candidum-hunter.checklist.daily.complete",
+            "order_no": 1,
+            "label": "[일일] 그믐달 길드의 칸디둠 사냥꾼 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-candidum-hunter",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "칸디둠 1마리 처치 후 까마귀 주화와 선박 장비 관련 선택 보상을 받는 성체 해왕류 일일 의뢰."
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-candidum-hunter",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "중범선 이후 선박 장비 재료 또는 강화 재료를 확보하는 대안 일일 의뢰."
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-daily-candidum-hunter.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 라비켈"
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-daily-candidum-hunter.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "칸디둠 1마리 처치"
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.evidence.reward.oquilla-coin",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-candidum-hunter.reward.oquilla-coin",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 오킬루아 기념 주화"
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.evidence.reward.crow-coins",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-candidum-hunter.reward.crow-coins",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 까마귀 주화"
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.evidence.reward.wave-black-stone",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-candidum-hunter.reward.wave-black-stone",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 파도의 블랙스톤"
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.evidence.reward.post-carrack-material",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-candidum-hunter.reward.post-carrack-material",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 난폭한 파도가 새겨진 합판"
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.evidence.section.mutual-exclusion",
+        "entity_type": "content_section",
+        "entity_seed_key": "oquilla-daily-candidum-hunter.section.mutual-exclusion",
+        "claim_key": "body",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "어린 해왕류 일일과 상호 배타"
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-daily-candidum-hunter.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일일 의뢰: 매일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "oquilla-daily-candidum-hunter.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "oquilla-daily-candidum-hunter.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-daily-nineshark-hunter",
+    "name_ko": "[일일] 그믐달 길드의 나인샤크 사냥꾼",
+    "category": "ocean_project",
+    "subcategory": "sailing_daily",
+    "summary": "나인샤크 1마리 처치 후 까마귀 주화와 선박 장비 관련 선택 보상을 받는 성체 해왕류 일일 의뢰.",
+    "purpose": "중범선 이후 선박 장비 재료 또는 강화 재료를 확보하는 대안 일일 의뢰.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 라비켈",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.section.mutual-exclusion",
+        "section_type": "common_mistakes",
+        "title": "어린 해왕류 일일과 상호 배타",
+        "body_markdown": "`[일일] 그믐달 어린 해왕류 사냥꾼`을 수주 또는 완료했다면 성체 일일 3종을 수주할 수 없다. 점진 본체·파란 장비 재료가 목표라면 두 계열의 보상을 비교하고 선택한다.",
+        "order_no": 1
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "나인샤크 1마리 처치",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.reward.oquilla-coin",
+        "name": "오킬루아 기념 주화",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.reward.crow-coins",
+        "name": "까마귀 주화",
+        "reward_type": "quest_reward",
+        "amount": 100,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 2
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.reward.wave-black-stone",
+        "name": "파도의 블랙스톤",
+        "reward_type": "quest_reward",
+        "amount": 14,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-daily-nineshark-hunter.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 3
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.reward.post-carrack-material",
+        "name": "정교하게 다듬어진 지지대",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-daily-nineshark-hunter.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 4
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "daily",
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "일일 의뢰: 매일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.checklist.daily",
+        "name": "[일일] 그믐달 길드의 나인샤크 사냥꾼 완료",
+        "recurrence_scope": "daily",
+        "period_rule_seed_key": "oquilla-daily-nineshark-hunter.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-daily-nineshark-hunter.checklist.daily.complete",
+            "order_no": 1,
+            "label": "[일일] 그믐달 길드의 나인샤크 사냥꾼 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-nineshark-hunter",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "나인샤크 1마리 처치 후 까마귀 주화와 선박 장비 관련 선택 보상을 받는 성체 해왕류 일일 의뢰."
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-nineshark-hunter",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "중범선 이후 선박 장비 재료 또는 강화 재료를 확보하는 대안 일일 의뢰."
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-daily-nineshark-hunter.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 라비켈"
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-daily-nineshark-hunter.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "나인샤크 1마리 처치"
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.evidence.reward.oquilla-coin",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-nineshark-hunter.reward.oquilla-coin",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 오킬루아 기념 주화"
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.evidence.reward.crow-coins",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-nineshark-hunter.reward.crow-coins",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 까마귀 주화"
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.evidence.reward.wave-black-stone",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-nineshark-hunter.reward.wave-black-stone",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 파도의 블랙스톤"
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.evidence.reward.post-carrack-material",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-nineshark-hunter.reward.post-carrack-material",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 정교하게 다듬어진 지지대"
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.evidence.section.mutual-exclusion",
+        "entity_type": "content_section",
+        "entity_seed_key": "oquilla-daily-nineshark-hunter.section.mutual-exclusion",
+        "claim_key": "body",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "어린 해왕류 일일과 상호 배타"
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-daily-nineshark-hunter.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일일 의뢰: 매일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "oquilla-daily-nineshark-hunter.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "oquilla-daily-nineshark-hunter.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-daily-black-rust-hunter",
+    "name_ko": "[일일] 그믐달 길드의 검은무쇠이빨 사냥꾼",
+    "category": "ocean_project",
+    "subcategory": "sailing_daily",
+    "summary": "검은무쇠이빨 1마리 처치 후 까마귀 주화와 선박 장비 관련 선택 보상을 받는 성체 해왕류 일일 의뢰.",
+    "purpose": "중범선 이후 선박 장비 재료 또는 강화 재료를 확보하는 대안 일일 의뢰.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 라비켈",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.section.mutual-exclusion",
+        "section_type": "common_mistakes",
+        "title": "어린 해왕류 일일과 상호 배타",
+        "body_markdown": "`[일일] 그믐달 어린 해왕류 사냥꾼`을 수주 또는 완료했다면 성체 일일 3종을 수주할 수 없다. 점진 본체·파란 장비 재료가 목표라면 두 계열의 보상을 비교하고 선택한다.",
+        "order_no": 1
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "검은무쇠이빨 1마리 처치",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.reward.oquilla-coin",
+        "name": "오킬루아 기념 주화",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.reward.crow-coins",
+        "name": "까마귀 주화",
+        "reward_type": "quest_reward",
+        "amount": 100,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 2
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.reward.wave-black-stone",
+        "name": "파도의 블랙스톤",
+        "reward_type": "quest_reward",
+        "amount": 14,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-daily-black-rust-hunter.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 3
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.reward.post-carrack-material",
+        "name": "파도의 흔적이 담긴 접착제",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-daily-black-rust-hunter.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 4
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "daily",
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "일일 의뢰: 매일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.checklist.daily",
+        "name": "[일일] 그믐달 길드의 검은무쇠이빨 사냥꾼 완료",
+        "recurrence_scope": "daily",
+        "period_rule_seed_key": "oquilla-daily-black-rust-hunter.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-daily-black-rust-hunter.checklist.daily.complete",
+            "order_no": 1,
+            "label": "[일일] 그믐달 길드의 검은무쇠이빨 사냥꾼 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-black-rust-hunter",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "검은무쇠이빨 1마리 처치 후 까마귀 주화와 선박 장비 관련 선택 보상을 받는 성체 해왕류 일일 의뢰."
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-daily-black-rust-hunter",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "중범선 이후 선박 장비 재료 또는 강화 재료를 확보하는 대안 일일 의뢰."
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-daily-black-rust-hunter.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 라비켈"
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-daily-black-rust-hunter.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "검은무쇠이빨 1마리 처치"
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.evidence.reward.oquilla-coin",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-black-rust-hunter.reward.oquilla-coin",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 오킬루아 기념 주화"
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.evidence.reward.crow-coins",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-black-rust-hunter.reward.crow-coins",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 까마귀 주화"
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.evidence.reward.wave-black-stone",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-black-rust-hunter.reward.wave-black-stone",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 파도의 블랙스톤"
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.evidence.reward.post-carrack-material",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-daily-black-rust-hunter.reward.post-carrack-material",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 파도의 흔적이 담긴 접착제"
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.evidence.section.mutual-exclusion",
+        "entity_type": "content_section",
+        "entity_seed_key": "oquilla-daily-black-rust-hunter.section.mutual-exclusion",
+        "claim_key": "body",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "어린 해왕류 일일과 상호 배타"
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-daily-black-rust-hunter.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일일 의뢰: 매일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "oquilla-daily-black-rust-hunter.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "oquilla-daily-black-rust-hunter.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05",
+          "ocean-barter-rework-2024-03-27"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-weekly-candidum-hunter",
+    "name_ko": "[주간] 그믐달 길드의 칸디둠 사냥꾼",
+    "category": "ocean_project",
+    "subcategory": "sailing_weekly",
+    "summary": "칸디둠 1마리를 처치해 까마귀 주화 500과 선택 보상을 받는 오킬루아 주간 의뢰.",
+    "purpose": "흑룡 선수상·비층 바람 돛에 필요한 홍조빛 해저단괴를 효율적으로 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 라비켈",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [],
+    "steps": [
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "칸디둠 1마리 처치",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.reward.crow-coins",
+        "name": "까마귀 주화",
+        "reward_type": "quest_reward",
+        "amount": 500,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.reward.wave-black-stone",
+        "name": "파도의 블랙스톤",
+        "reward_type": "quest_reward",
+        "amount": 60,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-weekly-candidum-hunter.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 2
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.reward.red-lump",
+        "name": "홍조빛 해저단괴",
+        "reward_type": "quest_reward",
+        "amount": 4,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-weekly-candidum-hunter.choice-1",
+        "recommendation": "중범선 : 점진 제작 중이라면 홍조빛 해저단괴 4개를 우선 추천한다.",
+        "notes": null,
+        "order_no": 3
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.reward.violent-plywood",
+        "name": "난폭한 파도가 새겨진 합판",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-weekly-candidum-hunter.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 4
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "weekly",
+        "weekday": 3,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.checklist.weekly",
+        "name": "[주간] 그믐달 길드의 칸디둠 사냥꾼 완료",
+        "recurrence_scope": "weekly",
+        "period_rule_seed_key": "oquilla-weekly-candidum-hunter.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-weekly-candidum-hunter.checklist.weekly.complete",
+            "order_no": 1,
+            "label": "[주간] 그믐달 길드의 칸디둠 사냥꾼 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-weekly-candidum-hunter",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "칸디둠 1마리를 처치해 까마귀 주화 500과 선택 보상을 받는 오킬루아 주간 의뢰."
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-weekly-candidum-hunter",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "흑룡 선수상·비층 바람 돛에 필요한 홍조빛 해저단괴를 효율적으로 확보한다."
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-weekly-candidum-hunter.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 라비켈"
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-weekly-candidum-hunter.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "칸디둠 1마리 처치"
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.evidence.reward.crow-coins",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-candidum-hunter.reward.crow-coins",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 까마귀 주화"
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.evidence.reward.wave-black-stone",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-candidum-hunter.reward.wave-black-stone",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 파도의 블랙스톤"
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.evidence.reward.red-lump",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-candidum-hunter.reward.red-lump",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 홍조빛 해저단괴"
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.evidence.reward.red-lump.recommendation",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-candidum-hunter.reward.red-lump",
+        "claim_key": "recommendation",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "중범선 : 점진 제작 중이라면 홍조빛 해저단괴 4개를 우선 추천한다."
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.evidence.reward.violent-plywood",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-candidum-hunter.reward.violent-plywood",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 난폭한 파도가 새겨진 합판"
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-weekly-candidum-hunter.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "oquilla-weekly-candidum-hunter.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "oquilla-weekly-candidum-hunter.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-weekly-nineshark-hunter",
+    "name_ko": "[주간] 그믐달 길드의 나인샤크 사냥꾼",
+    "category": "ocean_project",
+    "subcategory": "sailing_weekly",
+    "summary": "나인샤크 1마리를 처치해 까마귀 주화 500과 선택 보상을 받는 오킬루아 주간 의뢰.",
+    "purpose": "점진 본체에 필요한 심해의 눈물을 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 라비켈",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [],
+    "steps": [
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "나인샤크 1마리 처치",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.reward.crow-coins",
+        "name": "까마귀 주화",
+        "reward_type": "quest_reward",
+        "amount": 500,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.reward.wave-black-stone",
+        "name": "파도의 블랙스톤",
+        "reward_type": "quest_reward",
+        "amount": 60,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-weekly-nineshark-hunter.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 2
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.reward.tear-ocean",
+        "name": "심해의 눈물",
+        "reward_type": "quest_reward",
+        "amount": 2,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-weekly-nineshark-hunter.choice-1",
+        "recommendation": "중범선 : 점진 제작 중이라면 심해의 눈물 2개를 우선 추천한다.",
+        "notes": null,
+        "order_no": 3
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.reward.refined-support",
+        "name": "정교하게 다듬어진 지지대",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-weekly-nineshark-hunter.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 4
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "weekly",
+        "weekday": 3,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.checklist.weekly",
+        "name": "[주간] 그믐달 길드의 나인샤크 사냥꾼 완료",
+        "recurrence_scope": "weekly",
+        "period_rule_seed_key": "oquilla-weekly-nineshark-hunter.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-weekly-nineshark-hunter.checklist.weekly.complete",
+            "order_no": 1,
+            "label": "[주간] 그믐달 길드의 나인샤크 사냥꾼 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-weekly-nineshark-hunter",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "나인샤크 1마리를 처치해 까마귀 주화 500과 선택 보상을 받는 오킬루아 주간 의뢰."
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-weekly-nineshark-hunter",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진 본체에 필요한 심해의 눈물을 확보한다."
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-weekly-nineshark-hunter.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 라비켈"
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-weekly-nineshark-hunter.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "나인샤크 1마리 처치"
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.evidence.reward.crow-coins",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-nineshark-hunter.reward.crow-coins",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 까마귀 주화"
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.evidence.reward.wave-black-stone",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-nineshark-hunter.reward.wave-black-stone",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 파도의 블랙스톤"
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.evidence.reward.tear-ocean",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-nineshark-hunter.reward.tear-ocean",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 심해의 눈물"
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.evidence.reward.tear-ocean.recommendation",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-nineshark-hunter.reward.tear-ocean",
+        "claim_key": "recommendation",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "중범선 : 점진 제작 중이라면 심해의 눈물 2개를 우선 추천한다."
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.evidence.reward.refined-support",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-nineshark-hunter.reward.refined-support",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 정교하게 다듬어진 지지대"
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-weekly-nineshark-hunter.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "oquilla-weekly-nineshark-hunter.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "oquilla-weekly-nineshark-hunter.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-weekly-black-rust-hunter",
+    "name_ko": "[주간] 그믐달 길드의 검은무쇠이빨 사냥꾼",
+    "category": "ocean_project",
+    "subcategory": "sailing_weekly",
+    "summary": "검은무쇠이빨 1마리를 처치해 까마귀 주화 500과 선택 보상을 받는 오킬루아 주간 의뢰.",
+    "purpose": "개량형 장갑·메이나 함포에 필요한 콕스해적단의 유물(전투)을 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 라비켈",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.section.target-name",
+        "section_type": "common_mistakes",
+        "title": "의뢰 목표 이름 확인",
+        "body_markdown": "현재 공식 완료 조건은 `검은무쇠이빨 1마리 처치`다. 이름이 비슷한 다른 군락지 몬스터를 찾아다니지 말고 의뢰 길안내와 목표 표기를 확인한다.",
+        "order_no": 1
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "의뢰 목표에 표시되는 검은무쇠이빨 1마리 처치",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.reward.crow-coins",
+        "name": "까마귀 주화",
+        "reward_type": "quest_reward",
+        "amount": 500,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.reward.wave-black-stone",
+        "name": "파도의 블랙스톤",
+        "reward_type": "quest_reward",
+        "amount": 60,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-weekly-black-rust-hunter.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 2
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.reward.combat-artifact",
+        "name": "콕스해적단의 유물(전투)",
+        "reward_type": "quest_reward",
+        "amount": 6,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-weekly-black-rust-hunter.choice-1",
+        "recommendation": "중범선 : 점진 제작 중이라면 콕스해적단의 유물(전투) 6개를 우선 추천한다.",
+        "notes": null,
+        "order_no": 3
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.reward.wave-glue",
+        "name": "파도의 흔적이 담긴 접착제",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "oquilla-weekly-black-rust-hunter.choice-1",
+        "recommendation": null,
+        "notes": null,
+        "order_no": 4
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "weekly",
+        "weekday": 3,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.checklist.weekly",
+        "name": "[주간] 그믐달 길드의 검은무쇠이빨 사냥꾼 완료",
+        "recurrence_scope": "weekly",
+        "period_rule_seed_key": "oquilla-weekly-black-rust-hunter.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-weekly-black-rust-hunter.checklist.weekly.complete",
+            "order_no": 1,
+            "label": "[주간] 그믐달 길드의 검은무쇠이빨 사냥꾼 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-weekly-black-rust-hunter",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "검은무쇠이빨 1마리를 처치해 까마귀 주화 500과 선택 보상을 받는 오킬루아 주간 의뢰."
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-weekly-black-rust-hunter",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "개량형 장갑·메이나 함포에 필요한 콕스해적단의 유물(전투)을 확보한다."
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-weekly-black-rust-hunter.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 라비켈"
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-weekly-black-rust-hunter.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "의뢰 목표에 표시되는 검은무쇠이빨 1마리 처치"
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.evidence.reward.crow-coins",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-black-rust-hunter.reward.crow-coins",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 까마귀 주화"
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.evidence.reward.wave-black-stone",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-black-rust-hunter.reward.wave-black-stone",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 파도의 블랙스톤"
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.evidence.reward.combat-artifact",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-black-rust-hunter.reward.combat-artifact",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 콕스해적단의 유물(전투)"
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.evidence.reward.combat-artifact.recommendation",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-black-rust-hunter.reward.combat-artifact",
+        "claim_key": "recommendation",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05",
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "중범선 : 점진 제작 중이라면 콕스해적단의 유물(전투) 6개를 우선 추천한다."
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.evidence.reward.wave-glue",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-black-rust-hunter.reward.wave-glue",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 파도의 흔적이 담긴 접착제"
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.evidence.section.target-name",
+        "entity_type": "content_section",
+        "entity_seed_key": "oquilla-weekly-black-rust-hunter.section.target-name",
+        "claim_key": "body",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "의뢰 목표 이름 확인"
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-weekly-black-rust-hunter.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "oquilla-weekly-black-rust-hunter.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "oquilla-weekly-black-rust-hunter.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-weekly-population-report",
+    "name_ko": "[주간] 개체수 증가 보고",
+    "category": "ocean_project",
+    "subcategory": "sailing_weekly",
+    "summary": "어린 해왕류 20마리를 처치해 콕스해적단의 유물(전투) 2개를 받는 주간 의뢰.",
+    "purpose": "점진 파란 장비에 총 120개 필요한 전투 유물을 추가 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-weekly-population-report.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 셰르엄 리키 인근 병사",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [],
+    "steps": [
+      {
+        "seed_key": "oquilla-weekly-population-report.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "어린 해왕류 20마리 처치",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-weekly-population-report.reward.combat-artifact",
+        "name": "콕스해적단의 유물(전투)",
+        "reward_type": "quest_reward",
+        "amount": 2,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-weekly-population-report.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "weekly",
+        "weekday": 3,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-weekly-population-report.checklist.weekly",
+        "name": "[주간] 개체수 증가 보고 완료",
+        "recurrence_scope": "weekly",
+        "period_rule_seed_key": "oquilla-weekly-population-report.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-weekly-population-report.checklist.weekly.complete",
+            "order_no": 1,
+            "label": "[주간] 개체수 증가 보고 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "oquilla-weekly-population-report.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "oquilla-weekly-population-report.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-weekly-population-report",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "어린 해왕류 20마리를 처치해 콕스해적단의 유물(전투) 2개를 받는 주간 의뢰."
+      },
+      {
+        "seed_key": "oquilla-weekly-population-report.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-weekly-population-report",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진 파란 장비에 총 120개 필요한 전투 유물을 추가 확보한다."
+      },
+      {
+        "seed_key": "oquilla-weekly-population-report.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-weekly-population-report.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 셰르엄 리키 인근 병사"
+      },
+      {
+        "seed_key": "oquilla-weekly-population-report.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-weekly-population-report.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "어린 해왕류 20마리 처치"
+      },
+      {
+        "seed_key": "oquilla-weekly-population-report.evidence.reward.combat-artifact",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-population-report.reward.combat-artifact",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 콕스해적단의 유물(전투)"
+      },
+      {
+        "seed_key": "oquilla-weekly-population-report.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-weekly-population-report.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "oquilla-weekly-population-report.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "oquilla-weekly-population-report.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-barter-rework-2024-03-27",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-weekly-young-otters",
+    "name_ko": "[주간] 어린 해달 상인들을 위해",
+    "category": "ocean_project",
+    "subcategory": "sailing_weekly",
+    "summary": "산호조각 50개와 오색빛 산호조각 5개를 전달해 심해초 줄기 45개와 홍조빛 해저단괴 15개를 받는 주간 의뢰.",
+    "purpose": "점진 파란 장비 제작의 심해초·홍조 재료를 대량 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-weekly-young-otters.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 무역관리 카리오",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "oquilla-weekly-young-otters.section.removed-old-daily",
+        "section_type": "notes",
+        "title": "예전 일일 의뢰와 혼동 금지",
+        "body_markdown": "2025-02-05에 기존 `[일일] 어린 해달 상인들을 위해` 등 3종은 제거되고, 현재는 선착장 인근에서 주간 의뢰 형태로 제공된다.",
+        "order_no": 1
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "oquilla-weekly-young-otters.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "산호조각 50개와 오색빛 산호조각 5개 전달",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-weekly-young-otters.reward.seaweed",
+        "name": "심해초 줄기",
+        "reward_type": "quest_reward",
+        "amount": 45,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "oquilla-weekly-young-otters.reward.oquilla-coin",
+        "name": "오킬루아 기념 주화",
+        "reward_type": "quest_reward",
+        "amount": 15,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 2
+      },
+      {
+        "seed_key": "oquilla-weekly-young-otters.reward.red-lump",
+        "name": "홍조빛 해저단괴",
+        "reward_type": "quest_reward",
+        "amount": 15,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 3
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-weekly-young-otters.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "weekly",
+        "weekday": 3,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-weekly-young-otters.checklist.weekly",
+        "name": "[주간] 어린 해달 상인들을 위해 완료",
+        "recurrence_scope": "weekly",
+        "period_rule_seed_key": "oquilla-weekly-young-otters.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-weekly-young-otters.checklist.weekly.complete",
+            "order_no": 1,
+            "label": "[주간] 어린 해달 상인들을 위해 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "oquilla-weekly-young-otters.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "oquilla-weekly-young-otters.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-weekly-young-otters",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "산호조각 50개와 오색빛 산호조각 5개를 전달해 심해초 줄기 45개와 홍조빛 해저단괴 15개를 받는 주간 의뢰."
+      },
+      {
+        "seed_key": "oquilla-weekly-young-otters.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-weekly-young-otters",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진 파란 장비 제작의 심해초·홍조 재료를 대량 확보한다."
+      },
+      {
+        "seed_key": "oquilla-weekly-young-otters.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-weekly-young-otters.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 무역관리 카리오"
+      },
+      {
+        "seed_key": "oquilla-weekly-young-otters.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-weekly-young-otters.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "산호조각 50개와 오색빛 산호조각 5개 전달"
+      },
+      {
+        "seed_key": "oquilla-weekly-young-otters.evidence.reward.seaweed",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-young-otters.reward.seaweed",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 심해초 줄기"
+      },
+      {
+        "seed_key": "oquilla-weekly-young-otters.evidence.reward.oquilla-coin",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-young-otters.reward.oquilla-coin",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 오킬루아 기념 주화"
+      },
+      {
+        "seed_key": "oquilla-weekly-young-otters.evidence.reward.red-lump",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-young-otters.reward.red-lump",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 홍조빛 해저단괴"
+      },
+      {
+        "seed_key": "oquilla-weekly-young-otters.evidence.section.removed-old-daily",
+        "entity_type": "content_section",
+        "entity_seed_key": "oquilla-weekly-young-otters.section.removed-old-daily",
+        "claim_key": "body",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "예전 일일 의뢰와 혼동 금지"
+      },
+      {
+        "seed_key": "oquilla-weekly-young-otters.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-weekly-young-otters.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "oquilla-weekly-young-otters.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "oquilla-weekly-young-otters.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "oquilla-weekly-swordfish",
+    "name_ko": "[주간] 오킬루아에서 지내고 싶다고?",
+    "category": "ocean_project",
+    "subcategory": "sailing_weekly",
+    "summary": "황새치 1마리를 건네 오킬루아 기념 주화 10개를 받는 주간 의뢰.",
+    "purpose": "오킬루아 기념 주화를 추가 확보하는 선택형 주간 루틴.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "oquilla-weekly-swordfish.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "오킬루아의 눈 무역관리 카리오",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [],
+    "steps": [
+      {
+        "seed_key": "oquilla-weekly-swordfish.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "황새치 1마리 건네기",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "oquilla-weekly-swordfish.reward.oquilla-coin",
+        "name": "오킬루아 기념 주화",
+        "reward_type": "quest_reward",
+        "amount": 10,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "oquilla-weekly-swordfish.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "weekly",
+        "weekday": 3,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "oquilla-weekly-swordfish.checklist.weekly",
+        "name": "[주간] 오킬루아에서 지내고 싶다고? 완료",
+        "recurrence_scope": "weekly",
+        "period_rule_seed_key": "oquilla-weekly-swordfish.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "oquilla-weekly-swordfish.checklist.weekly.complete",
+            "order_no": 1,
+            "label": "[주간] 오킬루아에서 지내고 싶다고? 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [],
+    "evidence": [
+      {
+        "seed_key": "oquilla-weekly-swordfish.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-weekly-swordfish",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "황새치 1마리를 건네 오킬루아 기념 주화 10개를 받는 주간 의뢰."
+      },
+      {
+        "seed_key": "oquilla-weekly-swordfish.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "oquilla-weekly-swordfish",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "오킬루아 기념 주화를 추가 확보하는 선택형 주간 루틴."
+      },
+      {
+        "seed_key": "oquilla-weekly-swordfish.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "oquilla-weekly-swordfish.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 오킬루아의 눈 무역관리 카리오"
+      },
+      {
+        "seed_key": "oquilla-weekly-swordfish.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "oquilla-weekly-swordfish.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "황새치 1마리 건네기"
+      },
+      {
+        "seed_key": "oquilla-weekly-swordfish.evidence.reward.oquilla-coin",
+        "entity_type": "reward",
+        "entity_seed_key": "oquilla-weekly-swordfish.reward.oquilla-coin",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 오킬루아 기념 주화"
+      },
+      {
+        "seed_key": "oquilla-weekly-swordfish.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "oquilla-weekly-swordfish.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      }
+    ]
+  },
+  {
+    "slug": "iliya-weekly-barter",
+    "name_ko": "[물물교환][주간] 교역의 중심 일리야 섬",
+    "category": "ocean_project",
+    "subcategory": "barter_weekly",
+    "summary": "물물교환 100회를 진행해 까마귀 주화 200과 수수께끼 물물교환 지원품 상자 3개를 받는 일리야 주간 의뢰.",
+    "purpose": "물물교환을 진행하면서 주간 보상과 까마귀 주화를 추가 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "iliya-weekly-barter.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "일리야 섬 물물교환원 프리코",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [],
+    "steps": [
+      {
+        "seed_key": "iliya-weekly-barter.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "물물교환 100회 진행",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "iliya-weekly-barter.reward.crow-coins",
+        "name": "까마귀 주화",
+        "reward_type": "quest_reward",
+        "amount": 200,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      },
+      {
+        "seed_key": "iliya-weekly-barter.reward.mystery-support-box",
+        "name": "수수께끼 물물교환 지원품 상자",
+        "reward_type": "quest_reward",
+        "amount": 3,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 2
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "iliya-weekly-barter.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "weekly",
+        "weekday": 3,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": null,
+        "effective_to": null,
+        "notes": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "iliya-weekly-barter.checklist.weekly",
+        "name": "[물물교환][주간] 교역의 중심 일리야 섬 완료",
+        "recurrence_scope": "weekly",
+        "period_rule_seed_key": "iliya-weekly-barter.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "iliya-weekly-barter.checklist.weekly.complete",
+            "order_no": 1,
+            "label": "[물물교환][주간] 교역의 중심 일리야 섬 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "iliya-weekly-barter.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "iliya-weekly-barter.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "iliya-weekly-barter",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "물물교환 100회를 진행해 까마귀 주화 200과 수수께끼 물물교환 지원품 상자 3개를 받는 일리야 주간 의뢰."
+      },
+      {
+        "seed_key": "iliya-weekly-barter.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "iliya-weekly-barter",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "물물교환을 진행하면서 주간 보상과 까마귀 주화를 추가 확보한다."
+      },
+      {
+        "seed_key": "iliya-weekly-barter.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "iliya-weekly-barter.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 일리야 섬 물물교환원 프리코"
+      },
+      {
+        "seed_key": "iliya-weekly-barter.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "iliya-weekly-barter.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "물물교환 100회 진행"
+      },
+      {
+        "seed_key": "iliya-weekly-barter.evidence.reward.crow-coins",
+        "entity_type": "reward",
+        "entity_seed_key": "iliya-weekly-barter.reward.crow-coins",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 까마귀 주화"
+      },
+      {
+        "seed_key": "iliya-weekly-barter.evidence.reward.mystery-support-box",
+        "entity_type": "reward",
+        "entity_seed_key": "iliya-weekly-barter.reward.mystery-support-box",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 수수께끼 물물교환 지원품 상자"
+      },
+      {
+        "seed_key": "iliya-weekly-barter.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "iliya-weekly-barter.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "iliya-weekly-barter.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "iliya-weekly-barter.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      }
+    ]
+  },
+  {
+    "slug": "sailing-special-pass-2026",
+    "name_ko": "항해 스페셜 패스 (2026)",
+    "category": "ocean_project",
+    "subcategory": "event_pass",
+    "summary": "물물교환 1회당 1포인트를 쌓아 최대 400포인트까지 중범선 제작 지원 보상을 받는 2026 기간제 패스.",
+    "purpose": "400회 물물교환을 진행하면서 중범선 제작 재료·까마귀 주화·파도의 블랙스톤을 대량 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [],
+    "sections": [
+      {
+        "seed_key": "sailing-special-pass-2026.section.period",
+        "section_type": "overview",
+        "title": "진행 기간",
+        "body_markdown": "판매는 2026-09-16 정기점검 전까지, 포인트 획득 및 보상 수령은 2026-09-22 정기점검 전까지 가능하다.",
+        "order_no": 1
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.section.regular-box-choices",
+        "section_type": "preparation",
+        "title": "일반 지원 선택 상자 구성",
+        "body_markdown": "중범선 증축 지원 선택 상자 1개는 두 선택 그룹에서 각각 1종을 고른다.\n\n**그룹 1**\n- 홍조빛 해저단괴 5\n- 심해초 줄기 15\n- 달의 핏줄이 새겨진 아마포 30\n- 강화된 섬나무 증착합판 30\n- 순수한 암초 조각 30\n- 달의 비늘이 새겨진 합판 80\n\n**그룹 2**\n- 파도빛이 감도는 규격 각목 25\n- 짙은 파도빛이 감도는 규격 각목 20\n- 순수한 진주 결정 7\n- 대양의 견고한 현철 15\n- 콕스해적단의 유물(협상 하급) 10\n- 콕스해적단의 유물(협상 상급) 5",
+        "order_no": 2
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.section.opening-strategy",
+        "section_type": "strategy",
+        "title": "점진 제작 중 개봉 원칙",
+        "body_markdown": "선택 상자를 먼저 전부 열지 말고, 일일·주간·재료 물물교환으로 자연 수급한 뒤 실제 부족량을 갱신한다. 그 다음 파란 무역선 장비 병목 → 점진 본체 병목 순으로 상자를 배분하고 까마귀 주화는 마지막 부족분 보충에 쓴다.",
+        "order_no": 3
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "sailing-special-pass-2026.step.activate",
+        "phase": "preparation",
+        "order_no": 1,
+        "title": "패스 활성화",
+        "description": "항해 스페셜 패스를 사용해 추가 보상을 활성화한다.",
+        "checkable": false
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.step.barter-400",
+        "phase": "repeat",
+        "order_no": 2,
+        "title": "물물교환 400회",
+        "description": "물물교환 1회마다 1포인트를 얻어 400포인트까지 진행한다.",
+        "checkable": false
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.step.claim",
+        "phase": "reward",
+        "order_no": 3,
+        "title": "구간 보상 수령",
+        "description": "달성한 누적 포인트 구간의 보상을 패스 UI에서 수령한다.",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "sailing-special-pass-2026.reward.regular-box",
+        "name": "중범선 증축 지원 선택 상자",
+        "reward_type": "event_reward",
+        "amount": 20,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": "자연 수급 후 마지막 부족 재료에 맞춰 개봉하는 것을 권장.",
+        "notes": "상자 1개당 두 선택 그룹에서 각각 1종 선택",
+        "order_no": 1
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.reward.fancy-box",
+        "name": "화려한 중범선 증축 지원 선택 상자",
+        "reward_type": "event_reward",
+        "amount": 18,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": "점진 본체 및 파란 장비 최종 부족분에 맞춰 사용.",
+        "notes": "전투 유물4 / 빛나는 코발트1 / 화려한 암염1 / 화려한 진주1 / 심해의 눈물1 중 택1",
+        "order_no": 2
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.reward.crow-coins",
+        "name": "까마귀 주화",
+        "reward_type": "event_reward",
+        "amount": 10000,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": "선택상자와 자연 수급을 먼저 계산한 뒤 남은 병목에 사용.",
+        "notes": null,
+        "order_no": 3
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.reward.wave-black-stone",
+        "name": "파도의 블랙스톤",
+        "reward_type": "event_reward",
+        "amount": 4000,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 4
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "sailing-special-pass-2026.schedule.sale-end",
+        "rule_type": "event_end",
+        "recurrence_type": "manual",
+        "timezone": "Asia/Seoul",
+        "effective_to": "2026-09-16",
+        "notes": "패스 판매: 2026-09-16 정기점검 전까지"
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.schedule.reward-end",
+        "rule_type": "event_end",
+        "recurrence_type": "manual",
+        "timezone": "Asia/Seoul",
+        "effective_to": "2026-09-22",
+        "notes": "포인트 획득 및 보상 수령: 2026-09-22 정기점검 전까지"
+      }
+    ],
+    "checklists": [],
+    "relations": [
+      {
+        "seed_key": "sailing-special-pass-2026.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "project_link",
+        "note": "중범선 제작 가속용 기간제 패스",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "sailing-special-pass-2026.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "sailing-special-pass-2026",
+        "claim_key": "summary",
+        "source_ids": [
+          "sailing-special-pass-2026",
+          "sailing-special-pass-shop-2026"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "물물교환 1회당 1포인트를 쌓아 최대 400포인트까지 중범선 제작 지원 보상을 받는 2026 기간제 패스."
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "sailing-special-pass-2026",
+        "claim_key": "purpose",
+        "source_ids": [
+          "sailing-special-pass-2026",
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "400회 물물교환을 진행하면서 중범선 제작 재료·까마귀 주화·파도의 블랙스톤을 대량 확보한다."
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.evidence.step.barter-400",
+        "entity_type": "content_step",
+        "entity_seed_key": "sailing-special-pass-2026.step.barter-400",
+        "claim_key": "description",
+        "source_ids": [
+          "sailing-special-pass-2026"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "물물교환 1회=1포인트, 400포인트 목표"
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.evidence.reward.regular-box",
+        "entity_type": "reward",
+        "entity_seed_key": "sailing-special-pass-2026.reward.regular-box",
+        "claim_key": "reward",
+        "source_ids": [
+          "sailing-special-pass-2026",
+          "sailing-special-pass-shop-2026"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일반 지원 선택 상자 총 20개"
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.evidence.reward.fancy-box",
+        "entity_type": "reward",
+        "entity_seed_key": "sailing-special-pass-2026.reward.fancy-box",
+        "claim_key": "reward",
+        "source_ids": [
+          "sailing-special-pass-2026",
+          "sailing-special-pass-shop-2026"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "화려한 지원 선택 상자 총 18개"
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.evidence.reward.crow-coins",
+        "entity_type": "reward",
+        "entity_seed_key": "sailing-special-pass-2026.reward.crow-coins",
+        "claim_key": "reward",
+        "source_ids": [
+          "sailing-special-pass-2026"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "까마귀 주화 총 10,000개"
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.evidence.reward.wave-black-stone",
+        "entity_type": "reward",
+        "entity_seed_key": "sailing-special-pass-2026.reward.wave-black-stone",
+        "claim_key": "reward",
+        "source_ids": [
+          "sailing-special-pass-2026"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "파도의 블랙스톤 총 4,000개"
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.evidence.section.regular-box",
+        "entity_type": "content_section",
+        "entity_seed_key": "sailing-special-pass-2026.section.regular-box-choices",
+        "claim_key": "body",
+        "source_ids": [
+          "sailing-special-pass-2026",
+          "sailing-special-pass-shop-2026"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "일반 지원 선택 상자 구성"
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.evidence.section.strategy",
+        "entity_type": "content_section",
+        "entity_seed_key": "sailing-special-pass-2026.section.opening-strategy",
+        "claim_key": "body",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-quest-rework-2025-02-05",
+          "sailing-special-pass-2026"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진 제작 요구량과 일/주간 수급원을 바탕으로 한 사용자 목표별 운영 추천"
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.evidence.schedule.sale-end",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "sailing-special-pass-2026.schedule.sale-end",
+        "claim_key": "schedule.event_end",
+        "source_ids": [
+          "sailing-special-pass-shop-2026",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "판매 2026-09-16 정기점검 전"
+      },
+      {
+        "seed_key": "sailing-special-pass-2026.evidence.schedule.reward-end",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "sailing-special-pass-2026.schedule.reward-end",
+        "claim_key": "schedule.event_end",
+        "source_ids": [
+          "sailing-special-pass-2026",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "포인트/보상 2026-09-22 정기점검 전"
+      }
+    ]
+  },
+  {
+    "slug": "ocean-event-frico-wish-stone-2026",
+    "name_ko": "[이벤트] 프리코의 항해 기원석 연계 의뢰",
+    "category": "ocean_project",
+    "subcategory": "event",
+    "summary": "벨리아→일리야 연계 의뢰로 프리코의 항해 기원석을 획득하는 2026 기간제 항해 이벤트.",
+    "purpose": "항해·교역 경험치와 항해 숙련도 보조 효과를 받아 이벤트 기간 물물교환과 중범선 제작을 가속한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [],
+    "sections": [
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.section.effect",
+        "section_type": "strategy",
+        "title": "기원석 효과",
+        "body_markdown": "모험가의 고서 슬롯에 장착하면 항해 경험치 획득량 +30%, 교역 경험치 획득량 +30%, 항해 숙련도 +100 효과를 받는다.",
+        "order_no": 1
+      },
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.section.extension",
+        "section_type": "notes",
+        "title": "종료일 연장 반영",
+        "body_markdown": "원 공지에는 9월 9일 종료로 안내된 구간이 있으나, 2026-09-02 현재 진행 이벤트 모아보기에서 대양 항해·교역 이벤트 종료가 9월 16일 정기점검 전으로 연장되어 있어 최신 공지를 우선한다.",
+        "order_no": 2
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.step.black-spirit",
+        "phase": "first_time",
+        "order_no": 1,
+        "title": "심상치 않은 바다의 기운",
+        "description": "흑정령에게 의뢰를 받아 벨리아 선착장의 크루와에게 안내받는다.",
+        "checkable": true
+      },
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.step.frico",
+        "phase": "first_time",
+        "order_no": 2,
+        "title": "뒤숭숭한 뱃사람들의 소문",
+        "description": "벨리아 크루와의 연계 의뢰를 받아 일리야 섬 프리코에게 이동해 완료한다.",
+        "checkable": true
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.reward.wish-stone",
+        "name": "[이벤트] 프리코의 항해 기원석",
+        "reward_type": "event_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": "이벤트 기간 물물교환/항해 시 모험가의 고서 슬롯에 장착.",
+        "notes": "항해 경험치 +30%, 교역 경험치 +30%, 항해 숙련도 +100",
+        "order_no": 1
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.schedule.event-end",
+        "rule_type": "event_end",
+        "recurrence_type": "manual",
+        "timezone": "Asia/Seoul",
+        "effective_to": "2026-09-16",
+        "notes": "현재 진행 이벤트 공지 기준 2026-09-16 정기점검 전까지"
+      }
+    ],
+    "checklists": [],
+    "relations": [
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "project_link",
+        "note": "이벤트 기간 항해/교역 진행 가속",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "ocean-event-frico-wish-stone-2026",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-event-2026-08-26"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "벨리아→일리야 연계 의뢰로 프리코의 항해 기원석을 획득하는 2026 기간제 항해 이벤트."
+      },
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "ocean-event-frico-wish-stone-2026",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-event-2026-08-26"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "항해·교역 경험치와 항해 숙련도 보조 효과를 받아 이벤트 기간 물물교환과 중범선 제작을 가속한다."
+      },
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.evidence.step.black-spirit",
+        "entity_type": "content_step",
+        "entity_seed_key": "ocean-event-frico-wish-stone-2026.step.black-spirit",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-event-2026-08-26"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "1단계 이벤트 의뢰"
+      },
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.evidence.step.frico",
+        "entity_type": "content_step",
+        "entity_seed_key": "ocean-event-frico-wish-stone-2026.step.frico",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-event-2026-08-26"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "2단계 이벤트 의뢰"
+      },
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.evidence.reward.wish-stone",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-event-frico-wish-stone-2026.reward.wish-stone",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-event-2026-08-26"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "프리코의 항해 기원석 및 효과"
+      },
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.evidence.section.effect",
+        "entity_type": "content_section",
+        "entity_seed_key": "ocean-event-frico-wish-stone-2026.section.effect",
+        "claim_key": "body",
+        "source_ids": [
+          "ocean-event-2026-08-26"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "기원석 효과"
+      },
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.evidence.section.extension",
+        "entity_type": "content_section",
+        "entity_seed_key": "ocean-event-frico-wish-stone-2026.section.extension",
+        "claim_key": "body",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "9/2 최신 진행 이벤트에서 종료일 9/16로 연장 반영"
+      },
+      {
+        "seed_key": "ocean-event-frico-wish-stone-2026.evidence.schedule.event-end",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "ocean-event-frico-wish-stone-2026.schedule.event-end",
+        "claim_key": "schedule.event_end",
+        "source_ids": [
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "대양 항해·교역 이벤트 2026-09-16 정기점검 전 종료"
+      }
+    ]
+  },
+  {
+    "slug": "ocean-event-weekly-threat-2026",
+    "name_ko": "[이벤트][주간] 바닷길을 가로막는 위협",
+    "category": "ocean_project",
+    "subcategory": "event_weekly",
+    "summary": "굶주린 해왕류 3마리 처치 후 기간제 항해 이벤트 보상을 받는 주간 의뢰.",
+    "purpose": "이벤트 기간 중 중범선/선박 성장 자원을 추가 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "일리야 섬 물물교환원 프리코",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.section.prerequisite",
+        "section_type": "preparation",
+        "title": "선행 의뢰",
+        "body_markdown": "`[이벤트] 뒤숭숭한 뱃사람들의 소문` 완료 후 주간 의뢰를 진행할 수 있다.",
+        "order_no": 1
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "굶주린 해왕류 3마리 처치",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.reward.crow-coins",
+        "name": "까마귀 주화",
+        "reward_type": "quest_reward",
+        "amount": 2000,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": false,
+        "choice_group": null,
+        "recommendation": null,
+        "notes": null,
+        "order_no": 1
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "weekly",
+        "weekday": 3,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": "2026-08-27",
+        "effective_to": "2026-09-16",
+        "notes": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.schedule.event-end",
+        "rule_type": "event_end",
+        "recurrence_type": "manual",
+        "timezone": "Asia/Seoul",
+        "effective_to": "2026-09-16",
+        "notes": "2026-09-02 현재 진행 이벤트 공지 기준 9월 16일 정기점검 전 종료"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.checklist.weekly",
+        "name": "[이벤트][주간] 바닷길을 가로막는 위협 완료",
+        "recurrence_scope": "weekly",
+        "period_rule_seed_key": "ocean-event-weekly-threat-2026.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "ocean-event-weekly-threat-2026.checklist.weekly.complete",
+            "order_no": 1,
+            "label": "[이벤트][주간] 바닷길을 가로막는 위협 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "ocean-event-weekly-threat-2026",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "굶주린 해왕류 3마리 처치 후 기간제 항해 이벤트 보상을 받는 주간 의뢰."
+      },
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "ocean-event-weekly-threat-2026",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "이벤트 기간 중 중범선/선박 성장 자원을 추가 확보한다."
+      },
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "ocean-event-weekly-threat-2026.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 일리야 섬 물물교환원 프리코"
+      },
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "ocean-event-weekly-threat-2026.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "굶주린 해왕류 3마리 처치"
+      },
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.evidence.reward.crow-coins",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-event-weekly-threat-2026.reward.crow-coins",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 까마귀 주화"
+      },
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.evidence.section.prerequisite",
+        "entity_type": "content_section",
+        "entity_seed_key": "ocean-event-weekly-threat-2026.section.prerequisite",
+        "claim_key": "body",
+        "source_ids": [
+          "ocean-event-2026-08-26"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "선행 의뢰"
+      },
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "ocean-event-weekly-threat-2026.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023",
+          "ocean-event-2026-08-26"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "ocean-event-weekly-threat-2026.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      },
+      {
+        "seed_key": "ocean-event-weekly-threat-2026.evidence.schedule.event-end",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "ocean-event-weekly-threat-2026.schedule.event-end",
+        "claim_key": "schedule.event_end",
+        "source_ids": [
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "이벤트 종료 2026-09-16 정기점검 전"
+      }
+    ]
+  },
+  {
+    "slug": "ocean-event-weekly-terror-2026",
+    "name_ko": "[이벤트][주간] 바다의 질서를 위협하는 공포",
+    "category": "ocean_project",
+    "subcategory": "event_weekly",
+    "summary": "어린 해왕류 5마리 처치 후 기간제 항해 이벤트 보상을 받는 주간 의뢰.",
+    "purpose": "이벤트 기간 중 중범선/선박 성장 자원을 추가 확보한다.",
+    "party_type": null,
+    "difficulty": null,
+    "status": "active",
+    "last_verified_at": "2026-09-03",
+    "requirements": [
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.requirement.start-npc",
+        "kind": "other",
+        "title": "수주 NPC",
+        "description": "일리야 섬 물물교환원 프리코",
+        "requirement_level": "required",
+        "order_no": 1
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.section.prerequisite",
+        "section_type": "preparation",
+        "title": "선행 의뢰",
+        "body_markdown": "`[이벤트] 뒤숭숭한 뱃사람들의 소문` 완료 후 주간 의뢰를 진행할 수 있다.",
+        "order_no": 1
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.step.complete-objective",
+        "phase": "repeat",
+        "order_no": 1,
+        "title": "의뢰 목표 완료",
+        "description": "어린 해왕류 5마리 처치",
+        "checkable": false
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.reward.chiro-box",
+        "name": "[이벤트] 치로의 선박 장비 재료 상자",
+        "reward_type": "quest_reward",
+        "amount": 1,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "ocean-event-weekly-terror-2026.choice-1",
+        "recommendation": null,
+        "notes": "난폭한 파도가 새겨진 합판 30 + 정교하게 다듬어진 지지대 30 + 파도의 흔적이 담긴 접착제 30",
+        "order_no": 1
+      },
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.reward.crow-coins",
+        "name": "까마귀 주화",
+        "reward_type": "quest_reward",
+        "amount": 2000,
+        "min_amount": null,
+        "max_amount": null,
+        "unit": "개",
+        "is_choice": true,
+        "choice_group": "ocean-event-weekly-terror-2026.choice-1",
+        "recommendation": "현재 중범선 : 점진 제작을 우선한다면 까마귀 주화 2,000개를 추천한다. 치로 재료는 중범선 이후 장비 단계용이다.",
+        "notes": null,
+        "order_no": 2
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.schedule.quest-reset",
+        "rule_type": "quest_reset",
+        "recurrence_type": "weekly",
+        "weekday": 3,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "effective_from": "2026-08-27",
+        "effective_to": "2026-09-16",
+        "notes": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.schedule.event-end",
+        "rule_type": "event_end",
+        "recurrence_type": "manual",
+        "timezone": "Asia/Seoul",
+        "effective_to": "2026-09-16",
+        "notes": "2026-09-02 현재 진행 이벤트 공지 기준 9월 16일 정기점검 전 종료"
+      }
+    ],
+    "checklists": [
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.checklist.weekly",
+        "name": "[이벤트][주간] 바다의 질서를 위협하는 공포 완료",
+        "recurrence_scope": "weekly",
+        "period_rule_seed_key": "ocean-event-weekly-terror-2026.schedule.quest-reset",
+        "enabled_default": true,
+        "items": [
+          {
+            "seed_key": "ocean-event-weekly-terror-2026.checklist.weekly.complete",
+            "order_no": 1,
+            "label": "[이벤트][주간] 바다의 질서를 위협하는 공포 완료"
+          }
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.relation.carrack-advance",
+        "to_content_slug": "carrack-advance",
+        "relation_type": "source_for",
+        "note": "점진 제작/파란 무역선 장비 재료 획득과 관련",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.evidence.summary",
+        "entity_type": "content",
+        "entity_seed_key": "ocean-event-weekly-terror-2026",
+        "claim_key": "summary",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "어린 해왕류 5마리 처치 후 기간제 항해 이벤트 보상을 받는 주간 의뢰."
+      },
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.evidence.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "ocean-event-weekly-terror-2026",
+        "claim_key": "purpose",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "이벤트 기간 중 중범선/선박 성장 자원을 추가 확보한다."
+      },
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.evidence.requirement.start-npc",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "ocean-event-weekly-terror-2026.requirement.start-npc",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "수주 NPC: 일리야 섬 물물교환원 프리코"
+      },
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.evidence.step.objective",
+        "entity_type": "content_step",
+        "entity_seed_key": "ocean-event-weekly-terror-2026.step.complete-objective",
+        "claim_key": "description",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "어린 해왕류 5마리 처치"
+      },
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.evidence.reward.chiro-box",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-event-weekly-terror-2026.reward.chiro-box",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: [이벤트] 치로의 선박 장비 재료 상자"
+      },
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.evidence.reward.crow-coins",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-event-weekly-terror-2026.reward.crow-coins",
+        "claim_key": "reward",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "보상: 까마귀 주화"
+      },
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.evidence.reward.crow-coins.recommendation",
+        "entity_type": "reward",
+        "entity_seed_key": "ocean-event-weekly-terror-2026.reward.crow-coins",
+        "claim_key": "recommendation",
+        "source_ids": [
+          "ocean-event-2026-08-26",
+          "carrack-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "현재 중범선 : 점진 제작을 우선한다면 까마귀 주화 2,000개를 추천한다. 치로 재료는 중범선 이후 장비 단계용이다."
+      },
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.evidence.section.prerequisite",
+        "entity_type": "content_section",
+        "entity_seed_key": "ocean-event-weekly-terror-2026.section.prerequisite",
+        "claim_key": "body",
+        "source_ids": [
+          "ocean-event-2026-08-26"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "선행 의뢰"
+      },
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.evidence.schedule.reset",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "ocean-event-weekly-terror-2026.schedule.quest-reset",
+        "claim_key": "schedule.quest_reset",
+        "source_ids": [
+          "daily-weekly-reset-gm-2023",
+          "ocean-event-2026-08-26"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "주간 의뢰: 매주 목요일 00:00 KST 초기화"
+      },
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.evidence.relation.carrack-advance",
+        "entity_type": "content_relation",
+        "entity_seed_key": "ocean-event-weekly-terror-2026.relation.carrack-advance",
+        "claim_key": "relation",
+        "source_ids": [
+          "carrack-guide",
+          "ocean-event-2026-08-26",
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "점진/무역선 파란 장비 재료 획득처와 연결"
+      },
+      {
+        "seed_key": "ocean-event-weekly-terror-2026.evidence.schedule.event-end",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "ocean-event-weekly-terror-2026.schedule.event-end",
+        "claim_key": "schedule.event_end",
+        "source_ids": [
+          "current-events-2026-09-02"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-03",
+        "note": "이벤트 종료 2026-09-16 정기점검 전"
+      }
+    ]
+  }
+]

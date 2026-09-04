@@ -1,0 +1,23 @@
+# Tasks — Prompt Bridge V1.5
+
+- [x] Add `features/prompt-bridge` frontend module
+- [x] Add `prompt_bridge` backend module
+- [x] Define `PromptMode`
+- [x] Define `PromptContextBundle`
+- [x] Build content context collector
+- [ ] Build project context collector
+- [x] Build recurring checklist context collector
+- [ ] Build user-state collector
+- [x] Build evidence/source collector
+- [x] Separate unresolved/conflicting claims
+- [x] Add deterministic Markdown renderer
+- [ ] Add size budget/truncation policy
+- [x] Add `/api/prompt/context`
+- [x] Add `/api/prompt/render`
+- [x] Add Prompt Bridge drawer/modal
+- [ ] Add 5 prompt presets
+- [x] Add clipboard copy + fallback
+- [x] Add Markdown download
+- [x] Add tests proving no outbound network/API call
+- [ ] Add Carrack Advance golden snapshot
+- [ ] Add weekly review golden snapshot
