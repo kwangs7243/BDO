@@ -1,6 +1,6 @@
 # Tasks — first implementation milestone
 
-> V1.7D 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
+> V1.8A 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
 
 ## Milestone A: working vertical slice
 
@@ -20,9 +20,9 @@
 - [x] UI: checklist state persistence
 
 ## Milestone B: user value
-- [ ] Project/material tables
-- [ ] Migrate Carrack Advance data — 구조화된 Carrack seed는 있으나 Project/material 모델로의 이관은 미완료
-- [ ] Carrack detail with stage checklist and shortages — 일반 Content 상세는 제공하지만 재료 부족량 계산은 미구현
+- [x] Project/material tables — V1.8A backend foundation과 사용자 재고/단계 상태 분리 구현
+- [x] Migrate Carrack Advance data — 검증된 기존 Content 요구량을 `seed_projects.json`의 normalized projection으로 연결
+- [ ] Carrack detail with stage checklist and shortages — backend 조회·상태 저장·shortage 계산은 구현했으나 frontend Project 화면은 미완료
 - [x] Weekly reset groups
 - [x] Sunday payout group
 - [ ] Life hub + Gathering/Fishing/Sailing seed pages — V1.6 해양·생활 seed는 반영되었으나 전용 Life hub 화면은 미구현

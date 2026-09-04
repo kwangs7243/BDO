@@ -12,7 +12,7 @@ from app.database import Base
 
 
 @pytest.mark.parametrize("precreate_current_tables", [False, True])
-def test_v15_database_migrates_forward_without_losing_history(
+def test_database_migrates_through_project_foundation_without_losing_history(
     tmp_path, monkeypatch, precreate_current_tables
 ) -> None:
     database_path = tmp_path / "v15-forward.db"
@@ -63,6 +63,15 @@ def test_v15_database_migrates_forward_without_losing_history(
         # Alembic ran; the forward migration must preserve and complete that DB.
         Base.metadata.create_all(engine)
 
+    command.upgrade(config, "20260903_0002")
+    with engine.begin() as connection:
+        connection.execute(
+            text(
+                "INSERT INTO user_content_state "
+                "(id, content_id, state, priority, note, updated_at) "
+                "VALUES (1, 1, 'in_progress', 2, 'preserved user state', '2026-09-04 12:00:00')"
+            )
+        )
     command.upgrade(config, "head")
     inspector = inspect(engine)
     assert {
@@ -72,11 +81,25 @@ def test_v15_database_migrates_forward_without_losing_history(
         "content_section",
         "content_relation",
         "user_content_state",
+        "project",
+        "project_stage",
+        "project_stage_dependency",
+        "material",
+        "project_material",
+        "project_material_source",
+        "user_material_inventory",
+        "user_project_stage_state",
     }.issubset(set(inspector.get_table_names()))
     assert "period_rule_id" in {column["name"] for column in inspector.get_columns("checklist_template")}
     with engine.connect() as connection:
         row = connection.execute(
             text("SELECT completed, note FROM checklist_item_state WHERE id = 1")
         ).one()
+        user_state = connection.execute(
+            text("SELECT state, priority, note FROM user_content_state WHERE id = 1")
+        ).one()
     assert row.completed == 1
+    assert user_state.state == "in_progress"
+    assert user_state.priority == 2
+    assert user_state.note == "preserved user state"
     assert row.note == "보존할 기록"

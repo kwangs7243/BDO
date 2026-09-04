@@ -46,3 +46,9 @@
 **Decision:** requirement의 `structured_value`는 SQLAlchemy `JSON`을 사용한다. V1.6A 변경은 새 revision `20260903_0002`로 적용하며, initial revision 파일은 당시 V1.5 테이블 정의로 동결해 새 DB에서도 `0001 → 0002` 경로가 동일하게 실행되도록 한다.
 
 **Reason:** SQLAlchemy JSON은 SQLite 직렬화와 MySQL native JSON을 같은 모델/API로 다룰 수 있다. initial revision이 현재 metadata를 동적으로 생성하면 새 DB에서 `0002`가 컬럼을 중복 추가하므로, 이미 적용된 DB의 revision 상태는 건드리지 않으면서 역사적 DDL만 고정할 필요가 있다.
+
+## ADR-011 Project knowledge projection and user inventory separation
+
+**Decision:** 게임 사실의 원본은 기존 Content/evidence로 유지하고, ProjectMaterial은 tracker 계산을 위한 normalized projection으로 저장한다. 각 ProjectMaterial은 가능한 경우 원본 Requirement 또는 Section의 stable seed key를 기록한다. Project, Stage, Material과 획득처 연결은 seed-managed 정본이며, 재료 보유량과 단계 완료 상태는 각각 `UserMaterialInventory`, `UserProjectStageState`에 분리한다. 부족량은 backend가 `max(required_quantity - owned_quantity, 0)`으로 계산한다.
+
+**Reason:** 원본 지식과 계산용 투영을 구분하면 같은 사실을 독립적으로 재작성하는 오류를 줄일 수 있다. 사용자 상태를 canonical import 대상과 분리하면 seed 갱신·archive·재수입 뒤에도 재고와 완료 이력을 보존할 수 있고, shortage 결과는 UI나 LLM에 맡기지 않고 항상 재현할 수 있다.

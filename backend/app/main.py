@@ -14,6 +14,12 @@ from app.database import create_schema, get_session
 from app.models import ChecklistItemState, Content, UserContentState
 from app.periods import KST, SUNDAY, daily_period, next_weekly_occurrence, weekly_period
 from app.prompt_bridge import build_context, render_result
+from app.projects import (
+    get_project_detail,
+    list_projects,
+    put_material_inventory,
+    put_project_stage_state,
+)
 from app.schemas import (
     ChecklistInstanceOut,
     ChecklistStateOut,
@@ -23,6 +29,12 @@ from app.schemas import (
     PromptContextBundle,
     PromptRenderOut,
     PromptRequest,
+    MaterialInventoryOut,
+    MaterialInventoryUpdate,
+    ProjectDetailOut,
+    ProjectStageStateOut,
+    ProjectStageStateUpdate,
+    ProjectSummaryOut,
     UserContentStateOut,
     UserContentStateUpdate,
 )
@@ -146,6 +158,47 @@ def put_user_content_state(
         note=state.note,
         updated_at=state.updated_at.replace(tzinfo=UTC) if state.updated_at.tzinfo is None else state.updated_at,
     )
+
+
+@app.get("/api/projects", response_model=list[ProjectSummaryOut])
+def projects(session: Session = Depends(get_session)):
+    return list_projects(session)
+
+
+@app.get("/api/projects/{slug}", response_model=ProjectDetailOut)
+def project_detail(slug: str, session: Session = Depends(get_session)):
+    result = get_project_detail(session, slug)
+    if result is None:
+        raise HTTPException(status_code=404, detail="Project not found")
+    return result
+
+
+@app.put("/api/materials/{material_key}/inventory", response_model=MaterialInventoryOut)
+def update_material_inventory(
+    material_key: str,
+    update: MaterialInventoryUpdate,
+    session: Session = Depends(get_session),
+):
+    try:
+        return put_material_inventory(session, material_key, update)
+    except LookupError as error:
+        raise HTTPException(status_code=404, detail="Material not found") from error
+
+
+@app.put(
+    "/api/projects/{project_slug}/stages/{stage_id}/state",
+    response_model=ProjectStageStateOut,
+)
+def update_project_stage_state(
+    project_slug: str,
+    stage_id: int,
+    update: ProjectStageStateUpdate,
+    session: Session = Depends(get_session),
+):
+    try:
+        return put_project_stage_state(session, project_slug, stage_id, update)
+    except LookupError as error:
+        raise HTTPException(status_code=404, detail="Project stage not found") from error
 
 
 @app.get("/api/dashboard")

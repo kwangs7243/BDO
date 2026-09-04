@@ -24,6 +24,7 @@ from app.models import (
     Source,
 )
 from app.periods import RESET_RULE_TYPES
+from app.project_seed import sync_projects
 
 
 REQUIREMENT_KINDS = {"quest", "level", "gear", "stat", "item", "knowledge", "party", "character", "other"}
@@ -427,6 +428,7 @@ def import_seed(session: Session, directory: Path | None = None) -> None:
             ]
         _sync_evidence(session, content, evidence_rows, source_rows)
 
+    sync_projects(session, directory)
     session.commit()
 
 

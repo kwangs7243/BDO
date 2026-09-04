@@ -116,6 +116,89 @@ class UserContentStateUpdate(BaseModel):
     note: str | None = None
 
 
+class ProjectSummaryOut(BaseModel):
+    slug: str
+    name_ko: str
+    content_slug: str | None
+    active: bool
+    completed_stage_count: int
+    total_stage_count: int
+    shortage_material_count: int
+
+
+class ProjectMaterialSourceOut(BaseModel):
+    seed_key: str
+    content_slug: str
+    content_name_ko: str
+    quantity_per_completion: float | None
+    notes: str | None
+    order_no: int
+
+
+class ProjectMaterialOut(BaseModel):
+    seed_key: str
+    material_key: str
+    name_ko: str
+    unit: str
+    stage_seed_key: str | None
+    required_quantity: float
+    owned_quantity: float
+    shortage: float
+    notes: str | None
+    order_no: int
+    source_entity_type: str | None
+    source_entity_seed_key: str | None
+    sources: list[ProjectMaterialSourceOut]
+
+
+class ProjectStageOut(BaseModel):
+    id: int
+    seed_key: str
+    name: str
+    description: str | None
+    order_no: int
+    completed: bool
+    completed_at: datetime | None
+    note: str | None
+    dependencies: list[str]
+
+
+class ProjectDetailOut(BaseModel):
+    slug: str
+    name_ko: str
+    content_slug: str | None
+    summary: str | None
+    active: bool
+    stages: list[ProjectStageOut]
+    materials: list[ProjectMaterialOut]
+
+
+class MaterialInventoryUpdate(BaseModel):
+    quantity: float = Field(ge=0)
+    note: str | None = None
+
+
+class MaterialInventoryOut(BaseModel):
+    material_key: str
+    quantity: float
+    note: str | None
+    updated_at: datetime
+
+
+class ProjectStageStateUpdate(BaseModel):
+    completed: bool
+    note: str | None = None
+
+
+class ProjectStageStateOut(BaseModel):
+    project_slug: str
+    stage_id: int
+    completed: bool
+    completed_at: datetime | None
+    note: str | None
+    updated_at: datetime
+
+
 class ContentSummaryOut(BaseModel):
     slug: str
     name_ko: str
