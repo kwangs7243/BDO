@@ -2,6 +2,10 @@ import type {
   ChecklistInstance,
   ContentDetail,
   ContentSummary,
+  MaterialInventory,
+  ProjectDetail,
+  ProjectStageState,
+  ProjectSummary,
   PromptRender,
   UserContentState,
   UserContentStateValue,
@@ -39,6 +43,32 @@ export const api = {
       body: JSON.stringify({ completed, note }),
     }),
   dashboard: () => request<DashboardData>('/api/dashboard'),
+  projects: () => request<ProjectSummary[]>('/api/projects'),
+  project: (slug: string) =>
+    request<ProjectDetail>(`/api/projects/${encodeURIComponent(slug)}`),
+  updateMaterialInventory: (
+    materialKey: string,
+    quantity: number,
+    note: string | null,
+  ) => request<MaterialInventory>(
+    `/api/materials/${encodeURIComponent(materialKey)}/inventory`,
+    {
+      method: 'PUT',
+      body: JSON.stringify({ quantity, note }),
+    },
+  ),
+  updateProjectStageState: (
+    projectSlug: string,
+    stageId: number,
+    completed: boolean,
+    note: string | null,
+  ) => request<ProjectStageState>(
+    `/api/projects/${encodeURIComponent(projectSlug)}/stages/${stageId}/state`,
+    {
+      method: 'PUT',
+      body: JSON.stringify({ completed, note }),
+    },
+  ),
   renderPrompt: (body: {
     mode: 'content_onboarding' | 'weekly_review'
     content_slug?: string
