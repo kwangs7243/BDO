@@ -33,6 +33,8 @@ function material(name: string, index: number): ProjectMaterial {
     required_quantity: index === 0 ? 180 : 10 + index,
     owned_quantity: index === 0 ? 30 : 0,
     shortage: index === 0 ? 150 : 10 + index,
+    inventory_note: index === 0 ? '저장된 재고 메모' : null,
+    inventory_updated_at: index === 0 ? '2026-09-05T09:00:00Z' : null,
     notes: index === 0 ? '선박 증축 재료' : null,
     order_no: index + 1,
     source_entity_type: null,
@@ -92,10 +94,19 @@ test('4단계와 9재료, 서버 계산 수치, 획득처를 표시한다', asyn
   expect(screen.getByRole('checkbox', { name: '파란색 장비 완료' })).toBeEnabled()
 })
 
+test('최초 렌더링에서 저장된 inventory note를 복원한다', async () => {
+  renderPage()
+
+  expect(await screen.findByRole('textbox', {
+    name: `${materialNames[0]} 사용자 메모`,
+  })).toHaveValue('저장된 재고 메모')
+})
+
 test('명시적 저장 뒤 서버가 반환한 보유량과 부족량으로 다시 표시한다', async () => {
   const updated = structuredClone(fixture)
   updated.materials[0].owned_quantity = 100
   updated.materials[0].shortage = 77
+  updated.materials[0].inventory_note = '이번 주 재고'
   vi.mocked(api.project)
     .mockResolvedValueOnce(structuredClone(fixture))
     .mockResolvedValueOnce(updated)
@@ -115,6 +126,7 @@ test('명시적 저장 뒤 서버가 반환한 보유량과 부족량으로 다�
   await waitFor(() => expect(api.updateMaterialInventory).toHaveBeenCalledWith('material-1', 100, '이번 주 재고'))
   await waitFor(() => expect(within(firstCard).getByDisplayValue('100')).toBeInTheDocument())
   expect(within(firstCard).getByText('77')).toBeInTheDocument()
+  expect(screen.getByRole('textbox', { name: `${materialNames[0]} 사용자 메모` })).toHaveValue('이번 주 재고')
 })
 
 test('재고 입력에서 음수와 소수를 거부한다', async () => {
@@ -147,9 +159,12 @@ test('단계를 완료하고 해제할 때 각각 서버에 저장한 뒤 재조
 
   renderPage()
   const checkbox = await screen.findByRole('checkbox', { name: '증축 기반 완료' })
+  const inventoryNote = screen.getByRole('textbox', { name: `${materialNames[0]} 사용자 메모` })
+  fireEvent.change(inventoryNote, { target: { value: '저장 전 초안' } })
   fireEvent.click(checkbox)
   await waitFor(() => expect(api.updateProjectStageState).toHaveBeenCalledWith('carrack-project', 1, true, null))
   await waitFor(() => expect(checkbox).toBeChecked())
+  expect(inventoryNote).toHaveValue('저장 전 초안')
 
   fireEvent.click(checkbox)
   await waitFor(() => expect(api.updateProjectStageState).toHaveBeenLastCalledWith('carrack-project', 1, false, null))

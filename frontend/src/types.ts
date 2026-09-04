@@ -178,6 +178,8 @@ export interface ProjectMaterial {
   required_quantity: number
   owned_quantity: number
   shortage: number
+  inventory_note: string | null
+  inventory_updated_at: string | null
   notes: string | null
   order_no: number
   source_entity_type: string | null

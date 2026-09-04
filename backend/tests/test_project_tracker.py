@@ -88,6 +88,29 @@ def test_negative_inventory_returns_api_validation_error(session) -> None:
     assert response.status_code == 422
 
 
+def test_project_detail_hydrates_persisted_inventory_note(session) -> None:
+    client = _client(session)
+    try:
+        saved = client.put(
+            '/api/materials/moon-vein-flax/inventory',
+            json={'quantity': 30, 'note': '이번 주 재고'},
+        )
+        detail_response = client.get('/api/projects/carrack-advance')
+    finally:
+        app.dependency_overrides.clear()
+        client.close()
+
+    assert saved.status_code == 200
+    assert detail_response.status_code == 200
+    material = next(
+        item
+        for item in detail_response.json()['materials']
+        if item['material_key'] == 'moon-vein-flax'
+    )
+    assert material['inventory_note'] == '이번 주 재고'
+    assert material['inventory_updated_at'] == saved.json()['updated_at']
+
+
 def test_stage_completion_sets_utc_timestamp_and_reset_clears_it(session) -> None:
     detail = get_project_detail(session, "carrack-advance")
     stage_id = detail.stages[0].id

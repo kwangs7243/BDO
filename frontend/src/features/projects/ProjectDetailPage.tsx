@@ -37,7 +37,7 @@ export function ProjectDetailPage() {
     setInventoryNotes((current) => Object.fromEntries(
       nextProject.materials.map((material) => [
         material.material_key,
-        current[material.material_key] ?? '',
+        current[material.material_key] ?? material.inventory_note ?? '',
       ]),
     ))
     setStageNotes(Object.fromEntries(
