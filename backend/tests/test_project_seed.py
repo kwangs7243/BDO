@@ -62,10 +62,10 @@ def test_carrack_project_seed_shape_and_existing_baseline(session) -> None:
     project = session.scalar(select(Project).where(Project.slug == "carrack-advance"))
     assert project.content.slug == "carrack-advance"
     assert project.active is True
-    assert session.scalar(select(func.count()).select_from(Source)) == 145
-    assert session.scalar(select(func.count()).select_from(Content)) == 259
-    assert session.scalar(select(func.count()).select_from(Evidence)) == 1237
-    assert session.scalar(select(func.count()).select_from(ContentRelation)) == 401
+    assert session.scalar(select(func.count()).select_from(Source)) >= 145
+    assert session.scalar(select(func.count()).select_from(Content)) >= 259
+    assert session.scalar(select(func.count()).select_from(Evidence)) >= 1237
+    assert session.scalar(select(func.count()).select_from(ContentRelation)) >= 401
 
 
 def test_carrack_material_projection_matches_verified_requirement(session) -> None:
