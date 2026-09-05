@@ -2,12 +2,20 @@ import { useEffect, useRef, useState } from 'react'
 import { api } from '../../api'
 
 interface Props {
-  mode: 'content_onboarding' | 'weekly_review'
+  mode: 'content_onboarding' | 'weekly_review' | 'project_optimizer'
   contentSlug?: string
+  projectSlug?: string
   triggerLabel?: string
+  disabled?: boolean
 }
 
-export function PromptBridgeDialog({ mode, contentSlug, triggerLabel = 'ChatGPT에 물어보기' }: Props) {
+export function PromptBridgeDialog({
+  mode,
+  contentSlug,
+  projectSlug,
+  triggerLabel = 'ChatGPT에 물어보기',
+  disabled = false,
+}: Props) {
   const [open, setOpen] = useState(false)
   const [question, setQuestion] = useState('')
   const [preview, setPreview] = useState('')
@@ -21,7 +29,12 @@ export function PromptBridgeDialog({ mode, contentSlug, triggerLabel = 'ChatGPT�
     const timer = window.setTimeout(() => {
       setLoading(true)
       setStatus('')
-      void api.renderPrompt({ mode, content_slug: contentSlug, user_question: question })
+      void api.renderPrompt({
+        mode,
+        content_slug: contentSlug,
+        project_slug: projectSlug,
+        user_question: question,
+      })
         .then((result) => {
           setPreview(result.markdown)
           setStats({
@@ -34,7 +47,7 @@ export function PromptBridgeDialog({ mode, contentSlug, triggerLabel = 'ChatGPT�
         .finally(() => setLoading(false))
     }, 150)
     return () => window.clearTimeout(timer)
-  }, [open, question, mode, contentSlug])
+  }, [open, question, mode, contentSlug, projectSlug])
 
   async function copy() {
     try {
@@ -59,7 +72,9 @@ export function PromptBridgeDialog({ mode, contentSlug, triggerLabel = 'ChatGPT�
 
   return (
     <>
-      <button className="button primary" onClick={() => setOpen(true)}>{triggerLabel}</button>
+      <button className="button primary" disabled={disabled} onClick={() => setOpen(true)}>
+        {triggerLabel}
+      </button>
       {open && (
         <div className="dialog-backdrop" role="presentation" onMouseDown={() => setOpen(false)}>
           <section className="dialog" role="dialog" aria-modal="true" aria-label="Prompt Bridge" onMouseDown={(event) => event.stopPropagation()}>
@@ -73,7 +88,13 @@ export function PromptBridgeDialog({ mode, contentSlug, triggerLabel = 'ChatGPT�
               className="question-input"
               value={question}
               onChange={(event) => setQuestion(event.target.value)}
-              placeholder={mode === 'weekly_review' ? '이번 주 남은 일의 우선순위를 정해줘' : '지금 내 상태에서 무엇부터 하면 돼?'}
+              placeholder={
+                mode === 'project_optimizer'
+                  ? '이번 주 안에 최대한 빨리 끝내는 순서를 짜줘'
+                  : mode === 'weekly_review'
+                    ? '이번 주 남은 일의 우선순위를 정해줘'
+                    : '지금 내 상태에서 무엇부터 하면 돼?'
+              }
             />
             <div className="preview-meta">
               <span>{loading ? '생성 중…' : `${stats.characters.toLocaleString()}자 · 약 ${stats.tokens.toLocaleString()} tokens`}</span>

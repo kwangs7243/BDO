@@ -255,6 +255,7 @@ class ChecklistStateUpdate(BaseModel):
 
 
 class PromptMode(StrEnum):
+    PROJECT_OPTIMIZER = 'project_optimizer'
     CONTENT_ONBOARDING = "content_onboarding"
     WEEKLY_REVIEW = "weekly_review"
 
@@ -262,6 +263,7 @@ class PromptMode(StrEnum):
 class PromptRequest(BaseModel):
     mode: PromptMode
     content_slug: str | None = None
+    project_slug: str | None = None
     user_question: str = ""
     as_of: datetime
 

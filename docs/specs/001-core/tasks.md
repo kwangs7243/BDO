@@ -1,6 +1,6 @@
 # Tasks — first implementation milestone
 
-> V1.8B 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
+> V1.8C 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
 
 ## Milestone A: working vertical slice
 
@@ -60,6 +60,6 @@
 - [ ] Implement `docs/specs/002-prompt-bridge/tasks.md`
 - [x] No API key / LLM SDK dependency
 - [x] Content detail에서 onboarding prompt 생성
-- [ ] Carrack project에서 current materials + shortages + recurring status prompt 생성
+- [x] Carrack project에서 current materials + shortages + recurring status prompt 생성 — V1.8C에서 stage/inventory 메모, 관련 checklist·schedule·evidence 포함
 - [x] Weekly page에서 남은 숙제 + reset/deadline prompt 생성
 - [x] `verified`/`needs_review`/`conflict` 분리 검증

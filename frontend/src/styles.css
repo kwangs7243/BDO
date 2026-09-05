@@ -139,6 +139,7 @@ nav a:hover, nav a.active { color: white; background: #18211d; border-left-color
 .project-card h2 { margin: 4px 0 0; font-size: 23px; }
 .project-card-actions { display: flex; align-items: center; justify-content: flex-end; gap: 14px; margin-top: auto; }
 .project-card-actions > a:not(.button) { margin-right: auto; color: var(--gold); font-size: 13px; }
+.project-header-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
 .project-metrics, .project-overview, .material-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .project-metrics > div, .project-overview > div, .material-metrics > div { display: grid; gap: 5px; padding: 15px; border: 1px solid var(--line); border-radius: 7px; background: #101713; }
 .project-metrics strong, .project-overview strong { font-size: 24px; color: var(--gold); }

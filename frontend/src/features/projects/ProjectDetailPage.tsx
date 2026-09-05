@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { api } from '../../api'
 import type { ProjectDetail, ProjectMaterial, ProjectStage } from '../../types'
+import { PromptBridgeDialog } from '../prompt-bridge/PromptBridgeDialog'
 
 function formatQuantity(value: number) {
   return Number.isInteger(value) ? value.toLocaleString('ko-KR') : value.toLocaleString('ko-KR', { maximumFractionDigits: 2 })
@@ -138,9 +139,16 @@ export function ProjectDetailPage() {
           <h1>{project.name_ko}</h1>
           <p className="subtitle">{project.summary || '프로젝트 설명이 없습니다.'}</p>
         </div>
-        {project.content_slug && (
-          <Link className="button" to={`/content/${project.content_slug}`}>기존 콘텐츠 상세</Link>
-        )}
+        <div className="project-header-actions">
+          <PromptBridgeDialog
+            mode="project_optimizer"
+            projectSlug={project.slug}
+            triggerLabel="이 프로젝트를 ChatGPT에 물어보기"
+          />
+          {project.content_slug && (
+            <Link className="button" to={`/content/${project.content_slug}`}>기존 콘텐츠 상세</Link>
+          )}
+        </div>
       </header>
 
       <div className="project-overview" aria-label="프로젝트 진행 요약">
