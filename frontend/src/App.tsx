@@ -2,6 +2,8 @@ import { NavLink, Route, Routes } from 'react-router-dom'
 import { ContentDetailPage } from './features/content/ContentDetailPage'
 import { ContentExplorerPage } from './features/content/ContentExplorerPage'
 import { DashboardPage } from './features/dashboard/DashboardPage'
+import { LifeHubPage } from './features/life/LifeHubPage'
+import { LifeSkillPage } from './features/life/LifeSkillPage'
 import { PromptPage } from './features/prompt-bridge/PromptPage'
 import { ProjectDetailPage } from './features/projects/ProjectDetailPage'
 import { ProjectListPage } from './features/projects/ProjectListPage'
@@ -11,6 +13,7 @@ const navItems = [
   ['/', '대시보드'],
   ['/weekly', '이번 주'],
   ['/content', '콘텐츠'],
+  ['/life', '생활'],
   ['/projects', '프로젝트'],
   ['/prompt', 'Prompt Bridge'],
 ] as const
@@ -34,6 +37,8 @@ export default function App() {
           <Route path="/weekly" element={<WeeklyPage />} />
           <Route path="/content" element={<ContentExplorerPage />} />
           <Route path="/content/:slug" element={<ContentDetailPage />} />
+          <Route path="/life" element={<LifeHubPage />} />
+          <Route path="/life/:skill" element={<LifeSkillPage />} />
           <Route path="/projects" element={<ProjectListPage />} />
           <Route path="/projects/:slug" element={<ProjectDetailPage />} />
           <Route path="/prompt" element={<PromptPage />} />

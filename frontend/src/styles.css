@@ -197,6 +197,39 @@ nav a:hover, nav a.active { color: white; background: #18211d; border-left-color
 .material-sources small, .material-sources p { color: var(--muted); font-size: 11px; }
 .material-sources p { grid-column: 1 / -1; margin: 0; line-height: 1.5; }
 
+.section-intro { max-width: 780px; color: var(--muted); line-height: 1.7; margin: -8px 0 18px; }
+.life-content-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+.life-content-card { display: grid; gap: 12px; min-height: 190px; padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: #111814; }
+.life-content-card h3 { margin: 4px 0 0; font-size: 17px; }
+.life-content-card p { color: var(--muted); line-height: 1.55; margin: 0; }
+.life-content-card footer, .life-skill-card footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
+.life-content-card footer small, .life-skill-card footer small { color: #758079; }
+.life-content-card footer a { color: var(--gold); font-size: 12px; }
+.life-skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
+.life-skill-card { display: grid; gap: 16px; min-height: 285px; padding: 22px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel); }
+.life-skill-card h3 { margin: 4px 0 0; font-size: 24px; }
+.life-skill-card > p { color: var(--muted); line-height: 1.6; margin: 0; }
+.life-progress-line { display: grid; gap: 5px; padding: 13px; border-radius: 7px; background: #0d1410; }
+.life-progress-line strong { color: #d8dfdb; }
+.life-progress-line span, .life-progress-line small { color: var(--muted); font-size: 11px; }
+.life-link-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 9px; }
+.life-link-list > a { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; padding: 14px; border: 1px solid var(--line); border-radius: 7px; background: #111814; }
+.life-link-list > a:hover { border-color: #526459; }
+.life-link-list > a > span { display: grid; gap: 5px; }
+.life-link-list small { color: var(--muted); line-height: 1.45; }
+.life-section { margin-top: 20px; }
+.life-section > .life-content-grid { margin-top: 18px; }
+.life-progress-panel { display: grid; grid-template-columns: repeat(5, minmax(110px, 1fr)); gap: 10px; margin: -12px 0 26px; }
+.life-progress-panel > div { display: grid; gap: 5px; padding: 16px; border: 1px solid var(--line); border-radius: 7px; background: var(--panel); }
+.life-progress-panel strong { color: var(--gold); font-size: 23px; }
+.life-progress-panel span, .life-progress-panel p { color: var(--muted); font-size: 11px; }
+.life-progress-panel p { grid-column: 1 / -1; margin: 0; }
+.life-project-list { display: grid; gap: 10px; margin-top: 18px; }
+.life-project-list a { display: grid; gap: 7px; padding: 15px; border: 1px solid var(--line); border-radius: 7px; }
+.life-project-list a:hover { border-color: #526459; }
+.life-project-list p { color: var(--muted); margin: 0; line-height: 1.55; }
+.life-project-list span { color: var(--gold); font-size: 12px; }
+
 @media (max-width: 780px) {
   .app-shell { display: block; }
   .sidebar { position: static; width: 100%; height: auto; padding: 18px; }
@@ -217,4 +250,5 @@ nav a:hover, nav a.active { color: white; background: #18211d; border-left-color
   .project-overview, .material-metrics { grid-template-columns: 1fr 1fr; }
   .stage-note-editor, .inventory-editor { grid-template-columns: 1fr; }
   .material-heading { flex-direction: column; }
+  .life-progress-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
