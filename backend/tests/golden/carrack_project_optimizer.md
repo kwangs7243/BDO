@@ -77,6 +77,31 @@ Region: KR
   - last_verified: 2026-09-03
   - source: 2월 5일(수) 업데이트 안내 (최종 수정 : 2025-04-28 17:08) (official_patch)
   - url: https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13508
+- 달의 핏줄이 새겨진 아마포 project requirement: 180 개
+  - verification: verified
+  - last_verified: 2026-09-03
+  - source: 중범선 만들기 (official_guide)
+  - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
+- 심해의 눈물 project requirement: 42 개
+  - verification: verified
+  - last_verified: 2026-09-03
+  - source: 중범선 만들기 (official_guide)
+  - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
+- 짙은 파도빛이 감도는 규격 각목 project requirement: 144 개
+  - verification: verified
+  - last_verified: 2026-09-03
+  - source: 중범선 만들기 (official_guide)
+  - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
+- 화려한 암염 주괴 project requirement: 35 개
+  - verification: verified
+  - last_verified: 2026-09-03
+  - source: 중범선 만들기 (official_guide)
+  - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
+- 화려한 진주 결정 project requirement: 35 개
+  - verification: verified
+  - last_verified: 2026-09-03
+  - source: 중범선 만들기 (official_guide)
+  - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
 
 ## STEPS
 - none
@@ -125,21 +150,7 @@ Region: KR
 - acquisition: 심해의 눈물 <- 까마귀 주화 증축 재료 상점 (crow-coin-material-shop); quantity_per_completion=확인되지 않음; note=교환 가격은 정본 Content에 있으며 1회 획득량으로 환산하지 않는다.
 
 ## OPEN_QUESTIONS_OR_CONFLICTS
-- 달의 핏줄이 새겨진 아마포 project requirement: 180 개
-  - verification: unverified
-  - last_verified: 2026-09-03
-- 심해의 눈물 project requirement: 42 개
-  - verification: unverified
-  - last_verified: 2026-09-03
-- 짙은 파도빛이 감도는 규격 각목 project requirement: 144 개
-  - verification: unverified
-  - last_verified: 2026-09-03
-- 화려한 암염 주괴 project requirement: 35 개
-  - verification: unverified
-  - last_verified: 2026-09-03
-- 화려한 진주 결정 project requirement: 35 개
-  - verification: unverified
-  - last_verified: 2026-09-03
+- none
 
 ## SOURCES
 1. [중범선 만들기](https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295) — official_guide, verified, current, claim carrack-advance/purpose, verified 2026-09-03

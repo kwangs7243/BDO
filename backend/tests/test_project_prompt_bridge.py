@@ -8,6 +8,7 @@ from fastapi.testclient import TestClient
 from sqlalchemy import select
 
 from app.database import get_session
+from app.content import get_content_detail
 from app.main import app
 from app.models import ChecklistItemState, Evidence, UserProjectStageState
 from app.periods import KST
@@ -16,7 +17,12 @@ from app.projects import (
     put_material_inventory,
     put_project_stage_state,
 )
-from app.prompt_bridge import build_context, render_markdown, render_result
+from app.prompt_bridge import (
+    _resolve_project_material_claim_key,
+    build_context,
+    render_markdown,
+    render_result,
+)
 from app.schemas import (
     MaterialInventoryUpdate,
     ProjectStageStateUpdate,
@@ -157,13 +163,94 @@ def test_project_prompt_maps_known_quantity_to_reward_evidence(session) -> None:
     assert fact.source_type is not None
 
 
-def test_project_prompt_separates_conflicting_lineage(session) -> None:
+def test_body_material_uses_verified_structured_value_evidence(session) -> None:
+    project = get_project_detail(session, 'carrack-advance')
+    material = next(
+        item for item in project.materials if item.material_key == 'moon-vein-flax'
+    )
+    detail = get_content_detail(session, project.content_slug, FIXED_NOW)
+    requirement = next(
+        item
+        for item in detail.requirements
+        if item.seed_key == material.source_entity_seed_key
+    )
+    assert _resolve_project_material_claim_key(material, requirement) == 'structured_value'
+
+    bundle = build_context(session, _request(), FIXED_NOW)
+    claim = f'{material.name_ko} project requirement:'
+    fact = next(item for item in bundle.canonical_facts if item.claim.startswith(claim))
+    evidence = next(
+        item
+        for item in bundle.sources
+        if item.id == 'carrack-guide'
+        and item.entity_id == requirement.seed_key
+        and item.claim_key == 'structured_value'
+    )
+    assert fact.verification_status == 'verified'
+    assert fact.source_url == evidence.url
+
+
+def test_blue_gear_keeps_verified_description_evidence(session) -> None:
+    project = get_project_detail(session, 'carrack-advance')
+    material = next(
+        item
+        for item in project.materials
+        if item.source_entity_seed_key
+        == 'carrack-advance.requirement.blue-gear-plus10'
+    )
+    detail = get_content_detail(session, project.content_slug, FIXED_NOW)
+    requirement = next(
+        item
+        for item in detail.requirements
+        if item.seed_key == material.source_entity_seed_key
+    )
+    assert _resolve_project_material_claim_key(material, requirement) == 'description'
+
+    bundle = build_context(session, _request(), FIXED_NOW)
+    fact = next(
+        item
+        for item in bundle.canonical_facts
+        if item.claim.startswith(f'{material.name_ko} project requirement:')
+    )
+    assert fact.verification_status == 'verified'
+    assert fact.source_url is not None
+
+
+def test_project_prompt_separates_conflicting_blue_gear_description(session) -> None:
     project = get_project_detail(session, 'carrack-advance')
     material = project.materials[0]
+    assert (
+        material.source_entity_seed_key
+        == 'carrack-advance.requirement.blue-gear-plus10'
+    )
     evidence = session.scalar(
         select(Evidence).where(
             Evidence.entity_id == material.source_entity_seed_key,
             Evidence.claim_key == 'description',
+            Evidence.active.is_(True),
+        )
+    )
+    evidence.verification_status = 'conflict'
+    session.commit()
+
+    bundle = build_context(session, _request(), FIXED_NOW)
+    target = f'{material.name_ko} project requirement:'
+    assert not any(item.claim.startswith(target) for item in bundle.canonical_facts)
+    assert any(
+        item.claim.startswith(target) and item.verification_status == 'conflict'
+        for item in bundle.open_questions_or_conflicts
+    )
+
+
+def test_project_prompt_separates_conflicting_structured_value(session) -> None:
+    project = get_project_detail(session, 'carrack-advance')
+    material = next(
+        item for item in project.materials if item.material_key == 'moon-vein-flax'
+    )
+    evidence = session.scalar(
+        select(Evidence).where(
+            Evidence.entity_id == material.source_entity_seed_key,
+            Evidence.claim_key == 'structured_value',
             Evidence.active.is_(True),
         )
     )

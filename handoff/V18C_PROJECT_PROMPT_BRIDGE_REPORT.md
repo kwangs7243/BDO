@@ -12,7 +12,7 @@
 - Project에 직접 연결된 Content와 material acquisition Content를 중복 없이 수집한다.
 - 관련 Content의 현재 daily/weekly checklist만 Content 이름과 실제 완료 상태를 붙여 포함한다.
 - acquisition Content의 canonical schedule만 verification 상태와 함께 포함한다.
-- material lineage는 `content_requirement → description`, `content_section → body` claim으로 evidence를 매핑한다.
+- material lineage는 `content_section → body`를 사용한다. `content_requirement`는 표시 material의 required quantity가 `structured_value`의 재료명→수량에서 직접 투영되면 `structured_value`, 그렇지 않고 설명이 projection 근거이면 `description` claim으로 evidence를 매핑한다.
 - 수량이 알려진 acquisition source는 material 이름과 amount가 일치하는 Reward의 `reward` evidence를 사용한다.
 - 수량이 없는 acquisition source는 값을 만들지 않고 `확인되지 않음`으로 직렬화한다.
 - verified가 아닌 claim은 `OPEN_QUESTIONS_OR_CONFLICTS`로 분리한다.
@@ -41,7 +41,7 @@
 
 ## Evidence와 필터링
 
-- Project material의 required quantity는 Project seed가 가리키는 기존 Requirement/Section claim evidence로 분류한다.
+- Project material의 required quantity는 Project seed가 가리키는 원본 Requirement/Section을 먼저 찾은 뒤 projection source field에 맞는 claim evidence로 분류한다. Carrack 본체 재료 5종은 `structured_value`, +10 파란 장비 4종은 `description`을 사용하며 verification status를 보고 claim을 바꾸지 않는다.
 - acquisition quantity는 source Content의 실제 Reward와 이름·amount가 일치할 때만 해당 Reward evidence로 분류한다.
 - evidence가 없거나 verified가 아니면 verified FACT로 승격하지 않는다.
 - checklist는 Project 연결/acquisition Content 범위로 제한한다.
@@ -66,13 +66,15 @@
 - Project Detail에서 받은 shortage 사용
 - inventory note와 stage completion/note 반영
 - 알려진 획득 수량의 Reward evidence 연결
-- conflict lineage의 unresolved 분리
+- 본체 재료 직접 수량 projection의 `structured_value` verified evidence 연결
+- +10 파란 장비 projection의 `description` verified evidence 유지
+- `structured_value`와 `description` conflict lineage의 unresolved 분리
 - 관련 checklist 필터와 실제 완료/미완료 상태
 - source `evidence_id` 중복 제거
 - outbound network 호출 없음
 - golden snapshot: `backend/tests/golden/carrack_project_optimizer.md`
 
-결과: `167 passed` (warning 1건: TestClient의 upstream deprecation 안내)
+결과: `170 passed` (warning 1건: TestClient의 upstream deprecation 안내)
 
 ### Frontend
 

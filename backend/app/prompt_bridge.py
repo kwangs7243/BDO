@@ -8,6 +8,8 @@ from app.checklists import get_current_checklists
 from app.content import get_content_detail
 from app.projects import get_project_detail
 from app.schemas import (
+    ContentRequirementOut,
+    ContentSectionOut,
     PromptChecklistItem,
     PromptContextBundle,
     PromptFact,
@@ -15,6 +17,7 @@ from app.schemas import (
     PromptRenderOut,
     PromptRequest,
     ProjectDetailOut,
+    ProjectMaterialOut,
     SourceOut,
 )
 
@@ -70,6 +73,27 @@ def _classify_fact(
 
 def _format_quantity(value: float) -> str:
     return f'{value:g}'
+
+
+def _resolve_project_material_claim_key(
+    material: ProjectMaterialOut,
+    source_entity: ContentRequirementOut | ContentSectionOut,
+) -> str | None:
+    if isinstance(source_entity, ContentSectionOut):
+        return 'body'
+    if not isinstance(source_entity, ContentRequirementOut):
+        return None
+
+    structured_value = source_entity.structured_value
+    if isinstance(structured_value, dict):
+        projected_quantity = structured_value.get(material.name_ko)
+        if (
+            isinstance(projected_quantity, (int, float))
+            and not isinstance(projected_quantity, bool)
+            and float(projected_quantity) == material.required_quantity
+        ):
+            return 'structured_value'
+    return 'description'
 
 
 def _collect_project_context(
@@ -134,27 +158,32 @@ def _collect_project_context(
             material_text += f'; inventory_note={material.inventory_note}'
         project_state.append(material_text)
 
-        claim_key = {
-            'content_requirement': 'description',
-            'content_section': 'body',
-        }.get(material.source_entity_type or '')
-        if material.source_entity_seed_key and claim_key:
-            lineage_detail = next(
-                (
-                    detail
-                    for detail in related_details.values()
-                    if any(
-                        item.seed_key == material.source_entity_seed_key
-                        for item in (
-                            detail.requirements
-                            if claim_key == 'description'
-                            else detail.sections
-                        )
-                    )
-                ),
-                None,
-            )
-            if lineage_detail is not None:
+        lineage_detail = None
+        source_entity = None
+        if material.source_entity_seed_key:
+            for detail in related_details.values():
+                candidates = (
+                    detail.requirements
+                    if material.source_entity_type == 'content_requirement'
+                    else detail.sections
+                    if material.source_entity_type == 'content_section'
+                    else []
+                )
+                source_entity = next(
+                    (
+                        item
+                        for item in candidates
+                        if item.seed_key == material.source_entity_seed_key
+                    ),
+                    None,
+                )
+                if source_entity is not None:
+                    lineage_detail = detail
+                    break
+
+        if lineage_detail is not None and source_entity is not None:
+            claim_key = _resolve_project_material_claim_key(material, source_entity)
+            if claim_key is not None:
                 _classify_fact(
                     claim=(
                         f'{material.name_ko} project requirement: '
