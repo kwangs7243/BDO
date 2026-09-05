@@ -70,8 +70,9 @@ export const api = {
     },
   ),
   renderPrompt: (body: {
-    mode: 'content_onboarding' | 'weekly_review'
+    mode: 'content_onboarding' | 'weekly_review' | 'project_optimizer'
     content_slug?: string
+    project_slug?: string
     user_question: string
   }) => request<PromptRender>('/api/prompt/render', {
     method: 'POST',

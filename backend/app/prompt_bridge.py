@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.checklists import get_current_checklists
 from app.content import get_content_detail
+from app.projects import get_project_detail
 from app.schemas import (
     PromptChecklistItem,
     PromptContextBundle,
@@ -13,11 +14,13 @@ from app.schemas import (
     PromptMode,
     PromptRenderOut,
     PromptRequest,
+    ProjectDetailOut,
     SourceOut,
 )
 
 
 PRESET_GOALS = {
+    PromptMode.PROJECT_OPTIMIZER: '현재 프로젝트 상태를 바탕으로 검증 가능한 최적 진행 순서를 제안해 주세요.',
     PromptMode.CONTENT_ONBOARDING: "이 콘텐츠를 처음 시작하는 사용자가 진입 순서와 반복 루틴을 이해하도록 설명해 주세요.",
     PromptMode.WEEKLY_REVIEW: "남은 주간 항목을 마감과 가치 기준으로 우선순위화해 주세요.",
 }
@@ -65,6 +68,196 @@ def _classify_fact(
     return status
 
 
+def _format_quantity(value: float) -> str:
+    return f'{value:g}'
+
+
+def _collect_project_context(
+    *,
+    session: Session,
+    project: ProjectDetailOut,
+    now: datetime,
+    facts: list[PromptFact],
+    unresolved: list[PromptFact],
+    schedules: list[str],
+    sources: list[SourceOut],
+    checklist: list[PromptChecklistItem],
+) -> list[str]:
+    acquisition_slugs = sorted(
+        {
+            source.content_slug
+            for material in project.materials
+            for source in material.sources
+        }
+    )
+    related_slugs = sorted(
+        {slug for slug in [project.content_slug, *acquisition_slugs] if slug}
+    )
+    related_details = {}
+    for slug in related_slugs:
+        detail = get_content_detail(session, slug, now)
+        if detail is not None:
+            related_details[slug] = detail
+            sources.extend(detail.sources)
+
+    completed_stage_count = sum(1 for stage in project.stages if stage.completed)
+    shortage_material_count = sum(
+        1 for material in project.materials if material.shortage > 0
+    )
+    project_state = [
+        f'project: {project.name_ko} ({project.slug})',
+        f'stage_progress: {completed_stage_count}/{len(project.stages)}',
+        f'shortage_material_types: {shortage_material_count}/{len(project.materials)}',
+    ]
+    for stage in project.stages:
+        stage_text = (
+            f'stage: {stage.name} ({stage.seed_key}); '
+            f'status={"completed" if stage.completed else "incomplete"}'
+        )
+        if stage.completed_at:
+            stage_text += f'; completed_at={stage.completed_at.isoformat()}'
+        if stage.note:
+            stage_text += f'; note={stage.note}'
+        if stage.dependencies:
+            stage_text += f'; dependencies={", ".join(stage.dependencies)}'
+        project_state.append(stage_text)
+
+    for material in project.materials:
+        material_text = (
+            f'material: {material.name_ko} ({material.material_key}); '
+            f'stage={material.stage_seed_key or "unassigned"}; '
+            f'required={_format_quantity(material.required_quantity)} {material.unit}; '
+            f'owned={_format_quantity(material.owned_quantity)} {material.unit}; '
+            f'shortage={_format_quantity(material.shortage)} {material.unit}'
+        )
+        if material.inventory_note:
+            material_text += f'; inventory_note={material.inventory_note}'
+        project_state.append(material_text)
+
+        claim_key = {
+            'content_requirement': 'description',
+            'content_section': 'body',
+        }.get(material.source_entity_type or '')
+        if material.source_entity_seed_key and claim_key:
+            lineage_detail = next(
+                (
+                    detail
+                    for detail in related_details.values()
+                    if any(
+                        item.seed_key == material.source_entity_seed_key
+                        for item in (
+                            detail.requirements
+                            if claim_key == 'description'
+                            else detail.sections
+                        )
+                    )
+                ),
+                None,
+            )
+            if lineage_detail is not None:
+                _classify_fact(
+                    claim=(
+                        f'{material.name_ko} project requirement: '
+                        f'{_format_quantity(material.required_quantity)} {material.unit}'
+                    ),
+                    entity_id=material.source_entity_seed_key,
+                    claim_key=claim_key,
+                    sources=lineage_detail.sources,
+                    fallback_last_verified=lineage_detail.last_verified_at,
+                    verified=facts,
+                    unresolved=unresolved,
+                )
+
+        for source in material.sources:
+            quantity_text = (
+                f'{_format_quantity(source.quantity_per_completion)} {material.unit}'
+                if source.quantity_per_completion is not None
+                else '확인되지 않음'
+            )
+            source_text = (
+                f'acquisition: {material.name_ko} <- '
+                f'{source.content_name_ko} ({source.content_slug}); '
+                f'quantity_per_completion={quantity_text}'
+            )
+            if source.notes:
+                source_text += f'; note={source.notes}'
+            project_state.append(source_text)
+
+            if source.quantity_per_completion is None:
+                continue
+            detail = related_details.get(source.content_slug)
+            if detail is None:
+                continue
+            reward = next(
+                (
+                    item
+                    for item in detail.rewards
+                    if item.name == material.name_ko
+                    and item.amount == source.quantity_per_completion
+                ),
+                None,
+            )
+            if reward is not None:
+                _classify_fact(
+                    claim=(
+                        f'{source.content_name_ko} acquisition quantity for '
+                        f'{material.name_ko}: '
+                        f'{_format_quantity(source.quantity_per_completion)} {material.unit}'
+                    ),
+                    entity_id=reward.seed_key,
+                    claim_key='reward',
+                    sources=detail.sources,
+                    fallback_last_verified=detail.last_verified_at,
+                    verified=facts,
+                    unresolved=unresolved,
+                )
+
+    seen_checklist_items: set[tuple[str, str, str]] = set()
+    for slug in related_slugs:
+        detail = related_details.get(slug)
+        if detail is None:
+            continue
+        for instance in detail.checklists:
+            for item in instance.items:
+                item_key = (
+                    slug,
+                    instance.period_key,
+                    item.seed_key or str(item.id),
+                )
+                if item_key in seen_checklist_items:
+                    continue
+                seen_checklist_items.add(item_key)
+                checklist.append(
+                    PromptChecklistItem(
+                        label=f'[{detail.name_ko}] {item.label}',
+                        completed=item.completed,
+                        period_key=instance.period_key,
+                    )
+                )
+
+    for slug in acquisition_slugs:
+        detail = related_details.get(slug)
+        if detail is None:
+            continue
+        for item in detail.schedules:
+            schedule_text = (
+                f'[{detail.name_ko}] {item.rule_type}: '
+                f'{item.notes or item.recurrence_type} ({item.timezone})'
+            )
+            status = _classify_fact(
+                claim=schedule_text,
+                entity_id=item.seed_key or detail.slug,
+                claim_key=f'schedule.{item.rule_type}',
+                sources=detail.sources,
+                fallback_last_verified=detail.last_verified_at,
+                verified=facts,
+                unresolved=unresolved,
+            )
+            schedules.append(f'[{status}] {schedule_text}')
+
+    return project_state
+
+
 def build_context(session: Session, request: PromptRequest, now: datetime) -> PromptContextBundle:
     facts: list[PromptFact] = []
     unresolved: list[PromptFact] = []
@@ -76,6 +269,7 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
     rewards: list[str] = []
     warnings: list[str] = []
     user_state: list[str] = []
+    project_state: list[str] = []
     request_context = {"mode": request.mode.value, "page": "weekly"}
 
     if request.mode == PromptMode.CONTENT_ONBOARDING:
@@ -185,7 +379,24 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
                 PromptChecklistItem(label=item.label, completed=item.completed, period_key=instance.period_key)
                 for item in instance.items
             )
-    else:
+    elif request.mode == PromptMode.PROJECT_OPTIMIZER:
+        if not request.project_slug:
+            raise ValueError('project_slug is required for project_optimizer')
+        project = get_project_detail(session, request.project_slug)
+        if project is None:
+            raise LookupError(request.project_slug)
+        request_context['page'] = f'project/{project.slug}'
+        project_state = _collect_project_context(
+            session=session,
+            project=project,
+            now=now,
+            facts=facts,
+            unresolved=unresolved,
+            schedules=schedules,
+            sources=sources,
+            checklist=checklist,
+        )
+    elif request.mode == PromptMode.WEEKLY_REVIEW:
         for instance in get_current_checklists(session, "weekly", now):
             checklist.extend(
                 PromptChecklistItem(label=item.label, completed=item.completed, period_key=instance.period_key)
@@ -193,10 +404,13 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
             )
         schedules.append("일반 주간 체크리스트 기간은 목요일 00:00 KST 경계로 계산됨")
 
-    facts.sort(key=lambda item: (item.claim, item.source_url or ""))
+    else:
+        raise ValueError(f'unsupported prompt mode: {request.mode}')
+
+    facts.sort(key=lambda item: (item.claim, item.source_url or ''))
     unresolved.sort(key=lambda item: (item.verification_status, item.claim))
     sources = sorted(
-        sources,
+        {item.evidence_id: item for item in sources}.values(),
         key=lambda item: (
             not item.is_active,
             item.entity_type,
@@ -219,6 +433,7 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
         rewards=rewards,
         warnings=warnings,
         checklist=checklist,
+        project_state=project_state,
         open_questions_or_conflicts=unresolved,
         sources=sources,
         user_question=request.user_question.strip(),

@@ -54,3 +54,33 @@ test('stage 완료와 해제를 올바른 endpoint에 PUT한다', async () => {
     },
   )
 })
+
+test('project optimizer 요청에 project_slug와 as_of를 포함한다', async () => {
+  const payload = {
+    markdown: '# project',
+    character_count: 9,
+    estimated_tokens: 3,
+    over_budget: false,
+  }
+  const fetchMock = vi.fn().mockResolvedValue({
+    ok: true,
+    json: async () => payload,
+  })
+  vi.stubGlobal('fetch', fetchMock)
+
+  await api.renderPrompt({
+    mode: 'project_optimizer',
+    project_slug: 'carrack advance',
+    user_question: '빠른 순서',
+  })
+
+  const [path, init] = fetchMock.mock.calls[0]
+  expect(path).toBe('/api/prompt/render')
+  expect(init.method).toBe('POST')
+  expect(JSON.parse(init.body)).toMatchObject({
+    mode: 'project_optimizer',
+    project_slug: 'carrack advance',
+    user_question: '빠른 순서',
+  })
+  expect(Number.isNaN(Date.parse(JSON.parse(init.body).as_of))).toBe(false)
+})

@@ -10,6 +10,7 @@ vi.mock('../../api', () => ({
     project: vi.fn(),
     updateMaterialInventory: vi.fn(),
     updateProjectStageState: vi.fn(),
+    renderPrompt: vi.fn(),
   },
 }))
 
@@ -68,7 +69,14 @@ beforeEach(() => {
   vi.mocked(api.project).mockReset()
   vi.mocked(api.updateMaterialInventory).mockReset()
   vi.mocked(api.updateProjectStageState).mockReset()
+  vi.mocked(api.renderPrompt).mockReset()
   vi.mocked(api.project).mockResolvedValue(structuredClone(fixture))
+  vi.mocked(api.renderPrompt).mockResolvedValue({
+    markdown: '# project prompt',
+    character_count: 16,
+    estimated_tokens: 4,
+    over_budget: false,
+  })
 })
 
 test('4단계와 9재료, 서버 계산 수치, 획득처를 표시한다', async () => {
@@ -100,6 +108,25 @@ test('최초 렌더링에서 저장된 inventory note를 복원한다', async ()
   expect(await screen.findByRole('textbox', {
     name: `${materialNames[0]} 사용자 메모`,
   })).toHaveValue('저장된 재고 메모')
+})
+
+test('프로젝트 Prompt Bridge를 열고 현재 project slug로 미리보기를 생성한다', async () => {
+  renderPage()
+
+  fireEvent.click(await screen.findByRole('button', {
+    name: '이 프로젝트를 ChatGPT에 물어보기',
+  }))
+
+  expect(screen.getByPlaceholderText(
+    '이번 주 안에 최대한 빨리 끝내는 순서를 짜줘',
+  )).toBeInTheDocument()
+  await waitFor(() => expect(api.renderPrompt).toHaveBeenCalledWith({
+    mode: 'project_optimizer',
+    content_slug: undefined,
+    project_slug: 'carrack-project',
+    user_question: '',
+  }))
+  expect(await screen.findByDisplayValue('# project prompt')).toBeInTheDocument()
 })
 
 test('명시적 저장 뒤 서버가 반환한 보유량과 부족량으로 다시 표시한다', async () => {
