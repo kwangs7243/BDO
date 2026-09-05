@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api, type DashboardData } from '../../api'
 import { ChecklistGroup } from '../../components/ChecklistGroup'
+import { PromptBridgeDialog } from '../prompt-bridge/PromptBridgeDialog'
 
 export function DashboardPage() {
   const [data, setData] = useState<DashboardData | null>(null)
@@ -15,7 +16,13 @@ export function DashboardPage() {
     <div>
       <header className="page-header hero">
         <div><p className="eyebrow">오늘의 운영 보드</p><h1>놓치지 않고,<br /><em>기록은 남기고.</em></h1></div>
-        <Link className="button ghost" to="/content">콘텐츠 둘러보기</Link>
+        <div className="project-header-actions">
+          <PromptBridgeDialog
+            mode="next_action"
+            triggerLabel="지금 할 일 ChatGPT에 물어보기"
+          />
+          <Link className="button ghost" to="/content">콘텐츠 둘러보기</Link>
+        </div>
       </header>
       {error && <p className="error">{error}</p>}
       <section>
@@ -37,4 +44,3 @@ export function DashboardPage() {
     </div>
   )
 }
-

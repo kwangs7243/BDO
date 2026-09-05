@@ -8,6 +8,7 @@ from app.checklists import get_current_checklists
 from app.content import get_content_detail
 from app.projects import get_project_detail
 from app.schemas import (
+    ContentDetailOut,
     ContentRequirementOut,
     ContentSectionOut,
     PromptChecklistItem,
@@ -26,6 +27,8 @@ PRESET_GOALS = {
     PromptMode.PROJECT_OPTIMIZER: '현재 프로젝트 상태를 바탕으로 검증 가능한 최적 진행 순서를 제안해 주세요.',
     PromptMode.CONTENT_ONBOARDING: "이 콘텐츠를 처음 시작하는 사용자가 진입 순서와 반복 루틴을 이해하도록 설명해 주세요.",
     PromptMode.WEEKLY_REVIEW: "남은 주간 항목을 마감과 가치 기준으로 우선순위화해 주세요.",
+    PromptMode.NEXT_ACTION: "현재 저장된 상태와 체크리스트를 바탕으로 지금 가장 먼저 할 일을 제안해 주세요.",
+    PromptMode.VERIFY_LATEST: "미검증 또는 충돌 항목을 최신 KR 공식 자료로 확인해 주세요.",
 }
 
 GUARDRAILS = (
@@ -94,6 +97,126 @@ def _resolve_project_material_claim_key(
         ):
             return 'structured_value'
     return 'description'
+
+
+def _collect_content_context(
+    *,
+    detail: ContentDetailOut,
+    facts: list[PromptFact],
+    unresolved: list[PromptFact],
+    schedules: list[str],
+    sources: list[SourceOut],
+    checklist: list[PromptChecklistItem],
+    requirements: list[str],
+    steps: list[str],
+    rewards: list[str],
+    warnings: list[str],
+    user_state: list[str],
+) -> None:
+    sources.extend(detail.sources)
+
+    if detail.summary:
+        _classify_fact(
+            claim=detail.summary,
+            entity_id=detail.slug,
+            claim_key="summary",
+            sources=detail.sources,
+            fallback_last_verified=detail.last_verified_at,
+            verified=facts,
+            unresolved=unresolved,
+        )
+    if detail.purpose:
+        _classify_fact(
+            claim=detail.purpose,
+            entity_id=detail.slug,
+            claim_key="purpose",
+            sources=detail.sources,
+            fallback_last_verified=detail.last_verified_at,
+            verified=facts,
+            unresolved=unresolved,
+        )
+
+    user_state.append(f"content_state: {detail.user_state.state.value}")
+    if detail.user_state.priority is not None:
+        user_state.append(f"priority: {detail.user_state.priority}")
+    if detail.user_state.note:
+        user_state.append(f"note: {detail.user_state.note}")
+
+    for item in detail.requirements:
+        status = _classify_fact(
+            claim=item.description,
+            entity_id=item.seed_key,
+            claim_key="description",
+            sources=detail.sources,
+            fallback_last_verified=detail.last_verified_at,
+            verified=facts,
+            unresolved=unresolved,
+        )
+        requirements.append(
+            f"[{status}] {item.requirement_level}/{item.kind}: "
+            f"{item.title + ' — ' if item.title else ''}{item.description}"
+        )
+    for item in detail.steps:
+        status = _classify_fact(
+            claim=f"{item.title}: {item.description}",
+            entity_id=item.seed_key,
+            claim_key="description",
+            sources=detail.sources,
+            fallback_last_verified=detail.last_verified_at,
+            verified=facts,
+            unresolved=unresolved,
+        )
+        steps.append(f"[{status}] {item.phase}: {item.title} — {item.description}")
+    for item in detail.rewards:
+        reward_text = item.name
+        if item.recommendation:
+            reward_text += f" (recommendation: {item.recommendation})"
+        status = _classify_fact(
+            claim=reward_text,
+            entity_id=item.seed_key,
+            claim_key="reward",
+            sources=detail.sources,
+            fallback_last_verified=detail.last_verified_at,
+            verified=facts,
+            unresolved=unresolved,
+        )
+        rewards.append(f"[{status}] {reward_text}")
+    for item in detail.sections:
+        status = _classify_fact(
+            claim=f"{item.title}: {item.body_markdown}",
+            entity_id=item.seed_key,
+            claim_key="body",
+            sources=detail.sources,
+            fallback_last_verified=detail.last_verified_at,
+            verified=facts,
+            unresolved=unresolved,
+        )
+        if item.section_type == "common_mistakes":
+            warnings.append(f"[{status}] {item.body_markdown}")
+
+    for item in detail.schedules:
+        schedule_text = (
+            f"{item.rule_type}: {item.notes or item.recurrence_type} ({item.timezone})"
+        )
+        status = _classify_fact(
+            claim=schedule_text,
+            entity_id=item.seed_key or detail.slug,
+            claim_key=f"schedule.{item.rule_type}",
+            sources=detail.sources,
+            fallback_last_verified=detail.last_verified_at,
+            verified=facts,
+            unresolved=unresolved,
+        )
+        schedules.append(f"[{status}] {schedule_text}")
+    for instance in detail.checklists:
+        checklist.extend(
+            PromptChecklistItem(
+                label=item.label,
+                completed=item.completed,
+                period_key=instance.period_key,
+            )
+            for item in instance.items
+        )
 
 
 def _collect_project_context(
@@ -287,6 +410,25 @@ def _collect_project_context(
     return project_state
 
 
+def _collect_checklist_scope(
+    *,
+    session: Session,
+    scope: str,
+    now: datetime,
+    checklist: list[PromptChecklistItem],
+    include_scope_label: bool = False,
+) -> None:
+    for instance in get_current_checklists(session, scope, now):
+        checklist.extend(
+            PromptChecklistItem(
+                label=f"[{scope}] {item.label}" if include_scope_label else item.label,
+                completed=item.completed,
+                period_key=instance.period_key,
+            )
+            for item in instance.items
+        )
+
+
 def build_context(session: Session, request: PromptRequest, now: datetime) -> PromptContextBundle:
     facts: list[PromptFact] = []
     unresolved: list[PromptFact] = []
@@ -308,106 +450,19 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
         if detail is None:
             raise LookupError(request.content_slug)
         request_context["page"] = f"content/{detail.slug}"
-        sources = detail.sources
-
-        if detail.summary:
-            _classify_fact(
-                claim=detail.summary,
-                entity_id=detail.slug,
-                claim_key="summary",
-                sources=sources,
-                fallback_last_verified=detail.last_verified_at,
-                verified=facts,
-                unresolved=unresolved,
-            )
-        if detail.purpose:
-            _classify_fact(
-                claim=detail.purpose,
-                entity_id=detail.slug,
-                claim_key="purpose",
-                sources=sources,
-                fallback_last_verified=detail.last_verified_at,
-                verified=facts,
-                unresolved=unresolved,
-            )
-
-        user_state.append(f"content_state: {detail.user_state.state.value}")
-        if detail.user_state.priority is not None:
-            user_state.append(f"priority: {detail.user_state.priority}")
-        if detail.user_state.note:
-            user_state.append(f"note: {detail.user_state.note}")
-
-        for item in detail.requirements:
-            status = _classify_fact(
-                claim=item.description,
-                entity_id=item.seed_key,
-                claim_key="description",
-                sources=sources,
-                fallback_last_verified=detail.last_verified_at,
-                verified=facts,
-                unresolved=unresolved,
-            )
-            requirements.append(
-                f"[{status}] {item.requirement_level}/{item.kind}: "
-                f"{item.title + ' — ' if item.title else ''}{item.description}"
-            )
-        for item in detail.steps:
-            status = _classify_fact(
-                claim=f"{item.title}: {item.description}",
-                entity_id=item.seed_key,
-                claim_key="description",
-                sources=sources,
-                fallback_last_verified=detail.last_verified_at,
-                verified=facts,
-                unresolved=unresolved,
-            )
-            steps.append(f"[{status}] {item.phase}: {item.title} — {item.description}")
-        for item in detail.rewards:
-            reward_text = item.name
-            if item.recommendation:
-                reward_text += f" (recommendation: {item.recommendation})"
-            status = _classify_fact(
-                claim=reward_text,
-                entity_id=item.seed_key,
-                claim_key="reward",
-                sources=sources,
-                fallback_last_verified=detail.last_verified_at,
-                verified=facts,
-                unresolved=unresolved,
-            )
-            rewards.append(f"[{status}] {reward_text}")
-        for item in detail.sections:
-            status = _classify_fact(
-                claim=f"{item.title}: {item.body_markdown}",
-                entity_id=item.seed_key,
-                claim_key="body",
-                sources=sources,
-                fallback_last_verified=detail.last_verified_at,
-                verified=facts,
-                unresolved=unresolved,
-            )
-            if item.section_type == "common_mistakes":
-                warnings.append(f"[{status}] {item.body_markdown}")
-
-        for item in detail.schedules:
-            schedule_text = (
-                f"{item.rule_type}: {item.notes or item.recurrence_type} ({item.timezone})"
-            )
-            status = _classify_fact(
-                claim=schedule_text,
-                entity_id=item.seed_key or detail.slug,
-                claim_key=f"schedule.{item.rule_type}",
-                sources=sources,
-                fallback_last_verified=detail.last_verified_at,
-                verified=facts,
-                unresolved=unresolved,
-            )
-            schedules.append(f"[{status}] {schedule_text}")
-        for instance in detail.checklists:
-            checklist.extend(
-                PromptChecklistItem(label=item.label, completed=item.completed, period_key=instance.period_key)
-                for item in instance.items
-            )
+        _collect_content_context(
+            detail=detail,
+            facts=facts,
+            unresolved=unresolved,
+            schedules=schedules,
+            sources=sources,
+            checklist=checklist,
+            requirements=requirements,
+            steps=steps,
+            rewards=rewards,
+            warnings=warnings,
+            user_state=user_state,
+        )
     elif request.mode == PromptMode.PROJECT_OPTIMIZER:
         if not request.project_slug:
             raise ValueError('project_slug is required for project_optimizer')
@@ -426,13 +481,107 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
             checklist=checklist,
         )
     elif request.mode == PromptMode.WEEKLY_REVIEW:
-        for instance in get_current_checklists(session, "weekly", now):
-            checklist.extend(
-                PromptChecklistItem(label=item.label, completed=item.completed, period_key=instance.period_key)
-                for item in instance.items
-            )
+        _collect_checklist_scope(
+            session=session,
+            scope="weekly",
+            now=now,
+            checklist=checklist,
+        )
         schedules.append("일반 주간 체크리스트 기간은 목요일 00:00 KST 경계로 계산됨")
-
+    elif request.mode == PromptMode.NEXT_ACTION:
+        if request.content_slug and request.project_slug:
+            raise ValueError("next_action accepts only one target")
+        if request.content_slug:
+            detail = get_content_detail(session, request.content_slug, now)
+            if detail is None:
+                raise LookupError(request.content_slug)
+            request_context["page"] = f"content/{detail.slug}"
+            _collect_content_context(
+                detail=detail,
+                facts=facts,
+                unresolved=unresolved,
+                schedules=schedules,
+                sources=sources,
+                checklist=checklist,
+                requirements=requirements,
+                steps=steps,
+                rewards=rewards,
+                warnings=warnings,
+                user_state=user_state,
+            )
+        elif request.project_slug:
+            project = get_project_detail(session, request.project_slug)
+            if project is None:
+                raise LookupError(request.project_slug)
+            request_context["page"] = f"project/{project.slug}"
+            project_state = _collect_project_context(
+                session=session,
+                project=project,
+                now=now,
+                facts=facts,
+                unresolved=unresolved,
+                schedules=schedules,
+                sources=sources,
+                checklist=checklist,
+            )
+        else:
+            request_context["page"] = "dashboard"
+            _collect_checklist_scope(
+                session=session,
+                scope="daily",
+                now=now,
+                checklist=checklist,
+                include_scope_label=True,
+            )
+            _collect_checklist_scope(
+                session=session,
+                scope="weekly",
+                now=now,
+                checklist=checklist,
+                include_scope_label=True,
+            )
+            schedules.extend(
+                [
+                    "일일 체크리스트 기간은 매일 00:00 KST 경계로 계산됨",
+                    "일반 주간 체크리스트 기간은 목요일 00:00 KST 경계로 계산됨",
+                ]
+            )
+    elif request.mode == PromptMode.VERIFY_LATEST:
+        if bool(request.content_slug) == bool(request.project_slug):
+            raise ValueError("verify_latest requires exactly one content_slug or project_slug")
+        if request.content_slug:
+            detail = get_content_detail(session, request.content_slug, now)
+            if detail is None:
+                raise LookupError(request.content_slug)
+            request_context["page"] = f"content/{detail.slug}"
+            _collect_content_context(
+                detail=detail,
+                facts=facts,
+                unresolved=unresolved,
+                schedules=schedules,
+                sources=sources,
+                checklist=checklist,
+                requirements=requirements,
+                steps=steps,
+                rewards=rewards,
+                warnings=warnings,
+                user_state=user_state,
+            )
+        else:
+            project = get_project_detail(session, request.project_slug)
+            if project is None:
+                raise LookupError(request.project_slug)
+            request_context["page"] = f"project/{project.slug}"
+            project_state = _collect_project_context(
+                session=session,
+                project=project,
+                now=now,
+                facts=facts,
+                unresolved=unresolved,
+                schedules=schedules,
+                sources=sources,
+                checklist=checklist,
+            )
     else:
         raise ValueError(f'unsupported prompt mode: {request.mode}')
 
@@ -521,7 +670,10 @@ def render_markdown(bundle: PromptContextBundle) -> str:
         lines.append("- none")
     if bundle.project_state:
         _section(lines, "PROJECT_STATE", bundle.project_state)
-    lines.extend(["", "## OPEN_QUESTIONS_OR_CONFLICTS", *_fact_lines(bundle.open_questions_or_conflicts)])
+    unresolved_lines = _fact_lines(bundle.open_questions_or_conflicts)
+    if mode == PromptMode.VERIFY_LATEST and not bundle.open_questions_or_conflicts:
+        unresolved_lines = ["- 현재 저장된 정보에서 재검증이 필요한 항목이 없다."]
+    lines.extend(["", "## OPEN_QUESTIONS_OR_CONFLICTS", *unresolved_lines])
     lines.extend(["", "## SOURCES"])
     if bundle.sources:
         lines.extend(

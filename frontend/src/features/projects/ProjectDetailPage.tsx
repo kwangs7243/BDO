@@ -145,6 +145,12 @@ export function ProjectDetailPage() {
             projectSlug={project.slug}
             triggerLabel="이 프로젝트를 ChatGPT에 물어보기"
           />
+          <PromptBridgeDialog
+            mode="verify_latest"
+            projectSlug={project.slug}
+            triggerLabel="최신 정보 검증 프롬프트"
+            variant="ghost"
+          />
           {project.content_slug && (
             <Link className="button" to={`/content/${project.content_slug}`}>기존 콘텐츠 상세</Link>
           )}

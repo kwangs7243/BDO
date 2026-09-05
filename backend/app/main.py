@@ -27,7 +27,6 @@ from app.schemas import (
     ContentDetailOut,
     ContentSummaryOut,
     PromptContextBundle,
-    PromptMode,
     PromptRenderOut,
     PromptRequest,
     MaterialInventoryOut,
@@ -230,7 +229,7 @@ def prompt_context(request: PromptRequest, session: Session = Depends(get_sessio
     except ValueError as error:
         raise HTTPException(status_code=422, detail=str(error)) from error
     except LookupError as error:
-        resource = 'Project' if request.mode == PromptMode.PROJECT_OPTIMIZER else 'Content'
+        resource = 'Project' if request.project_slug else 'Content'
         raise HTTPException(status_code=404, detail=f'{resource} not found: {error}') from error
 
 
@@ -241,5 +240,5 @@ def prompt_render(request: PromptRequest, session: Session = Depends(get_session
     except ValueError as error:
         raise HTTPException(status_code=422, detail=str(error)) from error
     except LookupError as error:
-        resource = 'Project' if request.mode == PromptMode.PROJECT_OPTIMIZER else 'Content'
+        resource = 'Project' if request.project_slug else 'Content'
         raise HTTPException(status_code=404, detail=f'{resource} not found: {error}') from error

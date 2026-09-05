@@ -44,3 +44,45 @@ test('weekly review 요청 계약과 placeholder를 유지한다', async () => {
     user_question: '',
   }))
 })
+
+test('next action의 target 계약과 placeholder를 명시적으로 사용한다', async () => {
+  render(
+    <PromptBridgeDialog
+      mode="next_action"
+      contentSlug="garmoth"
+      triggerLabel="다음 행동"
+    />,
+  )
+  fireEvent.click(screen.getByRole('button', { name: '다음 행동' }))
+
+  expect(screen.getByPlaceholderText(
+    '지금 내 상태에서 무엇부터 하면 돼?',
+  )).toBeInTheDocument()
+  await waitFor(() => expect(api.renderPrompt).toHaveBeenCalledWith({
+    mode: 'next_action',
+    content_slug: 'garmoth',
+    project_slug: undefined,
+    user_question: '',
+  }))
+})
+
+test('verify latest의 project 계약과 placeholder를 명시적으로 사용한다', async () => {
+  render(
+    <PromptBridgeDialog
+      mode="verify_latest"
+      projectSlug="carrack-advance"
+      triggerLabel="최신 검증"
+    />,
+  )
+  fireEvent.click(screen.getByRole('button', { name: '최신 검증' }))
+
+  expect(screen.getByPlaceholderText(
+    '미검증 항목을 최신 KR 공식 자료로 확인해줘',
+  )).toBeInTheDocument()
+  await waitFor(() => expect(api.renderPrompt).toHaveBeenCalledWith({
+    mode: 'verify_latest',
+    content_slug: undefined,
+    project_slug: 'carrack-advance',
+    user_question: '',
+  }))
+})
