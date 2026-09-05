@@ -8,6 +8,7 @@ import { PromptPage } from './features/prompt-bridge/PromptPage'
 import { ProjectDetailPage } from './features/projects/ProjectDetailPage'
 import { ProjectListPage } from './features/projects/ProjectListPage'
 import { WeeklyPage } from './features/weekly/WeeklyPage'
+import { SettingsPage } from './features/settings/SettingsPage'
 
 const navItems = [
   ['/', '대시보드'],
@@ -16,6 +17,7 @@ const navItems = [
   ['/life', '생활'],
   ['/projects', '프로젝트'],
   ['/prompt', 'Prompt Bridge'],
+  ['/settings', '설정/백업'],
 ] as const
 
 export default function App() {
@@ -42,6 +44,7 @@ export default function App() {
           <Route path="/projects" element={<ProjectListPage />} />
           <Route path="/projects/:slug" element={<ProjectDetailPage />} />
           <Route path="/prompt" element={<PromptPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </main>
     </div>

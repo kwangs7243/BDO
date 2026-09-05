@@ -284,3 +284,86 @@ export interface ProjectStageState {
   note: string | null
   updated_at: string
 }
+
+export interface UserBackupContentState {
+  content_slug: string
+  state: UserContentStateValue
+  priority: number | null
+  note: string | null
+  updated_at: string
+}
+
+export interface UserBackupChecklistItem {
+  item_seed_key: string
+  completed: boolean
+  completed_at: string | null
+  note: string | null
+}
+
+export interface UserBackupChecklistInstance {
+  template_seed_key: string
+  period_key: string
+  period_start: string
+  period_end: string
+  generated_at: string
+  items: UserBackupChecklistItem[]
+}
+
+export interface UserBackupMaterialInventory {
+  material_key: string
+  quantity: number
+  note: string | null
+  updated_at: string
+}
+
+export interface UserBackupProjectStageState {
+  project_slug: string
+  stage_seed_key: string
+  completed: boolean
+  completed_at: string | null
+  note: string | null
+  updated_at: string
+}
+
+export interface UserBackup {
+  format: string
+  version: number
+  exported_at: string
+  data: {
+    content_states: UserBackupContentState[]
+    checklist_instances: UserBackupChecklistInstance[]
+    material_inventory: UserBackupMaterialInventory[]
+    project_stage_states: UserBackupProjectStageState[]
+  }
+}
+
+export interface UserBackupValidation {
+  valid: boolean
+  format: string | null
+  version: number | null
+  content_states: number
+  checklist_instances: number
+  checklist_items: number
+  material_inventory: number
+  project_stage_states: number
+  errors: string[]
+  warnings: string[]
+}
+
+export interface UserBackupCounts {
+  content_states: number
+  checklist_instances: number
+  checklist_items: number
+  material_inventory: number
+  project_stage_states: number
+}
+
+export interface UserBackupImportResult {
+  mode: 'merge' | 'replace'
+  content_states_upserted: number
+  checklist_instances_upserted: number
+  checklist_items_upserted: number
+  material_inventory_upserted: number
+  project_stage_states_upserted: number
+  deleted_counts: UserBackupCounts
+}

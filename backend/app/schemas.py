@@ -306,6 +306,129 @@ class LifeSkillDetailOut(LifeSkillSummaryOut):
     related_projects: list[LifeProjectOut]
 
 
+class UserBackupModel(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+
+def _require_aware_datetime(value: datetime | None) -> datetime | None:
+    if value is None:
+        return None
+    if value.tzinfo is None or value.utcoffset() is None:
+        raise ValueError("datetime must be timezone-aware")
+    return value
+
+
+class UserBackupContentState(UserBackupModel):
+    content_slug: str
+    state: UserContentStateValue
+    priority: int | None = None
+    note: str | None = None
+    updated_at: datetime
+
+    _aware_updated_at = field_validator("updated_at")(_require_aware_datetime)
+
+
+class UserBackupChecklistItem(UserBackupModel):
+    item_seed_key: str
+    completed: bool
+    completed_at: datetime | None = None
+    note: str | None = None
+
+    _aware_completed_at = field_validator("completed_at")(_require_aware_datetime)
+
+
+class UserBackupChecklistInstance(UserBackupModel):
+    template_seed_key: str
+    period_key: str
+    period_start: datetime
+    period_end: datetime
+    generated_at: datetime
+    items: list[UserBackupChecklistItem]
+
+    _aware_datetimes = field_validator(
+        "period_start", "period_end", "generated_at"
+    )(_require_aware_datetime)
+
+
+class UserBackupMaterialInventory(UserBackupModel):
+    material_key: str
+    quantity: float = Field(ge=0)
+    note: str | None = None
+    updated_at: datetime
+
+    _aware_updated_at = field_validator("updated_at")(_require_aware_datetime)
+
+
+class UserBackupProjectStageState(UserBackupModel):
+    project_slug: str
+    stage_seed_key: str
+    completed: bool
+    completed_at: datetime | None = None
+    note: str | None = None
+    updated_at: datetime
+
+    _aware_datetimes = field_validator(
+        "completed_at", "updated_at"
+    )(_require_aware_datetime)
+
+
+class UserBackupData(UserBackupModel):
+    content_states: list[UserBackupContentState]
+    checklist_instances: list[UserBackupChecklistInstance]
+    material_inventory: list[UserBackupMaterialInventory]
+    project_stage_states: list[UserBackupProjectStageState]
+
+
+class UserBackupEnvelope(UserBackupModel):
+    format: str
+    version: int
+    exported_at: datetime
+    data: UserBackupData
+
+    _aware_exported_at = field_validator("exported_at")(_require_aware_datetime)
+
+
+class UserBackupImportMode(StrEnum):
+    MERGE = "merge"
+    REPLACE = "replace"
+
+
+class UserBackupImportRequest(UserBackupModel):
+    backup: Any
+    mode: UserBackupImportMode = UserBackupImportMode.MERGE
+
+
+class UserBackupCounts(UserBackupModel):
+    content_states: int = 0
+    checklist_instances: int = 0
+    checklist_items: int = 0
+    material_inventory: int = 0
+    project_stage_states: int = 0
+
+
+class UserBackupValidationReport(UserBackupModel):
+    valid: bool
+    format: str | None
+    version: int | None
+    content_states: int = 0
+    checklist_instances: int = 0
+    checklist_items: int = 0
+    material_inventory: int = 0
+    project_stage_states: int = 0
+    errors: list[str] = Field(default_factory=list)
+    warnings: list[str] = Field(default_factory=list)
+
+
+class UserBackupImportResult(UserBackupModel):
+    mode: UserBackupImportMode
+    content_states_upserted: int
+    checklist_instances_upserted: int
+    checklist_items_upserted: int
+    material_inventory_upserted: int
+    project_stage_states_upserted: int
+    deleted_counts: UserBackupCounts
+
+
 class ChecklistStateUpdate(BaseModel):
     completed: bool
     note: str | None = None

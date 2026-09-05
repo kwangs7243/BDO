@@ -58,3 +58,10 @@
 **Decision:** Context selector는 canonical knowledge와 사용자 데이터를 수정하지 않고 직렬화할 section만 제어한다. 자동 size control은 문자열을 자르거나 사실을 재작성하지 않고 완전한 item 또는 section 단위의 deterministic omission만 사용한다. unresolved claim, 사용자 상태, checklist, schedule과 Project의 stage/material/shortage 핵심 값은 우선 보존하고, related contents, historical/non-official/unlinked source, Project acquisition detail과 저우선 narrative를 먼저 줄인다. `detailed` mode는 자동 생략을 수행하지 않는다.
 
 **Reason:** 12,000 estimated token 목표를 적용하면서도 값 왜곡, LLM 기반 요약과 실행마다 달라지는 결과를 피하고 동일 입력의 재현성을 유지하기 위해서다.
+
+
+## ADR-013 Stable-key user backup and atomic restore
+
+**Decision:** 사용자 백업은 canonical knowledge가 아니라 `UserContentState`, 전체 `ChecklistInstance`/`ChecklistItemState` 이력, `UserMaterialInventory`, `UserProjectStageState`만 포함한다. DB별로 달라지는 numeric ID 대신 Content slug, checklist template/item seed key와 period key, Material key, Project slug와 stage seed key를 사용한다. import는 전체 payload와 모든 canonical 참조를 먼저 검증한 뒤 한 transaction으로 실행하며, unknown identity는 조용히 건너뛰지 않고 전체 복원을 거부한다. `merge`는 backup에 있는 identity를 덮어쓰고 local-only 상태를 유지하며, `replace`는 네 사용자 상태 영역을 backup 내용으로 정확히 교체한다. archive된 canonical identity도 history 복원을 위해 resolve하지만 active 상태로 되돌리지 않는다.
+
+**Reason:** 사용자 기록을 다른 seed 초기화 DB로 안전하게 옮기려면 DB row ID와 canonical 본문을 백업에서 분리해야 한다. 완전한 사전 검증과 원자적 복원은 일부 이력만 적용되는 손상을 방지하며, merge/replace 의미를 구분하면 보존 중심 복원과 명시적 전체 교체를 모두 예측 가능하게 제공할 수 있다.

@@ -11,6 +11,9 @@ import type {
   PromptRender,
   UserContentState,
   UserContentStateValue,
+  UserBackup,
+  UserBackupImportResult,
+  UserBackupValidation,
 } from './types'
 
 export type PromptMode =
@@ -43,7 +46,13 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   })
   if (!response.ok) {
     const body = await response.json().catch(() => null)
-    throw new Error(body?.detail ?? `요청 실패 (${response.status})`)
+    const detail = body?.detail
+    const message = typeof detail === 'string'
+      ? detail
+      : Array.isArray(detail?.errors)
+        ? detail.errors.join('; ')
+        : `요청 실패 (${response.status})`
+    throw new Error(message)
   }
   return response.json() as Promise<T>
 }
@@ -98,6 +107,17 @@ export const api = {
       body: JSON.stringify({ completed, note }),
     },
   ),
+  exportUserBackup: () => request<UserBackup>('/api/settings/backup'),
+  validateUserBackup: (backup: unknown) =>
+    request<UserBackupValidation>('/api/settings/backup/validate', {
+      method: 'POST',
+      body: JSON.stringify(backup),
+    }),
+  importUserBackup: (backup: unknown, mode: 'merge' | 'replace') =>
+    request<UserBackupImportResult>('/api/settings/backup/import', {
+      method: 'POST',
+      body: JSON.stringify({ backup, mode }),
+    }),
   renderPrompt: (body: {
     mode: PromptMode
     content_slug?: string

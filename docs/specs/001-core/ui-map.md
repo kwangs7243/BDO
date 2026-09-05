@@ -77,6 +77,13 @@ checkable 단계.
 - 재료/거점/일꾼 의존성
 - 입문 루트와 돈벌이 루트 분리
 
+## Settings / backup
+
+- V1.9B 설정 화면은 사용자 Content 상태, 전체 checklist history, 재료 재고와 Project 단계 상태의 로컬 JSON 다운로드를 제공한다.
+- 선택한 JSON은 browser parse 후 backend 전체 validation을 거치며, stable identity별 수량과 오류·경고를 표시한다.
+- 기본 병합은 backup에 없는 현재 상태를 유지한다. 전체 복원은 별도 확인 checkbox를 선택하기 전까지 실행할 수 없다.
+- canonical game knowledge, Source/Evidence, seed와 비밀정보를 백업하거나 외부 서버로 전송하지 않는다.
+
 ## UX 금지
 - 페이지 진입하자마자 거대한 raw DB 표 노출
 - 의미 없는 5단계 폴더 구조

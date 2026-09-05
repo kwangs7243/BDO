@@ -1,6 +1,6 @@
 # Tasks — first implementation milestone
 
-> V1.9A 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
+> V1.9B 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
 
 ## Milestone A: working vertical slice
 
@@ -26,7 +26,9 @@
 - [x] Weekly reset groups
 - [x] Sunday payout group
 - [x] Life hub + Gathering/Fishing/Sailing discovery — V1.9A에서 기존 V1.6F-I·해양 canonical Content를 사용하는 `/life`와 10개 분야 상세 화면, 진행도·검증 상태·경제 영역 탐색 구현
-- [ ] JSON export/import
+- [x] JSON export/import — V1.9B에서 user-owned state만 stable key 기반 versioned JSON으로 export하고, 전체 validation 후 atomic merge/replace 복원하는 설정 화면 흐름 구현
+
+V1.9B 완료로 현재 정의된 Milestone B 항목은 모두 구현되었다.
 
 ## Milestone C: broad catalog
 - [x] Blood Altar

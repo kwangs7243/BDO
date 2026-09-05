@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from contextlib import asynccontextmanager
 from datetime import UTC, datetime
+from typing import Any
 
-from fastapi import Depends, FastAPI, HTTPException, Query
+from fastapi import Body, Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -40,6 +41,16 @@ from app.schemas import (
     ProjectSummaryOut,
     UserContentStateOut,
     UserContentStateUpdate,
+    UserBackupEnvelope,
+    UserBackupImportRequest,
+    UserBackupImportResult,
+    UserBackupValidationReport,
+)
+from app.user_backup import (
+    UserBackupValidationError,
+    export_user_backup,
+    import_user_backup,
+    validate_user_backup,
 )
 
 
@@ -215,6 +226,43 @@ def update_project_stage_state(
         return put_project_stage_state(session, project_slug, stage_id, update)
     except LookupError as error:
         raise HTTPException(status_code=404, detail="Project stage not found") from error
+
+
+@app.get("/api/settings/backup", response_model=UserBackupEnvelope)
+def settings_backup_export(session: Session = Depends(get_session)):
+    try:
+        return export_user_backup(session)
+    except ValueError as error:
+        raise HTTPException(status_code=422, detail=str(error)) from error
+
+
+@app.post(
+    "/api/settings/backup/validate",
+    response_model=UserBackupValidationReport,
+)
+def settings_backup_validate(
+    payload: Any = Body(...),
+    session: Session = Depends(get_session),
+):
+    report, _ = validate_user_backup(session, payload)
+    return report
+
+
+@app.post(
+    "/api/settings/backup/import",
+    response_model=UserBackupImportResult,
+)
+def settings_backup_import(
+    request: UserBackupImportRequest,
+    session: Session = Depends(get_session),
+):
+    try:
+        return import_user_backup(session, request.backup, request.mode)
+    except UserBackupValidationError as error:
+        raise HTTPException(
+            status_code=422,
+            detail=error.report.model_dump(mode="json"),
+        ) from error
 
 
 @app.get("/api/dashboard")

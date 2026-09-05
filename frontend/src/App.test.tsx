@@ -10,6 +10,9 @@ vi.mock('./api', () => ({
     life: vi.fn(),
     lifeSkill: vi.fn(),
     renderPrompt: vi.fn(),
+    exportUserBackup: vi.fn(),
+    validateUserBackup: vi.fn(),
+    importUserBackup: vi.fn(),
   },
 }))
 
@@ -61,4 +64,17 @@ test('전역 생활 navigation에서 hub와 skill route로 이동한다', async 
   fireEvent.click(screen.getByRole('link', { name: '분야 보기' }))
   expect(await screen.findByRole('heading', { name: '채집' })).toBeInTheDocument()
   expect(api.lifeSkill).toHaveBeenCalledWith('gathering')
+})
+
+test('전역 설정/백업 navigation과 settings route를 제공한다', () => {
+  render(<MemoryRouter initialEntries={['/settings']}><App /></MemoryRouter>)
+
+  expect(screen.getByRole('heading', {
+    level: 1,
+    name: /사용자 데이터 백업/,
+  })).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: '설정/백업' })).toHaveAttribute(
+    'href',
+    '/settings',
+  )
 })
