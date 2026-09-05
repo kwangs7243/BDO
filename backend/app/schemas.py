@@ -262,12 +262,40 @@ class PromptMode(StrEnum):
     VERIFY_LATEST = "verify_latest"
 
 
+class PromptOutputMode(StrEnum):
+    FULL_PROMPT = "full_prompt"
+    CONTEXT_ONLY = "context_only"
+
+
+class PromptSizeMode(StrEnum):
+    AUTO = "auto"
+    DETAILED = "detailed"
+
+
+class PromptSection(StrEnum):
+    USER_STATE = "user_state"
+    REQUIREMENTS = "requirements"
+    CANONICAL_FACTS = "canonical_facts"
+    STEPS = "steps"
+    SCHEDULES = "schedules"
+    REWARDS = "rewards"
+    WARNINGS = "warnings"
+    CHECKLIST = "checklist"
+    RELATED_CONTENTS = "related_contents"
+    PROJECT_STATE = "project_state"
+    OPEN_QUESTIONS_OR_CONFLICTS = "open_questions_or_conflicts"
+    SOURCES = "sources"
+
+
 class PromptRequest(BaseModel):
     mode: PromptMode
     content_slug: str | None = None
     project_slug: str | None = None
     user_question: str = ""
     as_of: datetime
+    include_sections: list[PromptSection] | None = None
+    output_mode: PromptOutputMode = PromptOutputMode.FULL_PROMPT
+    size_mode: PromptSizeMode = PromptSizeMode.AUTO
 
     @field_validator("as_of")
     @classmethod
@@ -306,9 +334,11 @@ class PromptContextBundle(BaseModel):
     rewards: list[str] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
     checklist: list[PromptChecklistItem] = Field(default_factory=list)
+    related_contents: list[str] = Field(default_factory=list)
     project_state: list[str] = Field(default_factory=list)
     open_questions_or_conflicts: list[PromptFact] = Field(default_factory=list)
     sources: list[SourceOut] = Field(default_factory=list)
+    included_sections: list[PromptSection] = Field(default_factory=list)
     user_question: str = ""
 
 
@@ -317,4 +347,7 @@ class PromptRenderOut(BaseModel):
     markdown: str
     character_count: int
     estimated_tokens: int
+    original_estimated_tokens: int
+    compacted: bool
+    omitted_counts: dict[str, int]
     over_budget: bool

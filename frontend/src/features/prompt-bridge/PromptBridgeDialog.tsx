@@ -1,5 +1,16 @@
-import { useEffect, useRef, useState } from 'react'
-import { api, type PromptMode } from '../../api'
+import { useEffect, useId, useMemo, useRef, useState } from 'react'
+import {
+  api,
+  type PromptMode,
+  type PromptOutputMode,
+  type PromptSection,
+  type PromptSizeMode,
+} from '../../api'
+import {
+  defaultPromptSections,
+  promptPlaceholders,
+  promptSectionLabels,
+} from './promptConfig'
 
 interface Props {
   mode: PromptMode
@@ -10,14 +21,6 @@ interface Props {
   variant?: 'primary' | 'ghost'
 }
 
-const placeholders: Record<PromptMode, string> = {
-  project_optimizer: '이번 주 안에 최대한 빨리 끝내는 순서를 짜줘',
-  content_onboarding: '지금 내 상태에서 무엇부터 하면 돼?',
-  weekly_review: '이번 주 남은 일의 우선순위를 정해줘',
-  next_action: '지금 내 상태에서 무엇부터 하면 돼?',
-  verify_latest: '미검증 항목을 최신 KR 공식 자료로 확인해줘',
-}
-
 export function PromptBridgeDialog({
   mode,
   contentSlug,
@@ -26,10 +29,35 @@ export function PromptBridgeDialog({
   disabled = false,
   variant = 'primary',
 }: Props) {
+  const controlId = useId()
   const [open, setOpen] = useState(false)
   const [question, setQuestion] = useState('')
+  const selectionKey = [mode, contentSlug ?? '', projectSlug ?? ''].join(':')
+  const defaultSections = useMemo(
+    () => defaultPromptSections(mode, contentSlug, projectSlug),
+    [mode, contentSlug, projectSlug],
+  )
+  const [selection, setSelection] = useState({
+    key: selectionKey,
+    sections: defaultSections,
+  })
+  if (selection.key !== selectionKey) {
+    setSelection({ key: selectionKey, sections: defaultSections })
+  }
+  const includeSections = selection.key === selectionKey
+    ? selection.sections
+    : defaultSections
+  const [outputMode, setOutputMode] = useState<PromptOutputMode>('full_prompt')
+  const [sizeMode, setSizeMode] = useState<PromptSizeMode>('auto')
   const [preview, setPreview] = useState('')
-  const [stats, setStats] = useState({ characters: 0, tokens: 0, overBudget: false })
+  const [stats, setStats] = useState({
+    characters: 0,
+    tokens: 0,
+    originalTokens: 0,
+    compacted: false,
+    omittedCounts: {} as Record<string, number>,
+    overBudget: false,
+  })
   const [status, setStatus] = useState('')
   const [loading, setLoading] = useState(false)
   const previewRef = useRef<HTMLTextAreaElement>(null)
@@ -43,13 +71,19 @@ export function PromptBridgeDialog({
         mode,
         content_slug: contentSlug,
         project_slug: projectSlug,
-        user_question: question,
+        user_question: outputMode === 'full_prompt' ? question : '',
+        include_sections: includeSections,
+        output_mode: outputMode,
+        size_mode: sizeMode,
       })
         .then((result) => {
           setPreview(result.markdown)
           setStats({
             characters: result.character_count,
             tokens: result.estimated_tokens,
+            originalTokens: result.original_estimated_tokens,
+            compacted: result.compacted,
+            omittedCounts: result.omitted_counts,
             overBudget: result.over_budget,
           })
         })
@@ -57,7 +91,16 @@ export function PromptBridgeDialog({
         .finally(() => setLoading(false))
     }, 150)
     return () => window.clearTimeout(timer)
-  }, [open, question, mode, contentSlug, projectSlug])
+  }, [
+    open,
+    question,
+    mode,
+    contentSlug,
+    projectSlug,
+    includeSections,
+    outputMode,
+    sizeMode,
+  ])
 
   async function copy() {
     try {
@@ -80,6 +123,22 @@ export function PromptBridgeDialog({
     URL.revokeObjectURL(url)
   }
 
+  const availableSections = defaultPromptSections(mode, contentSlug, projectSlug)
+  const omittedSummary = Object.entries(stats.omittedCounts)
+    .map(([section, count]) => section + ' ' + count)
+    .join(', ')
+
+  function toggleSection(section: PromptSection, checked: boolean) {
+    setSelection((current) => ({
+      key: selectionKey,
+      sections: checked
+        ? availableSections.filter(
+          (item) => item === section || current.sections.includes(item),
+        )
+        : current.sections.filter((item) => item !== section),
+    }))
+  }
+
   return (
     <>
       <button className={`button ${variant}`} disabled={disabled} onClick={() => setOpen(true)}>
@@ -92,18 +151,101 @@ export function PromptBridgeDialog({
               <div><p className="eyebrow">LOCAL PROMPT BRIDGE</p><h2>ChatGPT 질문 준비</h2></div>
               <button className="icon-button" aria-label="닫기" onClick={() => setOpen(false)}>×</button>
             </header>
-            <label className="field-label" htmlFor="question">추가 질문</label>
-            <textarea
-              id="question"
-              className="question-input"
-              value={question}
-              onChange={(event) => setQuestion(event.target.value)}
-              placeholder={placeholders[mode]}
-            />
+            <details className="prompt-controls" open>
+              <summary>포함할 컨텍스트</summary>
+              <div className="prompt-section-grid">
+                {availableSections.map((section) => (
+                  <label key={section}>
+                    <input
+                      type="checkbox"
+                      checked={includeSections.includes(section)}
+                      onChange={(event) => toggleSection(section, event.target.checked)}
+                    />
+                    {promptSectionLabels[section]}
+                  </label>
+                ))}
+              </div>
+            </details>
+            <div className="prompt-mode-controls">
+              <fieldset>
+                <legend>출력 형식</legend>
+                <label htmlFor={controlId + '-full'}>
+                  <input
+                    id={controlId + '-full'}
+                    type="radio"
+                    name={controlId + '-output'}
+                    checked={outputMode === 'full_prompt'}
+                    onChange={() => setOutputMode('full_prompt')}
+                  />
+                  전체 프롬프트
+                </label>
+                <label htmlFor={controlId + '-context'}>
+                  <input
+                    id={controlId + '-context'}
+                    type="radio"
+                    name={controlId + '-output'}
+                    checked={outputMode === 'context_only'}
+                    onChange={() => setOutputMode('context_only')}
+                  />
+                  컨텍스트만
+                </label>
+              </fieldset>
+              <fieldset>
+                <legend>크기</legend>
+                <label htmlFor={controlId + '-auto'}>
+                  <input
+                    id={controlId + '-auto'}
+                    type="radio"
+                    name={controlId + '-size'}
+                    checked={sizeMode === 'auto'}
+                    onChange={() => setSizeMode('auto')}
+                  />
+                  자동 크기 조절
+                </label>
+                <label htmlFor={controlId + '-detailed'}>
+                  <input
+                    id={controlId + '-detailed'}
+                    type="radio"
+                    name={controlId + '-size'}
+                    checked={sizeMode === 'detailed'}
+                    onChange={() => setSizeMode('detailed')}
+                  />
+                  상세하게
+                </label>
+              </fieldset>
+            </div>
+            {outputMode === 'full_prompt' ? (
+              <>
+                <label className="field-label" htmlFor={controlId + '-question'}>추가 질문</label>
+                <textarea
+                  id={controlId + '-question'}
+                  className="question-input"
+                  value={question}
+                  onChange={(event) => setQuestion(event.target.value)}
+                  placeholder={promptPlaceholders[mode]}
+                />
+              </>
+            ) : (
+              <p className="context-only-note">
+                컨텍스트만 출력할 때는 질문과 응답 지침을 포함하지 않습니다.
+              </p>
+            )}
             <div className="preview-meta">
-              <span>{loading ? '생성 중…' : `${stats.characters.toLocaleString()}자 · 약 ${stats.tokens.toLocaleString()} tokens`}</span>
+              <span>
+                {loading ? '생성 중…' : (
+                  <>
+                    {stats.characters.toLocaleString()}자 · 약 {stats.tokens.toLocaleString()} tokens
+                    {stats.compacted && (
+                      <> · 자동 축약됨 (축약 전 약 {stats.originalTokens.toLocaleString()})</>
+                    )}
+                  </>
+                )}
+              </span>
               {stats.overBudget && <strong>권장 크기 초과</strong>}
             </div>
+            {omittedSummary && (
+              <p className="omitted-summary">생략: {omittedSummary}</p>
+            )}
             <textarea ref={previewRef} className="prompt-preview" value={preview} readOnly aria-label="생성된 Markdown 프롬프트" />
             <div className="dialog-actions">
               <span className="status-message" role="status">{status}</span>

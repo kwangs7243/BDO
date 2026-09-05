@@ -1,6 +1,6 @@
 # Tasks — Prompt Bridge V1.5
 
-> V1.8D에서 5개 preset, Dashboard/Content/Project/전역 Prompt 진입점과 weekly golden snapshot을 완료했다. 아래 미완료 항목은 V1.8D 범위 밖의 기존 V1.5 계획이다.
+> V1.8E에서 context selector, output mode와 deterministic size compaction까지 구현해 Prompt Bridge V1.5 범위를 완료했다.
 
 - [x] Add `features/prompt-bridge` frontend module
 - [x] Add `prompt_bridge` backend module
@@ -13,7 +13,9 @@
 - [x] Build evidence/source collector
 - [x] Separate unresolved/conflicting claims
 - [x] Add deterministic Markdown renderer
-- [ ] Add size budget/truncation policy
+- [x] Add context selector
+- [x] Add context-only/full-prompt output
+- [x] Add size budget/truncation policy
 - [x] Add `/api/prompt/context`
 - [x] Add `/api/prompt/render`
 - [x] Add Prompt Bridge drawer/modal

@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { beforeEach, expect, test, vi } from 'vitest'
 import { api } from '../../api'
+import { defaultPromptSections } from './promptConfig'
 import { PromptPage } from './PromptPage'
 
 vi.mock('../../api', () => ({
@@ -41,6 +42,9 @@ beforeEach(() => {
     markdown: '# project preview',
     character_count: 17,
     estimated_tokens: 5,
+    original_estimated_tokens: 5,
+    compacted: false,
+    omitted_counts: {},
     over_budget: false,
   })
 })
@@ -58,6 +62,13 @@ test('API 프로젝트 목록을 선택하고 해당 slug로 project prompt를 �
     content_slug: undefined,
     project_slug: 'carrack-advance',
     user_question: '',
+    include_sections: defaultPromptSections(
+      'project_optimizer',
+      undefined,
+      'carrack-advance',
+    ),
+    output_mode: 'full_prompt',
+    size_mode: 'auto',
   }))
   expect(await screen.findByDisplayValue('# project preview')).toBeInTheDocument()
 })
@@ -83,6 +94,9 @@ test('전역 next action은 content/project slug 없이 요청한다', async () 
     content_slug: undefined,
     project_slug: undefined,
     user_question: '',
+    include_sections: defaultPromptSections('next_action'),
+    output_mode: 'full_prompt',
+    size_mode: 'auto',
   }))
 })
 
@@ -103,6 +117,9 @@ test('content next action은 generic content 목록에서 선택한 slug를 요�
     content_slug: 'garmoth',
     project_slug: undefined,
     user_question: '',
+    include_sections: defaultPromptSections('next_action', 'garmoth'),
+    output_mode: 'full_prompt',
+    size_mode: 'auto',
   }))
 })
 
@@ -123,6 +140,13 @@ test('project next action은 generic project 목록에서 선택한 slug를 요�
     content_slug: undefined,
     project_slug: 'carrack-advance',
     user_question: '',
+    include_sections: defaultPromptSections(
+      'next_action',
+      undefined,
+      'carrack-advance',
+    ),
+    output_mode: 'full_prompt',
+    size_mode: 'auto',
   }))
 })
 
@@ -140,6 +164,9 @@ test('Verify Latest content target은 선택한 content slug를 요청한다', a
     content_slug: 'garmoth',
     project_slug: undefined,
     user_question: '',
+    include_sections: defaultPromptSections('verify_latest', 'garmoth'),
+    output_mode: 'full_prompt',
+    size_mode: 'auto',
   }))
 })
 
@@ -160,5 +187,12 @@ test('Verify Latest project target은 선택한 project slug를 요청한다', a
     content_slug: undefined,
     project_slug: 'carrack-advance',
     user_question: '',
+    include_sections: defaultPromptSections(
+      'verify_latest',
+      undefined,
+      'carrack-advance',
+    ),
+    output_mode: 'full_prompt',
+    size_mode: 'auto',
   }))
 })

@@ -15,12 +15,32 @@ from app.schemas import (
     PromptContextBundle,
     PromptFact,
     PromptMode,
+    PromptOutputMode,
     PromptRenderOut,
     PromptRequest,
+    PromptSection,
+    PromptSizeMode,
     ProjectDetailOut,
     ProjectMaterialOut,
     SourceOut,
 )
+
+TOKEN_BUDGET = 12_000
+SECTION_ORDER = tuple(PromptSection)
+SECTION_FIELDS = {
+    PromptSection.USER_STATE: "user_state",
+    PromptSection.REQUIREMENTS: "requirements",
+    PromptSection.CANONICAL_FACTS: "canonical_facts",
+    PromptSection.STEPS: "steps",
+    PromptSection.SCHEDULES: "schedules",
+    PromptSection.REWARDS: "rewards",
+    PromptSection.WARNINGS: "warnings",
+    PromptSection.CHECKLIST: "checklist",
+    PromptSection.RELATED_CONTENTS: "related_contents",
+    PromptSection.PROJECT_STATE: "project_state",
+    PromptSection.OPEN_QUESTIONS_OR_CONFLICTS: "open_questions_or_conflicts",
+    PromptSection.SOURCES: "sources",
+}
 
 
 PRESET_GOALS = {
@@ -107,6 +127,7 @@ def _collect_content_context(
     schedules: list[str],
     sources: list[SourceOut],
     checklist: list[PromptChecklistItem],
+    related_contents: list[str],
     requirements: list[str],
     steps: list[str],
     rewards: list[str],
@@ -217,6 +238,17 @@ def _collect_content_context(
             )
             for item in instance.items
         )
+    for relation in sorted(
+        detail.related_contents,
+        key=lambda item: (item.order_no, item.seed_key, item.content_slug),
+    ):
+        relation_text = (
+            f"{relation.direction}/{relation.relation_type}: "
+            f"{relation.content_name_ko} ({relation.content_slug})"
+        )
+        if relation.note:
+            relation_text += f"; note={relation.note}"
+        related_contents.append(relation_text)
 
 
 def _collect_project_context(
@@ -229,6 +261,7 @@ def _collect_project_context(
     schedules: list[str],
     sources: list[SourceOut],
     checklist: list[PromptChecklistItem],
+    related_contents: list[str],
 ) -> list[str]:
     acquisition_slugs = sorted(
         {
@@ -246,6 +279,10 @@ def _collect_project_context(
         if detail is not None:
             related_details[slug] = detail
             sources.extend(detail.sources)
+            relation_kind = "project" if slug == project.content_slug else "acquisition"
+            related_contents.append(
+                f"{relation_kind}: {detail.name_ko} ({detail.slug})"
+            )
 
     completed_stage_count = sum(1 for stage in project.stages if stage.completed)
     shortage_material_count = sum(
@@ -429,6 +466,33 @@ def _collect_checklist_scope(
         )
 
 
+def _apply_section_selection(
+    bundle: PromptContextBundle,
+    include_sections: list[PromptSection] | None,
+) -> PromptContextBundle:
+    if include_sections is None:
+        selected = [
+            section
+            for section in SECTION_ORDER
+            if section != PromptSection.RELATED_CONTENTS
+            and (
+                section != PromptSection.PROJECT_STATE
+                or bool(bundle.project_state)
+            )
+        ]
+    else:
+        requested = set(include_sections)
+        selected = [section for section in SECTION_ORDER if section in requested]
+
+    output = bundle.model_copy(deep=True)
+    output.included_sections = selected
+    selected_set = set(selected)
+    for section, field_name in SECTION_FIELDS.items():
+        if section not in selected_set:
+            setattr(output, field_name, [])
+    return output
+
+
 def build_context(session: Session, request: PromptRequest, now: datetime) -> PromptContextBundle:
     facts: list[PromptFact] = []
     unresolved: list[PromptFact] = []
@@ -440,6 +504,7 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
     rewards: list[str] = []
     warnings: list[str] = []
     user_state: list[str] = []
+    related_contents: list[str] = []
     project_state: list[str] = []
     request_context = {"mode": request.mode.value, "page": "weekly"}
 
@@ -457,6 +522,7 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
             schedules=schedules,
             sources=sources,
             checklist=checklist,
+            related_contents=related_contents,
             requirements=requirements,
             steps=steps,
             rewards=rewards,
@@ -479,6 +545,7 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
             schedules=schedules,
             sources=sources,
             checklist=checklist,
+            related_contents=related_contents,
         )
     elif request.mode == PromptMode.WEEKLY_REVIEW:
         _collect_checklist_scope(
@@ -503,6 +570,7 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
                 schedules=schedules,
                 sources=sources,
                 checklist=checklist,
+                related_contents=related_contents,
                 requirements=requirements,
                 steps=steps,
                 rewards=rewards,
@@ -523,6 +591,7 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
                 schedules=schedules,
                 sources=sources,
                 checklist=checklist,
+                related_contents=related_contents,
             )
         else:
             request_context["page"] = "dashboard"
@@ -561,6 +630,7 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
                 schedules=schedules,
                 sources=sources,
                 checklist=checklist,
+                related_contents=related_contents,
                 requirements=requirements,
                 steps=steps,
                 rewards=rewards,
@@ -581,6 +651,7 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
                 schedules=schedules,
                 sources=sources,
                 checklist=checklist,
+                related_contents=related_contents,
             )
     else:
         raise ValueError(f'unsupported prompt mode: {request.mode}')
@@ -600,7 +671,7 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
         ),
     )
     checklist.sort(key=lambda item: (item.period_key, item.label))
-    return PromptContextBundle(
+    bundle = PromptContextBundle(
         generated_at=now,
         request_context=request_context,
         user_state=user_state,
@@ -611,11 +682,13 @@ def build_context(session: Session, request: PromptRequest, now: datetime) -> Pr
         rewards=rewards,
         warnings=warnings,
         checklist=checklist,
+        related_contents=related_contents,
         project_state=project_state,
         open_questions_or_conflicts=unresolved,
         sources=sources,
         user_question=request.user_question.strip(),
     )
+    return _apply_section_selection(bundle, request.include_sections)
 
 
 def _fact_lines(facts: list[PromptFact]) -> list[str]:
@@ -638,8 +711,13 @@ def _section(lines: list[str], title: str, values: list[str]) -> None:
         lines.append("- none")
 
 
-def render_markdown(bundle: PromptContextBundle) -> str:
+def render_markdown(
+    bundle: PromptContextBundle,
+    output_mode: PromptOutputMode = PromptOutputMode.FULL_PROMPT,
+) -> str:
     mode = PromptMode(bundle.request_context["mode"])
+    output_mode = PromptOutputMode(output_mode)
+    included = {PromptSection(section) for section in bundle.included_sections}
     lines = [
         "# BDO Companion Context",
         f"Generated: {bundle.generated_at.isoformat()}",
@@ -648,60 +726,160 @@ def render_markdown(bundle: PromptContextBundle) -> str:
         "## REQUEST_CONTEXT",
         f"- page: {bundle.request_context['page']}",
         f"- mode: {mode.value}",
-        f"- goal: {PRESET_GOALS[mode]}",
-        "",
-        "## RESPONSE_GUARDRAILS",
-        *[f"- {item}" for item in GUARDRAILS],
     ]
-    _section(lines, "USER_STATE", bundle.user_state)
-    _section(lines, "REQUIREMENTS", bundle.requirements)
-    lines.extend(["", "## CANONICAL_FACTS", *_fact_lines(bundle.canonical_facts)])
-    _section(lines, "STEPS", bundle.steps)
-    _section(lines, "SCHEDULES", bundle.schedules)
-    _section(lines, "REWARDS", bundle.rewards)
-    _section(lines, "WARNINGS", bundle.warnings)
-    lines.extend(["", "## CHECKLIST_STATE"])
-    if bundle.checklist:
+    if output_mode == PromptOutputMode.FULL_PROMPT:
         lines.extend(
-            f"- [{'x' if item.completed else ' '}] {item.label} ({item.period_key})"
-            for item in bundle.checklist
+            [
+                f"- goal: {PRESET_GOALS[mode]}",
+                "",
+                "## RESPONSE_GUARDRAILS",
+                *[f"- {item}" for item in GUARDRAILS],
+            ]
         )
-    else:
-        lines.append("- none")
-    if bundle.project_state:
+
+    if PromptSection.USER_STATE in included:
+        _section(lines, "USER_STATE", bundle.user_state)
+    if PromptSection.REQUIREMENTS in included:
+        _section(lines, "REQUIREMENTS", bundle.requirements)
+    if PromptSection.CANONICAL_FACTS in included:
+        lines.extend(["", "## CANONICAL_FACTS", *_fact_lines(bundle.canonical_facts)])
+    if PromptSection.STEPS in included:
+        _section(lines, "STEPS", bundle.steps)
+    if PromptSection.SCHEDULES in included:
+        _section(lines, "SCHEDULES", bundle.schedules)
+    if PromptSection.REWARDS in included:
+        _section(lines, "REWARDS", bundle.rewards)
+    if PromptSection.WARNINGS in included:
+        _section(lines, "WARNINGS", bundle.warnings)
+    if PromptSection.CHECKLIST in included:
+        lines.extend(["", "## CHECKLIST_STATE"])
+        if bundle.checklist:
+            lines.extend(
+                f"- [{'x' if item.completed else ' '}] {item.label} ({item.period_key})"
+                for item in bundle.checklist
+            )
+        else:
+            lines.append("- none")
+    if PromptSection.RELATED_CONTENTS in included:
+        _section(lines, "RELATED_CONTENTS", bundle.related_contents)
+    if PromptSection.PROJECT_STATE in included:
         _section(lines, "PROJECT_STATE", bundle.project_state)
-    unresolved_lines = _fact_lines(bundle.open_questions_or_conflicts)
-    if mode == PromptMode.VERIFY_LATEST and not bundle.open_questions_or_conflicts:
-        unresolved_lines = ["- 현재 저장된 정보에서 재검증이 필요한 항목이 없다."]
-    lines.extend(["", "## OPEN_QUESTIONS_OR_CONFLICTS", *unresolved_lines])
-    lines.extend(["", "## SOURCES"])
-    if bundle.sources:
+    if PromptSection.OPEN_QUESTIONS_OR_CONFLICTS in included:
+        unresolved_lines = _fact_lines(bundle.open_questions_or_conflicts)
+        if mode == PromptMode.VERIFY_LATEST and not bundle.open_questions_or_conflicts:
+            unresolved_lines = ["- 현재 저장된 정보에서 재검증이 필요한 항목이 없다."]
+        lines.extend(["", "## OPEN_QUESTIONS_OR_CONFLICTS", *unresolved_lines])
+    if PromptSection.SOURCES in included:
+        lines.extend(["", "## SOURCES"])
+        if bundle.sources:
+            lines.extend(
+                f"{index}. [{item.title}]({item.url}) — {item.source_type}, "
+                f"{item.verification_status}, {'current' if item.is_active else 'historical'}, "
+                f"claim {item.entity_id}/{item.claim_key}, verified {item.last_verified_at.isoformat()}"
+                for index, item in enumerate(bundle.sources, start=1)
+            )
+        else:
+            lines.append("- none")
+    if output_mode == PromptOutputMode.FULL_PROMPT:
         lines.extend(
-            f"{index}. [{item.title}]({item.url}) — {item.source_type}, "
-            f"{item.verification_status}, {'current' if item.is_active else 'historical'}, "
-            f"claim {item.entity_id}/{item.claim_key}, verified {item.last_verified_at.isoformat()}"
-            for index, item in enumerate(bundle.sources, start=1)
+            [
+                "",
+                "## USER_QUESTION",
+                bundle.user_question or "제공된 컨텍스트를 바탕으로 목적에 맞게 답해 주세요.",
+            ]
         )
-    else:
-        lines.append("- none")
-    lines.extend(
-        [
-            "",
-            "## USER_QUESTION",
-            bundle.user_question or "제공된 컨텍스트를 바탕으로 목적에 맞게 답해 주세요.",
-        ]
-    )
     return "\n".join(lines).strip() + "\n"
 
 
-def render_result(bundle: PromptContextBundle) -> PromptRenderOut:
-    markdown = render_markdown(bundle)
+def _estimated_tokens(markdown: str) -> int:
+    return (len(markdown) + 3) // 4
+
+
+def _compact_bundle(
+    bundle: PromptContextBundle,
+    output_mode: PromptOutputMode,
+) -> tuple[PromptContextBundle, dict[str, int]]:
+    output = bundle.model_copy(deep=True)
+    omitted_counts: dict[str, int] = {}
+
+    def over_budget() -> bool:
+        return _estimated_tokens(render_markdown(output, output_mode)) > TOKEN_BUDGET
+
+    def remove_tail(section: PromptSection, predicate) -> None:
+        field_name = SECTION_FIELDS[section]
+        items = getattr(output, field_name)
+        while over_budget():
+            index = next(
+                (
+                    index
+                    for index in range(len(items) - 1, -1, -1)
+                    if predicate(items[index])
+                ),
+                None,
+            )
+            if index is None:
+                break
+            del items[index]
+            omitted_counts[section.value] = omitted_counts.get(section.value, 0) + 1
+
+    remove_tail(PromptSection.RELATED_CONTENTS, lambda _item: True)
+    remove_tail(PromptSection.SOURCES, lambda item: not item.is_active)
+    remove_tail(
+        PromptSection.SOURCES,
+        lambda item: item.is_active and not item.source_type.startswith("official_"),
+    )
+
+    visible_source_urls = {
+        fact.source_url
+        for fact in [
+            *output.canonical_facts,
+            *output.open_questions_or_conflicts,
+        ]
+        if fact.source_url
+    }
+    remove_tail(
+        PromptSection.SOURCES,
+        lambda item: item.url not in visible_source_urls,
+    )
+    remove_tail(
+        PromptSection.PROJECT_STATE,
+        lambda item: item.startswith("acquisition:"),
+    )
+    for section in (
+        PromptSection.WARNINGS,
+        PromptSection.REWARDS,
+        PromptSection.STEPS,
+        PromptSection.REQUIREMENTS,
+    ):
+        remove_tail(section, lambda _item: True)
+    remove_tail(PromptSection.CANONICAL_FACTS, lambda _item: True)
+    return output, omitted_counts
+
+
+def render_result(
+    bundle: PromptContextBundle,
+    output_mode: PromptOutputMode = PromptOutputMode.FULL_PROMPT,
+    size_mode: PromptSizeMode = PromptSizeMode.AUTO,
+) -> PromptRenderOut:
+    output_mode = PromptOutputMode(output_mode)
+    size_mode = PromptSizeMode(size_mode)
+    original_markdown = render_markdown(bundle, output_mode)
+    original_estimated_tokens = _estimated_tokens(original_markdown)
+    final_bundle = bundle
+    omitted_counts: dict[str, int] = {}
+    if size_mode == PromptSizeMode.AUTO and original_estimated_tokens > TOKEN_BUDGET:
+        final_bundle, omitted_counts = _compact_bundle(bundle, output_mode)
+
+    markdown = render_markdown(final_bundle, output_mode)
     characters = len(markdown)
-    estimated_tokens = (characters + 3) // 4
+    estimated_tokens = _estimated_tokens(markdown)
     return PromptRenderOut(
-        bundle=bundle,
+        bundle=final_bundle,
         markdown=markdown,
         character_count=characters,
         estimated_tokens=estimated_tokens,
-        over_budget=estimated_tokens > 12_000,
+        original_estimated_tokens=original_estimated_tokens,
+        compacted=bool(omitted_counts),
+        omitted_counts=omitted_counts,
+        over_budget=estimated_tokens > TOKEN_BUDGET,
     )

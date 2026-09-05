@@ -18,6 +18,22 @@ export type PromptMode =
   | 'next_action'
   | 'verify_latest'
 
+export type PromptOutputMode = 'full_prompt' | 'context_only'
+export type PromptSizeMode = 'auto' | 'detailed'
+export type PromptSection =
+  | 'user_state'
+  | 'requirements'
+  | 'canonical_facts'
+  | 'steps'
+  | 'schedules'
+  | 'rewards'
+  | 'warnings'
+  | 'checklist'
+  | 'related_contents'
+  | 'project_state'
+  | 'open_questions_or_conflicts'
+  | 'sources'
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(path, {
     ...init,
@@ -81,6 +97,9 @@ export const api = {
     content_slug?: string
     project_slug?: string
     user_question: string
+    include_sections: PromptSection[]
+    output_mode: PromptOutputMode
+    size_mode: PromptSizeMode
   }) => request<PromptRender>('/api/prompt/render', {
     method: 'POST',
     body: JSON.stringify({ ...body, as_of: new Date().toISOString() }),

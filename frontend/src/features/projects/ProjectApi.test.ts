@@ -60,6 +60,9 @@ test('project optimizer 요청에 project_slug와 as_of를 포함한다', async 
     markdown: '# project',
     character_count: 9,
     estimated_tokens: 3,
+    original_estimated_tokens: 3,
+    compacted: false,
+    omitted_counts: {},
     over_budget: false,
   }
   const fetchMock = vi.fn().mockResolvedValue({
@@ -72,6 +75,9 @@ test('project optimizer 요청에 project_slug와 as_of를 포함한다', async 
     mode: 'project_optimizer',
     project_slug: 'carrack advance',
     user_question: '빠른 순서',
+    include_sections: ['project_state'],
+    output_mode: 'full_prompt',
+    size_mode: 'auto',
   })
 
   const [path, init] = fetchMock.mock.calls[0]

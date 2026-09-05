@@ -1,6 +1,6 @@
 # Tasks — first implementation milestone
 
-> V1.8D 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
+> V1.8E 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
 
 ## Milestone A: working vertical slice
 
@@ -57,7 +57,7 @@
 
 
 ## Milestone V1.5: ChatGPT Prompt Bridge
-- [ ] Implement `docs/specs/002-prompt-bridge/tasks.md`
+- [x] Implement `docs/specs/002-prompt-bridge/tasks.md`
 - [x] No API key / LLM SDK dependency
 - [x] Content detail에서 onboarding prompt 생성
 - [x] Carrack project에서 current materials + shortages + recurring status prompt 생성 — V1.8C에서 stage/inventory 메모, 관련 checklist·schedule·evidence 포함
@@ -65,4 +65,7 @@
 - [x] Dashboard 전체 또는 선택한 Content/Project에서 현재 상태 기반 `next_action` prompt 생성
 - [x] Content/Project의 verified 기준 정보와 unresolved claim을 분리한 `verify_latest` prompt 생성
 - [x] 5개 preset과 weekly review golden snapshot
+- [x] mode/target별 context selector와 related contents
+- [x] `full_prompt`/`context_only`, `auto`/`detailed` 출력 제어
+- [x] 12,000 token 목표의 deterministic item-level compaction과 생략 metadata
 - [x] `verified`/`needs_review`/`conflict` 분리 검증

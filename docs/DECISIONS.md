@@ -52,3 +52,9 @@
 **Decision:** 게임 사실의 원본은 기존 Content/evidence로 유지하고, ProjectMaterial은 tracker 계산을 위한 normalized projection으로 저장한다. 각 ProjectMaterial은 가능한 경우 원본 Requirement 또는 Section의 stable seed key를 기록한다. Project, Stage, Material과 획득처 연결은 seed-managed 정본이며, 재료 보유량과 단계 완료 상태는 각각 `UserMaterialInventory`, `UserProjectStageState`에 분리한다. 부족량은 backend가 `max(required_quantity - owned_quantity, 0)`으로 계산한다.
 
 **Reason:** 원본 지식과 계산용 투영을 구분하면 같은 사실을 독립적으로 재작성하는 오류를 줄일 수 있다. 사용자 상태를 canonical import 대상과 분리하면 seed 갱신·archive·재수입 뒤에도 재고와 완료 이력을 보존할 수 있고, shortage 결과는 UI나 LLM에 맡기지 않고 항상 재현할 수 있다.
+
+## ADR-012 Deterministic Prompt selection and compaction
+
+**Decision:** Context selector는 canonical knowledge와 사용자 데이터를 수정하지 않고 직렬화할 section만 제어한다. 자동 size control은 문자열을 자르거나 사실을 재작성하지 않고 완전한 item 또는 section 단위의 deterministic omission만 사용한다. unresolved claim, 사용자 상태, checklist, schedule과 Project의 stage/material/shortage 핵심 값은 우선 보존하고, related contents, historical/non-official/unlinked source, Project acquisition detail과 저우선 narrative를 먼저 줄인다. `detailed` mode는 자동 생략을 수행하지 않는다.
+
+**Reason:** 12,000 estimated token 목표를 적용하면서도 값 왜곡, LLM 기반 요약과 실행마다 달라지는 결과를 피하고 동일 입력의 재현성을 유지하기 위해서다.
