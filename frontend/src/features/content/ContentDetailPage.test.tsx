@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { beforeEach, expect, test, vi } from 'vitest'
 import { api } from '../../api'
@@ -48,7 +48,14 @@ function renderPage() {
 }
 
 beforeEach(() => {
+  vi.mocked(api.renderPrompt).mockReset()
   vi.mocked(api.content).mockResolvedValue(structuredClone(fixture))
+  vi.mocked(api.renderPrompt).mockResolvedValue({
+    markdown: '# verify content',
+    character_count: 16,
+    estimated_tokens: 4,
+    over_budget: false,
+  })
 })
 
 test('구조화된 상세 섹션을 지정된 순서의 제목으로 렌더링한다', async () => {
@@ -90,3 +97,19 @@ test('데이터가 없는 상세 섹션은 빈 박스로 렌더링하지 않는�
   expect(screen.getByText('등록된 구조화 데이터가 없는 섹션은 숨겨져 있습니다.')).toBeInTheDocument()
 })
 
+test('Content Detail에서 현재 content slug로 최신 정보 검증 prompt를 연다', async () => {
+  renderPage()
+  fireEvent.click(await screen.findByRole('button', {
+    name: '최신 정보 검증 프롬프트',
+  }))
+
+  expect(screen.getByPlaceholderText(
+    '미검증 항목을 최신 KR 공식 자료로 확인해줘',
+  )).toBeInTheDocument()
+  await waitFor(() => expect(api.renderPrompt).toHaveBeenCalledWith({
+    mode: 'verify_latest',
+    content_slug: 'blood-altar',
+    project_slug: undefined,
+    user_question: '',
+  }))
+})

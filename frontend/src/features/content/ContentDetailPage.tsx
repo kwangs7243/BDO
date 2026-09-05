@@ -81,7 +81,15 @@ export function ContentDetailPage() {
           <h1>{content.name_ko}</h1>
           <p className="subtitle">{content.summary}</p>
         </div>
-        <PromptBridgeDialog mode="content_onboarding" contentSlug={content.slug} />
+        <div className="project-header-actions">
+          <PromptBridgeDialog mode="content_onboarding" contentSlug={content.slug} />
+          <PromptBridgeDialog
+            mode="verify_latest"
+            contentSlug={content.slug}
+            triggerLabel="최신 정보 검증 프롬프트"
+            variant="ghost"
+          />
+        </div>
       </header>
 
       <div className="detail-grid">

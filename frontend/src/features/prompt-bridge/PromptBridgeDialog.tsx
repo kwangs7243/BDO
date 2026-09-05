@@ -1,12 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
-import { api } from '../../api'
+import { api, type PromptMode } from '../../api'
 
 interface Props {
-  mode: 'content_onboarding' | 'weekly_review' | 'project_optimizer'
+  mode: PromptMode
   contentSlug?: string
   projectSlug?: string
   triggerLabel?: string
   disabled?: boolean
+  variant?: 'primary' | 'ghost'
+}
+
+const placeholders: Record<PromptMode, string> = {
+  project_optimizer: '이번 주 안에 최대한 빨리 끝내는 순서를 짜줘',
+  content_onboarding: '지금 내 상태에서 무엇부터 하면 돼?',
+  weekly_review: '이번 주 남은 일의 우선순위를 정해줘',
+  next_action: '지금 내 상태에서 무엇부터 하면 돼?',
+  verify_latest: '미검증 항목을 최신 KR 공식 자료로 확인해줘',
 }
 
 export function PromptBridgeDialog({
@@ -15,6 +24,7 @@ export function PromptBridgeDialog({
   projectSlug,
   triggerLabel = 'ChatGPT에 물어보기',
   disabled = false,
+  variant = 'primary',
 }: Props) {
   const [open, setOpen] = useState(false)
   const [question, setQuestion] = useState('')
@@ -72,7 +82,7 @@ export function PromptBridgeDialog({
 
   return (
     <>
-      <button className="button primary" disabled={disabled} onClick={() => setOpen(true)}>
+      <button className={`button ${variant}`} disabled={disabled} onClick={() => setOpen(true)}>
         {triggerLabel}
       </button>
       {open && (
@@ -88,13 +98,7 @@ export function PromptBridgeDialog({
               className="question-input"
               value={question}
               onChange={(event) => setQuestion(event.target.value)}
-              placeholder={
-                mode === 'project_optimizer'
-                  ? '이번 주 안에 최대한 빨리 끝내는 순서를 짜줘'
-                  : mode === 'weekly_review'
-                    ? '이번 주 남은 일의 우선순위를 정해줘'
-                    : '지금 내 상태에서 무엇부터 하면 돼?'
-              }
+              placeholder={placeholders[mode]}
             />
             <div className="preview-meta">
               <span>{loading ? '생성 중…' : `${stats.characters.toLocaleString()}자 · 약 ${stats.tokens.toLocaleString()} tokens`}</span>

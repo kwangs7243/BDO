@@ -11,6 +11,13 @@ import type {
   UserContentStateValue,
 } from './types'
 
+export type PromptMode =
+  | 'content_onboarding'
+  | 'weekly_review'
+  | 'project_optimizer'
+  | 'next_action'
+  | 'verify_latest'
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(path, {
     ...init,
@@ -70,7 +77,7 @@ export const api = {
     },
   ),
   renderPrompt: (body: {
-    mode: 'content_onboarding' | 'weekly_review' | 'project_optimizer'
+    mode: PromptMode
     content_slug?: string
     project_slug?: string
     user_question: string

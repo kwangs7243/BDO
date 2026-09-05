@@ -129,6 +129,24 @@ test('프로젝트 Prompt Bridge를 열고 현재 project slug로 미리보기�
   expect(await screen.findByDisplayValue('# project prompt')).toBeInTheDocument()
 })
 
+test('Project Detail에서 현재 project slug로 최신 정보 검증 prompt를 연다', async () => {
+  renderPage()
+
+  fireEvent.click(await screen.findByRole('button', {
+    name: '최신 정보 검증 프롬프트',
+  }))
+
+  expect(screen.getByPlaceholderText(
+    '미검증 항목을 최신 KR 공식 자료로 확인해줘',
+  )).toBeInTheDocument()
+  await waitFor(() => expect(api.renderPrompt).toHaveBeenCalledWith({
+    mode: 'verify_latest',
+    content_slug: undefined,
+    project_slug: 'carrack-project',
+    user_question: '',
+  }))
+})
+
 test('명시적 저장 뒤 서버가 반환한 보유량과 부족량으로 다시 표시한다', async () => {
   const updated = structuredClone(fixture)
   updated.materials[0].owned_quantity = 100
