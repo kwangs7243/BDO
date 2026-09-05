@@ -120,6 +120,63 @@ export interface ContentDetail extends ContentSummary {
   sources: SourceEvidence[]
 }
 
+export interface LifeProgress {
+  total: number
+  tracked: number
+  not_started: number
+  foundation: number
+  in_progress: number
+  completed: number
+  paused: number
+  ignored: number
+}
+
+export interface LifeContent {
+  slug: string
+  name_ko: string
+  category: string
+  subcategory: string | null
+  summary: string | null
+  verification_status: VerificationStatus
+  last_verified_at: string | null
+  user_state: UserContentState
+}
+
+export interface LifeSkillSummary {
+  key: string
+  name_ko: string
+  summary: string | null
+  verification_status: VerificationStatus
+  last_verified_at: string | null
+  content_count: number
+  user_progress: LifeProgress
+  entry_content_slug: string
+}
+
+export interface LifeProject {
+  slug: string
+  name_ko: string
+  summary: string | null
+  content_slug: string | null
+}
+
+export interface LifeHub {
+  foundations: LifeContent[]
+  economy_contents: LifeContent[]
+  skills: LifeSkillSummary[]
+}
+
+export interface LifeSkillDetail extends LifeSkillSummary {
+  foundation_contents: LifeContent[]
+  getting_started: LifeContent[]
+  equipment: LifeContent[]
+  core_systems: LifeContent[]
+  recurring_contents: LifeContent[]
+  advanced_contents: LifeContent[]
+  related_economy: LifeContent[]
+  related_projects: LifeProject[]
+}
+
 export interface ChecklistItem {
   id: number
   template_item_id: number

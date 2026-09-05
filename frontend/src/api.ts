@@ -2,6 +2,8 @@ import type {
   ChecklistInstance,
   ContentDetail,
   ContentSummary,
+  LifeHub,
+  LifeSkillDetail,
   MaterialInventory,
   ProjectDetail,
   ProjectStageState,
@@ -49,6 +51,10 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 export const api = {
   contents: () => request<ContentSummary[]>('/api/contents'),
   content: (slug: string) => request<ContentDetail>(`/api/contents/${encodeURIComponent(slug)}`),
+  life: () => request<LifeHub>('/api/life'),
+  lifeSkill: (skill: string) => request<LifeSkillDetail>(
+    `/api/life/${encodeURIComponent(skill)}`,
+  ),
   updateContentState: (
     slug: string,
     state: UserContentStateValue,

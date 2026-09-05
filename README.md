@@ -2,7 +2,7 @@
 
 목표: 단순 숙제 체크리스트가 아니라, **검은사막 콘텐츠 위키 + 진행도 + 반복 숙제 + 프로젝트/재료 트래커 + 근거 관리**를 하나로 묶는 로컬 웹앱.
 
-현재 구현 milestone은 **V1.8E — Prompt Bridge V1.5 Completion**이다.
+현재 구현 milestone은 **V1.9A — Life Hub Experience**다.
 
 ## 현재 baseline
 
@@ -10,7 +10,7 @@
 - Content: 259 (모두 active)
 - 지식 역할: FACT 193 / STRATEGY 17 / MEASUREMENT 11
 - Project Tracker: Project 1 / Stage 4 / Material 9 / ProjectMaterial 9 / MaterialSource 9
-- 테스트: backend 203 passed / frontend 39 passed
+- 테스트: backend 210 passed / frontend 45 passed
 - 주요 데이터 영역: Routine, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss, Account / Main Quest / Adventure Log / Magnus Progression Foundation
 
 ## 제품 목표 사용 시나리오
@@ -50,7 +50,7 @@
 
 ## 현재 범위와 AI 원칙
 
-현재 V1.8E까지 비용이 발생하는 AI 연동 없이 V1.5의 로컬 Prompt Bridge 원칙을 유지하며, V1.5 범위의 Prompt Bridge 기능은 완료되었다.
+현재 V1.9A까지 비용이 발생하는 AI 연동 없이 V1.5의 로컬 Prompt Bridge 원칙을 유지하며, V1.5 범위의 Prompt Bridge 기능은 완료되었다.
 
 - OpenAI API: 사용 안 함
 - 타사 LLM API: 사용 안 함
@@ -86,8 +86,11 @@
 - Project/Stage DAG, Material projection, global inventory와 stage completion 상태
 - Carrack Advance backend tracker와 결정적 shortage 계산
 - Project 목록·상세 화면, stage 완료/해제, material 재고 저장과 Content 수급처 이동
+- 기존 V1.6F-I 및 해양 canonical Content를 재구성한 Life Hub와 10개 생활 분야 상세 화면
+- 생활 공통 기반, 분야별 진행도·검증 상태, 노드·일꾼·물류 경제 Content 탐색
+- 생활 분야에서 기존 Content Detail·Prompt Bridge와 Carrack Project로 이어지는 탐색 흐름
 
-정본 seed 형식은 `docs/data/SEED_FORMAT.md`, V1.8A backend 기반은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B frontend 경험은 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`에 기록한다.
+정본 seed 형식은 `docs/data/SEED_FORMAT.md`, V1.8A backend 기반은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B frontend 경험은 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub는 `handoff/V19A_LIFE_HUB_REPORT.md`에 기록한다.
 
 ## 실행
 
@@ -130,19 +133,19 @@ uv run uvicorn app.main:app --reload
 
 ## 검증 명령과 결과
 
-2026-09-05 기준 backend 테스트는 203 passed, frontend 테스트는 39 passed다.
+2026-09-05 기준 backend 테스트는 210 passed, frontend 테스트는 45 passed다.
 
 ```powershell
 cd backend
 uv run pytest
-# 203 passed
+# 210 passed
 
 cd ../frontend
 npm run typecheck
 npm run lint
 npm run test
 npm run build
-# frontend: 39 passed
+# frontend: 45 passed
 ```
 
-V1.6A 기반 구조는 `handoff/V16A_SNAPSHOT.md`, V1.7 데이터 팩 결과는 `handoff/V17A_COMBAT_FOUNDATION_REPORT.md`, `handoff/V17B_GRIND_SPOT_REPORT.md`, `handoff/V17C_BOSS_BLACK_SHRINE_REPORT.md`, `handoff/V17D_ACCOUNT_PROGRESSION_REPORT.md`에 기록되어 있다. V1.8A Project Tracker backend foundation은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B Carrack Project UI는 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`에 기록한다.
+V1.6A 기반 구조는 `handoff/V16A_SNAPSHOT.md`, V1.7 데이터 팩 결과는 `handoff/V17A_COMBAT_FOUNDATION_REPORT.md`, `handoff/V17B_GRIND_SPOT_REPORT.md`, `handoff/V17C_BOSS_BLACK_SHRINE_REPORT.md`, `handoff/V17D_ACCOUNT_PROGRESSION_REPORT.md`에 기록되어 있다. V1.8A Project Tracker backend foundation은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B Carrack Project UI는 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub Experience는 `handoff/V19A_LIFE_HUB_REPORT.md`에 기록한다.

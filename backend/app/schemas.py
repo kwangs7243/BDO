@@ -249,6 +249,63 @@ class ContentDetailOut(ContentSummaryOut):
     sources: list[SourceOut]
 
 
+class LifeProgressOut(BaseModel):
+    total: int
+    tracked: int
+    not_started: int
+    foundation: int
+    in_progress: int
+    completed: int
+    paused: int
+    ignored: int
+
+
+class LifeContentOut(BaseModel):
+    slug: str
+    name_ko: str
+    category: str
+    subcategory: str | None
+    summary: str | None
+    verification_status: str
+    last_verified_at: date | None
+    user_state: UserContentStateOut
+
+
+class LifeSkillSummaryOut(BaseModel):
+    key: str
+    name_ko: str
+    summary: str | None
+    verification_status: str
+    last_verified_at: date | None
+    content_count: int
+    user_progress: LifeProgressOut
+    entry_content_slug: str
+
+
+class LifeProjectOut(BaseModel):
+    slug: str
+    name_ko: str
+    summary: str | None
+    content_slug: str | None
+
+
+class LifeHubOut(BaseModel):
+    foundations: list[LifeContentOut]
+    economy_contents: list[LifeContentOut]
+    skills: list[LifeSkillSummaryOut]
+
+
+class LifeSkillDetailOut(LifeSkillSummaryOut):
+    foundation_contents: list[LifeContentOut]
+    getting_started: list[LifeContentOut]
+    equipment: list[LifeContentOut]
+    core_systems: list[LifeContentOut]
+    recurring_contents: list[LifeContentOut]
+    advanced_contents: list[LifeContentOut]
+    related_economy: list[LifeContentOut]
+    related_projects: list[LifeProjectOut]
+
+
 class ChecklistStateUpdate(BaseModel):
     completed: bool
     note: str | None = None

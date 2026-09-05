@@ -11,6 +11,7 @@ from sqlalchemy.orm import Session
 from app.checklists import get_current_checklists
 from app.content import get_content_detail, list_contents
 from app.database import create_schema, get_session
+from app.life import get_life_hub, get_life_skill
 from app.models import ChecklistItemState, Content, UserContentState
 from app.periods import KST, SUNDAY, daily_period, next_weekly_occurrence, weekly_period
 from app.prompt_bridge import build_context, render_result
@@ -26,6 +27,8 @@ from app.schemas import (
     ChecklistStateUpdate,
     ContentDetailOut,
     ContentSummaryOut,
+    LifeHubOut,
+    LifeSkillDetailOut,
     PromptContextBundle,
     PromptRenderOut,
     PromptRequest,
@@ -74,6 +77,19 @@ def content_detail(slug: str, session: Session = Depends(get_session)):
     result = get_content_detail(session, slug, now_kst())
     if result is None:
         raise HTTPException(status_code=404, detail="Content not found")
+    return result
+
+
+@app.get("/api/life", response_model=LifeHubOut)
+def life_hub(session: Session = Depends(get_session)):
+    return get_life_hub(session)
+
+
+@app.get("/api/life/{skill}", response_model=LifeSkillDetailOut)
+def life_skill(skill: str, session: Session = Depends(get_session)):
+    result = get_life_skill(session, skill)
+    if result is None:
+        raise HTTPException(status_code=404, detail="Life skill not found")
     return result
 
 
