@@ -127,6 +127,16 @@ nav a:hover, nav a.active { color: white; background: #18211d; border-left-color
 .prompt-preview { min-height: 330px; font: 12px/1.55 Consolas, monospace; }
 .preview-meta { display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; margin: 12px 0 6px; }
 .preview-meta strong { color: var(--red); }
+.prompt-controls { margin: 0 0 14px; border: 1px solid var(--line); border-radius: 6px; background: #0d1410; }
+.prompt-controls summary { padding: 12px 14px; color: #cad3ce; cursor: pointer; font-size: 13px; font-weight: 600; }
+.prompt-section-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px 14px; padding: 4px 14px 14px; }
+.prompt-section-grid label, .prompt-mode-controls label { display: flex; align-items: center; gap: 7px; color: var(--muted); font-size: 12px; }
+.prompt-section-grid input, .prompt-mode-controls input { accent-color: var(--gold); }
+.prompt-mode-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.prompt-mode-controls fieldset { display: flex; gap: 16px; margin: 0; border: 1px solid var(--line); border-radius: 6px; padding: 10px 13px 12px; }
+.prompt-mode-controls legend { padding: 0 5px; color: #cad3ce; font-size: 11px; }
+.context-only-note, .omitted-summary { color: var(--muted); font-size: 12px; }
+.omitted-summary { margin: 3px 0 8px; }
 .dialog-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 12px; }
 .status-message { color: var(--green); font-size: 12px; margin-right: auto; }
 .privacy-line { color: #65716a; font-size: 11px; text-align: right; }
@@ -199,6 +209,8 @@ nav a:hover, nav a.active { color: white; background: #18211d; border-left-color
   .reset-grid, .detail-grid { grid-template-columns: 1fr; }
   .filters { flex-direction: column; }
   .dialog-actions { flex-wrap: wrap; }
+  .prompt-section-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .prompt-mode-controls { grid-template-columns: 1fr; }
   .status-message { width: 100%; }
   .state-editor { grid-template-columns: 1fr; }
   .state-note, .state-actions { grid-column: auto; }

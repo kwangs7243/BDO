@@ -236,7 +236,11 @@ def prompt_context(request: PromptRequest, session: Session = Depends(get_sessio
 @app.post("/api/prompt/render", response_model=PromptRenderOut)
 def prompt_render(request: PromptRequest, session: Session = Depends(get_session)):
     try:
-        return render_result(build_context(session, request, request.as_of))
+        return render_result(
+            build_context(session, request, request.as_of),
+            output_mode=request.output_mode,
+            size_mode=request.size_mode,
+        )
     except ValueError as error:
         raise HTTPException(status_code=422, detail=str(error)) from error
     except LookupError as error:

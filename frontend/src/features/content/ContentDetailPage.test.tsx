@@ -4,6 +4,7 @@ import { beforeEach, expect, test, vi } from 'vitest'
 import { api } from '../../api'
 import type { ContentDetail } from '../../types'
 import { ContentDetailPage } from './ContentDetailPage'
+import { defaultPromptSections } from '../prompt-bridge/promptConfig'
 
 vi.mock('../../api', () => ({
   api: {
@@ -54,6 +55,9 @@ beforeEach(() => {
     markdown: '# verify content',
     character_count: 16,
     estimated_tokens: 4,
+    original_estimated_tokens: 4,
+    compacted: false,
+    omitted_counts: {},
     over_budget: false,
   })
 })
@@ -111,5 +115,8 @@ test('Content Detail에서 현재 content slug로 최신 정보 검증 prompt를
     content_slug: 'blood-altar',
     project_slug: undefined,
     user_question: '',
+    include_sections: defaultPromptSections('verify_latest', 'blood-altar'),
+    output_mode: 'full_prompt',
+    size_mode: 'auto',
   }))
 })

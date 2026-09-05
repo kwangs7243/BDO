@@ -147,6 +147,9 @@ export interface PromptRender {
   markdown: string
   character_count: number
   estimated_tokens: number
+  original_estimated_tokens: number
+  compacted: boolean
+  omitted_counts: Record<string, number>
   over_budget: boolean
 }
 
