@@ -31865,6 +31865,158 @@
       ]
     },
     {
+      "slug": "gathering-onboarding-strategy",
+      "name_ko": "채집 입문 전략",
+      "category": "life",
+      "subcategory": "gathering",
+      "summary": "필요한 재료와 성장 목적을 먼저 정하고 도구·동선·현재 장비를 맞춰 첫 채집 루프를 구성하는 조건부 입문 전략이다.",
+      "purpose": "채집 사실 규칙은 기존 현재 시스템에 맡기고, 처음 시작할 때의 선택과 점검 순서를 안내한다.",
+      "status": "active",
+      "last_verified_at": "2026-09-06",
+      "requirements": [
+        {"seed_key":"gathering-onboarding-strategy.purpose-choice","kind":"knowledge","title":"채집 목적 선택","description":"요리·연금·제작·프로젝트 재료 또는 생활 경험치와 숙련도 성장 중 이번 채집의 목적을 먼저 정한다.","structured_value":{"knowledge_role":"strategy","decision_dimensions":["target_material","crafting_or_project_need","life_progression"],"single_default_goal":false},"requirement_level":"recommended"},
+        {"seed_key":"gathering-onboarding-strategy.route-context","kind":"knowledge","title":"동선 선택 조건","description":"목표 재료의 개체 밀도뿐 아니라 이동 거리, 재생 흐름, 창고 접근성, 무게와 캐릭터 이동 편의를 함께 비교한다.","structured_value":{"knowledge_role":"strategy","decision_dimensions":["target_density","travel_distance","respawn_loop","storage_access","weight","character_mobility"],"universal_best_route":false},"requirement_level":"recommended"}
+      ],
+      "steps": [
+        {"seed_key":"gathering-onboarding-strategy.step.choose-goal","phase":"preparation","title":"목표 정하기","description":"이번 세션에서 직접 필요한 재료나 생활 성장 목적 하나를 정한다."},
+        {"seed_key":"gathering-onboarding-strategy.step.confirm-method","phase":"preparation","title":"채집 방식 확인","description":"목표 재료를 얻는 채집 대상과 상호작용 방식을 기존 현재 시스템에서 확인한다."},
+        {"seed_key":"gathering-onboarding-strategy.step.prepare-tool","phase":"preparation","title":"도구 준비","description":"선택한 채집 방식에 맞는 도구와 남은 내구도를 확인한다."},
+        {"seed_key":"gathering-onboarding-strategy.step.review-gear","phase":"preparation","title":"장비와 기운 확인","description":"현재 생활 장비, 숙련도와 사용할 수 있는 기운을 확인해 세션 범위를 정한다."},
+        {"seed_key":"gathering-onboarding-strategy.step.choose-route","phase":"first_time","title":"첫 동선 선택","description":"목표 재료와 이동·창고·무게 조건에 맞는 짧은 동선 하나를 선택한다."},
+        {"seed_key":"gathering-onboarding-strategy.step.run-loop","phase":"first_time","title":"한 바퀴 실행","description":"선택한 동선을 한 바퀴 진행하며 개체 간 이동과 재생 흐름을 확인한다."},
+        {"seed_key":"gathering-onboarding-strategy.step.adjust","phase":"maintenance","title":"병목 조정","description":"기운, 무게, 도구 내구도 또는 이동이 먼저 막히는지 확인하고 다음 세션의 동선을 조정한다."}
+      ],
+      "sections": [
+        {"seed_key":"gathering-onboarding-strategy.section.purpose","section_type":"strategy","title":"목적 기반 선택","body_markdown":"필요한 재료가 정해져 있다면 그 재료를 얻는 채집 방식부터 선택한다. 생활 성장 자체가 목적이라면 현재 장비와 기운으로 반복하기 편한 방식을 비교한다."},
+        {"seed_key":"gathering-onboarding-strategy.section.route","section_type":"strategy","title":"채집 동선 비교 기준","body_markdown":"커뮤니티 동선은 유효한 후보지만 계정 상태에 따라 결과가 달라진다. 목표 재료, 개체 밀도, 이동 거리, 재생 흐름, 창고 접근성, 무게와 캐릭터 이동 편의를 함께 확인한다."},
+        {"seed_key":"gathering-onboarding-strategy.section.mistakes","section_type":"common_mistakes","title":"처음 피할 실수","body_markdown":"목적 없이 인기 동선만 따라가거나, 채집 대상에 맞는 도구를 확인하지 않거나, 기운·무게·내구도 병목을 무시하지 않는다. 과거 수익표는 현재 선택의 고정 기준으로 사용하지 않는다."}
+      ],
+      "relations": [
+        {"seed_key":"gathering-onboarding-strategy.current-system","to_content_slug":"gathering-current-system","relation_type":"prerequisite","note":"채집 방식과 기운 등 사실 규칙은 현재 시스템에서 확인한다."},
+        {"seed_key":"gathering-onboarding-strategy.tools","to_content_slug":"gathering-tools","relation_type":"related","note":"채집 대상에 맞는 도구를 준비한다."},
+        {"seed_key":"gathering-onboarding-strategy.mastery","to_content_slug":"life-mastery-foundation","relation_type":"related","note":"현재 숙련도와 장비 상태를 판단할 때 참고한다."},
+        {"seed_key":"gathering-onboarding-strategy.energy","to_content_slug":"energy-foundation","relation_type":"related","note":"세션 범위를 정할 때 기운 구조를 확인한다."}
+      ],
+      "evidence": [
+        {"seed_key":"gathering-onboarding-strategy.claim.summary","entity_type":"content","entity_seed_key":"gathering-onboarding-strategy","claim_key":"summary","source_ids":["gathering-guide","gathering-location-strategy-2026-05-24"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"공식 채집 규칙과 조건부 커뮤니티 동선 기준을 분리해 구성한 입문 전략","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.purpose","entity_type":"content","entity_seed_key":"gathering-onboarding-strategy","claim_key":"purpose","source_ids":["gathering-guide","gathering-location-strategy-2026-05-24"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"현재 시스템과 전략 책임을 분리한 목적","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.purpose-choice","entity_type":"content_requirement","entity_seed_key":"gathering-onboarding-strategy.purpose-choice","claim_key":"description","source_ids":["gathering-guide","gathering-location-strategy-2026-05-24"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"목표에 따른 조건부 선택 전략","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.route-context","entity_type":"content_requirement","entity_seed_key":"gathering-onboarding-strategy.route-context","claim_key":"description","source_ids":["gathering-guide","gathering-location-strategy-2026-05-24"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"특정 동선을 보편화하지 않는 비교 기준","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.step-choose-goal","entity_type":"content_step","entity_seed_key":"gathering-onboarding-strategy.step.choose-goal","claim_key":"description","source_ids":["gathering-guide","gathering-location-strategy-2026-05-24"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.step-confirm-method","entity_type":"content_step","entity_seed_key":"gathering-onboarding-strategy.step.confirm-method","claim_key":"description","source_ids":["gathering-guide"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.step-prepare-tool","entity_type":"content_step","entity_seed_key":"gathering-onboarding-strategy.step.prepare-tool","claim_key":"description","source_ids":["gathering-guide"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.step-review-gear","entity_type":"content_step","entity_seed_key":"gathering-onboarding-strategy.step.review-gear","claim_key":"description","source_ids":["gathering-guide"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.step-choose-route","entity_type":"content_step","entity_seed_key":"gathering-onboarding-strategy.step.choose-route","claim_key":"description","source_ids":["gathering-location-strategy-2026-05-24"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"커뮤니티 동선을 조건부 후보로 사용","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.step-run-loop","entity_type":"content_step","entity_seed_key":"gathering-onboarding-strategy.step.run-loop","claim_key":"description","source_ids":["gathering-location-strategy-2026-05-24"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.step-adjust","entity_type":"content_step","entity_seed_key":"gathering-onboarding-strategy.step.adjust","claim_key":"description","source_ids":["gathering-guide","gathering-location-strategy-2026-05-24"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.section-purpose","entity_type":"content_section","entity_seed_key":"gathering-onboarding-strategy.section.purpose","claim_key":"body","source_ids":["gathering-guide","gathering-location-strategy-2026-05-24"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"공식 규칙 위에 목적별 선택을 구성한 STRATEGY","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.section-route","entity_type":"content_section","entity_seed_key":"gathering-onboarding-strategy.section.route","claim_key":"body","source_ids":["gathering-guide","gathering-location-strategy-2026-05-24"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"작성자 동선을 일반 사실이 아닌 비교 기준으로 제한","active":true},
+        {"seed_key":"gathering-onboarding-strategy.claim.section-mistakes","entity_type":"content_section","entity_seed_key":"gathering-onboarding-strategy.section.mistakes","claim_key":"body","source_ids":["gathering-guide","gathering-location-strategy-2026-05-24"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true}
+      ]
+    },
+    {
+      "slug": "fishing-onboarding-strategy",
+      "name_ko": "낚시 입문 전략",
+      "category": "life",
+      "subcategory": "fishing",
+      "summary": "자동·직접 조작·주간 대회 목적을 구분하고 가방, 낚싯대 내구도, 방생 설정과 처분 경로를 맞추는 조건부 입문 전략이다.",
+      "purpose": "낚시 수치와 시스템 사실은 기존 콘텐츠에 맡기고 첫 세션의 모드 선택과 준비 순서를 안내한다.",
+      "status": "active",
+      "last_verified_at": "2026-09-06",
+      "requirements": [
+        {"seed_key":"fishing-onboarding-strategy.mode-choice","kind":"knowledge","title":"낚시 목적과 모드 선택","description":"자리를 비우는 자동 낚시, 직접 조작하는 낚시, 별도 준비가 필요한 주간 낚시 대회를 서로 다른 목적으로 구분한다.","structured_value":{"knowledge_role":"strategy","modes":["afk","active","weekly_contest"],"weekly_rotating_target_static":false,"single_default_mode":false},"requirement_level":"recommended"},
+        {"seed_key":"fishing-onboarding-strategy.session-bottlenecks","kind":"knowledge","title":"세션 병목 확인","description":"세션 길이에 맞춰 가방 여유, 낚싯대 내구도, 자동 낚시 시간 감소, 방생 기준과 물고기 처분 경로를 함께 점검한다.","structured_value":{"knowledge_role":"strategy","decision_dimensions":["session_duration","inventory_space","rod_durability","auto_fishing_time","discard_setting","disposal_route"],"dynamic_profit_included":false},"requirement_level":"recommended"}
+      ],
+      "steps": [
+        {"seed_key":"fishing-onboarding-strategy.step.choose-mode","phase":"preparation","title":"낚시 목적 선택","description":"자동, 직접 조작 또는 주간 대회 중 이번 세션의 목적을 먼저 정한다."},
+        {"seed_key":"fishing-onboarding-strategy.step.prepare-rod","phase":"preparation","title":"낚싯대 준비","description":"선택한 방식에 사용할 낚싯대와 남은 내구도를 확인한다."},
+        {"seed_key":"fishing-onboarding-strategy.step.check-potential","phase":"preparation","title":"낚시 잠재력 확인","description":"현재 낚시 잠재력과 적용 중인 장비·효과를 기존 현재 시스템에서 확인한다."},
+        {"seed_key":"fishing-onboarding-strategy.step.configure-discard","phase":"preparation","title":"방생 기준 설정","description":"세션 길이와 가방 여유에 맞춰 자동 낚시 방생 기준을 확인한다."},
+        {"seed_key":"fishing-onboarding-strategy.step.reserve-inventory","phase":"preparation","title":"가방 여유 확보","description":"예상 세션 동안 잡은 물고기를 담을 수 있도록 가방 공간을 비운다."},
+        {"seed_key":"fishing-onboarding-strategy.step.run-session","phase":"first_time","title":"첫 세션 실행","description":"짧은 세션을 실행해 가방과 내구도 중 어느 쪽이 먼저 제한되는지 확인한다."},
+        {"seed_key":"fishing-onboarding-strategy.step.choose-disposal","phase":"first_time","title":"처분 경로 확인","description":"잡은 물고기의 신선도와 목적에 맞춰 황실 납품, 무역 또는 가공 경로를 확인한다."},
+        {"seed_key":"fishing-onboarding-strategy.step.adjust-setup","phase":"maintenance","title":"다음 세션 조정","description":"실제 병목을 기준으로 가방, 내구도 또는 자동 낚시 준비 중 우선할 항목을 정한다."}
+      ],
+      "sections": [
+        {"seed_key":"fishing-onboarding-strategy.section.mode","section_type":"strategy","title":"자동·직접 조작·주간 대회 구분","body_markdown":"자리를 비우는 시간이 목적이면 자동 낚시의 가방과 내구도를 먼저 본다. 직접 조작한다면 조작 흐름과 세션 목적을 우선하고, 주간 대회는 그 주의 대상과 조건을 최신 콘텐츠에서 별도로 확인한다."},
+        {"seed_key":"fishing-onboarding-strategy.section.bottlenecks","section_type":"strategy","title":"자동 낚시 병목 판단","body_markdown":"낚시 시간 감소만 높여도 가방이나 낚싯대 내구도가 먼저 끝나면 세션은 길어지지 않는다. 첫 세션에서 실제로 먼저 소진되는 항목을 확인한 뒤 준비 우선순위를 정한다."},
+        {"seed_key":"fishing-onboarding-strategy.section.mistakes","section_type":"common_mistakes","title":"처음 피할 실수","body_markdown":"방생 기준을 확인하지 않은 채 장시간 자리를 비우거나, 가방과 내구도 여유를 따로 보거나, 주마다 바뀌는 대회 대상과 장소를 고정 정보로 저장하지 않는다. 과거 커뮤니티의 정확한 감소 수치는 현재 공식 규칙처럼 사용하지 않는다."}
+      ],
+      "relations": [
+        {"seed_key":"fishing-onboarding-strategy.current-system","to_content_slug":"fishing-current-system","relation_type":"prerequisite","note":"낚시 잠재력·숙련도 등 사실 규칙은 현재 시스템에서 확인한다."},
+        {"seed_key":"fishing-onboarding-strategy.auto","to_content_slug":"auto-fishing","relation_type":"related","note":"자동 낚시 시간과 방생 설정의 현재 규칙을 확인한다."},
+        {"seed_key":"fishing-onboarding-strategy.freshness","to_content_slug":"fish-freshness-and-trade","relation_type":"related","note":"물고기 신선도와 처분 경로를 확인한다."},
+        {"seed_key":"fishing-onboarding-strategy.imperial","to_content_slug":"imperial-fishing-delivery","relation_type":"related","note":"황실 낚시 납품 경로를 확인한다."},
+        {"seed_key":"fishing-onboarding-strategy.weekly","to_content_slug":"fishing-encyclopedia-and-weekly-contest","relation_type":"related","note":"주간 대회의 현재 대상과 조건은 해당 콘텐츠에서 확인한다."},
+        {"seed_key":"fishing-onboarding-strategy.fish-tank","to_content_slug":"mystical-fish-tank","relation_type":"related","note":"장기 보관 관련 진행도를 확인한다."}
+      ],
+      "evidence": [
+        {"seed_key":"fishing-onboarding-strategy.claim.summary","entity_type":"content","entity_seed_key":"fishing-onboarding-strategy","claim_key":"summary","source_ids":["fishing-basic-guide","fishing-advanced-guide","fishing-onboarding-strategy-2024-12-05","fishing-afk-bottlenecks-2025-03-11"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"공식 낚시 규칙과 조건부 커뮤니티 경험을 분리해 구성한 입문 전략","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.purpose","entity_type":"content","entity_seed_key":"fishing-onboarding-strategy","claim_key":"purpose","source_ids":["fishing-basic-guide","fishing-advanced-guide","fishing-onboarding-strategy-2024-12-05"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"현재 시스템과 전략 책임을 분리한 목적","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.mode-choice","entity_type":"content_requirement","entity_seed_key":"fishing-onboarding-strategy.mode-choice","claim_key":"description","source_ids":["fishing-basic-guide","fishing-advanced-guide","fishing-onboarding-strategy-2024-12-05"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"주간 회전 대상은 정적 값으로 포함하지 않음","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.session-bottlenecks","entity_type":"content_requirement","entity_seed_key":"fishing-onboarding-strategy.session-bottlenecks","claim_key":"description","source_ids":["fishing-advanced-guide","fishing-onboarding-strategy-2024-12-05","fishing-afk-bottlenecks-2025-03-11"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"공식 설정과 두 커뮤니티 경험에서 공통으로 확인한 조건부 점검 항목","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.step-choose-mode","entity_type":"content_step","entity_seed_key":"fishing-onboarding-strategy.step.choose-mode","claim_key":"description","source_ids":["fishing-basic-guide","fishing-onboarding-strategy-2024-12-05"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.step-prepare-rod","entity_type":"content_step","entity_seed_key":"fishing-onboarding-strategy.step.prepare-rod","claim_key":"description","source_ids":["fishing-basic-guide","fishing-afk-bottlenecks-2025-03-11"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.step-check-potential","entity_type":"content_step","entity_seed_key":"fishing-onboarding-strategy.step.check-potential","claim_key":"description","source_ids":["fishing-advanced-guide"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.step-configure-discard","entity_type":"content_step","entity_seed_key":"fishing-onboarding-strategy.step.configure-discard","claim_key":"description","source_ids":["fishing-advanced-guide","fishing-onboarding-strategy-2024-12-05"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.step-reserve-inventory","entity_type":"content_step","entity_seed_key":"fishing-onboarding-strategy.step.reserve-inventory","claim_key":"description","source_ids":["fishing-advanced-guide","fishing-afk-bottlenecks-2025-03-11"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.step-run-session","entity_type":"content_step","entity_seed_key":"fishing-onboarding-strategy.step.run-session","claim_key":"description","source_ids":["fishing-onboarding-strategy-2024-12-05","fishing-afk-bottlenecks-2025-03-11"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"커뮤니티 경험을 짧은 점검 세션으로 제한","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.step-choose-disposal","entity_type":"content_step","entity_seed_key":"fishing-onboarding-strategy.step.choose-disposal","claim_key":"description","source_ids":["fishing-basic-guide","fishing-advanced-guide"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.step-adjust-setup","entity_type":"content_step","entity_seed_key":"fishing-onboarding-strategy.step.adjust-setup","claim_key":"description","source_ids":["fishing-advanced-guide","fishing-onboarding-strategy-2024-12-05","fishing-afk-bottlenecks-2025-03-11"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.section-mode","entity_type":"content_section","entity_seed_key":"fishing-onboarding-strategy.section.mode","claim_key":"body","source_ids":["fishing-basic-guide","fishing-advanced-guide","fishing-onboarding-strategy-2024-12-05"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"모드 선택을 조건부 STRATEGY로 분리","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.section-bottlenecks","entity_type":"content_section","entity_seed_key":"fishing-onboarding-strategy.section.bottlenecks","claim_key":"body","source_ids":["fishing-advanced-guide","fishing-onboarding-strategy-2024-12-05","fishing-afk-bottlenecks-2025-03-11"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"fishing-onboarding-strategy.claim.section-mistakes","entity_type":"content_section","entity_seed_key":"fishing-onboarding-strategy.section.mistakes","claim_key":"body","source_ids":["fishing-advanced-guide","fishing-onboarding-strategy-2024-12-05"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"과거 exact 수치와 주간 회전 값을 canonical FACT로 취급하지 않음","active":true}
+      ]
+    },
+    {
+      "slug": "hunting-onboarding-strategy",
+      "name_ko": "수렵 입문 전략",
+      "category": "life",
+      "subcategory": "hunting",
+      "summary": "일반 개인 수렵에서 조작과 채집 흐름을 익힌 뒤 저격 또는 협동 수렵으로 확장하는 조건부 입문 전략이다.",
+      "purpose": "수렵 장비와 대상의 사실 목록을 반복하지 않고 처음 시작할 모드와 단계 전환 기준을 안내한다.",
+      "status": "active",
+      "last_verified_at": "2026-09-06",
+      "requirements": [
+        {"seed_key":"hunting-onboarding-strategy.mode-choice","kind":"knowledge","title":"수렵 모드 선택","description":"일반 개인 수렵, 저격 수렵, 협동 수렵은 조작과 준비가 다르므로 현재 경험과 플레이 목적에 맞춰 구분한다.","structured_value":{"knowledge_role":"strategy","modes":["individual_matchlock","sniper","cooperative"],"single_default_mode":false},"requirement_level":"recommended"},
+        {"seed_key":"hunting-onboarding-strategy.target-context","kind":"knowledge","title":"대상 선택 조건","description":"입문 대상은 이동 거리, 공격과 회피 조작, 장비 상태, 도축 동선과 학습 목적을 함께 보고 선택하며 사자 수렵은 익숙해진 뒤 검토할 상위 단계 사례로 둔다.","structured_value":{"knowledge_role":"strategy","decision_dimensions":["travel_distance","combat_controls","gear_state","butchering_route","learning_goal"],"lion_is_advanced_example":true,"universal_best_target":false},"requirement_level":"recommended"}
+      ],
+      "steps": [
+        {"seed_key":"hunting-onboarding-strategy.step.prepare-equipment","phase":"preparation","title":"수렵 장비 준비","description":"사용할 화승총 계열 장비와 처치 후 도축에 필요한 도구를 준비한다."},
+        {"seed_key":"hunting-onboarding-strategy.step.learn-controls","phase":"first_time","title":"기본 조작 익히기","description":"장전, 사격, 이동과 회피 흐름을 가까운 개인 수렵 대상에서 익힌다."},
+        {"seed_key":"hunting-onboarding-strategy.step.choose-target","phase":"first_time","title":"입문 대상 선택","description":"현재 장비와 조작 숙련으로 반복하기 편한 개인 수렵 대상 하나를 선택한다."},
+        {"seed_key":"hunting-onboarding-strategy.step.butcher","phase":"first_time","title":"처치 후 도축","description":"처치 뒤 도축까지 완료해 수렵 경험치와 채집 흐름을 함께 확인한다."},
+        {"seed_key":"hunting-onboarding-strategy.step.review-progress","phase":"maintenance","title":"진행 상태 점검","description":"장비, 숙련도와 조작 안정성을 확인해 같은 대상을 반복할지 판단한다."},
+        {"seed_key":"hunting-onboarding-strategy.step.expand-mode","phase":"maintenance","title":"다음 모드로 확장","description":"개인 수렵 흐름이 익숙해진 뒤 목적에 따라 저격, 협동 또는 상위 대상을 검토한다."}
+      ],
+      "sections": [
+        {"seed_key":"hunting-onboarding-strategy.section.mode","section_type":"strategy","title":"일반·저격·협동 수렵 구분","body_markdown":"처음에는 개인 수렵에서 화승총 조작과 도축 흐름을 함께 익힌다. 거리와 조준 중심의 플레이를 원하면 저격 수렵을, 인원과 출현 조건을 맞출 수 있으면 협동 수렵을 별도 선택지로 본다."},
+        {"seed_key":"hunting-onboarding-strategy.section.progression","section_type":"strategy","title":"상위 대상 전환 기준","body_markdown":"이동과 회피, 장전 흐름이 안정되고 현재 장비로 반복이 편해진 뒤 상위 대상을 검토한다. 사자 수렵은 커뮤니티에서 다루는 상위 단계 사례이며 모든 입문자에게 같은 순서로 적용하지 않는다."},
+        {"seed_key":"hunting-onboarding-strategy.section.mistakes","section_type":"common_mistakes","title":"처음 피할 실수","body_markdown":"처치만 하고 도축 도구를 준비하지 않거나, 일반 수렵과 저격 조작을 같은 방식으로 보거나, 과거 가이드의 장비·수정·버프 구성을 현재 고정 세팅으로 사용하지 않는다."}
+      ],
+      "relations": [
+        {"seed_key":"hunting-onboarding-strategy.current-system","to_content_slug":"hunting-current-system","relation_type":"prerequisite","note":"처치와 도축 등 현재 사실 규칙은 현재 시스템에서 확인한다."},
+        {"seed_key":"hunting-onboarding-strategy.firearms","to_content_slug":"hunting-firearms","relation_type":"related","note":"일반·저격 장비 구분과 현재 장비 규칙을 확인한다."},
+        {"seed_key":"hunting-onboarding-strategy.sniper","to_content_slug":"sniper-hunting","relation_type":"related","note":"저격 수렵의 별도 조작과 대상을 확인한다."},
+        {"seed_key":"hunting-onboarding-strategy.mastery","to_content_slug":"life-mastery-foundation","relation_type":"related","note":"숙련도 성장과 장비 판단의 공통 기반을 확인한다."}
+      ],
+      "evidence": [
+        {"seed_key":"hunting-onboarding-strategy.claim.summary","entity_type":"content","entity_seed_key":"hunting-onboarding-strategy","claim_key":"summary","source_ids":["hunting-guide","hunting-lion-strategy-2024-10-15","hunting-shadow-lion-strategy-2026-06-21"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"공식 수렵 모드와 조건부 커뮤니티 상위 대상 사례를 분리해 구성한 입문 전략","active":true},
+        {"seed_key":"hunting-onboarding-strategy.claim.purpose","entity_type":"content","entity_seed_key":"hunting-onboarding-strategy","claim_key":"purpose","source_ids":["hunting-guide","hunting-lion-strategy-2024-10-15"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"현재 시스템과 전략 책임을 분리한 목적","active":true},
+        {"seed_key":"hunting-onboarding-strategy.claim.mode-choice","entity_type":"content_requirement","entity_seed_key":"hunting-onboarding-strategy.mode-choice","claim_key":"description","source_ids":["hunting-guide","hunting-lion-strategy-2024-10-15"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"모드 선택을 조건부 STRATEGY로 분리","active":true},
+        {"seed_key":"hunting-onboarding-strategy.claim.target-context","entity_type":"content_requirement","entity_seed_key":"hunting-onboarding-strategy.target-context","claim_key":"description","source_ids":["hunting-guide","hunting-lion-strategy-2024-10-15","hunting-shadow-lion-strategy-2026-06-21"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"사자 수렵을 보편 선택이 아닌 상위 사례로 제한","active":true},
+        {"seed_key":"hunting-onboarding-strategy.claim.step-prepare-equipment","entity_type":"content_step","entity_seed_key":"hunting-onboarding-strategy.step.prepare-equipment","claim_key":"description","source_ids":["hunting-guide"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"hunting-onboarding-strategy.claim.step-learn-controls","entity_type":"content_step","entity_seed_key":"hunting-onboarding-strategy.step.learn-controls","claim_key":"description","source_ids":["hunting-guide","hunting-lion-strategy-2024-10-15"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"hunting-onboarding-strategy.claim.step-choose-target","entity_type":"content_step","entity_seed_key":"hunting-onboarding-strategy.step.choose-target","claim_key":"description","source_ids":["hunting-guide","hunting-lion-strategy-2024-10-15"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"hunting-onboarding-strategy.claim.step-butcher","entity_type":"content_step","entity_seed_key":"hunting-onboarding-strategy.step.butcher","claim_key":"description","source_ids":["hunting-guide"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"hunting-onboarding-strategy.claim.step-review-progress","entity_type":"content_step","entity_seed_key":"hunting-onboarding-strategy.step.review-progress","claim_key":"description","source_ids":["hunting-guide","hunting-lion-strategy-2024-10-15"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"hunting-onboarding-strategy.claim.step-expand-mode","entity_type":"content_step","entity_seed_key":"hunting-onboarding-strategy.step.expand-mode","claim_key":"description","source_ids":["hunting-guide","hunting-lion-strategy-2024-10-15","hunting-shadow-lion-strategy-2026-06-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"hunting-onboarding-strategy.claim.section-mode","entity_type":"content_section","entity_seed_key":"hunting-onboarding-strategy.section.mode","claim_key":"body","source_ids":["hunting-guide","hunting-lion-strategy-2024-10-15"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},
+        {"seed_key":"hunting-onboarding-strategy.claim.section-progression","entity_type":"content_section","entity_seed_key":"hunting-onboarding-strategy.section.progression","claim_key":"body","source_ids":["hunting-guide","hunting-lion-strategy-2024-10-15","hunting-shadow-lion-strategy-2026-06-21"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"사자 계열은 advanced example이며 universal best가 아님","active":true},
+        {"seed_key":"hunting-onboarding-strategy.claim.section-mistakes","entity_type":"content_section","entity_seed_key":"hunting-onboarding-strategy.section.mistakes","claim_key":"body","source_ids":["hunting-guide","hunting-lion-strategy-2024-10-15"],"verification_status":"verified","last_verified_at":"2026-09-06","note":"과거 exact 세팅을 current FACT로 사용하지 않음","active":true}
+      ]
+    },
+    {
       "slug": "world-boss-bulgasal",
       "name_ko": "불가살 (월드 우두머리)",
       "category": "combat_pve",

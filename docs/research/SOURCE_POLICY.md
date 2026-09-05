@@ -25,6 +25,16 @@
 - 모든 content는 `last_verified_at` 보유.
 - 90일 이상 지난 time-sensitive claim은 `needs_review` 후보. 안정적 시스템은 180~365일 정책 가능.
 
+## FACT / STRATEGY / MEASUREMENT handling
+
+- 수량, 효과, 시스템 조건과 현재 동작은 최신 KR 공식 자료를 근거로 FACT에 저장한다.
+- 커뮤니티·정보 사이트 자료는 입문 순서, 목적별 선택, 동선과 운용 팁 같은 STRATEGY를 보조하며 공식 FACT를 대신하지 않는다.
+- 커뮤니티의 exact 수치는 최신 공식 검증 없이는 FACT로 승격하지 않는다.
+- 실제 세션의 시간·수익·효율·확률 표본은 MEASUREMENT로 분리한다.
+- 일반화된 커뮤니티 추천은 가능하면 최근 독립 자료 둘 이상으로 교차검증한다. 교차검증이 부족하면 적용 조건과 단일 작성자 맥락을 명시하거나 seed에서 제외한다.
+- 과거 전략 자료를 사용할 때는 최신 공식 변경과 충돌하는지 먼저 확인하고, 오래된 exact 세팅·수치는 현재 canonical 값으로 복사하지 않는다.
+- 특정 커뮤니티 사이트나 작성자를 authoritative tier로 승격하지 않는다. 검사학개론 자료도 supporting strategy source로만 사용한다.
+
 ## Conflict handling
 예: 오래된 가이드 A가 주간 완료 방식 X라고 하고, 2026 패치 B가 Y로 변경.
 - A evidence → superseded
