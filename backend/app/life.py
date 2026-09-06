@@ -191,7 +191,11 @@ LIFE_SKILLS = (
         name_ko="항해",
         entry_content_slug="carrack-types",
         foundation_contents=("life-family-levels", "life-mastery-foundation"),
-        getting_started=("carrack-types", "sailor-hiring-growth"),
+        getting_started=(
+            "carrack-types",
+            "sailing-onboarding-strategy",
+            "sailor-hiring-growth",
+        ),
         equipment=(
             "ocean-consumables",
             "sailor-health-food",
@@ -230,7 +234,7 @@ LIFE_SKILLS = (
         name_ko="교역/물물교환",
         entry_content_slug="barter-current-system",
         foundation_contents=("life-family-levels", "life-mastery-foundation"),
-        getting_started=("barter-current-system",),
+        getting_started=("barter-current-system", "barter-onboarding-strategy"),
         equipment=("ocean-consumables",),
         core_systems=("barter-stage-values", "barter-tier6-routes", "barter-tier7-routes"),
         recurring_contents=("ocean-iliya-daily-barter", "iliya-weekly-barter"),
