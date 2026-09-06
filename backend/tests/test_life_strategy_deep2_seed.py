@@ -351,9 +351,22 @@ def test_v19e_temp_db_import_is_idempotent_and_preserves_user_history(
     command.upgrade(config, "head")
 
     source_rows, content_rows = _seed_rows()
-    baseline_contents = [
-        row for row in content_rows if row["slug"] not in V19E_CONTENT_SLUGS
-    ]
+    excluded_slugs = set(V19E_CONTENT_SLUGS)
+    while True:
+        baseline_contents = [
+            row for row in content_rows if row["slug"] not in excluded_slugs
+        ]
+        dependent_slugs = {
+            row["slug"]
+            for row in baseline_contents
+            if any(
+                relation["to_content_slug"] in excluded_slugs
+                for relation in row.get("relations", [])
+            )
+        }
+        if not dependent_slugs:
+            break
+        excluded_slugs.update(dependent_slugs)
     farming = next(
         row for row in baseline_contents if row["slug"] == "farming-current-cycle"
     )
@@ -367,14 +380,22 @@ def test_v19e_temp_db_import_is_idempotent_and_preserves_user_history(
         for row in farming["evidence"]
         if not row["seed_key"].endswith("requirement.bird-damage")
     ]
+    baseline_references = {
+        source_id
+        for content in baseline_contents
+        for evidence in content.get("evidence", [])
+        for source_id in evidence.get("source_ids", [])
+    }
+    baseline_sources = [
+        row
+        for row in source_rows
+        if row["id"] not in V19E_SOURCE_IDS or row["id"] in baseline_references
+    ]
 
     baseline_dir = tmp_path / "v19d-seed"
     baseline_dir.mkdir()
     (baseline_dir / "seed_sources.json").write_text(
-        json.dumps(
-            [row for row in source_rows if row["id"] not in V19E_SOURCE_IDS],
-            ensure_ascii=False,
-        ),
+        json.dumps(baseline_sources, ensure_ascii=False),
         encoding="utf-8",
     )
     (baseline_dir / "seed_contents.json").write_text(
@@ -382,7 +403,6 @@ def test_v19e_temp_db_import_is_idempotent_and_preserves_user_history(
         encoding="utf-8",
     )
     shutil.copy(DATA_DIR / "seed_projects.json", baseline_dir / "seed_projects.json")
-
     canonical_models = (
         Source,
         Content,

@@ -136,7 +136,7 @@ LIFE_SKILLS = (
         name_ko="요리",
         entry_content_slug="cooking-current-system",
         foundation_contents=("life-family-levels", "life-mastery-foundation"),
-        getting_started=("cooking-current-system",),
+        getting_started=("cooking-current-system", "cooking-onboarding-strategy"),
         equipment=("life-common-gear", "life-mastery-tools", "life-artifacts-lightstones"),
         core_systems=("cooking-mastery-effects", "cooking-mass-production", "witch-delicacy"),
         recurring_contents=("cooking-growth-surprise-quest", "imperial-crafting-delivery-daily"),
@@ -147,7 +147,7 @@ LIFE_SKILLS = (
         name_ko="연금",
         entry_content_slug="alchemy-current-system",
         foundation_contents=("life-family-levels", "life-mastery-foundation"),
-        getting_started=("alchemy-current-system",),
+        getting_started=("alchemy-current-system", "alchemy-onboarding-strategy"),
         equipment=("life-common-gear", "life-mastery-tools", "life-artifacts-lightstones"),
         core_systems=(
             "alchemy-mastery-effects",
