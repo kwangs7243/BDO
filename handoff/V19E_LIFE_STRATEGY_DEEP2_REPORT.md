@@ -47,6 +47,8 @@
 
 6월 10일 공지의 조류 공격 1회당 작물 건강 감소량 약 4.16% → 약 0.25%를 farming-current-cycle.bird-damage에 현재 FACT와 이전 값을 함께 기록했다. 기존 canonical claim을 교체한 것이 아니라 누락된 후속 규칙을 추가한 것이므로 새 superseded evidence는 만들지 않았다.
 
+V1.9E closure에서 V1.7B 사냥터와 V1.9E 재배 FACT가 함께 참조하는 stable Source `grind-profit-update-2026-06-10`의 title을 실제 공식 전체 업데이트 문서 제목으로 domain-neutral하게 정규화했다. Source ID, URL과 기존 Evidence 연결은 유지했다.
+
 7월과 8월 후속 패치도 검색해 재배 의미 변경 여부를 확인했다. 8월 5일의 울타리 목록 정렬 수정 외에는 이번 onboarding 판단을 대체할 더 최신 규칙을 찾지 못했다.
 
 ## Farming strategy

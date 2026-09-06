@@ -108,6 +108,17 @@ def test_v19e_seed_identity_sources_and_references() -> None:
 
 
 def test_v19e_farming_fact_audit_keeps_latest_official_chain() -> None:
+    sources, _ = _seed_rows()
+    shared_patch_source = next(
+        row for row in sources if row["id"] == "grind-profit-update-2026-06-10"
+    )
+    assert shared_patch_source["url"] == (
+        "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=15720"
+    )
+    assert shared_patch_source["title"] == (
+        "6월 10일(수) 업데이트 안내 (최종 수정 : 2026-06-11 19:22)"
+    )
+    assert "사냥터" not in shared_patch_source["title"]
     current = _content_row("farming-current-cycle")
     bird_damage = next(
         row for row in current["requirements"] if row["seed_key"].endswith("bird-damage")
