@@ -14,6 +14,7 @@ Region: KR
 - 과거 공략과 최신 공식 자료가 충돌하면 최신 공식 자료를 우선하세요.
 - 정확한 수량, 초기화, 보상은 근거 없이 단정하지 마세요.
 - 이미 완료한 항목을 다시 해야 할 일로 추천하지 마세요.
+- FACT, STRATEGY, MEASUREMENT 역할을 구분하고 전략이나 측정값을 공식 사실처럼 단정하지 마세요.
 
 ## USER_STATE
 - none
@@ -21,83 +22,99 @@ Region: KR
 ## REQUIREMENTS
 - none
 
-## CANONICAL_FACTS
+## VERIFIED_KNOWLEDGE
 - +10 에페리아 무역선 : 개량형 장갑 project requirement: 1 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 중범선 만들기 (official_guide)
   - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
 - +10 에페리아 무역선 : 메이나 함포 project requirement: 1 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 중범선 만들기 (official_guide)
   - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
 - +10 에페리아 무역선 : 비층 바람 돛 project requirement: 1 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 중범선 만들기 (official_guide)
   - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
 - +10 에페리아 무역선 : 흑룡 선수상 project requirement: 1 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 중범선 만들기 (official_guide)
   - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
 - [[일일] 그믐달 어린 해왕류 사냥꾼] quest_reset: 일일 의뢰: 매일 00:00 KST 초기화 (Asia/Seoul)
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 검은사막이 처음인 모험가 여러분을 위해 준비한 A to Z! (official_gm)
   - url: https://www.kr.playblackdesert.com/ko-kr/News/Detail?countryType=ko-kr&groupContentNo=10577
 - [[일일] 너도 좋고, 나도 좋고] quest_reset: 일일 의뢰: 매일 00:00 KST 초기화 (Asia/Seoul)
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 검은사막이 처음인 모험가 여러분을 위해 준비한 A to Z! (official_gm)
   - url: https://www.kr.playblackdesert.com/ko-kr/News/Detail?countryType=ko-kr&groupContentNo=10577
 - [[주간] 그믐달 길드의 나인샤크 사냥꾼] quest_reset: 주간 의뢰: 매주 목요일 00:00 KST 초기화 (Asia/Seoul)
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 검은사막이 처음인 모험가 여러분을 위해 준비한 A to Z! (official_gm)
   - url: https://www.kr.playblackdesert.com/ko-kr/News/Detail?countryType=ko-kr&groupContentNo=10577
 - [일일] 그믐달 어린 해왕류 사냥꾼 acquisition quantity for 달의 핏줄이 새겨진 아마포: 3 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 2월 5일(수) 업데이트 안내 (최종 수정 : 2025-04-28 17:08) (official_patch)
   - url: https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13508
 - [일일] 그믐달 어린 해왕류 사냥꾼 acquisition quantity for 심해의 눈물: 1 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 2월 5일(수) 업데이트 안내 (최종 수정 : 2025-04-28 17:08) (official_patch)
   - url: https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13508
 - [일일] 너도 좋고, 나도 좋고 acquisition quantity for 짙은 파도빛이 감도는 규격 각목: 4 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 2월 5일(수) 업데이트 안내 (최종 수정 : 2025-04-28 17:08) (official_patch)
   - url: https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13508
 - [주간] 그믐달 길드의 나인샤크 사냥꾼 acquisition quantity for 심해의 눈물: 2 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 2월 5일(수) 업데이트 안내 (최종 수정 : 2025-04-28 17:08) (official_patch)
   - url: https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=13508
 - 달의 핏줄이 새겨진 아마포 project requirement: 180 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 중범선 만들기 (official_guide)
   - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
 - 심해의 눈물 project requirement: 42 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 중범선 만들기 (official_guide)
   - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
 - 짙은 파도빛이 감도는 규격 각목 project requirement: 144 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 중범선 만들기 (official_guide)
   - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
 - 화려한 암염 주괴 project requirement: 35 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 중범선 만들기 (official_guide)
   - url: https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=295
 - 화려한 진주 결정 project requirement: 35 개
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-03
   - source: 중범선 만들기 (official_guide)

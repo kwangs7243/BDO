@@ -14,6 +14,7 @@ Region: KR
 - 과거 공략과 최신 공식 자료가 충돌하면 최신 공식 자료를 우선하세요.
 - 정확한 수량, 초기화, 보상은 근거 없이 단정하지 마세요.
 - 이미 완료한 항목을 다시 해야 할 일로 추천하지 마세요.
+- FACT, STRATEGY, MEASUREMENT 역할을 구분하고 전략이나 측정값을 공식 사실처럼 단정하지 마세요.
 
 ## USER_STATE
 - none
@@ -21,7 +22,7 @@ Region: KR
 ## REQUIREMENTS
 - none
 
-## CANONICAL_FACTS
+## VERIFIED_KNOWLEDGE
 - none
 
 ## STEPS

@@ -69,7 +69,7 @@ ChatGPT에게 `아래 미검증 항목은 최신 KR 공식 자료를 웹 검색�
 권장 순서:
 1. `REQUEST_CONTEXT`
 2. `USER_STATE`
-3. `CANONICAL_FACTS`
+3. `VERIFIED_KNOWLEDGE`
 4. `SCHEDULES`
 5. `PROJECT_STATE` (해당 시)
 6. `OPEN_QUESTIONS_OR_CONFLICTS`
@@ -77,7 +77,8 @@ ChatGPT에게 `아래 미검증 항목은 최신 KR 공식 자료를 웹 검색�
 8. `USER_QUESTION`
 
 ### FR-P4 Source-aware serialization
-각 핵심 fact는 가능하면 다음 메타데이터를 포함한다.
+각 verified knowledge 항목은 가능하면 다음 메타데이터를 포함한다.
+- knowledge role: `fact`, `strategy`, `measurement`
 - verification status
 - last verified date
 - source title
@@ -85,6 +86,8 @@ ChatGPT에게 `아래 미검증 항목은 최신 KR 공식 자료를 웹 검색�
 - source type
 
 원문 전체를 복사하지 않고 **claim과 짧은 evidence note** 중심으로 직렬화한다.
+
+API bundle과 context selector의 `canonical_facts` 키는 기존 클라이언트 호환성을 위해 유지하지만, 의미상 `verified` 상태의 지식 전체를 뜻한다. Content의 기본 역할은 모든 Requirement가 같은 지원 role을 명시할 때 그 role을 따르고 그 외에는 `fact`로 보수적으로 처리한다. Requirement는 자신의 명시 role을 우선하며, `strategy` Section은 항상 `strategy`, Reward/Schedule과 결정적 Project 계산값은 항상 `fact`다. source type만으로 role을 추론하지 않으며 unresolved로 이동해도 role은 보존한다.
 
 ### FR-P5 Prompt modes
 최소 5개 preset을 제공한다.
@@ -103,6 +106,7 @@ ChatGPT에게 `아래 미검증 항목은 최신 KR 공식 자료를 웹 검색�
 - 과거 공략이 최신 공식 자료와 충돌하면 최신 공식 자료 우선
 - 정확한 수량/초기화/보상은 근거 없이는 단정하지 않음
 - 사용자의 현재 완료 상태를 다시 해야 할 일로 추천하지 않음
+- `FACT`/`STRATEGY`/`MEASUREMENT`를 구분하고 전략·측정값을 공식 사실처럼 단정하지 않음
 
 ### FR-P7 Copy/export
 - 클립보드 복사
@@ -138,8 +142,9 @@ Region: KR
 - target: Carrack Advance
 - weekly Black Rust: completed
 
-## CANONICAL_FACTS
+## VERIFIED_KNOWLEDGE
 - Carrack Advance requires ...
+  - knowledge_role: fact
   - verification: verified
   - last_verified: 2026-09-02
 
@@ -162,5 +167,6 @@ Region: KR
 - 현재 페이지에서 2클릭 이내로 prompt 미리보기에 도달한다.
 - 완료된 checklist와 미완료 checklist가 정확히 구분되어 포함된다.
 - `verified`와 `needs_review/conflict`가 prompt에서 명확히 구분된다.
+- `FACT`, `STRATEGY`, `MEASUREMENT`가 prompt에서 명시되고 unresolved 항목도 원래 역할을 유지한다.
 - project shortage는 DB 계산값을 사용하며 LLM에게 계산을 떠넘기지 않는다.
 - 브라우저 clipboard 실패 시 textarea 선택 + 수동 복사가 가능하다.

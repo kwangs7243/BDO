@@ -11,7 +11,7 @@ export const promptPlaceholders: Record<PromptMode, string> = {
 export const promptSectionLabels: Record<PromptSection, string> = {
   user_state: '내 상태/메모',
   requirements: '요구사항',
-  canonical_facts: '핵심 사실',
+  canonical_facts: '검증된 지식 (FACT/STRATEGY/MEASUREMENT)',
   steps: '진행 단계',
   schedules: '일정/초기화',
   rewards: '보상',

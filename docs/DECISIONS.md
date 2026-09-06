@@ -65,3 +65,9 @@
 **Decision:** 사용자 백업은 canonical knowledge가 아니라 `UserContentState`, 전체 `ChecklistInstance`/`ChecklistItemState` 이력, `UserMaterialInventory`, `UserProjectStageState`만 포함한다. DB별로 달라지는 numeric ID 대신 Content slug, checklist template/item seed key와 period key, Material key, Project slug와 stage seed key를 사용한다. import는 전체 payload와 모든 canonical 참조를 먼저 검증한 뒤 한 transaction으로 실행하며, unknown identity는 조용히 건너뛰지 않고 전체 복원을 거부한다. `merge`는 backup에 있는 identity를 덮어쓰고 local-only 상태를 유지하며, `replace`는 네 사용자 상태 영역을 backup 내용으로 정확히 교체한다. archive된 canonical identity도 history 복원을 위해 resolve하지만 active 상태로 되돌리지 않는다.
 
 **Reason:** 사용자 기록을 다른 seed 초기화 DB로 안전하게 옮기려면 DB row ID와 canonical 본문을 백업에서 분리해야 한다. 완전한 사전 검증과 원자적 복원은 일부 이력만 적용되는 손상을 방지하며, merge/replace 의미를 구분하면 보존 중심 복원과 명시적 전체 교체를 모두 예측 가능하게 제공할 수 있다.
+
+## ADR-014 Prompt knowledge role semantics and compatibility
+
+**Decision:** Prompt Bridge의 verified knowledge는 claim마다 `fact`, `strategy`, `measurement` 역할을 명시한다. 역할은 Requirement의 `structured_value.knowledge_role`과 Content 구조에서 결정하며 source type으로 추론하지 않는다. 모든 Requirement가 같은 지원 역할을 선언한 Content만 그 역할을 기본값으로 사용하고, 혼합·누락·지원하지 않는 값은 `fact` 기본값으로 처리한다. `strategy` Section은 항상 전략, Reward/Schedule과 Project의 결정적 투영·계산은 항상 사실로 분류한다. verification 상태와 역할은 독립적이므로 unresolved/conflict 항목도 원래 역할을 유지한다. API bundle 및 12개 context selector의 `canonical_facts` 키는 호환성을 위해 유지하고 Markdown 표시 heading만 `VERIFIED_KNOWLEDGE`로 명확히 한다.
+
+**Reason:** verified는 근거 검증 상태이지 공식 사실 여부를 뜻하지 않는다. 커뮤니티 기반 전략과 측정 관찰값도 검증될 수 있으므로 이를 사실과 구분해야 ChatGPT가 전략·측정값을 게임의 공식 규칙처럼 단정하지 않는다. 동시에 공개 계약 키를 바꾸지 않아 기존 UI와 요청 payload를 깨뜨리지 않는다.
