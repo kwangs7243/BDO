@@ -2,15 +2,15 @@
 
 목표: 단순 숙제 체크리스트가 아니라, **검은사막 콘텐츠 위키 + 진행도 + 반복 숙제 + 프로젝트/재료 트래커 + 근거 관리**를 하나로 묶는 로컬 웹앱.
 
-현재 구현 milestone은 **V1.9D — Prompt Knowledge Role Semantics Closure**다.
+현재 구현 milestone은 **V1.9E — Life Strategy Deep Pack II (Farming / Processing)**다.
 
 ## 현재 baseline
 
-- Source: 150
-- Content: 262 (모두 active)
-- 지식 역할: FACT 193 / STRATEGY 23 / MEASUREMENT 11
+- Source: 155
+- Content: 264 (모두 active)
+- 지식 역할: FACT 194 / STRATEGY 31 / MEASUREMENT 11
 - Project Tracker: Project 1 / Stage 4 / Material 9 / ProjectMaterial 9 / MaterialSource 9
-- 테스트: backend 259 passed / frontend 57 passed
+- 테스트: backend 268 passed / frontend 57 passed
 - 주요 데이터 영역: Routine, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss, Account / Main Quest / Adventure Log / Magnus Progression Foundation
 
 ## 제품 목표 사용 시나리오
@@ -51,7 +51,7 @@
 
 ## 현재 범위와 AI 원칙
 
-현재 V1.9D까지 비용이 발생하는 AI 연동 없이 V1.5의 로컬 Prompt Bridge 원칙을 유지하며, V1.5 범위의 Prompt Bridge 기능은 완료되었다.
+현재 V1.9E까지 비용이 발생하는 AI 연동 없이 V1.5의 로컬 Prompt Bridge 원칙을 유지하며, V1.5 범위의 Prompt Bridge 기능은 완료되었다.
 
 - OpenAI API: 사용 안 함
 - 타사 LLM API: 사용 안 함
@@ -91,14 +91,14 @@
 - 기존 V1.6F-I 및 해양 canonical Content를 재구성한 Life Hub와 10개 생활 분야 상세 화면
 - 생활 공통 기반, 분야별 진행도·검증 상태, 노드·일꾼·물류 경제 Content 탐색
 - 생활 분야에서 기존 Content Detail·Prompt Bridge와 Carrack Project로 이어지는 탐색 흐름
-- 채집·낚시·수렵의 목적 선택, 첫 세션 준비와 다음 단계 판단을 다루는 조건부 onboarding/strategy Content
+- 채집·낚시·수렵과 재배·가공의 목적 선택, 첫 세션 준비와 다음 단계 판단을 다루는 조건부 onboarding/strategy Content
 - 공식 FACT와 커뮤니티 STRATEGY를 source/evidence에서 분리하고, 동적 가격·시간당 수익·주간 회전 값은 정적 seed에서 제외
 - version 1 JSON envelope로 Content 상태, 전체 checklist history, 재료 재고와 Project 단계 상태 export/import
 - numeric DB ID 대신 canonical stable key를 사용하는 portable backup, 사전 validation과 archived identity resolve
 - 설정 화면의 로컬 JSON 다운로드, 검증 summary, 기본 merge와 명시적 확인이 필요한 replace 복원
 - unknown identity 전체 거부, 단일 transaction restore와 canonical knowledge 불변성
 
-정본 seed 형식은 `docs/data/SEED_FORMAT.md`, V1.8A backend 기반은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B frontend 경험은 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub는 `handoff/V19A_LIFE_HUB_REPORT.md`, V1.9B 사용자 백업·복원은 `handoff/V19B_USER_BACKUP_RESTORE_REPORT.md`, V1.9C 생활 전략 팩은 `handoff/V19C_LIFE_STRATEGY_DEEP1_REPORT.md`, V1.9D 지식 역할 의미론 정리는 `handoff/V19D_PROMPT_KNOWLEDGE_ROLE_REPORT.md`에 기록한다.
+정본 seed 형식은 `docs/data/SEED_FORMAT.md`, V1.8A backend 기반은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B frontend 경험은 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub는 `handoff/V19A_LIFE_HUB_REPORT.md`, V1.9B 사용자 백업·복원은 `handoff/V19B_USER_BACKUP_RESTORE_REPORT.md`, V1.9C 생활 전략 팩은 `handoff/V19C_LIFE_STRATEGY_DEEP1_REPORT.md`, V1.9D 지식 역할 의미론 정리는 `handoff/V19D_PROMPT_KNOWLEDGE_ROLE_REPORT.md`, V1.9E 재배·가공 전략 팩은 `handoff/V19E_LIFE_STRATEGY_DEEP2_REPORT.md`에 기록한다.
 
 ## 실행
 
@@ -141,12 +141,12 @@ uv run uvicorn app.main:app --reload
 
 ## 검증 명령과 결과
 
-2026-09-06 기준 backend 테스트는 259 passed, frontend 테스트는 57 passed다.
+2026-09-06 기준 backend 테스트는 268 passed, frontend 테스트는 57 passed다.
 
 ```powershell
 cd backend
 uv run pytest
-# 259 passed
+# 268 passed
 
 cd ../frontend
 npm run typecheck
@@ -156,4 +156,4 @@ npm run build
 # frontend: 57 passed
 ```
 
-V1.6A 기반 구조는 `handoff/V16A_SNAPSHOT.md`, V1.7 데이터 팩 결과는 `handoff/V17A_COMBAT_FOUNDATION_REPORT.md`, `handoff/V17B_GRIND_SPOT_REPORT.md`, `handoff/V17C_BOSS_BLACK_SHRINE_REPORT.md`, `handoff/V17D_ACCOUNT_PROGRESSION_REPORT.md`에 기록되어 있다. V1.8A Project Tracker backend foundation은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B Carrack Project UI는 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub Experience는 `handoff/V19A_LIFE_HUB_REPORT.md`, V1.9B User Data Backup & Restore는 `handoff/V19B_USER_BACKUP_RESTORE_REPORT.md`, V1.9C Life Strategy Deep Pack I은 `handoff/V19C_LIFE_STRATEGY_DEEP1_REPORT.md`, V1.9D Prompt Knowledge Role Semantics Closure는 `handoff/V19D_PROMPT_KNOWLEDGE_ROLE_REPORT.md`에 기록한다.
+V1.6A 기반 구조는 `handoff/V16A_SNAPSHOT.md`, V1.7 데이터 팩 결과는 `handoff/V17A_COMBAT_FOUNDATION_REPORT.md`, `handoff/V17B_GRIND_SPOT_REPORT.md`, `handoff/V17C_BOSS_BLACK_SHRINE_REPORT.md`, `handoff/V17D_ACCOUNT_PROGRESSION_REPORT.md`에 기록되어 있다. V1.8A Project Tracker backend foundation은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B Carrack Project UI는 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub Experience는 `handoff/V19A_LIFE_HUB_REPORT.md`, V1.9B User Data Backup & Restore는 `handoff/V19B_USER_BACKUP_RESTORE_REPORT.md`, V1.9C Life Strategy Deep Pack I은 `handoff/V19C_LIFE_STRATEGY_DEEP1_REPORT.md`, V1.9D Prompt Knowledge Role Semantics Closure는 `handoff/V19D_PROMPT_KNOWLEDGE_ROLE_REPORT.md`, V1.9E Life Strategy Deep Pack II는 `handoff/V19E_LIFE_STRATEGY_DEEP2_REPORT.md`에 기록한다.

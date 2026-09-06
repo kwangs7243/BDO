@@ -1042,7 +1042,7 @@
   {
     "id": "grind-profit-update-2026-06-10",
     "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=15720",
-    "title": "6월 10일(수) 업데이트 안내 - 사냥터 수익 및 전리품 조정",
+    "title": "6월 10일(수) 업데이트 안내 (최종 수정 : 2026-06-11 19:22)",
     "publisher": "Pearl Abyss",
     "source_type": "official_patch_notes",
     "published_at": "2026-06-10",
@@ -1230,12 +1230,12 @@
     },
     {
       "id": "known-issues-current-2026-09-04",
-      "url": "https://www.kr.playblackdesert.com/ko-kr/Wiki?wikiNo=4",
+      "url": "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=2989&countryType=ko-KR",
       "title": "현재 확인 중인 현상",
       "publisher": "Pearl Abyss",
       "source_type": "official_known_issues",
       "published_at": null,
-      "retrieved_at": "2026-09-04T12:00:00+09:00",
+      "retrieved_at": "2026-09-06T12:00:00+09:00",
       "region": "KR"
     },
     {
@@ -1311,4 +1311,9 @@
     {"id":"fishing-afk-bottlenecks-2025-03-11","url":"https://www.reddit.com/r/blackdesertonline/comments/1j8fr6g","title":"Can you AFK Fish for a week?","publisher":"Reddit / r/blackdesertonline","source_type":"community_discussion","published_at":"2025-03-11","retrieved_at":"2026-09-06T00:00:00+09:00","region":"global","notes":"장시간 자동 낚시에서 가방과 장비 내구도가 제약이 된다는 경험 교차 참고"},
     {"id":"hunting-lion-strategy-2024-10-15","url":"https://blackdesertonlineyoutube.tistory.com/167","title":"사자 수렵의 모든것 _검은사막","publisher":"검사학개론","source_type":"community_strategy","published_at":"2024-10-15","retrieved_at":"2026-09-06T00:00:00+09:00","region":"KR","notes":"사자 수렵을 상위 단계 사례로 검토한 커뮤니티 전략 자료이며 과거 exact 세팅은 채택하지 않음"},
     {"id":"hunting-shadow-lion-strategy-2026-06-21","url":"https://www.reddit.com/r/blackdesertonline/comments/1ubwz7j/shadow_lion_hunting_guide_2026_edition/","title":"Shadow Lion Hunting Guide 2026 Edition!","publisher":"Reddit / r/blackdesertonline","source_type":"community_strategy","published_at":"2026-06-21","retrieved_at":"2026-09-06T00:00:00+09:00","region":"global","notes":"사자 계열 수렵을 입문 이후 선택지로 다루는 독립 커뮤니티 교차 참고"}
+    ,{"id":"farming-market-prep-2026-05-29","url":"https://www.kr.playblackdesert.com/ko-KR/News/Notice/Detail?groupContentNo=15670&countryType=ko-KR","title":"5월 29일(금) 통합 거래소 임시 점검 안내","publisher":"Pearl Abyss","source_type":"official_patch","published_at":"2026-05-29","retrieved_at":"2026-09-06T12:00:00+09:00","region":"KR","notes":"6월 4일 재배 개편 적용 전 거래소·아이템 이용을 제한한 준비 공지이며 최종 규칙 근거로 사용하지 않음"}
+    ,{"id":"processing-mass-recipes-2026-07-22","url":"https://www.kr.playblackdesert.com/ko-KR/News/Notice/Detail?groupContentNo=15905&countryType=ko-KR","title":"7월 22일(수) 업데이트 안내","publisher":"Pearl Abyss","source_type":"official_patch","published_at":"2026-07-22","retrieved_at":"2026-09-06T12:00:00+09:00","region":"KR","notes":"일부 아이템의 대량 가공식 추가를 확인하는 현재 공식 근거"}
+    ,{"id":"farming-purpose-strategy-2025-09-15","url":"https://blackdesertonlineyoutube.tistory.com/223","title":"고인물들이 재배를 하는 이유는?#재배가이드1","publisher":"검사학개론","source_type":"community_strategy","published_at":"2025-09-15","retrieved_at":"2026-09-06T12:00:00+09:00","region":"KR","notes":"요리·연금 재료, 품종개량과 환상마 재료 등 목적별 재배 선택을 위한 참고 자료이며 동적 수익 수치는 채택하지 않음"}
+    ,{"id":"farming-onboarding-strategy-2025-09-21","url":"https://blackdesertonlineyoutube.tistory.com/226","title":"재배 하는 방법_초급편#재배가이드2","publisher":"검사학개론","source_type":"community_strategy","published_at":"2025-09-21","retrieved_at":"2026-09-06T12:00:00+09:00","region":"KR","notes":"울타리·씨앗·캐릭터·수확/품종개량 입문 흐름만 참고하며 2026 개편 이전 비료 설명 등은 공식 최신 패치로 대체"}
+    ,{"id":"processing-route-strategy-2026-01-21","url":"https://www.inven.co.kr/board/black/3584/58481","title":"무역 5부 - 가공 무역 꿀팁 (완)","publisher":"검은사막 인벤 / 엠케이k","source_type":"community_strategy","published_at":"2026-01-21","retrieved_at":"2026-09-06T12:00:00+09:00","region":"KR","notes":"원재료 확보·가공·후속 사용·판매를 한 경로로 검토하는 참고 자료이며 시세·시간당 수익·특정 품목 추천은 채택하지 않음"}
 ]
