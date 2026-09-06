@@ -384,28 +384,38 @@ def test_v17b_temp_db_migration_baseline_import_and_idempotence(
     content_rows = json.loads(
         (DATA_DIR / "seed_contents.json").read_text(encoding="utf-8")
     )
+    baseline_content_rows = [
+        row
+        for row in content_rows
+        if row["slug"] not in V17B_SPOT_SLUGS
+        and row["slug"] != "marni-combat-analyzer"
+    ]
+    # Later content may reuse a source introduced with V1.7B. Keep every source
+    # still referenced by the synthetic baseline so the fixture remains closed.
+    baseline_source_ids = {
+        source_id
+        for row in baseline_content_rows
+        for evidence in row.get("evidence", [])
+        for source_id in evidence.get("source_ids", [])
+    }
     baseline_dir = tmp_path / "v17a-seed"
     baseline_dir.mkdir()
     (baseline_dir / "seed_sources.json").write_text(
         json.dumps(
-            [row for row in source_rows if row["id"] not in V17B_SOURCE_IDS],
-            ensure_ascii=False,
-        ),
-        encoding="utf-8",
-    )
-    (baseline_dir / "seed_contents.json").write_text(
-        json.dumps(
             [
                 row
-                for row in content_rows
-                if row["slug"] not in V17B_SPOT_SLUGS
-                and row["slug"] != "marni-combat-analyzer"
+                for row in source_rows
+                if row["id"] not in V17B_SOURCE_IDS
+                or row["id"] in baseline_source_ids
             ],
             ensure_ascii=False,
         ),
         encoding="utf-8",
     )
-
+    (baseline_dir / "seed_contents.json").write_text(
+        json.dumps(baseline_content_rows, ensure_ascii=False),
+        encoding="utf-8",
+    )
     engine = create_engine(database_url)
     with Session(engine, expire_on_commit=False) as db_session:
         import_seed(db_session, baseline_dir)

@@ -315,17 +315,35 @@ def test_v17c_temp_db_migration_import_idempotence_and_history_preservation(tmp_
 
     source_rows = json.loads((DATA_DIR / "seed_sources.json").read_text(encoding="utf-8"))
     content_rows = json.loads((DATA_DIR / "seed_contents.json").read_text(encoding="utf-8"))
+    baseline_content_rows = [
+        row for row in content_rows if row["slug"] not in V17C_CONTENT_SLUGS
+    ]
+    # Later content may reuse a source introduced with V1.7C. Keep every source
+    # still referenced by the synthetic baseline so the fixture remains closed.
+    baseline_source_ids = {
+        source_id
+        for row in baseline_content_rows
+        for evidence in row.get("evidence", [])
+        for source_id in evidence.get("source_ids", [])
+    }
     baseline_dir = tmp_path / "v17b-seed"
     baseline_dir.mkdir()
     (baseline_dir / "seed_sources.json").write_text(
-        json.dumps([row for row in source_rows if row["id"] not in V17C_SOURCE_IDS], ensure_ascii=False),
+        json.dumps(
+            [
+                row
+                for row in source_rows
+                if row["id"] not in V17C_SOURCE_IDS
+                or row["id"] in baseline_source_ids
+            ],
+            ensure_ascii=False,
+        ),
         encoding="utf-8",
     )
     (baseline_dir / "seed_contents.json").write_text(
-        json.dumps([row for row in content_rows if row["slug"] not in V17C_CONTENT_SLUGS], ensure_ascii=False),
+        json.dumps(baseline_content_rows, ensure_ascii=False),
         encoding="utf-8",
     )
-
     models = (
         Source, Content, ScheduleRule, ContentRequirement, ContentStep, Reward,
         ContentSection, ChecklistTemplate, ChecklistTemplateItem, ContentRelation, Evidence,
