@@ -344,24 +344,45 @@ def test_v19c_temp_db_migration_import_idempotence_and_user_history_preservation
     command.upgrade(alembic_config, "head")
 
     source_rows, content_rows = _seed_rows()
+    excluded_slugs = set(V19C_CONTENT_SLUGS)
+    while True:
+        baseline_contents = [
+            row for row in content_rows if row["slug"] not in excluded_slugs
+        ]
+        dependent_slugs = {
+            row["slug"]
+            for row in baseline_contents
+            if any(
+                relation["to_content_slug"] in excluded_slugs
+                for relation in row.get("relations", [])
+            )
+        }
+        if not dependent_slugs:
+            break
+        excluded_slugs.update(dependent_slugs)
+    baseline_references = {
+        source_id
+        for content in baseline_contents
+        for evidence in content.get("evidence", [])
+        for source_id in evidence.get("source_ids", [])
+    }
+    baseline_sources = [
+        row
+        for row in source_rows
+        if row["id"] not in V19C_SOURCE_IDS or row["id"] in baseline_references
+    ]
+
     baseline_dir = tmp_path / "v19b-seed"
     baseline_dir.mkdir()
     (baseline_dir / "seed_sources.json").write_text(
-        json.dumps(
-            [row for row in source_rows if row["id"] not in V19C_SOURCE_IDS],
-            ensure_ascii=False,
-        ),
+        json.dumps(baseline_sources, ensure_ascii=False),
         encoding="utf-8",
     )
     (baseline_dir / "seed_contents.json").write_text(
-        json.dumps(
-            [row for row in content_rows if row["slug"] not in V19C_CONTENT_SLUGS],
-            ensure_ascii=False,
-        ),
+        json.dumps(baseline_contents, ensure_ascii=False),
         encoding="utf-8",
     )
     shutil.copy(DATA_DIR / "seed_projects.json", baseline_dir / "seed_projects.json")
-
     canonical_models = (
         Source,
         Content,
