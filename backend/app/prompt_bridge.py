@@ -14,6 +14,7 @@ from app.schemas import (
     PromptChecklistItem,
     PromptContextBundle,
     PromptFact,
+    PromptKnowledgeRole,
     PromptMode,
     PromptOutputMode,
     PromptRenderOut,
@@ -58,6 +59,7 @@ GUARDRAILS = (
     "과거 공략과 최신 공식 자료가 충돌하면 최신 공식 자료를 우선하세요.",
     "정확한 수량, 초기화, 보상은 근거 없이 단정하지 마세요.",
     "이미 완료한 항목을 다시 해야 할 일로 추천하지 마세요.",
+    "FACT, STRATEGY, MEASUREMENT 역할을 구분하고 전략이나 측정값을 공식 사실처럼 단정하지 마세요.",
 )
 
 
@@ -79,11 +81,13 @@ def _classify_fact(
     fallback_last_verified: date | None,
     verified: list[PromptFact],
     unresolved: list[PromptFact],
+    knowledge_role: PromptKnowledgeRole = PromptKnowledgeRole.FACT,
 ) -> str:
     evidence = _evidence_for(sources, entity_id, claim_key)
     status = evidence.verification_status if evidence else "unverified"
     fact = PromptFact(
         claim=claim,
+        knowledge_role=knowledge_role,
         verification_status=status,
         last_verified_at=evidence.last_verified_at if evidence else fallback_last_verified,
         source_title=evidence.title if evidence else None,
@@ -92,6 +96,28 @@ def _classify_fact(
     )
     (verified if status == "verified" else unresolved).append(fact)
     return status
+
+
+def _declared_knowledge_role(structured_value: object) -> PromptKnowledgeRole | None:
+    if not isinstance(structured_value, dict):
+        return None
+    value = structured_value.get("knowledge_role")
+    try:
+        return PromptKnowledgeRole(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _content_default_knowledge_role(
+    requirements: list[ContentRequirementOut],
+) -> PromptKnowledgeRole:
+    if not requirements:
+        return PromptKnowledgeRole.FACT
+    roles = [_declared_knowledge_role(item.structured_value) for item in requirements]
+    if any(role is None for role in roles):
+        return PromptKnowledgeRole.FACT
+    unique_roles = set(roles)
+    return roles[0] if len(unique_roles) == 1 else PromptKnowledgeRole.FACT
 
 
 def _format_quantity(value: float) -> str:
@@ -135,6 +161,7 @@ def _collect_content_context(
     user_state: list[str],
 ) -> None:
     sources.extend(detail.sources)
+    content_role = _content_default_knowledge_role(detail.requirements)
 
     if detail.summary:
         _classify_fact(
@@ -145,6 +172,7 @@ def _collect_content_context(
             fallback_last_verified=detail.last_verified_at,
             verified=facts,
             unresolved=unresolved,
+            knowledge_role=content_role,
         )
     if detail.purpose:
         _classify_fact(
@@ -155,6 +183,7 @@ def _collect_content_context(
             fallback_last_verified=detail.last_verified_at,
             verified=facts,
             unresolved=unresolved,
+            knowledge_role=content_role,
         )
 
     user_state.append(f"content_state: {detail.user_state.state.value}")
@@ -164,6 +193,7 @@ def _collect_content_context(
         user_state.append(f"note: {detail.user_state.note}")
 
     for item in detail.requirements:
+        role = _declared_knowledge_role(item.structured_value) or content_role
         status = _classify_fact(
             claim=item.description,
             entity_id=item.seed_key,
@@ -172,9 +202,10 @@ def _collect_content_context(
             fallback_last_verified=detail.last_verified_at,
             verified=facts,
             unresolved=unresolved,
+            knowledge_role=role,
         )
         requirements.append(
-            f"[{status}] {item.requirement_level}/{item.kind}: "
+            f"[{status}][{role.value}] {item.requirement_level}/{item.kind}: "
             f"{item.title + ' — ' if item.title else ''}{item.description}"
         )
     for item in detail.steps:
@@ -186,8 +217,12 @@ def _collect_content_context(
             fallback_last_verified=detail.last_verified_at,
             verified=facts,
             unresolved=unresolved,
+            knowledge_role=content_role,
         )
-        steps.append(f"[{status}] {item.phase}: {item.title} — {item.description}")
+        steps.append(
+            f"[{status}][{content_role.value}] "
+            f"{item.phase}: {item.title} — {item.description}"
+        )
     for item in detail.rewards:
         reward_text = item.name
         if item.recommendation:
@@ -203,6 +238,11 @@ def _collect_content_context(
         )
         rewards.append(f"[{status}] {reward_text}")
     for item in detail.sections:
+        role = (
+            PromptKnowledgeRole.STRATEGY
+            if item.section_type == "strategy"
+            else content_role
+        )
         status = _classify_fact(
             claim=f"{item.title}: {item.body_markdown}",
             entity_id=item.seed_key,
@@ -211,9 +251,10 @@ def _collect_content_context(
             fallback_last_verified=detail.last_verified_at,
             verified=facts,
             unresolved=unresolved,
+            knowledge_role=role,
         )
         if item.section_type == "common_mistakes":
-            warnings.append(f"[{status}] {item.body_markdown}")
+            warnings.append(f"[{status}][{role.value}] {item.body_markdown}")
 
     for item in detail.schedules:
         schedule_text = (
@@ -355,6 +396,7 @@ def _collect_project_context(
                     fallback_last_verified=lineage_detail.last_verified_at,
                     verified=facts,
                     unresolved=unresolved,
+                    knowledge_role=PromptKnowledgeRole.FACT,
                 )
 
         for source in material.sources:
@@ -399,6 +441,7 @@ def _collect_project_context(
                     fallback_last_verified=detail.last_verified_at,
                     verified=facts,
                     unresolved=unresolved,
+                    knowledge_role=PromptKnowledgeRole.FACT,
                 )
 
     seen_checklist_items: set[tuple[str, str, str]] = set()
@@ -441,6 +484,7 @@ def _collect_project_context(
                 fallback_last_verified=detail.last_verified_at,
                 verified=facts,
                 unresolved=unresolved,
+                knowledge_role=PromptKnowledgeRole.FACT,
             )
             schedules.append(f'[{status}] {schedule_text}')
 
@@ -695,6 +739,7 @@ def _fact_lines(facts: list[PromptFact]) -> list[str]:
     lines: list[str] = []
     for fact in facts:
         lines.append(f"- {fact.claim}")
+        lines.append(f"  - knowledge_role: {fact.knowledge_role.value}")
         lines.append(f"  - verification: {fact.verification_status}")
         if fact.last_verified_at:
             lines.append(f"  - last_verified: {fact.last_verified_at.isoformat()}")
@@ -742,7 +787,7 @@ def render_markdown(
     if PromptSection.REQUIREMENTS in included:
         _section(lines, "REQUIREMENTS", bundle.requirements)
     if PromptSection.CANONICAL_FACTS in included:
-        lines.extend(["", "## CANONICAL_FACTS", *_fact_lines(bundle.canonical_facts)])
+        lines.extend(["", "## VERIFIED_KNOWLEDGE", *_fact_lines(bundle.canonical_facts)])
     if PromptSection.STEPS in included:
         _section(lines, "STEPS", bundle.steps)
     if PromptSection.SCHEDULES in included:

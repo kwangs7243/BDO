@@ -1,6 +1,6 @@
 # Tasks — Prompt Bridge V1.5
 
-> V1.8E에서 context selector, output mode와 deterministic size compaction까지 구현해 Prompt Bridge V1.5 범위를 완료했다.
+> V1.8E에서 context selector, output mode와 deterministic size compaction까지 구현해 Prompt Bridge V1.5 범위를 완료했다. V1.9D에서는 API selector 호환성을 유지하면서 verified knowledge의 FACT/STRATEGY/MEASUREMENT 의미론을 명시했다.
 
 - [x] Add `features/prompt-bridge` frontend module
 - [x] Add `prompt_bridge` backend module
@@ -12,6 +12,9 @@
 - [x] Build user-state collector — Content 상태와 Project stage/inventory 상태·메모 수집
 - [x] Build evidence/source collector
 - [x] Separate unresolved/conflicting claims
+- [x] Derive and serialize `PromptKnowledgeRole` without inferring it from source type
+- [x] Preserve knowledge role when a claim moves to unresolved/conflict
+- [x] Keep the 12-value selector contract and compatibility key `canonical_facts`
 - [x] Add deterministic Markdown renderer
 - [x] Add context selector
 - [x] Add context-only/full-prompt output

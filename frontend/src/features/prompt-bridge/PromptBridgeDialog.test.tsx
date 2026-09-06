@@ -117,12 +117,17 @@ test('selector를 표시하고 checkbox 해제를 include_sections에 반영한�
   fireEvent.click(screen.getByRole('button', { name: 'ChatGPT에 물어보기' }))
 
   expect(screen.getByText('포함할 컨텍스트')).toBeInTheDocument()
+  const verifiedKnowledge = screen.getByRole('checkbox', {
+    name: '검증된 지식 (FACT/STRATEGY/MEASUREMENT)',
+  })
+  expect(verifiedKnowledge).toBeChecked()
   const requirements = screen.getByRole('checkbox', { name: '요구사항' })
   expect(requirements).toBeChecked()
   fireEvent.click(requirements)
 
   await waitFor(() => {
     const latest = vi.mocked(api.renderPrompt).mock.calls.at(-1)?.[0]
+    expect(latest?.include_sections).toContain('canonical_facts')
     expect(latest?.include_sections).not.toContain('requirements')
   })
 })

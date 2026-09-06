@@ -23,7 +23,8 @@ def test_content_prompt_is_deterministic_and_source_aware(session) -> None:
     first = render_markdown(build_context(session, request, FIXED_NOW))
     second = render_markdown(build_context(session, request, FIXED_NOW))
     assert first == second
-    assert "## CANONICAL_FACTS" in first
+    assert "## VERIFIED_KNOWLEDGE" in first
+    assert "## CANONICAL_FACTS" not in first
     assert "verification: verified" in first
     assert "월드 우두머리 레이드" in first
     assert "처음 무엇을 준비해야 해?" in first

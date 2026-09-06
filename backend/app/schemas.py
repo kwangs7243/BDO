@@ -452,6 +452,12 @@ class PromptSizeMode(StrEnum):
     DETAILED = "detailed"
 
 
+class PromptKnowledgeRole(StrEnum):
+    FACT = "fact"
+    STRATEGY = "strategy"
+    MEASUREMENT = "measurement"
+
+
 class PromptSection(StrEnum):
     USER_STATE = "user_state"
     REQUIREMENTS = "requirements"
@@ -487,6 +493,7 @@ class PromptRequest(BaseModel):
 
 class PromptFact(BaseModel):
     claim: str
+    knowledge_role: PromptKnowledgeRole = PromptKnowledgeRole.FACT
     verification_status: str
     last_verified_at: date | None = None
     source_title: str | None = None
