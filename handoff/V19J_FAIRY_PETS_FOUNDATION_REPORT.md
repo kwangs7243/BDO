@@ -92,6 +92,8 @@
 - `pet-guide-current` — `wikiNo=180`
 - `pet-fifth-generation-guide-current` — `wikiNo=296`
 
+`fairy-probability-guide-current`의 title은 공식 문서명 `요정 기술 습득 / 날개 돋이 확률`로 정규화했다. 이 문서는 기술 습득·변경 및 날개 돋이 확률 UI 근거로만 사용하며, 남아 있는 아낌없는 손길 V의 `20개` 효과 문구는 stale이므로 current capacity 근거에서 제외한다. 현재 `5/8/12/16/25` 판정은 `fairy-guide-current` 상세 성장표와 2022 도입·2025-09-17 상향 patch chain을 사용한다.
+
 ### Community Strategy
 
 - `fairy-beginner-strategy-2026-08-20` — 최근 입문자가 신비한 응원과 아낌없는 손길을 먼저 검토하되 초기에 멈추고 점진적으로 개선하는 사례만 사용했다.

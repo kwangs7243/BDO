@@ -147,6 +147,14 @@ def test_v19j_sources_separate_official_and_community_scope() -> None:
     assert by_id["fairy-appearance-skill-update-2026-08-19"]["published_at"] == "2026-08-19"
     assert "채택하지 않음" in by_id["pet-exchange-decisions-2026-06-04"]["notes"]
 
+    probability = by_id["fairy-probability-guide-current"]
+    assert probability["id"] == "fairy-probability-guide-current"
+    assert probability["url"] == "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=338"
+    assert probability["title"] == "요정 기술 습득 / 날개 돋이 확률"
+    assert "전체 확률 matrix는 seed하지 않는다" in probability["notes"]
+    assert "아낌없는 손길 V 효과 문구 20개" in probability["notes"]
+    assert "current 등록 가능 수 근거로 사용하지 않는다" in probability["notes"]
+
     serialized = json.dumps([_content_row(slug) for slug in V19J_CONTENT_SLUGS], ensure_ascii=False)
     for excluded in ("discount_rate", "current_pearl_price", "cash_cost", "event_reward", "event_fairy_box"):
         assert excluded not in serialized
@@ -208,6 +216,12 @@ def test_v19j_fairy_lifecycle_current_capacity_and_appearance() -> None:
         "fairy-continuous-care-introduction-2022-08-10",
         "fairy-continuous-care-update-2025-09-17",
     ]
+    assert (
+        "fairy-probability-guide-current"
+        not in evidence["fairy-current-system.major-skills"]["source_ids"]
+    )
+    assert "fairy-probability-guide-current" in evidence["fairy-current-system.wing-upgrade"]["source_ids"]
+    assert "fairy-probability-guide-current" in evidence["fairy-current-system.skill-change"]["source_ids"]
 
 
 def test_v19j_pet_current_actions_hunger_specialty_and_exchange() -> None:
