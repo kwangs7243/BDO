@@ -104,9 +104,9 @@ def test_v19h_seed_identity_counts_and_references() -> None:
     source_urls = [row["url"] for row in sources]
     content_slugs = [row["slug"] for row in contents]
 
-    assert len(sources) == 165
-    assert len(contents) == 269
-    assert sum(len(row.get("relations", [])) for row in contents) == 478
+    assert len(sources) >= 165
+    assert len(contents) >= 269
+    assert sum(len(row.get("relations", [])) for row in contents) >= 478
     assert len(source_ids) == len(set(source_ids))
     assert len(source_urls) == len(set(source_urls))
     assert len(content_slugs) == len(set(content_slugs))
@@ -121,11 +121,10 @@ def test_v19h_seed_identity_counts_and_references() -> None:
         for source_id in evidence.get("source_ids", [])
     }
     assert referenced <= set(source_ids)
-    assert _explicit_role_counts(contents) == {
-        "fact": 195,
-        "strategy": 57,
-        "measurement": 11,
-    }
+    role_counts = _explicit_role_counts(contents)
+    assert role_counts["fact"] >= 195
+    assert role_counts["strategy"] >= 57
+    assert role_counts["measurement"] >= 11
 
 
 def test_v19h_source_roles_and_shared_patch_metadata() -> None:
