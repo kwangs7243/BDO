@@ -7358,10 +7358,10 @@
     "name_ko": "까마귀 주화 증축 재료 상점",
     "category": "ocean_project",
     "subcategory": "material_shop",
-    "summary": "2024-03-27 공식 패치 기준 까마귀 주화 상점의 현행 증축 재료 구매 가격.",
-    "purpose": "구식 가이드 가격 대신 최신 공식 조정 가격으로 증축 비용을 계산한다.",
+    "summary": "2026-05-20 공식 패치 기준 까마귀 주화 상점의 현행 중범선 제작·증축 재료 구매 가격.",
+    "purpose": "구식 가이드·과거 패치 가격 대신 최신 공식 조정 가격으로 증축 비용을 계산한다.",
     "status": "active",
-    "last_verified_at": "2026-09-03",
+    "last_verified_at": "2026-09-07",
     "requirements": [],
     "steps": [],
     "rewards": [
@@ -7371,9 +7371,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 500,
+        "amount": 400,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.cox-combat",
@@ -7381,9 +7381,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 150,
+        "amount": 120,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.brilliant-rock-salt",
@@ -7391,9 +7391,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 500,
+        "amount": 400,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.deep-tide-timber",
@@ -7401,9 +7401,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 100,
+        "amount": 80,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.brilliant-pearl",
@@ -7411,9 +7411,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 500,
+        "amount": 400,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.deep-seaweed",
@@ -7421,9 +7421,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 100,
+        "amount": 80,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.cox-negotiation-upper",
@@ -7431,9 +7431,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 500,
+        "amount": 400,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.tide-timber",
@@ -7441,9 +7441,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 100,
+        "amount": 80,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.brilliant-cobalt",
@@ -7451,9 +7451,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 500,
+        "amount": 400,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.moon-vein-flax",
@@ -7461,9 +7461,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 50,
+        "amount": 40,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.khan-tendon",
@@ -7471,9 +7471,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 500,
+        "amount": 400,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.enhanced-island-plywood",
@@ -7481,9 +7481,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 50,
+        "amount": 40,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.red-undersea-nodule",
@@ -7491,9 +7491,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 250,
+        "amount": 200,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.pure-reef-fragment",
@@ -7501,9 +7501,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 40,
+        "amount": 30,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.khan-scale",
@@ -7511,9 +7511,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 200,
+        "amount": 160,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.moon-scale-plywood",
@@ -7521,9 +7521,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 20,
+        "amount": 15,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.price.pure-pearl",
@@ -7531,9 +7531,9 @@
         "reward_type": "shop_price",
         "is_choice": false,
         "active": true,
-        "amount": 250,
+        "amount": 200,
         "unit": "까마귀 주화",
-        "notes": "현행 구매 가격"
+        "notes": "2026-05-20 공식 조정 후 현행 구매 가격"
       }
     ],
     "sections": [
@@ -7541,7 +7541,7 @@
         "seed_key": "crow-coin-material-shop.precedence-warning",
         "section_type": "common_mistakes",
         "title": "가이드의 구식 가격 주의",
-        "body_markdown": "중범선 만들기 가이드에 남아 있는 일부 40·80·400 주화 표기는 현행 가격 근거로 사용하지 않는다. 이 콘텐츠는 2024-03-27 공식 가격 조정을 정본으로 사용한다."
+        "body_markdown": "중범선 만들기 가이드와 2024-03-27 패치에 남아 있는 과거 가격은 현행 근거로 사용하지 않는다. 이 콘텐츠는 2026-05-20 공식 가격 조정을 정본으로 사용한다."
       }
     ],
     "schedules": [],
@@ -7561,11 +7561,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.deep-sea-tear",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-cox-combat",
@@ -7573,11 +7573,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.cox-combat",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-brilliant-rock-salt",
@@ -7585,11 +7585,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.brilliant-rock-salt",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-deep-tide-timber",
@@ -7597,11 +7597,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.deep-tide-timber",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-brilliant-pearl",
@@ -7609,11 +7609,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.brilliant-pearl",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-deep-seaweed",
@@ -7621,11 +7621,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.deep-seaweed",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-cox-negotiation-upper",
@@ -7633,11 +7633,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.cox-negotiation-upper",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-tide-timber",
@@ -7645,11 +7645,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.tide-timber",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-brilliant-cobalt",
@@ -7657,11 +7657,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.brilliant-cobalt",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-moon-vein-flax",
@@ -7669,11 +7669,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.moon-vein-flax",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-khan-tendon",
@@ -7681,11 +7681,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.khan-tendon",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-enhanced-island-plywood",
@@ -7693,11 +7693,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.enhanced-island-plywood",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-red-undersea-nodule",
@@ -7705,11 +7705,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.red-undersea-nodule",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-pure-reef-fragment",
@@ -7717,11 +7717,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.pure-reef-fragment",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-khan-scale",
@@ -7729,11 +7729,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.khan-scale",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-moon-scale-plywood",
@@ -7741,11 +7741,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.moon-scale-plywood",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.price-pure-pearl",
@@ -7753,11 +7753,11 @@
         "entity_seed_key": "crow-coin-material-shop.price.pure-pearl",
         "claim_key": "reward",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "현행 구매 가격"
+        "last_verified_at": "2026-09-07",
+        "note": "2026-05-20 공식 조정 후 현행 구매 가격"
       },
       {
         "seed_key": "crow-coin-material-shop.evidence.precedence-warning",
@@ -7765,11 +7765,11 @@
         "entity_seed_key": "crow-coin-material-shop.precedence-warning",
         "claim_key": "body",
         "source_ids": [
-          "ocean-barter-rework-2024-03-27"
+          "barter-accessibility-2026-05-20"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "중범선 만들기 가이드에 남아 있는 일부 40·80·400 주화 표기는 현행 가격 근거로 사용하지 않는다. 이 콘텐츠는 2024-03-27 공식 가격 조정을 정본으로 사용한다."
+        "last_verified_at": "2026-09-07",
+        "note": "중범선 만들기 가이드와 2024-03-27 패치에 남아 있는 과거 가격은 현행 근거로 사용하지 않는다. 이 콘텐츠는 2026-05-20 공식 가격 조정을 정본으로 사용한다."
       }
     ]
   },
@@ -32120,4 +32120,6 @@
     ,{"slug":"processing-onboarding-strategy","name_ko":"가공 입문 전략","category":"life","summary":"가공은 먼저 결과물의 실제 사용처를 정하고 재료·가공 방식·일반 또는 대량가공·보관 병목을 한 경로로 검증하는 생활 콘텐츠다.","purpose":"가격표나 단일 품목 추천 대신 계정의 요리·연금·제작·프로젝트 수요에 맞는 첫 가공 루트를 설계하도록 돕는다.","status":"active","last_verified_at":"2026-09-06","requirements":[{"seed_key":"processing-onboarding-strategy.purpose-choice","kind":"other","title":"가공 목적 선택","description":"직접 사용, 프로젝트 재료, 후속 제작 또는 판매 중 결과물의 목적을 먼저 정한다.","structured_value":{"knowledge_role":"strategy","goals":["downstream_recipe_input","project_material","workshop_input","inventory_transformation","market_sale"],"single_default_goal":false,"dynamic_market_rank_excluded":true},"requirement_level":"required"},{"seed_key":"processing-onboarding-strategy.normal-or-mass","kind":"other","title":"일반·대량가공 선택","description":"소량 시험과 새 경로 확인은 일반가공, 지원되는 반복 대량 작업은 가공석과 숙련도를 확인해 대량가공을 검토한다.","structured_value":{"knowledge_role":"strategy","normal_when":["small_batch","first_route_test","recipe_support_uncertain"],"mass_when":["large_repeat_batch","mass_recipe_confirmed","gear_and_mastery_ready"],"fixed_quantity_threshold":null,"universal_best_mode":false},"requirement_level":"required"},{"seed_key":"processing-onboarding-strategy.route-validation","kind":"knowledge","title":"가공 경로 검증","description":"원재료, 가공 방식, 결과물과 후속 사용처를 제작노트·가공 UI의 현재 정보로 확인한다.","structured_value":{"knowledge_role":"strategy","route_fields":["input_material","processing_method","output","downstream_use"],"recipe_catalog_static":false,"knowledge_requirement_may_apply":true},"requirement_level":"required"},{"seed_key":"processing-onboarding-strategy.session-bottlenecks","kind":"other","title":"세션 병목","description":"재료량, 무게, 가방·창고 공간, 성공률과 후속 소비 속도가 세션 길이를 제한한다.","structured_value":{"knowledge_role":"strategy","bottlenecks":["input_stock","weight","inventory_space","storage_space","processing_success","downstream_consumption"],"single_bottleneck_assumed":false},"requirement_level":"required"}],"steps":[{"seed_key":"processing-onboarding-strategy.step.choose-output","phase":"preparation","title":"필요 결과물 정하기","description":"요리·연금·제작·프로젝트 등 실제 후속 사용처에서 필요한 결과물을 하나 고른다.","order_no":1,"active":true},{"seed_key":"processing-onboarding-strategy.step.trace-route","phase":"preparation","title":"경로 역산","description":"결과물에서 필요한 가공 방식과 원재료를 역산한다.","order_no":2,"active":true},{"seed_key":"processing-onboarding-strategy.step.verify-current-recipe","phase":"preparation","title":"현재 제작식 확인","description":"가공 UI와 제작노트에서 현재 제작식, 지식 조건과 대량가공 지원 여부를 확인한다.","order_no":3,"active":true},{"seed_key":"processing-onboarding-strategy.step.check-stock","phase":"preparation","title":"재료·보관 점검","description":"원재료 재고, 무게와 결과물을 둘 가방·창고 공간을 확인한다.","order_no":4,"active":true},{"seed_key":"processing-onboarding-strategy.step.choose-mode","phase":"first_time","title":"일반·대량가공 고르기","description":"첫 소량 시험인지 반복 대량 작업인지에 따라 모드를 선택한다.","order_no":5,"active":true},{"seed_key":"processing-onboarding-strategy.step.run-small-test","phase":"first_time","title":"소량 시험","description":"작은 묶음으로 결과물과 후속 사용처가 의도와 맞는지 확인한다.","order_no":6,"active":true},{"seed_key":"processing-onboarding-strategy.step.run-record","phase":"maintenance","title":"세션 실행·기록","description":"중단 원인, 남은 재료, 결과물과 보관 상태를 기록한다.","order_no":7,"active":true},{"seed_key":"processing-onboarding-strategy.step.review","phase":"maintenance","title":"병목 조정","description":"재료·무게·보관·성공률·후속 소비 중 실제 병목 하나를 다음 세션에서 조정한다.","order_no":8,"active":true}],"rewards":[],"sections":[{"seed_key":"processing-onboarding-strategy.section.output-first","section_type":"strategy","title":"결과물에서 원재료로 역산","body_markdown":"가공 자체를 목표로 삼기보다 결과물을 어디에 쓸지 먼저 정한다. 원재료→방식→결과물→후속 사용의 연결이 확인된 작은 묶음부터 시작한다."},{"seed_key":"processing-onboarding-strategy.section.mode-bottleneck","section_type":"strategy","title":"대량가공은 병목에 맞춰 선택","body_markdown":"대량가공은 모든 제작식의 기본값이 아니다. 지원되는 제작식인지 확인하고 재료량·무게·보관·후속 소비가 준비된 반복 작업에서 검토한다."},{"seed_key":"processing-onboarding-strategy.section.current-known-issue","section_type":"common_mistakes","title":"현재 제작식과 알려진 문제 확인","body_markdown":"2026-09-06 기준 가공(L)-공작의 카나페 매듭 제작식에 요리사 모자를 사용할 수 없는 알려진 문제가 있으며 09-09 수정 예정으로 공지됐다. 예정일 이후 실제 수정 여부를 다시 확인한다."}],"schedules":[],"checklists":[],"relations":[{"seed_key":"processing-onboarding-strategy.current-system","to_content_slug":"processing-current-system","relation_type":"prerequisite"},{"seed_key":"processing-onboarding-strategy.mass","to_content_slug":"mass-processing","relation_type":"related"},{"seed_key":"processing-onboarding-strategy.gear","to_content_slug":"processing-stones-and-clothes","relation_type":"related"},{"seed_key":"processing-onboarding-strategy.common-gear","to_content_slug":"life-common-gear","relation_type":"related"},{"seed_key":"processing-onboarding-strategy.mastery","to_content_slug":"life-mastery-foundation","relation_type":"related"},{"seed_key":"processing-onboarding-strategy.storage","to_content_slug":"storage-current-system","relation_type":"related"},{"seed_key":"processing-onboarding-strategy.workshop","to_content_slug":"workshop-crafting-logistics","relation_type":"related"}],"evidence":[{"seed_key":"processing-onboarding-strategy.claim.summary","entity_type":"content","entity_seed_key":"processing-onboarding-strategy","claim_key":"summary","source_ids":["processing-guide","black-energy-overflow-2026-03-18","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.purpose","entity_type":"content","entity_seed_key":"processing-onboarding-strategy","claim_key":"purpose","source_ids":["processing-guide","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.purpose-choice","entity_type":"content_requirement","entity_seed_key":"processing-onboarding-strategy.purpose-choice","claim_key":"description","source_ids":["processing-guide","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.normal-or-mass","entity_type":"content_requirement","entity_seed_key":"processing-onboarding-strategy.normal-or-mass","claim_key":"description","source_ids":["processing-guide","processing-mass-recipes-2026-07-22","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.route-validation","entity_type":"content_requirement","entity_seed_key":"processing-onboarding-strategy.route-validation","claim_key":"description","source_ids":["processing-guide","black-energy-overflow-2026-03-18","processing-mass-recipes-2026-07-22"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.session-bottlenecks","entity_type":"content_requirement","entity_seed_key":"processing-onboarding-strategy.session-bottlenecks","claim_key":"description","source_ids":["processing-guide","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.step.choose-output","entity_type":"content_step","entity_seed_key":"processing-onboarding-strategy.step.choose-output","claim_key":"description","source_ids":["processing-guide","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.step.trace-route","entity_type":"content_step","entity_seed_key":"processing-onboarding-strategy.step.trace-route","claim_key":"description","source_ids":["processing-guide","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.step.verify-current-recipe","entity_type":"content_step","entity_seed_key":"processing-onboarding-strategy.step.verify-current-recipe","claim_key":"description","source_ids":["processing-guide","black-energy-overflow-2026-03-18","processing-mass-recipes-2026-07-22"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.step.check-stock","entity_type":"content_step","entity_seed_key":"processing-onboarding-strategy.step.check-stock","claim_key":"description","source_ids":["processing-guide","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.step.choose-mode","entity_type":"content_step","entity_seed_key":"processing-onboarding-strategy.step.choose-mode","claim_key":"description","source_ids":["processing-guide","processing-mass-recipes-2026-07-22"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.step.run-small-test","entity_type":"content_step","entity_seed_key":"processing-onboarding-strategy.step.run-small-test","claim_key":"description","source_ids":["processing-guide","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.step.run-record","entity_type":"content_step","entity_seed_key":"processing-onboarding-strategy.step.run-record","claim_key":"description","source_ids":["black-energy-overflow-2026-03-18","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.step.review","entity_type":"content_step","entity_seed_key":"processing-onboarding-strategy.step.review","claim_key":"description","source_ids":["processing-guide","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.section.output-first","entity_type":"content_section","entity_seed_key":"processing-onboarding-strategy.section.output-first","claim_key":"body","source_ids":["processing-guide","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.section.mode-bottleneck","entity_type":"content_section","entity_seed_key":"processing-onboarding-strategy.section.mode-bottleneck","claim_key":"body","source_ids":["processing-guide","processing-mass-recipes-2026-07-22","processing-route-strategy-2026-01-21"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"processing-onboarding-strategy.claim.section.current-known-issue","entity_type":"content_section","entity_seed_key":"processing-onboarding-strategy.section.current-known-issue","claim_key":"body","source_ids":["known-issues-current-2026-09-04"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true}]}
     ,{"slug":"cooking-onboarding-strategy","name_ko":"요리 입문 전략","category":"life","summary":"요리 목적과 결과물을 먼저 정하고 현재 제작식, 재료 공급, 반복 세션 병목과 결과물 처리 경로를 검증하는 생활 전략 콘텐츠다.","purpose":"고정 수익표나 단일 품목 추천 없이 자신의 목표와 공급 조건에 맞는 첫 요리 루틴과 다음 행동을 결정하도록 돕는다.","status":"active","last_verified_at":"2026-09-06","requirements":[{"seed_key":"cooking-onboarding-strategy.purpose-choice","kind":"other","title":"요리 목적 선택","description":"직접 사용할 음식, 생활 레벨 성장, 마녀의 별미와 공헌도 진행, 황실 요리 납품, 후속 제작 재료, 시장 판매 중 이번 요리의 우선 목적을 먼저 정한다.","structured_value":{"knowledge_role":"strategy","goals":["direct_food_use","life_level_growth","witch_delicacy_contribution","imperial_cooking_delivery","downstream_or_project_material","market_sale"],"single_default_goal":false},"requirement_level":"required"},{"seed_key":"cooking-onboarding-strategy.recipe-selection","kind":"knowledge","title":"목적 기반 요리 선택","description":"최종 사용 목적, 현재 요리 레벨, 안정적 재료 조달, 반복 가능한 양, 병목 재료 수, 황실 포장 가능 여부, 상위 요리 연결과 보관 부담을 함께 비교한다.","structured_value":{"knowledge_role":"strategy","decision_dimensions":["final_use","cooking_level","stable_supply","repeatable_quantity","bottleneck_count","imperial_packaging","downstream_recipe","storage_load"],"universal_best_recipe":false,"dynamic_market_rank_excluded":true},"requirement_level":"required"},{"seed_key":"cooking-onboarding-strategy.ingredient-sourcing","kind":"other","title":"재료 공급 경로 판단","description":"재료마다 NPC 고정 공급, 생산 노드와 일꾼, 재배, 채집, 직접 가공, 거래소, 부산물과 교환 중 지속 가능한 경로를 확인한다.","structured_value":{"knowledge_role":"strategy","supply_routes":["npc_fixed_supply","production_node_worker","farming","gathering","processing","marketplace","byproduct_or_exchange"],"direct_or_external_by_material":true,"universal_best_supply_route":false},"requirement_level":"required"},{"seed_key":"cooking-onboarding-strategy.session-bottlenecks","kind":"other","title":"반복 세션 병목","description":"핵심 재료 재고, 요리 시간, 요리 도구 내구도, 가방과 창고 공간, 반복량, 황실 포장과 이동 준비 중 실제 중단 원인을 찾는다.","structured_value":{"knowledge_role":"strategy","bottlenecks":["core_ingredient_stock","cooking_time","cooking_utensil_durability","inventory_space","storage_space","repeat_quantity","imperial_packaging_and_transport"],"mastery_solves_all":false,"exact_gear_build_copied":false},"requirement_level":"required"},{"seed_key":"cooking-onboarding-strategy.imperial-decision","kind":"other","title":"황실 요리 납품 판단","description":"현재 레벨과 상자 단계, 재료 조달 상태, 포장과 보관 준비, 가문 일일 가능 수량, 현재 시장 조건을 확인한 뒤 직접 제작과 외부 조달을 비교한다.","structured_value":{"knowledge_role":"strategy","decision_dimensions":["cooking_level","box_tier","ingredient_supply","packaging_readiness","storage_and_transport","family_daily_capacity","current_market_check"],"compare_self_craft_and_external_supply":true,"fixed_profit_threshold":null,"universal_best_box":false,"dynamic_market_rank_excluded":true},"requirement_level":"required"}],"steps":[{"seed_key":"cooking-onboarding-strategy.step.choose-goal","phase":"preparation","title":"요리 목적 선택","description":"이번 세션에서 직접 사용, 성장, 공헌도 부산물, 황실 납품, 후속 제작 또는 판매 중 우선 목적 하나를 정한다.","order_no":1,"active":true},{"seed_key":"cooking-onboarding-strategy.step.choose-output","phase":"preparation","title":"결과물 하나 결정","description":"목적과 현재 요리 레벨에 맞는 결과물 하나를 첫 검증 대상으로 정한다.","order_no":2,"active":true},{"seed_key":"cooking-onboarding-strategy.step.verify-recipe","phase":"preparation","title":"현재 제작식 확인","description":"게임의 제작 노트에서 현재 재료와 수량, 대체 재료 조건을 확인한다.","order_no":3,"active":true},{"seed_key":"cooking-onboarding-strategy.step.classify-ingredients","phase":"preparation","title":"재료 공급 경로 분류","description":"필요 재료를 NPC, 노드와 일꾼, 재배, 채집, 가공, 거래소, 부산물과 교환 경로로 나눈다.","order_no":4,"active":true},{"seed_key":"cooking-onboarding-strategy.step.choose-supply-route","phase":"preparation","title":"지속 가능한 공급 선택","description":"보유 재고와 반복할 양을 기준으로 재료별 직접 생산과 외부 조달 경로를 정한다.","order_no":5,"active":true},{"seed_key":"cooking-onboarding-strategy.step.run-small-batch","phase":"first_time","title":"소량 제작 검증","description":"작은 묶음으로 실제 제작식과 대체 재료, 결과물 처리 흐름을 확인한다.","order_no":6,"active":true},{"seed_key":"cooking-onboarding-strategy.step.check-session-bottleneck","phase":"first_time","title":"반복 세션 병목 확인","description":"반복량을 늘리기 전에 재료, 시간, 도구 내구도, 가방과 창고 중 먼저 막히는 지점을 확인한다.","order_no":7,"active":true},{"seed_key":"cooking-onboarding-strategy.step.choose-outlet","phase":"maintenance","title":"결과물 처리 결정","description":"황실 납품, 직접 사용, 보관, 후속 제작, 판매 중 현재 목적에 맞는 처리 경로를 선택한다.","order_no":8,"active":true},{"seed_key":"cooking-onboarding-strategy.step.improve-one-bottleneck","phase":"maintenance","title":"다음 병목 하나 개선","description":"세션 기록에서 가장 먼저 멈춘 원인 하나만 골라 다음 반복 전에 개선한다.","order_no":9,"active":true}],"rewards":[],"sections":[{"seed_key":"cooking-onboarding-strategy.section.goal-supply","section_type":"strategy","title":"목적에서 재료 공급까지 연결","body_markdown":"요리 이름이나 수익 순위부터 고정하지 않는다. 사용할 결과물과 반복량을 정하고, 제작 노트의 현재 식을 확인한 다음 재료별 공급 경로와 병목을 연결한다."},{"seed_key":"cooking-onboarding-strategy.section.imperial-decision","section_type":"strategy","title":"황실 요리는 독립적인 일일 출구로 판단","body_markdown":"황실 제작 납품은 일반 판매와 같은 고정 수익 구조가 아니다. 현재 레벨과 상자 단계, 일일 가능 수량, 재료 확보, 포장과 이동 준비를 확인하고 직접 제작과 외부 조달을 그때그때 비교한다."},{"seed_key":"cooking-onboarding-strategy.section.common-mistakes","section_type":"common_mistakes","title":"요리 입문에서 피할 판단","body_markdown":"과거 가격표만 보고 요리를 고정하거나 공급 경로 확인 없이 대량 제작하지 않는다. 2026-09-02 이전 장비·광명석 구성을 현재 세팅으로 복제하지 않고, 황실 납품과 일반 판매를 같은 구조로 보거나 대량 요리와 숙련도가 모든 재료 병목을 해결한다고 가정하지 않는다."}],"schedules":[],"checklists":[],"relations":[{"seed_key":"cooking-onboarding-strategy.current-system","to_content_slug":"cooking-current-system","relation_type":"prerequisite"},{"seed_key":"cooking-onboarding-strategy.mastery","to_content_slug":"cooking-mastery-effects","relation_type":"related"},{"seed_key":"cooking-onboarding-strategy.mass-production","to_content_slug":"cooking-mass-production","relation_type":"related"},{"seed_key":"cooking-onboarding-strategy.witch-delicacy","to_content_slug":"witch-delicacy","relation_type":"related"},{"seed_key":"cooking-onboarding-strategy.imperial","to_content_slug":"imperial-crafting-delivery-daily","relation_type":"related"},{"seed_key":"cooking-onboarding-strategy.growth","to_content_slug":"cooking-growth-surprise-quest","relation_type":"related"},{"seed_key":"cooking-onboarding-strategy.farming","to_content_slug":"farming-onboarding-strategy","relation_type":"related"},{"seed_key":"cooking-onboarding-strategy.production-nodes","to_content_slug":"production-node-current-system","relation_type":"related"},{"seed_key":"cooking-onboarding-strategy.storage","to_content_slug":"storage-current-system","relation_type":"related"}],"evidence":[{"seed_key":"cooking-onboarding-strategy.claim.summary","entity_type":"content","entity_seed_key":"cooking-onboarding-strategy","claim_key":"summary","source_ids":["cooking-guide","imperial-delivery-guide","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.purpose","entity_type":"content","entity_seed_key":"cooking-onboarding-strategy","claim_key":"purpose","source_ids":["cooking-guide","cooking-imperial-strategy-2025-01-30","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.purpose-choice","entity_type":"content_requirement","entity_seed_key":"cooking-onboarding-strategy.purpose-choice","claim_key":"description","source_ids":["cooking-guide","cooking-imperial-strategy-2025-01-30","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.recipe-selection","entity_type":"content_requirement","entity_seed_key":"cooking-onboarding-strategy.recipe-selection","claim_key":"description","source_ids":["cooking-guide","cooking-imperial-strategy-2025-01-30","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.ingredient-sourcing","entity_type":"content_requirement","entity_seed_key":"cooking-onboarding-strategy.ingredient-sourcing","claim_key":"description","source_ids":["cooking-guide","cooking-imperial-strategy-2025-01-30","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.session-bottlenecks","entity_type":"content_requirement","entity_seed_key":"cooking-onboarding-strategy.session-bottlenecks","claim_key":"description","source_ids":["cooking-guide","life-unification-2026-09-02","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.imperial-decision","entity_type":"content_requirement","entity_seed_key":"cooking-onboarding-strategy.imperial-decision","claim_key":"description","source_ids":["imperial-delivery-guide","imperial-delivery-history","cooking-imperial-strategy-2025-01-30","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.step.choose-goal","entity_type":"content_step","entity_seed_key":"cooking-onboarding-strategy.step.choose-goal","claim_key":"description","source_ids":["cooking-guide","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.step.choose-output","entity_type":"content_step","entity_seed_key":"cooking-onboarding-strategy.step.choose-output","claim_key":"description","source_ids":["cooking-guide","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.step.verify-recipe","entity_type":"content_step","entity_seed_key":"cooking-onboarding-strategy.step.verify-recipe","claim_key":"description","source_ids":["cooking-guide","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.step.classify-ingredients","entity_type":"content_step","entity_seed_key":"cooking-onboarding-strategy.step.classify-ingredients","claim_key":"description","source_ids":["cooking-guide","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.step.choose-supply-route","entity_type":"content_step","entity_seed_key":"cooking-onboarding-strategy.step.choose-supply-route","claim_key":"description","source_ids":["cooking-guide","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.step.run-small-batch","entity_type":"content_step","entity_seed_key":"cooking-onboarding-strategy.step.run-small-batch","claim_key":"description","source_ids":["cooking-guide","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.step.check-session-bottleneck","entity_type":"content_step","entity_seed_key":"cooking-onboarding-strategy.step.check-session-bottleneck","claim_key":"description","source_ids":["cooking-guide","life-unification-2026-09-02","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.step.choose-outlet","entity_type":"content_step","entity_seed_key":"cooking-onboarding-strategy.step.choose-outlet","claim_key":"description","source_ids":["imperial-delivery-guide","cooking-imperial-strategy-2025-01-30","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.step.improve-one-bottleneck","entity_type":"content_step","entity_seed_key":"cooking-onboarding-strategy.step.improve-one-bottleneck","claim_key":"description","source_ids":["cooking-guide","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.section.goal-supply","entity_type":"content_section","entity_seed_key":"cooking-onboarding-strategy.section.goal-supply","claim_key":"body","source_ids":["cooking-guide","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.section.imperial-decision","entity_type":"content_section","entity_seed_key":"cooking-onboarding-strategy.section.imperial-decision","claim_key":"body","source_ids":["imperial-delivery-guide","imperial-delivery-history","cooking-imperial-strategy-2025-01-30","cooking-imperial-direction-2025-12-25"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"cooking-onboarding-strategy.claim.section.common-mistakes","entity_type":"content_section","entity_seed_key":"cooking-onboarding-strategy.section.common-mistakes","claim_key":"body","source_ids":["cooking-guide","life-unification-2026-09-02","cooking-imperial-strategy-2025-01-30"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true}]}
     ,{"slug":"alchemy-onboarding-strategy","name_ko":"연금 입문 전략","category":"life","summary":"연금 목적과 최종 결과물을 정하고 현재 제작식, 중간재 연결, 재료 공급 병목과 결과물 처리 경로를 역산하는 생활 전략 콘텐츠다.","purpose":"전체 제작식이나 고정 수익표 없이 목표 결과물에서 첫 소량 제작과 다음 공급 행동까지 안전하게 결정하도록 돕는다.","status":"active","last_verified_at":"2026-09-06","requirements":[{"seed_key":"alchemy-onboarding-strategy.purpose-choice","kind":"other","title":"연금 목적 선택","description":"직접 사용할 비약·향수·연금 결과, 다른 제작 중간재, Project 재료, 황실 연금 납품, 시장 판매, 연금 경험치 성장 중 우선 목적을 정한다.","structured_value":{"knowledge_role":"strategy","goals":["direct_elixir_perfume_or_alchemy_use","crafting_intermediate","project_material","imperial_alchemy_delivery","market_sale","alchemy_experience_growth"],"single_default_goal":false,"alchemy_stone_growth_separate":true},"requirement_level":"required"},{"seed_key":"alchemy-onboarding-strategy.dependency-chain","kind":"knowledge","title":"최종 결과물에서 공급까지 역산","description":"최종 결과물에서 중간 연금재, 혈액·오일·시약·흔적·수액·식물 등의 하위 재료와 실제 확보 경로 순서로 거슬러 내려간다.","structured_value":{"knowledge_role":"strategy","reverse_chain":["final_product","alchemy_intermediate","blood_oil_reagent_trace_sap_plant","acquisition_route"],"full_recipe_catalog":false,"verify_current_recipe_per_target":true},"requirement_level":"required"},{"seed_key":"alchemy-onboarding-strategy.recipe-validation","kind":"knowledge","title":"정확한 비율과 소량 검증","description":"제작 노트에서 현재 재료 비율을 확인하고, 잘못된 수량으로 실패해도 재료가 소비될 수 있으므로 첫 제작은 작은 묶음으로 검증한다.","structured_value":{"knowledge_role":"strategy","current_recipe_check_required":true,"failure_may_consume_materials":true,"first_batch":"small","static_recipe_catalog":false},"requirement_level":"required"},{"seed_key":"alchemy-onboarding-strategy.ingredient-sourcing","kind":"other","title":"재료별 병목과 공급 경로","description":"목표 제작식마다 직접 채집, 수렵 연계, 생산 노드, 재배, 거래소, 교환과 황실 인장, 기존 재고 중 공급 경로와 실제 병목을 확인한다.","structured_value":{"knowledge_role":"strategy","supply_routes":["gathering","hunting_link","production_node","farming","marketplace","exchange_or_imperial_seal","owned_inventory"],"bottleneck_depends_on_recipe":true,"universal_bottleneck_material":false},"requirement_level":"required"},{"seed_key":"alchemy-onboarding-strategy.imperial-and-output-decision","kind":"other","title":"결과물과 황실 연금 판단","description":"직접 사용, 황실 납품, 후속 제작, 판매 중 출구를 고르고 재료비와 조달 상태를 확인해 직접 제작과 외부 조달을 조건부로 비교한다.","structured_value":{"knowledge_role":"strategy","outlets":["direct_use","imperial_alchemy_delivery","downstream_crafting","market_sale"],"compare_self_craft_and_external_supply":true,"fixed_margin_threshold":null,"universal_best_product":false,"dynamic_market_rank_excluded":true,"alchemy_stone_progression_is_advanced_path":true},"requirement_level":"required"}],"steps":[{"seed_key":"alchemy-onboarding-strategy.step.choose-final-output","phase":"preparation","title":"최종 결과물 선택","description":"직접 사용, 중간재, Project, 황실 납품, 판매 또는 성장 중 목적에 맞는 최종 결과물을 하나 정한다.","order_no":1,"active":true},{"seed_key":"alchemy-onboarding-strategy.step.verify-recipe","phase":"preparation","title":"현재 제작식 확인","description":"게임의 제작 노트에서 현재 재료 종류와 정확한 비율을 확인한다.","order_no":2,"active":true},{"seed_key":"alchemy-onboarding-strategy.step.trace-intermediates","phase":"preparation","title":"중간 재료 역산","description":"중간 연금재가 있다면 최종 결과물에서 하위 재료와 확보 경로까지 역산한다.","order_no":3,"active":true},{"seed_key":"alchemy-onboarding-strategy.step.classify-shortages","phase":"preparation","title":"부족 재료 분류","description":"보유 재고와 필요량을 비교하고 부족분을 채집, 수렵, 노드, 재배, 거래소, 교환 경로로 나눈다.","order_no":4,"active":true},{"seed_key":"alchemy-onboarding-strategy.step.confirm-ratios","phase":"preparation","title":"재료 비율 재확인","description":"실패 시 재료 소비 위험을 줄이도록 투입 전에 각 재료 비율과 대체 가능 여부를 다시 확인한다.","order_no":5,"active":true},{"seed_key":"alchemy-onboarding-strategy.step.run-small-batch","phase":"first_time","title":"소량 제작 검증","description":"작은 묶음으로 제작 성공과 결과물, 중간재 연결을 확인한다.","order_no":6,"active":true},{"seed_key":"alchemy-onboarding-strategy.step.choose-repeat-volume","phase":"first_time","title":"반복량 결정","description":"검증 결과와 안정적으로 확보 가능한 재료량을 기준으로 이번 반복량을 정한다.","order_no":7,"active":true},{"seed_key":"alchemy-onboarding-strategy.step.check-stock-space","phase":"maintenance","title":"재고와 공간 확인","description":"반복 전에 핵심 재료 재고, 가방, 창고, 결과물 보관 공간을 확인한다.","order_no":8,"active":true},{"seed_key":"alchemy-onboarding-strategy.step.choose-outlet","phase":"maintenance","title":"결과물 처리 결정","description":"직접 사용, 황실 납품, 후속 제작, 보관 또는 판매 중 현재 목적에 맞는 출구를 선택한다.","order_no":9,"active":true},{"seed_key":"alchemy-onboarding-strategy.step.improve-one-bottleneck","phase":"maintenance","title":"다음 병목 하나 개선","description":"세션에서 가장 먼저 부족해진 재료나 공간 문제 하나만 골라 다음 반복 전에 개선한다.","order_no":10,"active":true}],"rewards":[],"sections":[{"seed_key":"alchemy-onboarding-strategy.section.reverse-dependency","section_type":"strategy","title":"최종 결과물에서 재료 공급망까지 역산","body_markdown":"연금 전체 제작식을 고정 목록으로 복제하지 않는다. 필요한 최종 결과물 하나에서 중간재와 하위 재료를 거슬러 내려가고, 제작 노트의 현재 식과 실제 공급 경로를 확인한다."},{"seed_key":"alchemy-onboarding-strategy.section.supply-imperial","section_type":"strategy","title":"병목과 결과물 출구를 분리해 판단","body_markdown":"병목은 목표 제작식과 보유 재고에 따라 달라진다. 재료 공급을 확인한 뒤 직접 사용, 황실 납품, 후속 제작, 판매 중 출구를 고르며, 현재 가격이 필요한 판단은 그 시점에 별도로 확인한다."},{"seed_key":"alchemy-onboarding-strategy.section.common-mistakes","section_type":"common_mistakes","title":"연금 입문에서 피할 판단","body_markdown":"재료 비율 확인 없이 대량 반복하거나 중간재 연결을 건너뛰고 최종 물품부터 쌓지 않는다. 오래된 황실 손익표를 현재 가치로 사용하지 않고, 연금석 성장을 일반 연금 생산과 섞거나 모든 연금에서 같은 재료가 병목이라고 가정하지 않는다."}],"schedules":[],"checklists":[],"relations":[{"seed_key":"alchemy-onboarding-strategy.current-system","to_content_slug":"alchemy-current-system","relation_type":"prerequisite"},{"seed_key":"alchemy-onboarding-strategy.mastery","to_content_slug":"alchemy-mastery-effects","relation_type":"related"},{"seed_key":"alchemy-onboarding-strategy.products","to_content_slug":"alchemy-products-and-byproducts","relation_type":"related"},{"seed_key":"alchemy-onboarding-strategy.imperial","to_content_slug":"alchemy-imperial-current","relation_type":"related"},{"seed_key":"alchemy-onboarding-strategy.growth","to_content_slug":"alchemy-growth-surprise-quest","relation_type":"related"},{"seed_key":"alchemy-onboarding-strategy.gathering","to_content_slug":"gathering-onboarding-strategy","relation_type":"related"},{"seed_key":"alchemy-onboarding-strategy.farming","to_content_slug":"farming-onboarding-strategy","relation_type":"related"},{"seed_key":"alchemy-onboarding-strategy.production-nodes","to_content_slug":"production-node-current-system","relation_type":"related"},{"seed_key":"alchemy-onboarding-strategy.storage","to_content_slug":"storage-current-system","relation_type":"related"},{"seed_key":"alchemy-onboarding-strategy.alchemy-stone-next","to_content_slug":"alchemy-stone-current-progression","relation_type":"related"}],"evidence":[{"seed_key":"alchemy-onboarding-strategy.claim.summary","entity_type":"content","entity_seed_key":"alchemy-onboarding-strategy","claim_key":"summary","source_ids":["alchemy-basic-guide","alchemy-guide","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.purpose","entity_type":"content","entity_seed_key":"alchemy-onboarding-strategy","claim_key":"purpose","source_ids":["alchemy-guide","alchemy-imperial-strategy-2024-11-09","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.purpose-choice","entity_type":"content_requirement","entity_seed_key":"alchemy-onboarding-strategy.purpose-choice","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.dependency-chain","entity_type":"content_requirement","entity_seed_key":"alchemy-onboarding-strategy.dependency-chain","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.recipe-validation","entity_type":"content_requirement","entity_seed_key":"alchemy-onboarding-strategy.recipe-validation","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.ingredient-sourcing","entity_type":"content_requirement","entity_seed_key":"alchemy-onboarding-strategy.ingredient-sourcing","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.imperial-and-output-decision","entity_type":"content_requirement","entity_seed_key":"alchemy-onboarding-strategy.imperial-and-output-decision","claim_key":"description","source_ids":["alchemy-guide","imperial-delivery-guide","ocean-iliya-consolidation-2025-05-14","alchemy-imperial-strategy-2024-11-09"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.step.choose-final-output","entity_type":"content_step","entity_seed_key":"alchemy-onboarding-strategy.step.choose-final-output","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.step.verify-recipe","entity_type":"content_step","entity_seed_key":"alchemy-onboarding-strategy.step.verify-recipe","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.step.trace-intermediates","entity_type":"content_step","entity_seed_key":"alchemy-onboarding-strategy.step.trace-intermediates","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.step.classify-shortages","entity_type":"content_step","entity_seed_key":"alchemy-onboarding-strategy.step.classify-shortages","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.step.confirm-ratios","entity_type":"content_step","entity_seed_key":"alchemy-onboarding-strategy.step.confirm-ratios","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.step.run-small-batch","entity_type":"content_step","entity_seed_key":"alchemy-onboarding-strategy.step.run-small-batch","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.step.choose-repeat-volume","entity_type":"content_step","entity_seed_key":"alchemy-onboarding-strategy.step.choose-repeat-volume","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.step.check-stock-space","entity_type":"content_step","entity_seed_key":"alchemy-onboarding-strategy.step.check-stock-space","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.step.choose-outlet","entity_type":"content_step","entity_seed_key":"alchemy-onboarding-strategy.step.choose-outlet","claim_key":"description","source_ids":["alchemy-guide","imperial-delivery-guide","alchemy-imperial-strategy-2024-11-09"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.step.improve-one-bottleneck","entity_type":"content_step","entity_seed_key":"alchemy-onboarding-strategy.step.improve-one-bottleneck","claim_key":"description","source_ids":["alchemy-basic-guide","alchemy-guide","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.section.reverse-dependency","entity_type":"content_section","entity_seed_key":"alchemy-onboarding-strategy.section.reverse-dependency","claim_key":"body","source_ids":["alchemy-basic-guide","alchemy-guide","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.section.supply-imperial","entity_type":"content_section","entity_seed_key":"alchemy-onboarding-strategy.section.supply-imperial","claim_key":"body","source_ids":["alchemy-guide","imperial-delivery-guide","alchemy-imperial-strategy-2024-11-09","alchemy-node-strategy-2025-10-28"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true},{"seed_key":"alchemy-onboarding-strategy.claim.section.common-mistakes","entity_type":"content_section","entity_seed_key":"alchemy-onboarding-strategy.section.common-mistakes","claim_key":"body","source_ids":["alchemy-basic-guide","alchemy-guide","alchemy-stone-guide","alchemy-imperial-strategy-2024-11-09"],"verification_status":"verified","last_verified_at":"2026-09-06","active":true}]}
+    ,{"slug":"sailing-onboarding-strategy","name_ko":"항해 입문 운영 전략","category":"ocean_guide","subcategory":"strategy","summary":"항해 목적을 먼저 정하고 출항 준비, 짧은 첫 항해, 귀환 정리와 다음 병목 개선을 연결하는 정적 운영 전략.","purpose":"기존 선박·선원 FACT를 복제하지 않고 사용자의 목적과 현재 상태에 맞는 첫 항해와 성장 순서를 결정한다.","status":"active","last_verified_at":"2026-09-07","requirements":[{"seed_key":"sailing-onboarding-strategy.purpose-choice","kind":"other","title":"항해 목적 선택","description":"물물교환 물류, 중범선 성장, 해양 사냥, 오킬루아 루틴, 판옥선·상위 선박, 대양 탐험 중 이번 항해의 목적을 먼저 고른다.","structured_value":{"knowledge_role":"strategy","goals":["barter_logistics","carrack_progression","ocean_hunting","oquilla_routines","panokseon_or_advanced_ship","ocean_exploration"],"single_default_goal":false,"universal_ship_first":false},"requirement_level":"required"},{"seed_key":"sailing-onboarding-strategy.departure-readiness","kind":"other","title":"출항 준비 상태","description":"출항 전 선박 식량·포탄·내구도, 선원 건강·선실, 화물 무게, 재고 계획, 보급·수리 필요와 귀환 항구를 함께 점검한다.","structured_value":{"knowledge_role":"strategy","dimensions":["ship_food","cannon_ammo","ship_durability","sailor_health","crew_slots","cargo_weight","inventory_plan","repair_or_supply_need","return_port"],"creates_checklist_template":false},"requirement_level":"required"},{"seed_key":"sailing-onboarding-strategy.carrack-choice","kind":"other","title":"목적별 중범선 선택","description":"물물교환, 해양 전투, 속도·회전·적재 선호, 현재 보유 선박과 장기 목표를 비교하고 기존 중범선 FACT에서 맞는 분기를 확인한다.","structured_value":{"knowledge_role":"strategy","dimensions":["barter_focus","ocean_combat_focus","speed_turn_cargo_preference","current_ship","long_term_progression_goal"],"universal_best_carrack":false,"exact_stats_owned_by":"carrack-types"},"requirement_level":"required"},{"seed_key":"sailing-onboarding-strategy.sailor-investment","kind":"other","title":"선원 투자 시점","description":"현재 목적과 선실에서 필요한 역할부터 배치하고, 건강·식량 또는 역할 부족이 반복 루틴을 막을 때 선원 투자를 선박 성장과 비교한다.","structured_value":{"knowledge_role":"strategy","dimensions":["voyage_goal","crew_slots","required_roles","health_or_food_interruptions","ship_progression_bottleneck"],"universal_best_crew":false,"fixed_best_in_slot":false},"requirement_level":"required"},{"seed_key":"sailing-onboarding-strategy.first-voyage-scope","kind":"other","title":"첫 항해 범위","description":"첫 세션은 한 가지 짧은 목표로 제한하고 이동·적재·전투 중 실제 병목을 기록해 다음 세션에서 하나만 개선한다.","structured_value":{"knowledge_role":"strategy","first_session":"one_short_goal","observe":["movement","cargo","combat","supply"],"improvement_per_session":1},"requirement_level":"required"}],"steps":[{"seed_key":"sailing-onboarding-strategy.step.choose-goal","phase":"preparation","title":"이번 항해 목적 정하기","description":"물류·성장·사냥·루틴·탐험 중 이번 세션의 목적 하나를 고른다.","order_no":1,"active":true},{"seed_key":"sailing-onboarding-strategy.step.check-ship-progression","phase":"preparation","title":"선박과 성장 단계 확인","description":"사용할 선박과 현재 증축·장비 진행 상태를 확인한다.","order_no":2,"active":true},{"seed_key":"sailing-onboarding-strategy.step.check-wharf-registration","phase":"preparation","title":"선착장 등록 상태 확인","description":"선박이 현재 선착장에 등록되어 출항 가능한지 확인한다.","order_no":3,"active":true},{"seed_key":"sailing-onboarding-strategy.step.supply-and-repair","phase":"preparation","title":"보급·수리 상태 확인","description":"식량, 포탄, 내구도와 필요한 수리·보급을 출항 전에 확인한다.","order_no":4,"active":true},{"seed_key":"sailing-onboarding-strategy.step.check-crew-and-cargo","phase":"preparation","title":"선원과 화물 확인","description":"목적에 필요한 선원, 선실 여유, 건강과 화물 무게를 확인한다.","order_no":5,"active":true},{"seed_key":"sailing-onboarding-strategy.step.set-short-target","phase":"first_time","title":"짧은 목표 설정","description":"첫 항해에는 한 가지 짧은 목표와 귀환 항구만 정한다.","order_no":6,"active":true},{"seed_key":"sailing-onboarding-strategy.step.observe-bottleneck","phase":"first_time","title":"실제 병목 확인","description":"이동·적재·전투·보급 중 시간을 막은 병목을 하나 기록한다.","order_no":7,"active":true},{"seed_key":"sailing-onboarding-strategy.step.return-and-organize","phase":"maintenance","title":"복귀 후 정리","description":"항구로 돌아와 보급·수리하고 화물과 재고를 목적에 맞게 정리한다.","order_no":8,"active":true},{"seed_key":"sailing-onboarding-strategy.step.improve-one-bottleneck","phase":"maintenance","title":"다음 세션 개선","description":"선박, 장비, 선원, 화물 계획 중 가장 먼저 막힌 한 가지를 개선한다.","order_no":9,"active":true}],"rewards":[],"sections":[{"seed_key":"sailing-onboarding-strategy.section.goal-and-ship","section_type":"strategy","title":"목적에서 선박 성장으로 연결","body_markdown":"선박을 먼저 정답으로 고르지 않는다. 이번 활동이 물물교환, 전투, 루틴, 탐험 중 무엇인지 정한 뒤 현재 선박으로 가능한 짧은 목표를 실행하고, 중범선 분기와 상위 장비는 확인된 병목에 맞춰 검토한다."},{"seed_key":"sailing-onboarding-strategy.section.departure-return-loop","section_type":"strategy","title":"출항과 귀환을 한 루프로 운영","body_markdown":"출항 전 식량·포탄·내구도·선원·화물·귀환 항구를 확인하고, 복귀 후 보급·수리·재고 정리를 마쳐 다음 세션의 준비 상태를 만든다. 이 조건부 점검은 새 반복 체크리스트를 생성하지 않는다."},{"seed_key":"sailing-onboarding-strategy.section.common-mistakes","section_type":"common_mistakes","title":"항해 입문에서 피할 판단","body_markdown":"목적 없이 선박 증축부터 진행하거나, 보급·수리·선원 상태를 확인하지 않고 출항하지 않는다. 과거 치로 장비나 오래된 선원 조합을 현재의 보편적 최종 세팅으로 보지 않으며, 특정 중범선을 모든 목적의 최선으로 고정하지 않는다. 적재량과 귀환 경로 없이 해상 활동 범위를 늘리지 않는다."}],"schedules":[],"checklists":[],"relations":[{"seed_key":"sailing-onboarding-strategy.carrack-types","to_content_slug":"carrack-types","relation_type":"prerequisite","note":"목적별 중범선 분기 FACT"},{"seed_key":"sailing-onboarding-strategy.sailor-growth","to_content_slug":"sailor-hiring-growth","relation_type":"related","note":"선원 고용과 성장"},{"seed_key":"sailing-onboarding-strategy.sailor-roles","to_content_slug":"sailor-role-slots","relation_type":"related","note":"목적별 선원 역할과 선실"},{"seed_key":"sailing-onboarding-strategy.sailor-health","to_content_slug":"sailor-health-food","relation_type":"related","note":"선원 건강과 식량"},{"seed_key":"sailing-onboarding-strategy.consumables","to_content_slug":"ocean-consumables","relation_type":"related","note":"출항 보급품"},{"seed_key":"sailing-onboarding-strategy.upgrade-materials","to_content_slug":"carrack-upgrade-materials","relation_type":"related","note":"중범선 증축 재료"},{"seed_key":"sailing-onboarding-strategy.sea-crystals","to_content_slug":"sea-crystals","relation_type":"related","note":"상위 장비 선택지"},{"seed_key":"sailing-onboarding-strategy.advance-project","to_content_slug":"carrack-advance","relation_type":"project_link","note":"점진 프로젝트 진행도"},{"seed_key":"sailing-onboarding-strategy.ocean-hunting","to_content_slug":"sea-crocodile-hunting","relation_type":"related","note":"해양 사냥 목적"},{"seed_key":"sailing-onboarding-strategy.panokseon","to_content_slug":"panokseon","relation_type":"related","note":"판옥선·상위 선박 목적"}],"evidence":[{"seed_key":"sailing-onboarding-strategy.claim.summary","entity_type":"content","entity_seed_key":"sailing-onboarding-strategy","claim_key":"summary","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.purpose","entity_type":"content","entity_seed_key":"sailing-onboarding-strategy","claim_key":"purpose","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.purpose-choice","entity_type":"content_requirement","entity_seed_key":"sailing-onboarding-strategy.purpose-choice","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.departure-readiness","entity_type":"content_requirement","entity_seed_key":"sailing-onboarding-strategy.departure-readiness","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.carrack-choice","entity_type":"content_requirement","entity_seed_key":"sailing-onboarding-strategy.carrack-choice","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.sailor-investment","entity_type":"content_requirement","entity_seed_key":"sailing-onboarding-strategy.sailor-investment","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.first-voyage-scope","entity_type":"content_requirement","entity_seed_key":"sailing-onboarding-strategy.first-voyage-scope","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.step.choose-goal","entity_type":"content_step","entity_seed_key":"sailing-onboarding-strategy.step.choose-goal","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.step.check-ship-progression","entity_type":"content_step","entity_seed_key":"sailing-onboarding-strategy.step.check-ship-progression","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.step.check-wharf-registration","entity_type":"content_step","entity_seed_key":"sailing-onboarding-strategy.step.check-wharf-registration","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.step.supply-and-repair","entity_type":"content_step","entity_seed_key":"sailing-onboarding-strategy.step.supply-and-repair","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.step.check-crew-and-cargo","entity_type":"content_step","entity_seed_key":"sailing-onboarding-strategy.step.check-crew-and-cargo","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.step.set-short-target","entity_type":"content_step","entity_seed_key":"sailing-onboarding-strategy.step.set-short-target","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.step.observe-bottleneck","entity_type":"content_step","entity_seed_key":"sailing-onboarding-strategy.step.observe-bottleneck","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.step.return-and-organize","entity_type":"content_step","entity_seed_key":"sailing-onboarding-strategy.step.return-and-organize","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.step.improve-one-bottleneck","entity_type":"content_step","entity_seed_key":"sailing-onboarding-strategy.step.improve-one-bottleneck","claim_key":"description","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.section.goal-and-ship","entity_type":"content_section","entity_seed_key":"sailing-onboarding-strategy.section.goal-and-ship","claim_key":"body","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.section.departure-return-loop","entity_type":"content_section","entity_seed_key":"sailing-onboarding-strategy.section.departure-return-loop","claim_key":"body","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"sailing-onboarding-strategy.claim.section.common-mistakes","entity_type":"content_section","entity_seed_key":"sailing-onboarding-strategy.section.common-mistakes","claim_key":"body","source_ids":["ocean-all-guide","carrack-guide","ocean-progression-2026-08-26","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true}]}
+    ,{"slug":"barter-onboarding-strategy","name_ko":"물물교환 입문 운영 전략","category":"ocean_barter","subcategory":"strategy","summary":"매 회차 목표와 현재 목록·재고·적재 상태로 작은 항로를 선택하고 단계 재고와 귀환 창고를 함께 관리하는 정적 전략.","purpose":"실시간 항로 최적화 없이 은화·주화·재료·재고 목적에 맞는 첫 물물교환과 반복 운영 판단을 제공한다.","status":"active","last_verified_at":"2026-09-07","requirements":[{"seed_key":"barter-onboarding-strategy.purpose-choice","kind":"other","title":"물물교환 목적 선택","description":"은화 판매, 까마귀 주화, 중범선 재료, 다음 항로용 재고, 일일·주간 목표, 일반 성장 중 이번 회차의 목적을 고른다.","structured_value":{"knowledge_role":"strategy","goals":["silver_sale","crow_coin","carrack_material","stockpile_for_future_routes","daily_or_weekly_objective","general_progression"],"single_default_goal":false},"requirement_level":"required"},{"seed_key":"barter-onboarding-strategy.current-list-decision","kind":"other","title":"현재 목록 기반 항로 판단","description":"현재 목록, 보유 교역품, 적재 무게, 섬 묶음, 귀환 창고, 목적, 남은 교환 횟수와 이동거리를 함께 보고 작은 항로를 고른다.","structured_value":{"knowledge_role":"strategy","dimensions":["current_list","cargo_weight","owned_trade_goods","island_cluster","return_storage","crow_coin_or_silver_goal","carrack_material_need","remaining_exchange_count","travel_distance"],"dynamic_route_excluded":true,"universal_best_route":false,"runtime_optimizer":false},"requirement_level":"required"},{"seed_key":"barter-onboarding-strategy.stage-stock","kind":"other","title":"단계별 재고 운영","description":"낮은 단계 시작 재고, 중간 단계 연결 재고, 고단계 판매·주화·재료 목적을 구분하되 고정 보유량은 현재 목록과 플레이 주기·선박에 따라 조정한다.","structured_value":{"knowledge_role":"strategy","stock_groups":["low_tier_start","intermediate_chain","high_tier_goal"],"fixed_stock_targets":null,"depends_on":["current_barter_list","ship_cargo","play_cadence","goal"]},"requirement_level":"required"},{"seed_key":"barter-onboarding-strategy.cargo-storage","kind":"other","title":"적재와 창고 계획","description":"출발 재고, 중간 재고, 귀환 화물, 초과분과 다음 회차 예비분을 구분해 적재 한도와 창고 경유를 계획한다.","structured_value":{"knowledge_role":"strategy","inventory_buckets":["departure_stock","intermediate_stock","return_cargo","overflow","next_cycle_reserve"],"new_inventory_schema":false,"project_inventory_reused":false},"requirement_level":"required"},{"seed_key":"barter-onboarding-strategy.higher-tier-transition","kind":"other","title":"6·7단계 전환 판단","description":"6·7단계는 초보 기본값이 아니며 선박 적재, 현재 항로, 목적과 낮은 단계 재고 소모 비용을 확인한 뒤 조건부로 선택한다.","structured_value":{"knowledge_role":"strategy","tiers":[6,7],"beginner_default":false,"conditions":["ship_cargo","current_route","silver_crow_coin_or_material_goal","lower_tier_stock_cost"],"universal_best_route":false},"requirement_level":"required"}],"steps":[{"seed_key":"barter-onboarding-strategy.step.choose-goal","phase":"preparation","title":"이번 회차 목표 정하기","description":"은화·주화·재료·재고·반복 목표 중 이번 물물교환의 목적을 고른다.","order_no":1,"active":true},{"seed_key":"barter-onboarding-strategy.step.open-current-list","phase":"preparation","title":"현재 목록 열기","description":"현재 게임의 물물교환 목록을 열어 이번 회차 입력값을 확인한다.","order_no":2,"active":true},{"seed_key":"barter-onboarding-strategy.step.check-starting-stock","phase":"preparation","title":"시작 재고 확인","description":"목록에 필요한 시작 교역품과 보유 재고를 비교한다.","order_no":3,"active":true},{"seed_key":"barter-onboarding-strategy.step.check-cargo-capacity","phase":"preparation","title":"적재 한도 확인","description":"선박 적재 한도와 이미 실린 화물을 확인한다.","order_no":4,"active":true},{"seed_key":"barter-onboarding-strategy.step.choose-small-cluster","phase":"preparation","title":"작은 항로 선택","description":"현재 목록과 재고에서 한 항로 또는 가까운 섬 묶음을 선택한다.","order_no":5,"active":true},{"seed_key":"barter-onboarding-strategy.step.load-needed-goods","phase":"preparation","title":"필요 교역품 적재","description":"선택한 교환에 필요한 교역품만 적재하고 귀환 화물 공간을 남긴다.","order_no":6,"active":true},{"seed_key":"barter-onboarding-strategy.step.execute-exchanges","phase":"first_time","title":"교환 실행","description":"선택한 순서대로 정박하고 실제 교환을 진행한다.","order_no":7,"active":true},{"seed_key":"barter-onboarding-strategy.step.update-stage-stock","phase":"first_time","title":"단계 재고 갱신","description":"교환으로 소비·획득한 중간 단계 교역품 재고를 갱신한다.","order_no":8,"active":true},{"seed_key":"barter-onboarding-strategy.step.visit-storage-if-needed","phase":"maintenance","title":"필요한 창고 경유","description":"적재 한도나 다음 교환 때문에 필요하면 항구·창고를 경유한다.","order_no":9,"active":true},{"seed_key":"barter-onboarding-strategy.step.process-result-by-goal","phase":"maintenance","title":"목적별 결과 처리","description":"결과를 은화 판매, 까마귀 주화, 중범선 재료 또는 다음 회차 재고로 처리한다.","order_no":10,"active":true},{"seed_key":"barter-onboarding-strategy.step.review-next-refresh","phase":"maintenance","title":"다음 갱신 준비","description":"이번 결과를 기준으로 다음 갱신에서 부족한 단계와 시작 재고를 확인한다.","order_no":11,"active":true}],"rewards":[],"sections":[{"seed_key":"barter-onboarding-strategy.section.current-list-route","section_type":"strategy","title":"고정 항로 대신 현재 목록으로 판단","body_markdown":"항로는 현재 물물교환 목록, 보유 재고, 적재 상태, 섬 묶음과 귀환 창고에 따라 매 회차 다시 고른다. 커뮤니티 스케줄러의 알고리즘·점수·순위는 복제하지 않고 입력에 따라 결과가 달라진다는 운영 원칙만 사용한다."},{"seed_key":"barter-onboarding-strategy.section.stage-and-storage","section_type":"strategy","title":"단계 재고와 창고를 함께 운영","body_markdown":"낮은 단계는 시작점, 중간 단계는 연결 재고, 고단계는 판매·주화·재료 목적에 맞춰 구분한다. 고정 수량을 정답으로 두지 않고 현재 목록, 선박 적재량과 플레이 주기에 맞춰 창고 경유와 다음 회차 예비분을 정한다."},{"seed_key":"barter-onboarding-strategy.section.common-mistakes","section_type":"common_mistakes","title":"물물교환 입문에서 피할 판단","body_markdown":"과거 항로 표나 특정 섬을 현재의 보편적 최적 경로로 고정하지 않는다. 전체 목록을 한 번에 처리하려고 과적하거나 귀환 공간 없이 출항하지 않으며, 낮은 단계 재고를 고려하지 않고 6·7단계를 기본 선택으로 삼지 않는다. 동적 시세·시간당 수익·스케줄러 점수는 정적 정본으로 저장하지 않는다."}],"schedules":[],"checklists":[],"relations":[{"seed_key":"barter-onboarding-strategy.current-system","to_content_slug":"barter-current-system","relation_type":"prerequisite","note":"현행 물물교환 규칙"},{"seed_key":"barter-onboarding-strategy.stage-values","to_content_slug":"barter-stage-values","relation_type":"related","note":"단계별 가치와 무게 FACT"},{"seed_key":"barter-onboarding-strategy.advanced-route","to_content_slug":"barter-route-strategy","relation_type":"related","note":"고급 거리 측정·항로 참고"},{"seed_key":"barter-onboarding-strategy.tier6","to_content_slug":"barter-tier6-routes","relation_type":"related","note":"6단계 공식 항로"},{"seed_key":"barter-onboarding-strategy.tier7","to_content_slug":"barter-tier7-routes","relation_type":"related","note":"7단계 공식 항로"},{"seed_key":"barter-onboarding-strategy.crow-shop","to_content_slug":"crow-coin-material-shop","relation_type":"related","note":"까마귀 주화·재료 목적"},{"seed_key":"barter-onboarding-strategy.advance-project","to_content_slug":"carrack-advance","relation_type":"project_link","note":"중범선 점진 재료 목적"},{"seed_key":"barter-onboarding-strategy.storage","to_content_slug":"storage-current-system","relation_type":"related","note":"출발·중간·귀환 재고"},{"seed_key":"barter-onboarding-strategy.daily","to_content_slug":"ocean-iliya-daily-barter","relation_type":"related","note":"일일 물물교환 목표"},{"seed_key":"barter-onboarding-strategy.weekly","to_content_slug":"iliya-weekly-barter","relation_type":"related","note":"주간 물물교환 목표"}],"evidence":[{"seed_key":"barter-onboarding-strategy.claim.summary","entity_type":"content","entity_seed_key":"barter-onboarding-strategy","claim_key":"summary","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.purpose","entity_type":"content","entity_seed_key":"barter-onboarding-strategy","claim_key":"purpose","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.purpose-choice","entity_type":"content_requirement","entity_seed_key":"barter-onboarding-strategy.purpose-choice","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.current-list-decision","entity_type":"content_requirement","entity_seed_key":"barter-onboarding-strategy.current-list-decision","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.stage-stock","entity_type":"content_requirement","entity_seed_key":"barter-onboarding-strategy.stage-stock","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.cargo-storage","entity_type":"content_requirement","entity_seed_key":"barter-onboarding-strategy.cargo-storage","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.higher-tier-transition","entity_type":"content_requirement","entity_seed_key":"barter-onboarding-strategy.higher-tier-transition","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.step.choose-goal","entity_type":"content_step","entity_seed_key":"barter-onboarding-strategy.step.choose-goal","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.step.open-current-list","entity_type":"content_step","entity_seed_key":"barter-onboarding-strategy.step.open-current-list","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.step.check-starting-stock","entity_type":"content_step","entity_seed_key":"barter-onboarding-strategy.step.check-starting-stock","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.step.check-cargo-capacity","entity_type":"content_step","entity_seed_key":"barter-onboarding-strategy.step.check-cargo-capacity","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.step.choose-small-cluster","entity_type":"content_step","entity_seed_key":"barter-onboarding-strategy.step.choose-small-cluster","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.step.load-needed-goods","entity_type":"content_step","entity_seed_key":"barter-onboarding-strategy.step.load-needed-goods","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.step.execute-exchanges","entity_type":"content_step","entity_seed_key":"barter-onboarding-strategy.step.execute-exchanges","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.step.update-stage-stock","entity_type":"content_step","entity_seed_key":"barter-onboarding-strategy.step.update-stage-stock","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.step.visit-storage-if-needed","entity_type":"content_step","entity_seed_key":"barter-onboarding-strategy.step.visit-storage-if-needed","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.step.process-result-by-goal","entity_type":"content_step","entity_seed_key":"barter-onboarding-strategy.step.process-result-by-goal","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.step.review-next-refresh","entity_type":"content_step","entity_seed_key":"barter-onboarding-strategy.step.review-next-refresh","claim_key":"description","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.section.current-list-route","entity_type":"content_section","entity_seed_key":"barter-onboarding-strategy.section.current-list-route","claim_key":"body","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.section.stage-and-storage","entity_type":"content_section","entity_seed_key":"barter-onboarding-strategy.section.stage-and-storage","claim_key":"body","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true},{"seed_key":"barter-onboarding-strategy.claim.section.common-mistakes","entity_type":"content_section","entity_seed_key":"barter-onboarding-strategy.section.common-mistakes","claim_key":"body","source_ids":["barter-improvement-2026-04-15","barter-accessibility-2026-05-20","barter-scheduler-strategy-2026-06-06","sailing-academy-community-2026-06-14"],"verification_status":"verified","last_verified_at":"2026-09-07","active":true}]}
 ]

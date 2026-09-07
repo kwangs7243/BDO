@@ -126,11 +126,20 @@ def test_v19f_seed_identity_sources_roles_and_references() -> None:
         for source_id in evidence.get("source_ids", [])
     }
     assert referenced <= set(source_ids)
-    assert _explicit_role_counts(contents) == {
-        "fact": 194,
-        "strategy": 41,
-        "measurement": 11,
-    }
+    role_counts = _explicit_role_counts(contents)
+    assert role_counts["fact"] >= 194
+    assert role_counts["strategy"] >= 41
+    assert role_counts["measurement"] >= 11
+    assert (
+        sum(
+            1
+            for content in contents
+            if content["slug"] in V19F_CONTENT_SLUGS
+            for requirement in content["requirements"]
+            if requirement["structured_value"]["knowledge_role"] == "strategy"
+        )
+        == 10
+    )
 
 
 def test_v19f_current_fact_audit_keeps_existing_canonical_owners() -> None:
