@@ -69,7 +69,10 @@
     "title": "1월 28일(수) 업데이트 안내",
     "publisher": "Pearl Abyss",
     "source_type": "official_patch",
-    "notes": "최후의 글라디우스 주간 우두머리"
+    "published_at": "2026-01-28",
+    "retrieved_at": "2026-09-07T12:00:00+09:00",
+    "region": "KR",
+    "notes": "최후의 글라디우스 주간 우두머리 고대 장치 점등 기믹 개선 근거"
   },
   {
     "id": "gladius-balance-2026",
@@ -77,7 +80,10 @@
     "title": "6월 24일(수) 업데이트 안내",
     "publisher": "Pearl Abyss",
     "source_type": "official_patch",
-    "notes": "최후의 글라디우스 권장 표기 공격력 330 언급"
+    "published_at": "2026-06-24",
+    "retrieved_at": "2026-09-07T12:00:00+09:00",
+    "region": "KR",
+    "notes": "최후의 글라디우스 권장 표기 공격력과 검은 환상 소환·방어력 감소 기믹 근거"
   },
   {
     "id": "life-unification-2026-09-02",
@@ -918,12 +924,13 @@
   {
     "id": "combat-system-rework-2025-07-23",
     "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=14289",
-    "title": "2025년 7월 23일 전투 시스템 개편",
+    "title": "7월 23일(수) 업데이트 안내 (최종 수정 : 2025-09-03 17:16)",
     "publisher": "Pearl Abyss",
     "source_type": "official_patch",
     "published_at": "2025-07-23",
-    "retrieved_at": "2026-09-04T12:00:00+09:00",
-    "region": "KR"
+    "retrieved_at": "2026-09-07T12:00:00+09:00",
+    "region": "KR",
+    "notes": "전투 시스템 개편 전체 공식 문서이며 여러 PvE 콘텐츠의 공격력 제한·방어력 변경을 포함"
   },
   {
     "id": "crystal-guide",
@@ -1326,4 +1333,7 @@
     ,{"id":"barter-scheduler-strategy-2026-06-06","url":"https://www.kr.playblackdesert.com/ko-KR/Forum/ForumTopic/Detail?_forumListType=3\u0026_topicNo=152762","title":"[항해] 물물교환 지능형 스케쥴러 시스템 배포 및 가이드 (BY 송도조씨)","publisher":"Delicate-KR","source_type":"community_strategy","published_at":"2026-06-06","retrieved_at":"2026-09-07T04:45:55+09:00","region":"KR","notes":"알고리즘·다운로드·점수는 수록하지 않고 현재 목록·재고·적재·거리 입력에 따라 경로 판단이 달라진다는 전략 근거만 사용"}
     ,{"id":"sailing-academy-community-2026-06-14","url":"https://www.kr.playblackdesert.com/ko-KR/Forum/ForumTopic/Detail?_forumListType=3\u0026_topicNo=153075","title":"아카데미 항해 강의.","publisher":"흑귀하양-KR","source_type":"community_strategy","published_at":"2026-06-14","retrieved_at":"2026-09-07T04:45:55+09:00","region":"KR","notes":"아카데미 보상·지급 선박은 FACT로 사용하지 않고 출항 전 보급·수리·화물·교환 흐름의 전략 근거만 사용"}
     ,{"id":"training-beginner-decisions-2026-02-05","url":"https://www.inven.co.kr/board/black/3583/1995323","title":"조련 뉴비가 질문 올림.","publisher":"검은사막 인벤","source_type":"community_strategy","published_at":"2026-02-05","retrieved_at":"2026-09-07T09:35:53+09:00","region":"KR","notes":"포획·육성·교배·납품 사이에서 초보자가 실제로 겪는 선택 질문을 확인하는 단일 커뮤니티 자료. 답변 수치나 특정 세대·레벨 결론은 채택하지 않음"}
+    ,{"id":"gladius-foundation-2025-05-28","url":"https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=14029","title":"5월 28일(수) 업데이트 안내 (최종 수정 : 2025-06-30 16:33)","publisher":"Pearl Abyss","source_type":"official_patch","published_at":"2025-05-28","retrieved_at":"2026-09-07T12:00:00+09:00","region":"KR","notes":"최후의 글라디우스 도입, 추천 의뢰·주간 의뢰 분리, 선행·능력치·보상·진입 구조 공식 근거"}
+    ,{"id":"gladius-quest-flow-2025-06-04","url":"https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=14063","title":"6월 4일(수) 업데이트 안내 (최종 수정 : 2025-06-04 18:45)","publisher":"Pearl Abyss","source_type":"official_patch","published_at":"2025-06-04","retrieved_at":"2026-09-07T12:00:00+09:00","region":"KR","notes":"주간 의뢰 수주 후 대화 진입과 추천 의뢰 전투 제한 시간 변경의 적용 대상 분리 근거"}
+    ,{"id":"gladius-mechanics-2025-10-22","url":"https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=14677","title":"10월 22일(수) 업데이트 안내 (최종 수정 : 2025-11-03 11:15)","publisher":"Pearl Abyss","source_type":"official_patch","published_at":"2025-10-22","retrieved_at":"2026-09-07T12:00:00+09:00","region":"KR","notes":"검은 환상 무적 조정과 전원 처치 후 고대 병기 정지·심장 상시 타격 개선 근거"}
 ]

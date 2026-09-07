@@ -1,6 +1,6 @@
 # Tasks — first implementation milestone
 
-> V1.9H 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
+> V1.9I 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
 
 ## Milestone A: working vertical slice
 
@@ -35,7 +35,7 @@ V1.9B 완료로 현재 정의된 Milestone B 항목은 모두 구현되었다.
 - [x] Black Shrine variants (current rules verified in V1.7C seed)
 - [x] Pit of Undying
 - [x] Atoraxxion regions
-- [ ] Last Gladiius
+- [x] Last Gladiius — V1.9I에서 최초 추천 의뢰와 반복 주간을 분리하고, 공식 current 전투·보상·목요일 reset·checklist를 반영
 - [x] Garmoth/Vell
 - [x] Dark Rift (non-weekly recurring)
 - [ ] guild bosses — Khan seed는 반영되었으나 길드 우두머리 전체 범위 완료 근거는 없음

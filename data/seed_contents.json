@@ -32304,5 +32304,219 @@
     {"seed_key": "training-onboarding-strategy.claim.section.training-loop", "entity_type": "content_section", "entity_seed_key": "training-onboarding-strategy.section.training-loop", "claim_key": "body", "source_ids": ["training-guide", "training-beginner-decisions-2026-02-05"], "verification_status": "verified", "last_verified_at": "2026-09-07", "active": true},
     {"seed_key": "training-onboarding-strategy.claim.section.common-mistakes", "entity_type": "content_section", "entity_seed_key": "training-onboarding-strategy.section.common-mistakes", "claim_key": "body", "source_ids": ["training-guide", "life-unification-2026-09-02", "training-beginner-decisions-2026-02-05"], "verification_status": "verified", "last_verified_at": "2026-09-07", "active": true}
   ]
+},
+{
+  "slug": "last-gladiius-weekly",
+  "name_ko": "최후의 글라디우스 주간 토벌",
+  "category": "combat_pve",
+  "subcategory": "atoraxxion",
+  "summary": "아토락시온 서사의 최종전인 1인 주간 우두머리 콘텐츠. 붉은 심장의 솔 마기아에게 '[주간] 글라디우스 : 카이벨라 함'을 수주하고 일레즈라와 아토마기아의 심장을 공략한다.",
+  "purpose": "일레즈라 주간 우두머리를 처치하고 글라디우스 : 카이벨라 함 보상을 획득한다.",
+  "party_type": "solo",
+  "difficulty": "high",
+  "status": "active",
+  "last_verified_at": "2026-09-07",
+  "requirements": [
+    {
+      "seed_key": "last-gladiius-weekly.weekly-access",
+      "kind": "quest",
+      "title": "주간 의뢰 진입",
+      "description": "고대인의 석실 타리브레의 문을 통해 붉은 심장으로 이동한 뒤 솔 마기아에게 '[주간] 글라디우스 : 카이벨라 함'을 수주한다. 추천 의뢰 완료 여부와 무관하게 주간 토벌과 보상 획득이 가능하다.",
+      "structured_value": {
+        "knowledge_role": "fact",
+        "quest": "[주간] 글라디우스 : 카이벨라 함",
+        "quest_npc": "붉은 심장 솔 마기아",
+        "entry_route": "고대인의 석실 타리브레의 문 → 붉은 심장",
+        "recommended_quest_required": false
+      },
+      "requirement_level": "required",
+      "order_no": 1
+    },
+    {
+      "seed_key": "last-gladiius-weekly.recommended-stats",
+      "kind": "stat",
+      "title": "현재 권장 능력치",
+      "description": "현재 공식 권장 표기 공격력은 330, 추천 방어력은 420이다. 1인 콘텐츠이며 엘비아의 영역에서는 진행할 수 없다.",
+      "structured_value": {
+        "knowledge_role": "fact",
+        "recommended_display_ap": 330,
+        "recommended_dp": 420,
+        "party_size": 1,
+        "elvia_available": false
+      },
+      "requirement_level": "recommended",
+      "order_no": 2
+    },
+    {
+      "seed_key": "last-gladiius-weekly.weekly-rule",
+      "kind": "other",
+      "title": "주간 반복 규칙",
+      "description": "주간 연속 의뢰는 일주일에 한 번 진행하며 아토락시온 주간 의뢰의 목요일 00:00 KST 초기화 규칙을 따른다.",
+      "structured_value": {
+        "knowledge_role": "fact",
+        "weekly_completion_limit": 1,
+        "reset_weekday": 3,
+        "reset_time_local": "00:00",
+        "timezone": "Asia/Seoul"
+      },
+      "requirement_level": "required",
+      "order_no": 3
+    },
+    {
+      "seed_key": "last-gladiius-weekly.encounter-mechanics",
+      "kind": "other",
+      "title": "현재 핵심 전투 기믹",
+      "description": "아토마기아의 심장 생명력 90%, 70%, 50%, 30%에 검은 환상이 소환된다. 환상 처치 시 심장에 50초간 방어력 감소가 적용되고 고대 장치가 순차 점등되어 전투 종료까지 유지된다. 모든 환상을 처치하면 추적 고대 병기가 정지하고 심장을 계속 공격할 수 있다.",
+      "structured_value": {
+        "knowledge_role": "fact",
+        "monster_defense_increase_percent_from_2025_07_23": 6,
+        "attack_power_limit": 1000,
+        "above_limit_effect_percent": 50,
+        "black_illusion_spawn_heart_hp_percent": [90, 70, 50, 30],
+        "heart_defense_reduction_seconds_after_illusion": 50,
+        "ancient_device_lights_sequentially": true,
+        "ancient_device_light_persists_until_battle_end": true,
+        "all_illusions_defeated_stops_tracking_ancient_weapons": true,
+        "all_illusions_defeated_keeps_heart_attackable": true,
+        "black_illusion_attack_invulnerability_removed_or_adjusted": true
+      },
+      "requirement_level": "required",
+      "order_no": 4
+    },
+    {
+      "seed_key": "last-gladiius-weekly.reward-rule",
+      "kind": "item",
+      "title": "주간 보상",
+      "description": "'[주간] 글라디우스 : 카이벨라 함' 연속 의뢰 완료 시 글라디우스 : 카이벨라 함 1개를 획득한다. 상자는 고정 구성품과 지정된 확률 구성품을 분리해 제공한다.",
+      "structured_value": {
+        "knowledge_role": "fact",
+        "weekly_chest": "글라디우스 : 카이벨라 함",
+        "weekly_chest_amount": 1,
+        "fixed_contents": [
+          {"item": "데키아의 진귀한 상자", "amount": 1},
+          {"item": "자연의 흔적", "amount": 25},
+          {"item": "고대 정령의 가루", "amount": 25},
+          {"item": "데키마 : 맹약의 증표", "amount": 25},
+          {"item": "마하의 파편", "amount": 35}
+        ],
+        "chance_contents": ["개량형 나침반 부품", "거상의 반지 조각", "황금빛 사막의 눈물"],
+        "rare_box_chance_content": "0~고(III) 단계 데보레카 액세서리 4종 중 하나"
+      },
+      "requirement_level": "required",
+      "order_no": 5
+    }
+  ],
+  "steps": [
+    {"seed_key":"last-gladiius-weekly.step.check-access","phase":"preparation","title":"붉은 심장 진입 확인","description":"고대인의 석실 타리브레의 문을 통해 붉은 심장으로 이동할 수 있는지 확인한다.","checkable":false,"order_no":1},
+    {"seed_key":"last-gladiius-weekly.step.accept-weekly","phase":"repeat","title":"주간 의뢰 수주","description":"붉은 심장의 솔 마기아에게 '[주간] 글라디우스 : 카이벨라 함' 연속 의뢰를 수주한다.","checkable":false,"order_no":2},
+    {"seed_key":"last-gladiius-weekly.step.enter-battle","phase":"repeat","title":"대화로 전투 진입","description":"주간 의뢰 수주 후 대화 버튼을 통해 일레즈라 전투에 진입한다.","checkable":false,"order_no":3},
+    {"seed_key":"last-gladiius-weekly.step.begin-encounter","phase":"repeat","title":"일레즈라와 심장 전투 시작","description":"일레즈라를 상대하고 아토마기아의 심장 전투 구간으로 진행한다.","checkable":false,"order_no":4},
+    {"seed_key":"last-gladiius-weekly.step.handle-illusions","phase":"repeat","title":"검은 환상 우선 처치","description":"심장 생명력 90%, 70%, 50%, 30%에 소환되는 일레즈라의 검은 환상을 처치한다.","checkable":false,"order_no":5},
+    {"seed_key":"last-gladiius-weekly.step.use-defense-window","phase":"repeat","title":"방어력 감소 구간 활용","description":"검은 환상 처치 후 아토마기아의 심장에 적용되는 50초 방어력 감소 동안 공격한다.","checkable":false,"order_no":6},
+    {"seed_key":"last-gladiius-weekly.step.light-devices","phase":"repeat","title":"고대 장치 점등 진행","description":"환상 처치에 따라 고대 장치가 순차 점등되고 전투 종료까지 유지되는 상태를 확인한다.","checkable":false,"order_no":7},
+    {"seed_key":"last-gladiius-weekly.step.open-heart-window","phase":"repeat","title":"심장 상시 공격 상태 확보","description":"모든 검은 환상을 처치해 추적 고대 병기를 정지시키고 아토마기아의 심장을 계속 공격할 수 있는 상태를 만든다.","checkable":false,"order_no":8},
+    {"seed_key":"last-gladiius-weekly.step.defeat-boss","phase":"repeat","title":"주간 우두머리 처치","description":"현재 기믹에 따라 일레즈라와 아토마기아의 심장 전투를 마무리한다.","checkable":false,"order_no":9},
+    {"seed_key":"last-gladiius-weekly.step.claim-reward","phase":"reward","title":"의뢰 완료와 보상 확인","description":"주간 연속 의뢰를 완료해 글라디우스 : 카이벨라 함을 받고 이번 주 checklist를 완료한다.","checkable":true,"order_no":10}
+  ],
+  "rewards": [
+    {"seed_key":"last-gladiius-weekly.reward.weekly-chest","name":"글라디우스 : 카이벨라 함","reward_type":"weekly_reward","amount":1,"unit":"개","is_choice":false,"notes":"주간 연속 의뢰 직접 보상","order_no":1},
+    {"seed_key":"last-gladiius-weekly.reward.dehkia-rare-box","name":"데키아의 진귀한 상자","reward_type":"weekly_reward","amount":1,"unit":"개","is_choice":false,"notes":"카이벨라 함 고정 구성품","order_no":2},
+    {"seed_key":"last-gladiius-weekly.reward.trace-of-nature","name":"자연의 흔적","reward_type":"weekly_material","amount":25,"unit":"개","is_choice":false,"notes":"카이벨라 함 고정 구성품","order_no":3},
+    {"seed_key":"last-gladiius-weekly.reward.ancient-spirit-dust","name":"고대 정령의 가루","reward_type":"weekly_material","amount":25,"unit":"개","is_choice":false,"notes":"카이벨라 함 고정 구성품","order_no":4},
+    {"seed_key":"last-gladiius-weekly.reward.dekima-token","name":"데키마 : 맹약의 증표","reward_type":"weekly_material","amount":25,"unit":"개","is_choice":false,"notes":"카이벨라 함 고정 구성품","order_no":5},
+    {"seed_key":"last-gladiius-weekly.reward.maha-fragment","name":"마하의 파편","reward_type":"weekly_material","amount":35,"unit":"개","is_choice":false,"notes":"카이벨라 함 고정 구성품","order_no":6},
+    {"seed_key":"last-gladiius-weekly.reward.compass-part","name":"개량형 나침반 부품","reward_type":"treasure","is_choice":false,"notes":"카이벨라 함에서 지정된 확률로 획득","order_no":7},
+    {"seed_key":"last-gladiius-weekly.reward.rich-merchant-ring-piece","name":"거상의 반지 조각","reward_type":"treasure","is_choice":false,"notes":"카이벨라 함에서 지정된 확률로 획득","order_no":8},
+    {"seed_key":"last-gladiius-weekly.reward.golden-desert-tear","name":"황금빛 사막의 눈물","reward_type":"treasure","is_choice":false,"notes":"카이벨라 함에서 지정된 확률로 획득","order_no":9},
+    {"seed_key":"last-gladiius-weekly.reward.deboreka-accessory","name":"데보레카 액세서리","reward_type":"treasure","is_choice":false,"notes":"데키아의 진귀한 상자에서 지정된 확률로 0~고(III) 단계 반지·귀걸이·목걸이·허리띠 중 하나 획득","order_no":10}
+  ],
+  "sections": [
+    {
+      "seed_key": "last-gladiius-weekly.section.quest-boundary",
+      "section_type": "overview",
+      "title": "추천 의뢰와 반복 주간 의뢰 구분",
+      "body_markdown": "추천 의뢰 '[최후의 글라디우스]'는 레벨 60 이상이며 '[아토락시온] 가시나무와 검은 여신'을 완료한 캐릭터가 흑정령에게 '[아토락시온] 일레즈라가 기다리는 곳'을 수주해 시작한다. 추천 의뢰 전투 제한 시간은 50분이고 최초 완료 칭호는 '글라디우스 챔피언'이며, 모든 아토락시온 추천 의뢰 완료 뒤 가문당 1회 '[아토락시온] 최후의 선택' 보상이 있다. 반복 주간은 추천 의뢰 완료 없이도 진행 가능하며 붉은 심장 솔 마기아의 '[주간] 글라디우스 : 카이벨라 함'을 통해 주 1회 보상을 획득한다. 주간 우두머리 승리 1회와 5회 칭호는 각각 '데키아의 의지를 이은', '요새의 후계자'다.",
+      "order_no": 1
+    },
+    {
+      "seed_key": "last-gladiius-weekly.section.current-mechanics",
+      "section_type": "notes",
+      "title": "현재 공식 전투 흐름",
+      "body_markdown": "검은 환상은 심장 생명력 90%·70%·50%·30%에 등장한다. 환상을 처치하면 심장에 50초 방어력 감소가 적용되고 고대 장치가 하나씩 점등되어 전투 종료까지 유지된다. 모든 환상을 처치하면 추적 고대 병기가 멈추며 심장을 계속 공격할 수 있다. 이는 공식 FACT 흐름이며 클래스별 공략이나 동적 전략은 포함하지 않는다.",
+      "order_no": 2
+    },
+    {
+      "seed_key": "last-gladiius-weekly.section.common-mistakes",
+      "section_type": "common_mistakes",
+      "title": "추천 의뢰 규칙을 주간에 복사하지 않기",
+      "body_markdown": "추천 의뢰의 레벨·선행 의뢰·50분 제한·최초 1회 보상을 반복 주간 규칙으로 간주하지 않는다. 주간 의뢰는 별도 수주·보상 흐름이며 검은 환상을 처리하지 않고 심장만 공격하면 현재 방어력 감소와 점등 기믹을 활용할 수 없다.",
+      "order_no": 3
+    }
+  ],
+  "schedules": [
+    {
+      "seed_key": "last-gladiius-weekly.quest-reset",
+      "rule_type": "quest_reset",
+      "recurrence_type": "weekly",
+      "weekday": 3,
+      "time_local": "00:00",
+      "timezone": "Asia/Seoul",
+      "notes": "아토락시온 주간 의뢰 공통 기준: 목요일 00:00 KST"
+    }
+  ],
+  "checklists": [
+    {
+      "seed_key": "last-gladiius-weekly.weekly-reward-check",
+      "name": "최후의 글라디우스 주간 보상",
+      "recurrence_scope": "weekly",
+      "period_rule_seed_key": "last-gladiius-weekly.quest-reset",
+      "items": [
+        {
+          "seed_key": "last-gladiius-weekly.weekly-reward-check.claimed",
+          "label": "이번 주 글라디우스 : 카이벨라 함 획득",
+          "details": "주간 연속 의뢰 완료와 보상 수령 여부를 기록한다.",
+          "reward_hint": "글라디우스 : 카이벨라 함 1개",
+          "order_no": 1
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {"seed_key":"last-gladiius-weekly.atoraxxion-weekly","to_content_slug":"atoraxxion-weekly","relation_type":"related","note":"현재 네 아토락시온 지역의 통합 주간 토벌 Content","order_no":1},
+    {"seed_key":"last-gladiius-weekly.weekly-framework","to_content_slug":"weekly-quest-framework","relation_type":"related","note":"일반 주간 의뢰 period와 목요일 reset 의미","order_no":2}
+  ],
+  "evidence": [
+    {"seed_key":"last-gladiius-weekly.claim.summary","entity_type":"content","entity_seed_key":"last-gladiius-weekly","claim_key":"summary","source_ids":["gladius-foundation-2025-05-28","gladius-balance-2026"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.purpose","entity_type":"content","entity_seed_key":"last-gladiius-weekly","claim_key":"purpose","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.weekly-access","entity_type":"content_requirement","entity_seed_key":"last-gladiius-weekly.weekly-access","claim_key":"description","source_ids":["gladius-foundation-2025-05-28","gladius-quest-flow-2025-06-04"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.recommended-stats","entity_type":"content_requirement","entity_seed_key":"last-gladiius-weekly.recommended-stats","claim_key":"description","source_ids":["gladius-foundation-2025-05-28","gladius-balance-2026"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.weekly-rule","entity_type":"content_requirement","entity_seed_key":"last-gladiius-weekly.weekly-rule","claim_key":"description","source_ids":["gladius-foundation-2025-05-28","ator-reset-patch"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.encounter-mechanics","entity_type":"content_requirement","entity_seed_key":"last-gladiius-weekly.encounter-mechanics","claim_key":"description","source_ids":["combat-system-rework-2025-07-23","gladius-mechanics-2025-10-22","gladius-2026","gladius-balance-2026"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.reward-rule","entity_type":"content_requirement","entity_seed_key":"last-gladiius-weekly.reward-rule","claim_key":"description","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.step.check-access","entity_type":"content_step","entity_seed_key":"last-gladiius-weekly.step.check-access","claim_key":"description","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.step.accept-weekly","entity_type":"content_step","entity_seed_key":"last-gladiius-weekly.step.accept-weekly","claim_key":"description","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.step.enter-battle","entity_type":"content_step","entity_seed_key":"last-gladiius-weekly.step.enter-battle","claim_key":"description","source_ids":["gladius-quest-flow-2025-06-04"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.step.begin-encounter","entity_type":"content_step","entity_seed_key":"last-gladiius-weekly.step.begin-encounter","claim_key":"description","source_ids":["gladius-foundation-2025-05-28","gladius-mechanics-2025-10-22"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.step.handle-illusions","entity_type":"content_step","entity_seed_key":"last-gladiius-weekly.step.handle-illusions","claim_key":"description","source_ids":["gladius-balance-2026"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.step.use-defense-window","entity_type":"content_step","entity_seed_key":"last-gladiius-weekly.step.use-defense-window","claim_key":"description","source_ids":["gladius-balance-2026"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.step.light-devices","entity_type":"content_step","entity_seed_key":"last-gladiius-weekly.step.light-devices","claim_key":"description","source_ids":["gladius-2026"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.step.open-heart-window","entity_type":"content_step","entity_seed_key":"last-gladiius-weekly.step.open-heart-window","claim_key":"description","source_ids":["gladius-mechanics-2025-10-22"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.step.defeat-boss","entity_type":"content_step","entity_seed_key":"last-gladiius-weekly.step.defeat-boss","claim_key":"description","source_ids":["gladius-foundation-2025-05-28","gladius-balance-2026"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.step.claim-reward","entity_type":"content_step","entity_seed_key":"last-gladiius-weekly.step.claim-reward","claim_key":"description","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.reward.weekly-chest","entity_type":"reward","entity_seed_key":"last-gladiius-weekly.reward.weekly-chest","claim_key":"reward","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.reward.dehkia-rare-box","entity_type":"reward","entity_seed_key":"last-gladiius-weekly.reward.dehkia-rare-box","claim_key":"reward","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.reward.trace-of-nature","entity_type":"reward","entity_seed_key":"last-gladiius-weekly.reward.trace-of-nature","claim_key":"reward","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.reward.ancient-spirit-dust","entity_type":"reward","entity_seed_key":"last-gladiius-weekly.reward.ancient-spirit-dust","claim_key":"reward","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.reward.dekima-token","entity_type":"reward","entity_seed_key":"last-gladiius-weekly.reward.dekima-token","claim_key":"reward","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.reward.maha-fragment","entity_type":"reward","entity_seed_key":"last-gladiius-weekly.reward.maha-fragment","claim_key":"reward","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.reward.compass-part","entity_type":"reward","entity_seed_key":"last-gladiius-weekly.reward.compass-part","claim_key":"reward","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.reward.rich-merchant-ring-piece","entity_type":"reward","entity_seed_key":"last-gladiius-weekly.reward.rich-merchant-ring-piece","claim_key":"reward","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.reward.golden-desert-tear","entity_type":"reward","entity_seed_key":"last-gladiius-weekly.reward.golden-desert-tear","claim_key":"reward","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.reward.deboreka-accessory","entity_type":"reward","entity_seed_key":"last-gladiius-weekly.reward.deboreka-accessory","claim_key":"reward","source_ids":["gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.section.quest-boundary","entity_type":"content_section","entity_seed_key":"last-gladiius-weekly.section.quest-boundary","claim_key":"body","source_ids":["gladius-foundation-2025-05-28","gladius-quest-flow-2025-06-04"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.section.current-mechanics","entity_type":"content_section","entity_seed_key":"last-gladiius-weekly.section.current-mechanics","claim_key":"body","source_ids":["combat-system-rework-2025-07-23","gladius-mechanics-2025-10-22","gladius-2026","gladius-balance-2026"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.section.common-mistakes","entity_type":"content_section","entity_seed_key":"last-gladiius-weekly.section.common-mistakes","claim_key":"body","source_ids":["gladius-foundation-2025-05-28","gladius-quest-flow-2025-06-04","gladius-balance-2026"],"verification_status":"verified","last_verified_at":"2026-09-07"},
+    {"seed_key":"last-gladiius-weekly.claim.schedule.quest-reset","entity_type":"schedule_rule","entity_seed_key":"last-gladiius-weekly.quest-reset","claim_key":"schedule.quest_reset","source_ids":["ator-reset-patch","gladius-foundation-2025-05-28"],"verification_status":"verified","last_verified_at":"2026-09-07","note":"아토락시온 주간 의뢰 목요일 00:00 초기화와 글라디우스 주 1회 진행 근거"}
+  ]
 }
 ]
