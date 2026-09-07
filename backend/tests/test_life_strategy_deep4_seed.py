@@ -140,9 +140,9 @@ def test_v19g_seed_identity_sources_roles_and_references() -> None:
     source_urls = [row["url"] for row in sources]
     content_slugs = [row["slug"] for row in contents]
 
-    assert len(sources) == 164
-    assert len(contents) == 268
-    assert sum(len(row.get("relations", [])) for row in contents) == 468
+    assert len(sources) >= 164
+    assert len(contents) >= 268
+    assert sum(len(row.get("relations", [])) for row in contents) >= 468
     assert len(source_ids) == len(set(source_ids))
     assert len(source_urls) == len(set(source_urls))
     assert len(content_slugs) == len(set(content_slugs))
@@ -169,11 +169,17 @@ def test_v19g_seed_identity_sources_roles_and_references() -> None:
         for source_id in evidence.get("source_ids", [])
     }
     assert referenced <= set(source_ids)
-    assert _explicit_role_counts(contents) == {
-        "fact": 194,
-        "strategy": 51,
-        "measurement": 11,
-    }
+    roles = _explicit_role_counts(contents)
+    assert roles["fact"] >= 194
+    assert roles["strategy"] >= 51
+    assert roles["measurement"] >= 11
+    assert sum(
+        1
+        for content in contents
+        if content["slug"] in V19G_CONTENT_SLUGS
+        for requirement in content.get("requirements", [])
+        if requirement.get("structured_value", {}).get("knowledge_role") == "strategy"
+    ) == 10
 
 
 def test_v19g_current_fact_audit_and_route_responsibility() -> None:

@@ -163,7 +163,7 @@ LIFE_SKILLS = (
         name_ko="조련",
         entry_content_slug="training-current-system",
         foundation_contents=("life-family-levels", "life-mastery-foundation"),
-        getting_started=("training-current-system", "wild-horse-capture"),
+        getting_started=("training-current-system", "training-onboarding-strategy", "wild-horse-capture"),
         equipment=("life-common-gear", "life-mastery-tools", "life-artifacts-lightstones"),
         core_systems=(
             "training-mastery-effects",
