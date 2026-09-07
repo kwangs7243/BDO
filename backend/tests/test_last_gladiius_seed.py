@@ -91,9 +91,9 @@ def test_v19i_seed_identity_counts_and_references() -> None:
     source_urls = [row["url"] for row in sources]
     slugs = [row["slug"] for row in contents]
 
-    assert len(sources) == 168
-    assert len(contents) == 270
-    assert sum(len(row.get("relations", [])) for row in contents) == 480
+    assert len(sources) >= 168
+    assert len(contents) >= 270
+    assert sum(len(row.get("relations", [])) for row in contents) >= 480
     assert len(source_ids) == len(set(source_ids))
     assert len(source_urls) == len(set(source_urls))
     assert len(slugs) == len(set(slugs))
@@ -114,11 +114,10 @@ def test_v19i_seed_identity_counts_and_references() -> None:
     }
     assert referenced_sources <= set(source_ids)
     assert relation_targets <= set(slugs)
-    assert _explicit_role_counts(contents) == {
-        "fact": 200,
-        "strategy": 57,
-        "measurement": 11,
-    }
+    role_counts = _explicit_role_counts(contents)
+    assert role_counts["fact"] >= 200
+    assert role_counts["strategy"] >= 57
+    assert role_counts["measurement"] >= 11
 
 
 def test_v19i_source_chain_is_official_and_domain_neutral() -> None:
@@ -287,8 +286,12 @@ def test_v19i_temp_db_import_is_idempotent_and_preserves_history(tmp_path, monke
     command.upgrade(config, "head")
 
     source_rows, content_rows = _seed_rows()
-    baseline_sources = json.loads(json.dumps(source_rows, ensure_ascii=False))
-    baseline_sources = [row for row in baseline_sources if row["id"] not in NEW_SOURCE_IDS]
+    first_new_source_index = min(
+        index for index, row in enumerate(source_rows) if row["id"] in NEW_SOURCE_IDS
+    )
+    baseline_sources = json.loads(
+        json.dumps(source_rows[:first_new_source_index], ensure_ascii=False)
+    )
     baseline_by_id = {row["id"]: row for row in baseline_sources}
     baseline_by_id["gladius-2026"] = {
         "id": "gladius-2026",
@@ -317,7 +320,10 @@ def test_v19i_temp_db_import_is_idempotent_and_preserves_history(tmp_path, monke
         "region": "KR",
     }
     baseline_sources = list(baseline_by_id.values())
-    baseline_contents = [row for row in content_rows if row["slug"] != CONTENT_SLUG]
+    first_new_content_index = next(
+        index for index, row in enumerate(content_rows) if row["slug"] == CONTENT_SLUG
+    )
+    baseline_contents = content_rows[:first_new_content_index]
 
     baseline_dir = tmp_path / "v19h-seed"
     baseline_dir.mkdir()

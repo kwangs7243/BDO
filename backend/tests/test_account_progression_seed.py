@@ -304,14 +304,42 @@ def test_v17d_temp_db_migration_import_idempotence_and_history_preservation(
 
     source_rows = json.loads((DATA_DIR / "seed_sources.json").read_text(encoding="utf-8"))
     content_rows = json.loads((DATA_DIR / "seed_contents.json").read_text(encoding="utf-8"))
+    excluded_slugs = set(V17D_CONTENT_SLUGS)
+    while True:
+        baseline_contents = [
+            row for row in content_rows if row["slug"] not in excluded_slugs
+        ]
+        dependent_slugs = {
+            row["slug"]
+            for row in baseline_contents
+            if any(
+                relation["to_content_slug"] in excluded_slugs
+                for relation in row.get("relations", [])
+            )
+        }
+        if not dependent_slugs:
+            break
+        excluded_slugs.update(dependent_slugs)
+    baseline_references = {
+        source_id
+        for content in baseline_contents
+        for evidence in content.get("evidence", [])
+        for source_id in evidence.get("source_ids", [])
+    }
+    baseline_sources = [
+        row
+        for row in source_rows
+        if row["id"] not in V17D_SOURCE_IDS or row["id"] in baseline_references
+    ]
+
     baseline_dir = tmp_path / "v17c-seed"
     baseline_dir.mkdir()
     (baseline_dir / "seed_sources.json").write_text(
-        json.dumps([row for row in source_rows if row["id"] not in V17D_SOURCE_IDS], ensure_ascii=False),
+        json.dumps(baseline_sources, ensure_ascii=False),
         encoding="utf-8",
     )
     (baseline_dir / "seed_contents.json").write_text(
-        json.dumps([row for row in content_rows if row["slug"] not in V17D_CONTENT_SLUGS], ensure_ascii=False),
+        json.dumps(baseline_contents, ensure_ascii=False),
         encoding="utf-8",
     )
 
