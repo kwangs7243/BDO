@@ -1,6 +1,6 @@
 # Tasks — first implementation milestone
 
-> V1.9K 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
+> V1.9L 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
 
 ## Milestone A: working vertical slice
 
@@ -39,7 +39,7 @@ V1.9B 완료로 현재 정의된 Milestone B 항목은 모두 구현되었다.
 - [x] Garmoth/Vell
 - [x] Dark Rift (non-weekly recurring)
 - [x] guild bosses — V1.9K에서 현행 공통 규칙과 칸·오르그·모굴리스·페리드·거대한 진흙 괴물·명성 구미호/두억시니를 공식 근거로 반영
-- [ ] adventure logs — V1.7D에서 Foundation과 이고르 바탈리·마가한의 서 대표 데이터는 구현했으나 전체 Adventure Log Deep Pack은 미완료
+- [ ] adventure logs — V1.7D Foundation·이고르 바탈리·마가한의 서를 기반으로 V1.9L에서 공식 책장 10개 그룹과 상시 카탈로그, 대표 해금 조건·총량 보상·엠마 13장 progression을 반영했다. 전 장별 공략과 이벤트 Adventure Log Deep Pack은 미완료다.
 - [ ] Magnus — V1.7D에서 progression foundation과 주요 checkpoint는 구현했으나 퍼즐·지역별 상세를 포함한 Deep Pack은 미완료
 - [x] fairy/pets/workers/nodes — workers/nodes는 V1.6I, fairy/pets current foundation과 조건부 초기 설정 전략은 V1.9J에 반영
 - [ ] remaining life skills — V1.6F-H 생활 심화 seed와 V1.9C/E/F/G/H의 채집·낚시·수렵·재배·가공·요리·연금·항해·물물교환·조련 onboarding/strategy pack은 반영되었으나 recipe/measurement/economy 심화 범위는 미완료

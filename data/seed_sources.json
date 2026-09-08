@@ -1239,12 +1239,13 @@
     {
       "id": "known-issues-current-2026-09-04",
       "url": "https://www.kr.playblackdesert.com/News/Notice/Detail?groupContentNo=2989&countryType=ko-KR",
-      "title": "현재 확인 중인 현상",
+      "title": "알려진 문제점 (최종 수정 : 2026-09-03 17:37)",
       "publisher": "Pearl Abyss",
       "source_type": "official_known_issues",
       "published_at": null,
-      "retrieved_at": "2026-09-06T12:00:00+09:00",
-      "region": "KR"
+      "retrieved_at": "2026-09-08T15:00:00+09:00",
+      "region": "KR",
+      "notes": "올비아 아카데미 성장일지의 구미호 구재시니 진행 위치가 아레하자 마을로 잘못 표시되는 임시 UI 문제를 포함한 current known issues"
     },
     {
       "id": "hwanghae-party-strategy-2026-07-27",
@@ -1299,13 +1300,13 @@
     {
       "id": "adventure-log-bookshelf-guide",
       "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=313",
-      "title": "Adventure Log Bookshelf",
+      "title": "모험일지 책장",
       "publisher": "Pearl Abyss",
       "source_type": "official_guide",
       "published_at": null,
-      "retrieved_at": "2026-09-04T12:00:00+09:00",
+      "retrieved_at": "2026-09-08T15:00:00+09:00",
       "region": "KR",
-      "notes": "Current adventure-log unlock conditions and family-wide reward structure"
+      "notes": "현재 책장 10개 그룹(이벤트 1개 포함), 그룹별 해금 조건과 주요 보상 표의 공식 근거. 이야기 도감은 재감상용 identity로 구분한다. 이고르 바탈리의 상세 장별 능력치 표는 2025-07-23 보상 통합 및 2026 Hyper Boost의 AP/DP +6 현재 값보다 오래된 표기이므로 현재 총합 판정에 사용하지 않는다."
     },
     {"id":"new-adventurer-main-quest-guide","url":"https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=284","title":"New Adventurer Main Quest Guide","publisher":"Pearl Abyss","source_type":"official_guide","published_at":null,"retrieved_at":"2026-09-04T12:00:00+09:00","region":"KR","notes":"Starting branches, simplified quests, and major regional progression after Mediah"},
     {"id":"quest-system-guide","url":"https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=21","title":"Quest System Guide","publisher":"Pearl Abyss","source_type":"official_guide","published_at":null,"retrieved_at":"2026-09-04T12:00:00+09:00","region":"KR","notes":"General rules for main quests and quest requirements"},
@@ -1374,5 +1375,16 @@
     "published_at": "2019-12-04",
     "retrieved_at": "2026-09-08T12:00:00+09:00",
     "region": "KR"
+  },
+  {
+    "id": "emma-bartali-log-update-2026-07-29",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15966",
+    "title": "7월 29일(수) 업데이트 안내(최종 수정 : 2026-07-31 10:22)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2026-07-29",
+    "retrieved_at": "2026-09-08T15:00:00+09:00",
+    "region": "KR",
+    "notes": "올비아 아카데미 성장일지 안에 엠마 바탈리의 기록일지 13장을 추가하고 장별 선행 조건과 카라자드 동(V)~풍(VIII) 성장 지원 보상을 명시한 공식 패치"
   }
 ]
