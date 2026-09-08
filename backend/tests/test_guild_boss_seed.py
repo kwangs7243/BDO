@@ -1,4 +1,4 @@
-﻿import copy,json,shutil
+import copy,json,shutil
 from collections import Counter
 from datetime import datetime,timezone
 from pathlib import Path
@@ -85,6 +85,3 @@ def test_v19k_historical_import_idempotence_and_history(tmp_path,monkeypatch):
   assert stable[2]=={x.seed_key:x.id for x in now.rewards if x.seed_key in stable[2]}
   assert stable[3]=={x.seed_key:x.id for x in now.sections if x.seed_key in stable[3]}
   assert ss.get(UserContentState,sid).note=="V1.9K history"
-
-
-

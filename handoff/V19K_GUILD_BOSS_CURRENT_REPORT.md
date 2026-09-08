@@ -1,4 +1,4 @@
-﻿# V1.9K — Guild Boss Current System & Weekly Raid Closure
+# V1.9K — Guild Boss Current System & Weekly Raid Closure
 
 ## 결과
 
@@ -35,4 +35,3 @@ guild-boss-current-system 공통 허브와 기존 khan-guild-boss stable Content
 - historical V1.9J → V1.9K 임시 DB import와 2회 재import
 - Khan stable ID와 UserContentState 이력 보존
 - 전체 backend/frontend 검증 결과는 최종 완료 보고에 기록
-
