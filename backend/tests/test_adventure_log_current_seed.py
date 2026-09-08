@@ -46,7 +46,10 @@ from app.seed import import_seed
 
 DATA = Path(__file__).resolve().parents[2] / "data"
 FIXED_NOW = datetime(2026, 9, 8, 16, 0, tzinfo=KST)
-NEW_SOURCE_IDS = {"emma-bartali-log-update-2026-07-29"}
+NEW_SOURCE_IDS = {
+    "emma-bartali-log-update-2026-07-29",
+    "justin-bartali-log-update-2025-11-19",
+}
 NEW_CONTENT_SLUGS = {
     "rulupee-travel-log",
     "lamute-gang-adventure-log",
@@ -112,7 +115,7 @@ def test_v19l_counts_references_and_identity_uniqueness() -> None:
         for requirement in content.get("requirements", [])
         if isinstance(requirement.get("structured_value"), dict)
     )
-    assert (len(sources), len(contents)) == (181, 294)
+    assert (len(sources), len(contents)) == (182, 294)
     assert sum(len(row.get("relations", [])) for row in contents) == 521
     assert {key: roles[key] for key in ("fact", "strategy", "measurement")} == {
         "fact": 279,
@@ -207,13 +210,85 @@ def test_current_catalog_unlocks_rewards_and_identity_boundaries(session: Sessio
     for slug, level in levels.items():
         assert requirement(session, f"{slug}.unlock").structured_value["minimum_level"] == level
         assert ("part_of", "adventure-log-foundation") in relations(session, slug)
-    justin = requirement(session, "justin-bartali-adventure-log.unlock").structured_value
+    justin_requirement = requirement(session, "justin-bartali-adventure-log.unlock")
+    justin = justin_requirement.structured_value
     assert justin["starting_quest"] == "[저스틴의 모험] 집 떠난 탕아"
     assert justin["completion_quest"] == "[모험일지] 저스틴 바탈리의 모험일지"
-    justin_content = session.scalar(
-        select(Content).where(Content.slug == "justin-bartali-adventure-log")
+    assert (justin["entry_count"], justin["entry_range"]) == (17, "I-XVII")
+    assert "17권" not in justin_requirement.description
+
+    justin_source = session.get(Source, "justin-bartali-log-update-2025-11-19")
+    assert justin_source is not None
+    assert justin_source.url == (
+        "https://www.kr.playblackdesert.com/ko-KR/News/Detail?"
+        "countryType=ko-KR&groupContentNo=14803"
     )
-    assert justin_content is not None and not justin_content.rewards
+    assert justin_source.title == (
+        "11월 19일(수) 업데이트 안내(최종 수정 : 2025-11-20 17:43)"
+    )
+    unlock_sources = {
+        row.source_id
+        for row in session.scalars(
+            select(Evidence).where(
+                Evidence.entity_id == "justin-bartali-adventure-log.unlock",
+                Evidence.active.is_(True),
+            )
+        )
+    }
+    assert "justin-bartali-log-update-2025-11-19" in unlock_sources
+
+    justin_rewards = {
+        row.seed_key: row
+        for row in session.scalars(
+            select(Reward)
+            .join(Content)
+            .where(Content.slug == "justin-bartali-adventure-log", Reward.active.is_(True))
+        )
+    }
+    assert {
+        seed_key: row.amount for seed_key, row in justin_rewards.items()
+    } == {
+        "justin-bartali-adventure-log.reward.item-collection-scroll": 12,
+        "justin-bartali-adventure-log.reward.florin-secret-book": 9,
+        "justin-bartali-adventure-log.reward.intermediate-titles": 7,
+        "justin-bartali-adventure-log.reward.sealed-combat-book": 1,
+        "justin-bartali-adventure-log.reward.sealed-life-book": 1,
+        "justin-bartali-adventure-log.reward.cron-stone": 300,
+        "justin-bartali-adventure-log.reward.final-title": 1,
+        "justin-bartali-adventure-log.reward.warranty": 1,
+    }
+    assert justin_rewards[
+        "justin-bartali-adventure-log.reward.intermediate-titles"
+    ].notes == (
+        "고소공포증, 숨은 그림 찾기, 투견, 역마살, 이몸등장, 덜덜 떠는, "
+        "바람에 펄럭이는"
+    )
+    assert justin_rewards[
+        "justin-bartali-adventure-log.reward.sealed-combat-book"
+    ].notes == "지속 기간 7일"
+    assert justin_rewards[
+        "justin-bartali-adventure-log.reward.sealed-life-book"
+    ].notes == "지속 기간 7일"
+    assert justin_rewards[
+        "justin-bartali-adventure-log.reward.final-title"
+    ].name == "칭호: 집 나간 자식"
+    assert justin_rewards[
+        "justin-bartali-adventure-log.reward.warranty"
+    ].name == "저스틴 바탈리의 보증서"
+    for row in justin_rewards.values():
+        evidence = list(
+            session.scalars(
+                select(Evidence).where(
+                    Evidence.entity_id == row.seed_key,
+                    Evidence.claim_key == "reward",
+                    Evidence.active.is_(True),
+                )
+            )
+        )
+        assert {item.source_id for item in evidence} == {
+            "justin-bartali-log-update-2025-11-19"
+        }
+        assert all(item.verification_status == "verified" for item in evidence)
 
     for slug in ("morning-land-boss-codex", "morning-land-story-codex"):
         assert requirement(session, f"{slug}.unlock").structured_value[
@@ -589,6 +664,15 @@ def test_v19k_to_v19l_import_is_idempotent_and_preserves_history(
                 select(Content).where(Content.slug.in_(NEW_CONTENT_SLUGS))
             )
         }
+        justin_reward_ids = {
+            row.seed_key: row.id
+            for row in session.scalars(
+                select(Reward).where(
+                    Reward.seed_key.like("justin-bartali-adventure-log.reward.%")
+                )
+            )
+        }
+        assert len(justin_reward_ids) == 8
         for _ in range(2):
             import_seed(session, DATA)
             assert first_counts == tuple(
@@ -613,6 +697,14 @@ def test_v19k_to_v19l_import_is_idempotent_and_preserves_history(
             row.slug: row.id
             for row in session.scalars(
                 select(Content).where(Content.slug.in_(NEW_CONTENT_SLUGS))
+            )
+        }
+        assert justin_reward_ids == {
+            row.seed_key: row.id
+            for row in session.scalars(
+                select(Reward).where(
+                    Reward.seed_key.like("justin-bartali-adventure-log.reward.%")
+                )
             )
         }
         assert session.get(ChecklistItemState, user_ids[0]).note == "V1.9L checklist history"

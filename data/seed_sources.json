@@ -1386,5 +1386,16 @@
     "retrieved_at": "2026-09-08T15:00:00+09:00",
     "region": "KR",
     "notes": "올비아 아카데미 성장일지 안에 엠마 바탈리의 기록일지 13장을 추가하고 장별 선행 조건과 카라자드 동(V)~풍(VIII) 성장 지원 보상을 명시한 공식 패치"
+  },
+  {
+    "id": "justin-bartali-log-update-2025-11-19",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=14803",
+    "title": "11월 19일(수) 업데이트 안내(최종 수정 : 2025-11-20 17:43)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2025-11-19",
+    "retrieved_at": "2026-09-09T01:04:30+09:00",
+    "region": "KR",
+    "notes": "저스틴 바탈리의 모험일지 해금 조건, I~XVII의 17개 진행 단위, 각 진행 단위의 보상과 최종 완료 보상을 직접 명시한 공식 패치"
   }
 ]

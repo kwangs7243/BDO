@@ -6,7 +6,7 @@
 
 ## 현재 baseline
 
-- Source: 181
+- Source: 182
 - Content: 294 (모두 active)
 - 지식 역할: FACT 279 / STRATEGY 63 / MEASUREMENT 11
 - Project Tracker: Project 1 / Stage 4 / Material 9 / ProjectMaterial 9 / MaterialSource 9
@@ -143,7 +143,7 @@ uv run uvicorn app.main:app --reload
 
 ## 검증 명령과 결과
 
-2026-09-08 기준 backend 테스트는 324 passed, frontend 테스트는 57 passed다.
+2026-09-09 기준 backend 테스트는 324 passed, frontend 테스트는 57 passed다.
 
 ```powershell
 cd backend
