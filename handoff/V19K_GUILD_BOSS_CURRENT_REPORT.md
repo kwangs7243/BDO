@@ -32,6 +32,16 @@ guild-boss-current-system 공통 허브와 기존 khan-guild-boss stable Content
 ## 검증
 
 - V1.9K + V1.9J 지정 회귀: 13 passed
-- historical V1.9J → V1.9K 임시 DB import와 2회 재import
-- Khan stable ID와 UserContentState 이력 보존
-- 전체 backend/frontend 검증 결과는 최종 완료 보고에 기록
+- 전체 backend: 316 passed
+- frontend: 14 files / 57 tests passed
+- frontend typecheck: passed
+- frontend lint: passed
+- frontend build: passed
+- `git diff --check`: passed
+- historical V1.9J → V1.9K 임시 DB import: passed
+- 동일 seed 2회 reimport: passed
+- Khan Content stable ID 보존: passed
+- Khan nested stable IDs 보존: passed
+- `UserContentState` history 보존: passed
+- 실제 `backend/bdo.db` 변경 없음
+- DB SHA-256 전후 동일: `E9EB175F1069B3A93B64181623A79CAE9FFBEE22F46FD7A706DD041DA34148A5`
