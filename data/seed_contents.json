@@ -11256,10 +11256,10 @@
     "name_ko": "대양의 눈동자 칸",
     "category": "ocean_guide",
     "subcategory": "guild_boss",
-    "summary": "오킬루아의 눈에서 길드 소환 조각 5개로 진행하는 길드 우두머리다.",
-    "purpose": "소환·전투 장비·회복 저지·핵심 전리품을 한 흐름으로 확인한다.",
+    "summary": "오킬루아의 눈 전용 지역에서 길드 대포와 흑결정 포탄으로 진행하는 현행 길드 우두머리다.",
+    "purpose": "기존 stable ID를 유지하며 현행 소환·대포·회복 저지·보상을 확인한다.",
     "status": "active",
-    "last_verified_at": "2026-09-03",
+    "last_verified_at": "2026-09-08",
     "requirements": [
       {
         "seed_key": "khan-guild-boss.summon",
@@ -11270,7 +11270,8 @@
           "summon_pieces": 5,
           "source": "길드 의뢰",
           "managed_in": "길드 우두머리 소환 UI",
-          "inventory_item": false
+          "inventory_item": false,
+          "knowledge_role": "fact"
         },
         "requirement_level": "required",
         "order_no": 1,
@@ -11280,15 +11281,16 @@
         "seed_key": "khan-guild-boss.combat-tools",
         "kind": "other",
         "title": "전투 도구",
-        "description": "길드 괴수 사냥 대포 조립 세트와 포탄을 사용한다. 흑결정 해초를 파괴하면 더 강한 흑결정 포탄을 마련할 수 있고 칸의 회복을 저지할 수 있다.",
+        "description": "[길드] 괴수잡이 대포와 포탄을 사용하고 흑결정 해초로 회복을 저지한다.",
         "structured_value": {
+          "knowledge_role": "fact",
           "equipment": [
-            "길드 괴수 사냥 대포 조립 세트",
-            "길드 괴수 사냥 대포알"
+            "[길드] 괴수잡이 대포 조립 세트",
+            "[길드] 괴수잡이 포탄"
           ],
-          "black_crystal_seaweed": {
+          "seaweed": {
             "drop": "흑결정 포탄",
-            "purpose": "칸 체력 회복 저지"
+            "purpose": "회복 저지"
           }
         },
         "requirement_level": "required",
@@ -11301,14 +11303,78 @@
         "title": "사망 불이익",
         "description": "칸에게 사망해도 불이익이 없다.",
         "structured_value": {
-          "death_penalty": false
+          "death_penalty": false,
+          "knowledge_role": "fact"
         },
         "requirement_level": "required",
         "order_no": 3,
         "active": true
+      },
+      {
+        "seed_key": "khan-guild-boss.access",
+        "kind": "other",
+        "title": "현행 접근",
+        "description": "오킬루아의 눈에서 기본 주 1회, 전용 지역으로 진행한다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "location": "오킬루아의 눈",
+          "base_weekly": 1
+        },
+        "requirement_level": "required",
+        "order_no": 4,
+        "active": true
+      },
+      {
+        "seed_key": "khan-guild-boss.cannon",
+        "kind": "other",
+        "title": "대포 운용",
+        "description": "대포는 설치 30분 또는 칸 공격으로 파괴되며 세 사격 방식을 사용한다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "lifetime_minutes": 30,
+          "modes": [
+            "일반",
+            "과충전",
+            "속사"
+          ]
+        },
+        "requirement_level": "required",
+        "order_no": 5,
+        "active": true
+      },
+      {
+        "seed_key": "khan-guild-boss.seaweed",
+        "kind": "other",
+        "title": "해초 기믹",
+        "description": "프라티가 보호하는 해초를 파괴해 강한 포탄을 얻고 회복을 막는다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "protected_by": "프라티",
+          "khan_heals_on_failure": true
+        },
+        "requirement_level": "required",
+        "order_no": 6,
+        "active": true
       }
     ],
-    "steps": [],
+    "steps": [
+      {
+        "seed_key": "khan-guild-boss.step.cannon",
+        "phase": "preparation",
+        "title": "대포 준비",
+        "description": "길드 대포와 포탄을 준비한다.",
+        "checkable": false,
+        "order_no": 1
+      },
+      {
+        "seed_key": "khan-guild-boss.step.seaweed",
+        "phase": "first_time",
+        "title": "해초 파괴",
+        "description": "프라티와 해초를 처리한다.",
+        "checkable": false,
+        "order_no": 2
+      }
+    ],
     "rewards": [
       {
         "seed_key": "khan-guild-boss.reward.upgrade-materials",
@@ -11331,7 +11397,19 @@
         "name": "응축된 칸의 마력",
         "reward_type": "material",
         "is_choice": false,
-        "order_no": 3
+        "order_no": 3,
+        "min_amount": 1,
+        "max_amount": 1
+      },
+      {
+        "seed_key": "khan-guild-boss.reward.current-table",
+        "name": "현행 공식 보상표",
+        "reward_type": "bundle",
+        "is_choice": false,
+        "notes": "광명석·산호·진액·연료·크론석·블랙스톤·금괴·힘줄·비늘 등 공개 범위",
+        "order_no": 4,
+        "min_amount": null,
+        "max_amount": null
       }
     ],
     "sections": [
@@ -11341,6 +11419,13 @@
         "title": "칸의 심장 제작 분기",
         "body_markdown": "응축된 칸의 마력은 `칸의 심장 : 파괴`, `칸의 심장 : 수호`, `칸의 심장 : 생명` 제작식으로 이어진다.",
         "order_no": 1
+      },
+      {
+        "seed_key": "khan-guild-boss.section.current-rewards",
+        "section_type": "notes",
+        "title": "현행 보상",
+        "body_markdown": "공식 가이드의 공개 수량 범위만 사용한다.",
+        "order_no": 2
       }
     ],
     "schedules": [],
@@ -11352,6 +11437,13 @@
         "relation_type": "related",
         "note": "오킬루아의 눈 접근과 대양 의뢰 흐름",
         "order_no": 1
+      },
+      {
+        "seed_key": "khan-guild-boss.relation.system",
+        "to_content_slug": "guild-boss-current-system",
+        "relation_type": "prerequisite",
+        "note": "현행 공통 규칙",
+        "order_no": 2
       }
     ],
     "evidence": [
@@ -11361,7 +11453,8 @@
         "entity_seed_key": "khan-guild-boss.summon",
         "claim_key": "structured_value",
         "source_ids": [
-          "ocean-all-guide"
+          "ocean-all-guide",
+          "guild-boss-guide-current"
         ],
         "verification_status": "verified",
         "last_verified_at": "2026-09-03",
@@ -11374,7 +11467,8 @@
         "entity_seed_key": "khan-guild-boss.combat-tools",
         "claim_key": "structured_value",
         "source_ids": [
-          "ocean-all-guide"
+          "ocean-all-guide",
+          "guild-boss-guide-current"
         ],
         "verification_status": "verified",
         "last_verified_at": "2026-09-03",
@@ -11400,7 +11494,8 @@
         "entity_seed_key": "khan-guild-boss",
         "claim_key": "rewards",
         "source_ids": [
-          "ocean-all-guide"
+          "ocean-all-guide",
+          "guild-boss-guide-current"
         ],
         "verification_status": "verified",
         "last_verified_at": "2026-09-03",
@@ -11418,6 +11513,102 @@
         "verification_status": "verified",
         "last_verified_at": "2026-09-03",
         "note": "파괴·수호·생명 심장 제작 분기",
+        "active": true
+      },
+      {
+        "seed_key": "khan-guild-boss.claim.summary",
+        "entity_type": "content",
+        "entity_seed_key": "khan-guild-boss",
+        "claim_key": "summary",
+        "source_ids": [
+          "guild-boss-guide-current"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "khan-guild-boss.claim.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "khan-guild-boss",
+        "claim_key": "purpose",
+        "source_ids": [
+          "guild-boss-guide-current"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "khan-guild-boss.claim.access",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "khan-guild-boss.access",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "khan-guild-boss.claim.cannon",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "khan-guild-boss.cannon",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "khan-guild-boss.claim.seaweed",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "khan-guild-boss.seaweed",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "khan-guild-boss.claim.step.cannon",
+        "entity_type": "content_step",
+        "entity_seed_key": "khan-guild-boss.step.cannon",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "khan-guild-boss.claim.step.seaweed",
+        "entity_type": "content_step",
+        "entity_seed_key": "khan-guild-boss.step.seaweed",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "khan-guild-boss.claim.section.current-rewards",
+        "entity_type": "content_section",
+        "entity_seed_key": "khan-guild-boss.section.current-rewards",
+        "claim_key": "body",
+        "source_ids": [
+          "guild-boss-guide-current"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
         "active": true
       }
     ]
@@ -32768,5 +32959,1969 @@
     {"seed_key":"fairy-pet-setup-strategy.claim.section.decision-boundaries","entity_type":"content_section","entity_seed_key":"fairy-pet-setup-strategy.section.decision-boundaries","claim_key":"body","source_ids":["fairy-guide-current","fairy-probability-guide-current","pet-fifth-generation-guide-current"],"verification_status":"verified","last_verified_at":"2026-09-07"},
     {"seed_key":"fairy-pet-setup-strategy.claim.section.common-mistakes","entity_type":"content_section","entity_seed_key":"fairy-pet-setup-strategy.section.common-mistakes","claim_key":"body","source_ids":["fairy-beginner-strategy-2026-08-20","pet-guide-current","pet-fifth-generation-guide-current"],"verification_status":"verified","last_verified_at":"2026-09-07"}
   ]
-}
+},
+  {
+    "slug": "guild-boss-current-system",
+    "name_ko": "길드 우두머리 현행 시스템",
+    "category": "combat_pve",
+    "subcategory": "guild_boss",
+    "summary": "현행 명단, 권한, 전용 지역, 주간 기본 횟수와 명성 재충전을 구분한 기준이다.",
+    "purpose": "공통 규칙을 개별 전투 정보와 분리해 확인한다.",
+    "status": "active",
+    "last_verified_at": "2026-09-08",
+    "requirements": [
+      {
+        "seed_key": "guild-boss-current-system.roster",
+        "kind": "other",
+        "title": "현행 명단",
+        "description": "표준 명단은 칸·오르그·모굴리스·페리드·거대한 진흙 괴물이고 구미호·두억시니는 별도 명성 2인조다. 고대의 푸투룸은 2026-01-07 제거됐다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "standard_fragment_bosses": [
+            "khan-guild-boss",
+            "guild-boss-orgg",
+            "guild-boss-mogulis",
+            "guild-boss-ferrid",
+            "guild-boss-giant-mudster"
+          ],
+          "fame_duo": "guild-boss-gumiho-duoksini",
+          "ancient_puturum_current": false
+        },
+        "requirement_level": "required",
+        "order_no": 1,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.fragment-flow",
+        "kind": "other",
+        "title": "조각 흐름",
+        "description": "길드 의뢰로 조각을 확보하고 길드 정보 UI에서 지역과 난이도를 선택한다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "source": "guild_quests",
+          "storage": "guild_boss_summon_ui"
+        },
+        "requirement_level": "required",
+        "order_no": 2,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.authority",
+        "kind": "other",
+        "title": "권한",
+        "description": "길드 대장 또는 권한자가 지역을 만들고 같은 길드원만 입장한다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "guild_master_or_authorized": true,
+          "same_guild_only": true
+        },
+        "requirement_level": "required",
+        "order_no": 3,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.region",
+        "kind": "other",
+        "title": "전용 지역",
+        "description": "전용 지역은 1시간이며 거점·점령전 진행 서버와 아르샤에서는 만들 수 없다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "duration_minutes": 60,
+          "unavailable": [
+            "node_or_conquest",
+            "arsha"
+          ]
+        },
+        "requirement_level": "required",
+        "order_no": 4,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.restrictions",
+        "kind": "other",
+        "title": "입장 제한",
+        "description": "견습·전장의 영웅, 강제 공격·결투·탑승·비대기·엘비아 상태는 공식 제한을 따른다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "excluded_roles": [
+            "apprentice",
+            "war_hero"
+          ],
+          "blocked": [
+            "forced_attack",
+            "duel",
+            "mounted",
+            "not_idle",
+            "elvia"
+          ]
+        },
+        "requirement_level": "required",
+        "order_no": 5,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.base-count",
+        "kind": "other",
+        "title": "기본 횟수",
+        "description": "각 표준 우두머리는 기본 주 1회이며 횟수와 조각은 월요일 00:00 KST 초기화다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "base_per_boss": 1,
+          "weekday": 0,
+          "time": "00:00",
+          "timezone": "Asia/Seoul",
+          "fragments_reset": true
+        },
+        "requirement_level": "required",
+        "order_no": 6,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.recharge",
+        "kind": "other",
+        "title": "명성 재충전",
+        "description": "명성 25,000으로 표준 우두머리 한 종류를 주 1회 추가한다. 조각 조건도 충족되며 기본 횟수와 별도다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "fame_cost": 25000,
+          "per_boss_weekly": 1,
+          "satisfies_fragments": true,
+          "separate_from_base": true,
+          "eligible": [
+            "khan-guild-boss",
+            "guild-boss-orgg",
+            "guild-boss-mogulis",
+            "guild-boss-ferrid",
+            "guild-boss-giant-mudster"
+          ]
+        },
+        "requirement_level": "required",
+        "order_no": 7,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.duo-boundary",
+        "kind": "other",
+        "title": "명성 2인조",
+        "description": "구미호·두억시니는 표준 재충전이 아니라 명성 25,000 직접 소환 주간 우두머리다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "fame_cost": 25000,
+          "direct_summon": true,
+          "standard_recharge": false,
+          "weekly_limit": 1
+        },
+        "requirement_level": "required",
+        "order_no": 8,
+        "active": true
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "guild-boss-current-system.step.fragments",
+        "phase": "preparation",
+        "title": "조각 확보",
+        "description": "길드 의뢰로 조각을 누적한다.",
+        "checkable": false,
+        "order_no": 1
+      },
+      {
+        "seed_key": "guild-boss-current-system.step.region",
+        "phase": "first_time",
+        "title": "전용 지역 생성",
+        "description": "권한과 상태를 확인해 지역을 만든다.",
+        "checkable": false,
+        "order_no": 2
+      },
+      {
+        "seed_key": "guild-boss-current-system.step.recharge",
+        "phase": "first_time",
+        "title": "추가 소환 판단",
+        "description": "필요하면 우두머리별 명성 재충전을 선택한다.",
+        "checkable": false,
+        "order_no": 3
+      }
+    ],
+    "rewards": [],
+    "sections": [
+      {
+        "seed_key": "guild-boss-current-system.section.count",
+        "section_type": "notes",
+        "title": "횟수 의미",
+        "body_markdown": "기본 1회와 추가 1회가 분리되어 단일 boolean checklist를 만들지 않는다.",
+        "order_no": 1
+      },
+      {
+        "seed_key": "guild-boss-current-system.section.identity",
+        "section_type": "notes",
+        "title": "동명 경계",
+        "body_markdown": "길드 구미호·두억시니는 검은사당 동명 Content와 별도다.",
+        "order_no": 2
+      },
+      {
+        "seed_key": "guild-boss-current-system.section.unresolved",
+        "section_type": "notes",
+        "title": "미확정",
+        "body_markdown": "명성 2인조의 정확한 reset 시각은 별도 공식 명시가 없어 schedule로 만들지 않았다.",
+        "order_no": 3
+      }
+    ],
+    "schedules": [
+      {
+        "seed_key": "guild-boss-current-system.weekly-reset",
+        "rule_type": "attempt_reset",
+        "recurrence_type": "weekly",
+        "weekday": 0,
+        "time_local": "00:00",
+        "timezone": "Asia/Seoul",
+        "notes": "표준 우두머리 횟수와 조각 초기화"
+      }
+    ],
+    "checklists": [],
+    "relations": [
+      {
+        "seed_key": "guild-boss-current-system.relation.taxonomy",
+        "to_content_slug": "boss-content-taxonomy",
+        "relation_type": "related",
+        "note": "우두머리 분류",
+        "order_no": 1
+      },
+      {
+        "seed_key": "guild-boss-current-system.relation.weekly",
+        "to_content_slug": "weekly-quest-framework",
+        "relation_type": "related",
+        "note": "일반 목요일 주간과 다른 reset",
+        "order_no": 2
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "guild-boss-current-system.claim.summary",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-current-system",
+        "claim_key": "summary",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-current-system",
+        "claim_key": "purpose",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.roster",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-current-system.roster",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.fragment-flow",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-current-system.fragment-flow",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.authority",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-current-system.authority",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.region",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-current-system.region",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.restrictions",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-current-system.restrictions",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.base-count",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-current-system.base-count",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.recharge",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-current-system.recharge",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.duo-boundary",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-current-system.duo-boundary",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.step.fragments",
+        "entity_type": "content_step",
+        "entity_seed_key": "guild-boss-current-system.step.fragments",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.step.region",
+        "entity_type": "content_step",
+        "entity_seed_key": "guild-boss-current-system.step.region",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.step.recharge",
+        "entity_type": "content_step",
+        "entity_seed_key": "guild-boss-current-system.step.recharge",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.section.count",
+        "entity_type": "content_section",
+        "entity_seed_key": "guild-boss-current-system.section.count",
+        "claim_key": "body",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.section.identity",
+        "entity_type": "content_section",
+        "entity_seed_key": "guild-boss-current-system.section.identity",
+        "claim_key": "body",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.section.unresolved",
+        "entity_type": "content_section",
+        "entity_seed_key": "guild-boss-current-system.section.unresolved",
+        "claim_key": "body",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "guild-boss-reset-rework-2019-12-04",
+          "marni-combat-analyzer-2026-08-05",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-current-system.claim.schedule",
+        "entity_type": "schedule_rule",
+        "entity_seed_key": "guild-boss-current-system.weekly-reset",
+        "claim_key": "schedule.attempt_reset",
+        "source_ids": [
+          "guild-boss-reset-rework-2019-12-04"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      }
+    ]
+  },
+  {
+    "slug": "guild-boss-orgg",
+    "name_ko": "오르그",
+    "category": "combat_pve",
+    "subcategory": "guild_boss",
+    "summary": "글리시 서쪽 절벽에서 광역 화염과 안전 지대를 판독하는 길드 우두머리다.",
+    "purpose": "현행 위치·핵심 패턴·공식 보상을 확인한다.",
+    "status": "active",
+    "last_verified_at": "2026-09-08",
+    "requirements": [
+      {
+        "seed_key": "guild-boss-orgg.raid",
+        "kind": "other",
+        "title": "길드 레이드",
+        "description": "전용 지역에서 소환 권한을 가진 길드원이 소환한다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "dedicated_raid_region": true
+        },
+        "requirement_level": "required",
+        "order_no": 1,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-orgg.mechanics",
+        "kind": "other",
+        "title": "핵심 기믹",
+        "description": "체력 저하 뒤 광역 화염 경고 시 노란 원으로 이동한다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "location": "글리시 서쪽 절벽",
+          "safe_zone": "yellow_circle"
+        },
+        "requirement_level": "required",
+        "order_no": 2,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-orgg.rewards",
+        "kind": "other",
+        "title": "공식 보상",
+        "description": "공식 공통 보상표를 사용하고 비공개 확률은 만들지 않는다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "reward_table": {
+            "crystals": [
+              "반역",
+              "검은",
+              "각성",
+              "발타라"
+            ],
+            "pure_magical_mass": [
+              5,
+              10
+            ],
+            "marni_fuel": [
+              4,
+              8
+            ],
+            "black_stone": [
+              60,
+              120
+            ],
+            "advice": [
+              50,
+              60,
+              70,
+              80,
+              90,
+              100
+            ],
+            "lightstone": 2,
+            "gold_1000": [
+              6,
+              7
+            ],
+            "gold_100": [
+              15,
+              30
+            ],
+            "gold_10": [
+              20,
+              50
+            ]
+          }
+        },
+        "requirement_level": "required",
+        "order_no": 3,
+        "active": true
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "guild-boss-orgg.step.mechanic",
+        "phase": "preparation",
+        "title": "핵심 패턴 대응",
+        "description": "노란 안전 지대로 이동한다.",
+        "checkable": false,
+        "order_no": 1
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "guild-boss-orgg.reward.crystals",
+        "name": "정령의 수정 4종",
+        "reward_type": "crystal",
+        "is_choice": false,
+        "notes": null,
+        "order_no": 1,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-orgg.reward.materials",
+        "name": "순수한 마력 덩어리 외 공식 재료",
+        "reward_type": "material",
+        "is_choice": false,
+        "notes": "상세 수량은 structured reward_table",
+        "order_no": 2,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-orgg.reward.advice",
+        "name": "발크스의 조언 (+50~+100)",
+        "reward_type": "enhancement",
+        "is_choice": false,
+        "notes": "비공개 확률 제외",
+        "order_no": 3,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-orgg.reward.lightstone",
+        "name": "찬란한 불/땅의 광명석",
+        "reward_type": "lightstone",
+        "is_choice": false,
+        "notes": null,
+        "order_no": 4,
+        "min_amount": 2,
+        "max_amount": 2
+      },
+      {
+        "seed_key": "guild-boss-orgg.reward.gold",
+        "name": "금괴 1,000G/100G/10G",
+        "reward_type": "currency",
+        "is_choice": false,
+        "notes": "6~7/15~30/20~50",
+        "order_no": 5,
+        "min_amount": null,
+        "max_amount": null
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "guild-boss-orgg.section.scope",
+        "section_type": "notes",
+        "title": "범위",
+        "body_markdown": "공통 소환·주간 횟수는 guild-boss-current-system에서 관리한다.",
+        "order_no": 1
+      }
+    ],
+    "schedules": [],
+    "checklists": [],
+    "relations": [
+      {
+        "seed_key": "guild-boss-orgg.relation.system",
+        "to_content_slug": "guild-boss-current-system",
+        "relation_type": "prerequisite",
+        "note": "공통 규칙",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "guild-boss-orgg.claim.summary",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-orgg",
+        "claim_key": "summary",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-orgg.claim.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-orgg",
+        "claim_key": "purpose",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-orgg.claim.raid",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-orgg.raid",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-orgg.claim.mechanics",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-orgg.mechanics",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-orgg.claim.rewards",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-orgg.rewards",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-orgg.claim.step.mechanic",
+        "entity_type": "content_step",
+        "entity_seed_key": "guild-boss-orgg.step.mechanic",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-orgg.claim.section.scope",
+        "entity_type": "content_section",
+        "entity_seed_key": "guild-boss-orgg.section.scope",
+        "claim_key": "body",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-orgg.claim.rewards",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-orgg",
+        "claim_key": "rewards",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      }
+    ]
+  },
+  {
+    "slug": "guild-boss-mogulis",
+    "name_ko": "모굴리스",
+    "category": "combat_pve",
+    "subcategory": "guild_boss",
+    "summary": "돌꼬리 황무지에서 하위 골렘과 무적 전환을 처리하는 길드 우두머리다.",
+    "purpose": "현행 위치·핵심 패턴·공식 보상을 확인한다.",
+    "status": "active",
+    "last_verified_at": "2026-09-08",
+    "requirements": [
+      {
+        "seed_key": "guild-boss-mogulis.raid",
+        "kind": "other",
+        "title": "길드 레이드",
+        "description": "전용 지역에서 소환 권한을 가진 길드원이 소환한다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "dedicated_raid_region": true
+        },
+        "requirement_level": "required",
+        "order_no": 1,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-mogulis.mechanics",
+        "kind": "other",
+        "title": "핵심 기믹",
+        "description": "하위 골렘 중 무적이며 야생 골렘 소환은 2026-06-17 이후 전투당 한 번이다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "location": "돌꼬리 황무지",
+          "invulnerable_with_golems": true,
+          "wild_golem_max": 1
+        },
+        "requirement_level": "required",
+        "order_no": 2,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-mogulis.rewards",
+        "kind": "other",
+        "title": "공식 보상",
+        "description": "공식 공통 보상표를 사용하고 비공개 확률은 만들지 않는다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "reward_table": {
+            "crystals": [
+              "반역",
+              "검은",
+              "각성",
+              "발타라"
+            ],
+            "pure_magical_mass": [
+              5,
+              10
+            ],
+            "marni_fuel": [
+              4,
+              8
+            ],
+            "black_stone": [
+              60,
+              120
+            ],
+            "advice": [
+              50,
+              60,
+              70,
+              80,
+              90,
+              100
+            ],
+            "lightstone": 2,
+            "gold_1000": [
+              6,
+              7
+            ],
+            "gold_100": [
+              15,
+              30
+            ],
+            "gold_10": [
+              20,
+              50
+            ]
+          }
+        },
+        "requirement_level": "required",
+        "order_no": 3,
+        "active": true
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "guild-boss-mogulis.step.mechanic",
+        "phase": "preparation",
+        "title": "핵심 패턴 대응",
+        "description": "하위 골렘을 먼저 처치한다.",
+        "checkable": false,
+        "order_no": 1
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "guild-boss-mogulis.reward.crystals",
+        "name": "정령의 수정 4종",
+        "reward_type": "crystal",
+        "is_choice": false,
+        "notes": null,
+        "order_no": 1,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-mogulis.reward.materials",
+        "name": "순수한 마력 덩어리 외 공식 재료",
+        "reward_type": "material",
+        "is_choice": false,
+        "notes": "상세 수량은 structured reward_table",
+        "order_no": 2,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-mogulis.reward.advice",
+        "name": "발크스의 조언 (+50~+100)",
+        "reward_type": "enhancement",
+        "is_choice": false,
+        "notes": "비공개 확률 제외",
+        "order_no": 3,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-mogulis.reward.lightstone",
+        "name": "찬란한 불/땅의 광명석",
+        "reward_type": "lightstone",
+        "is_choice": false,
+        "notes": null,
+        "order_no": 4,
+        "min_amount": 2,
+        "max_amount": 2
+      },
+      {
+        "seed_key": "guild-boss-mogulis.reward.gold",
+        "name": "금괴 1,000G/100G/10G",
+        "reward_type": "currency",
+        "is_choice": false,
+        "notes": "6~7/15~30/20~50",
+        "order_no": 5,
+        "min_amount": null,
+        "max_amount": null
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "guild-boss-mogulis.section.scope",
+        "section_type": "notes",
+        "title": "범위",
+        "body_markdown": "공통 소환·주간 횟수는 guild-boss-current-system에서 관리한다.",
+        "order_no": 1
+      }
+    ],
+    "schedules": [],
+    "checklists": [],
+    "relations": [
+      {
+        "seed_key": "guild-boss-mogulis.relation.system",
+        "to_content_slug": "guild-boss-current-system",
+        "relation_type": "prerequisite",
+        "note": "공통 규칙",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "guild-boss-mogulis.claim.summary",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-mogulis",
+        "claim_key": "summary",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "farming-moles-2026-06-17"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-mogulis.claim.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-mogulis",
+        "claim_key": "purpose",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "farming-moles-2026-06-17"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-mogulis.claim.raid",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-mogulis.raid",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "farming-moles-2026-06-17"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-mogulis.claim.mechanics",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-mogulis.mechanics",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "farming-moles-2026-06-17"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-mogulis.claim.rewards",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-mogulis.rewards",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "farming-moles-2026-06-17"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-mogulis.claim.step.mechanic",
+        "entity_type": "content_step",
+        "entity_seed_key": "guild-boss-mogulis.step.mechanic",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "farming-moles-2026-06-17"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-mogulis.claim.section.scope",
+        "entity_type": "content_section",
+        "entity_seed_key": "guild-boss-mogulis.section.scope",
+        "claim_key": "body",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "farming-moles-2026-06-17"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-mogulis.claim.rewards",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-mogulis",
+        "claim_key": "rewards",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07",
+          "farming-moles-2026-06-17"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      }
+    ]
+  },
+  {
+    "slug": "guild-boss-ferrid",
+    "name_ko": "페리드",
+    "category": "combat_pve",
+    "subcategory": "guild_boss",
+    "summary": "오마르 용암 동굴에서 전방 기절과 원거리 2연속 넉다운을 피하는 길드 우두머리다.",
+    "purpose": "현행 위치·핵심 패턴·공식 보상을 확인한다.",
+    "status": "active",
+    "last_verified_at": "2026-09-08",
+    "requirements": [
+      {
+        "seed_key": "guild-boss-ferrid.raid",
+        "kind": "other",
+        "title": "길드 레이드",
+        "description": "전용 지역에서 소환 권한을 가진 길드원이 소환한다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "dedicated_raid_region": true
+        },
+        "requirement_level": "required",
+        "order_no": 1,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-ferrid.mechanics",
+        "kind": "other",
+        "title": "핵심 기믹",
+        "description": "뒤에서 공격하고 내려찍기 뒤 용암족을 처리한다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "location": "오마르 용암 동굴",
+          "attack_from_back": true,
+          "ranged_knockdown_hits": 2,
+          "lava_adds": true
+        },
+        "requirement_level": "required",
+        "order_no": 2,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-ferrid.rewards",
+        "kind": "other",
+        "title": "공식 보상",
+        "description": "공식 공통 보상표를 사용하고 비공개 확률은 만들지 않는다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "reward_table": {
+            "crystals": [
+              "반역",
+              "검은",
+              "각성",
+              "발타라"
+            ],
+            "pure_magical_mass": [
+              5,
+              10
+            ],
+            "marni_fuel": [
+              4,
+              8
+            ],
+            "black_stone": [
+              60,
+              120
+            ],
+            "advice": [
+              50,
+              60,
+              70,
+              80,
+              90,
+              100
+            ],
+            "lightstone": 2,
+            "gold_1000": [
+              6,
+              7
+            ],
+            "gold_100": [
+              15,
+              30
+            ],
+            "gold_10": [
+              20,
+              50
+            ]
+          }
+        },
+        "requirement_level": "required",
+        "order_no": 3,
+        "active": true
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "guild-boss-ferrid.step.mechanic",
+        "phase": "preparation",
+        "title": "핵심 패턴 대응",
+        "description": "후방을 잡고 용암족을 처리한다.",
+        "checkable": false,
+        "order_no": 1
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "guild-boss-ferrid.reward.crystals",
+        "name": "정령의 수정 4종",
+        "reward_type": "crystal",
+        "is_choice": false,
+        "notes": null,
+        "order_no": 1,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-ferrid.reward.materials",
+        "name": "순수한 마력 덩어리 외 공식 재료",
+        "reward_type": "material",
+        "is_choice": false,
+        "notes": "상세 수량은 structured reward_table",
+        "order_no": 2,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-ferrid.reward.advice",
+        "name": "발크스의 조언 (+50~+100)",
+        "reward_type": "enhancement",
+        "is_choice": false,
+        "notes": "비공개 확률 제외",
+        "order_no": 3,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-ferrid.reward.lightstone",
+        "name": "찬란한 불/땅의 광명석",
+        "reward_type": "lightstone",
+        "is_choice": false,
+        "notes": null,
+        "order_no": 4,
+        "min_amount": 2,
+        "max_amount": 2
+      },
+      {
+        "seed_key": "guild-boss-ferrid.reward.gold",
+        "name": "금괴 1,000G/100G/10G",
+        "reward_type": "currency",
+        "is_choice": false,
+        "notes": "6~7/15~30/20~50",
+        "order_no": 5,
+        "min_amount": null,
+        "max_amount": null
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "guild-boss-ferrid.section.scope",
+        "section_type": "notes",
+        "title": "범위",
+        "body_markdown": "공통 소환·주간 횟수는 guild-boss-current-system에서 관리한다.",
+        "order_no": 1
+      }
+    ],
+    "schedules": [],
+    "checklists": [],
+    "relations": [
+      {
+        "seed_key": "guild-boss-ferrid.relation.system",
+        "to_content_slug": "guild-boss-current-system",
+        "relation_type": "prerequisite",
+        "note": "공통 규칙",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "guild-boss-ferrid.claim.summary",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-ferrid",
+        "claim_key": "summary",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-ferrid.claim.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-ferrid",
+        "claim_key": "purpose",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-ferrid.claim.raid",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-ferrid.raid",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-ferrid.claim.mechanics",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-ferrid.mechanics",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-ferrid.claim.rewards",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-ferrid.rewards",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-ferrid.claim.step.mechanic",
+        "entity_type": "content_step",
+        "entity_seed_key": "guild-boss-ferrid.step.mechanic",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-ferrid.claim.section.scope",
+        "entity_type": "content_section",
+        "entity_seed_key": "guild-boss-ferrid.section.scope",
+        "claim_key": "body",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-ferrid.claim.rewards",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-ferrid",
+        "claim_key": "rewards",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      }
+    ]
+  },
+  {
+    "slug": "guild-boss-giant-mudster",
+    "name_ko": "거대한 진흙 괴물",
+    "category": "combat_pve",
+    "subcategory": "guild_boss",
+    "summary": "글리시 폐허에서 속도 감소와 진흙 폭발을 판독하는 길드 우두머리다.",
+    "purpose": "현행 위치·핵심 패턴·공식 보상을 확인한다.",
+    "status": "active",
+    "last_verified_at": "2026-09-08",
+    "requirements": [
+      {
+        "seed_key": "guild-boss-giant-mudster.raid",
+        "kind": "other",
+        "title": "길드 레이드",
+        "description": "전용 지역에서 소환 권한을 가진 길드원이 소환한다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "dedicated_raid_region": true
+        },
+        "requirement_level": "required",
+        "order_no": 1,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.mechanics",
+        "kind": "other",
+        "title": "핵심 기믹",
+        "description": "몸 축소 뒤 돌진·진흙 폭발이 이어지고 지면 가시는 긴급 회피로 대응한다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "location": "글리시 폐허",
+          "speed_debuff": true,
+          "shrink_tell": true,
+          "emergency_escape": true
+        },
+        "requirement_level": "required",
+        "order_no": 2,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.rewards",
+        "kind": "other",
+        "title": "공식 보상",
+        "description": "공식 공통 보상표를 사용하고 비공개 확률은 만들지 않는다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "reward_table": {
+            "crystals": [
+              "반역",
+              "검은",
+              "각성",
+              "발타라"
+            ],
+            "pure_magical_mass": [
+              5,
+              10
+            ],
+            "marni_fuel": [
+              4,
+              8
+            ],
+            "black_stone": [
+              60,
+              120
+            ],
+            "advice": [
+              50,
+              60,
+              70,
+              80,
+              90,
+              100
+            ],
+            "lightstone": 2,
+            "gold_1000": [
+              6,
+              7
+            ],
+            "gold_100": [
+              15,
+              30
+            ],
+            "gold_10": [
+              20,
+              50
+            ]
+          }
+        },
+        "requirement_level": "required",
+        "order_no": 3,
+        "active": true
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "guild-boss-giant-mudster.step.mechanic",
+        "phase": "preparation",
+        "title": "핵심 패턴 대응",
+        "description": "축소 전조와 지면 가시에 대응한다.",
+        "checkable": false,
+        "order_no": 1
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "guild-boss-giant-mudster.reward.crystals",
+        "name": "정령의 수정 4종",
+        "reward_type": "crystal",
+        "is_choice": false,
+        "notes": null,
+        "order_no": 1,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.reward.materials",
+        "name": "순수한 마력 덩어리 외 공식 재료",
+        "reward_type": "material",
+        "is_choice": false,
+        "notes": "상세 수량은 structured reward_table",
+        "order_no": 2,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.reward.advice",
+        "name": "발크스의 조언 (+50~+100)",
+        "reward_type": "enhancement",
+        "is_choice": false,
+        "notes": "비공개 확률 제외",
+        "order_no": 3,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.reward.lightstone",
+        "name": "찬란한 불/땅의 광명석",
+        "reward_type": "lightstone",
+        "is_choice": false,
+        "notes": null,
+        "order_no": 4,
+        "min_amount": 2,
+        "max_amount": 2
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.reward.gold",
+        "name": "금괴 1,000G/100G/10G",
+        "reward_type": "currency",
+        "is_choice": false,
+        "notes": "6~7/15~30/20~50",
+        "order_no": 5,
+        "min_amount": null,
+        "max_amount": null
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "guild-boss-giant-mudster.section.scope",
+        "section_type": "notes",
+        "title": "범위",
+        "body_markdown": "공통 소환·주간 횟수는 guild-boss-current-system에서 관리한다.",
+        "order_no": 1
+      }
+    ],
+    "schedules": [],
+    "checklists": [],
+    "relations": [
+      {
+        "seed_key": "guild-boss-giant-mudster.relation.system",
+        "to_content_slug": "guild-boss-current-system",
+        "relation_type": "prerequisite",
+        "note": "공통 규칙",
+        "order_no": 1
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "guild-boss-giant-mudster.claim.summary",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-giant-mudster",
+        "claim_key": "summary",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.claim.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-giant-mudster",
+        "claim_key": "purpose",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.claim.raid",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-giant-mudster.raid",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.claim.mechanics",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-giant-mudster.mechanics",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.claim.rewards",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-giant-mudster.rewards",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.claim.step.mechanic",
+        "entity_type": "content_step",
+        "entity_seed_key": "guild-boss-giant-mudster.step.mechanic",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.claim.section.scope",
+        "entity_type": "content_section",
+        "entity_seed_key": "guild-boss-giant-mudster.section.scope",
+        "claim_key": "body",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-giant-mudster.claim.rewards",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-giant-mudster",
+        "claim_key": "rewards",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "guild-boss-overhaul-2026-01-07"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      }
+    ]
+  },
+  {
+    "slug": "guild-boss-gumiho-duoksini",
+    "name_ko": "길드 우두머리 구미호·두억시니",
+    "category": "combat_pve",
+    "subcategory": "guild_boss",
+    "summary": "서부 경비 캠프 인근에서 명성 25,000으로 두 우두머리를 동시에 상대한다.",
+    "purpose": "표준 조각 우두머리와 다른 소환·처치·보상 흐름을 확인한다.",
+    "status": "active",
+    "last_verified_at": "2026-09-08",
+    "requirements": [
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.access",
+        "kind": "other",
+        "title": "소환 조건",
+        "description": "명성 25,000으로 주 1회 소환하며 처치 시 명성 10,000을 얻는다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "location": "서부 경비 캠프 인근",
+          "fame_cost": 25000,
+          "weekly": 1,
+          "fame_reward": 10000
+        },
+        "requirement_level": "required",
+        "order_no": 1,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.encounter",
+        "kind": "other",
+        "title": "동시 전투",
+        "description": "둘을 모두 처치한 뒤 보물 상자도 처치한다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "bosses": [
+            "구미호",
+            "두억시니"
+          ],
+          "defeat_chest": true
+        },
+        "requirement_level": "required",
+        "order_no": 2,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.rewards",
+        "kind": "other",
+        "title": "규모별 금괴",
+        "description": "1,000G 9~11개, 100G·10G는 규모별 상세 표다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "gold_1000": [
+            9,
+            11
+          ],
+          "gold_100": {
+            "extra_large": [
+              38,
+              45
+            ],
+            "large": [
+              30,
+              38
+            ],
+            "medium": [
+              23,
+              30
+            ],
+            "small": [
+              23,
+              30
+            ]
+          },
+          "gold_10": {
+            "extra_large": [
+              60,
+              75
+            ],
+            "large": [
+              60,
+              75
+            ],
+            "medium": [
+              60,
+              75
+            ],
+            "small": [
+              30,
+              45
+            ]
+          }
+        },
+        "requirement_level": "required",
+        "order_no": 3,
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.identity",
+        "kind": "other",
+        "title": "검은사당과 분리",
+        "description": "동해도 검은사당 동명 우두머리와 별도 Content다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "separate_from_black_shrine": true
+        },
+        "requirement_level": "required",
+        "order_no": 4,
+        "active": true
+      }
+    ],
+    "steps": [
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.step.bosses",
+        "phase": "preparation",
+        "title": "둘 모두 처치",
+        "description": "구미호와 두억시니를 모두 처치한다.",
+        "checkable": false,
+        "order_no": 1
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.step.chest",
+        "phase": "first_time",
+        "title": "상자 처치",
+        "description": "뒤이어 나타난 상자를 처치한다.",
+        "checkable": false,
+        "order_no": 2
+      }
+    ],
+    "rewards": [
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.reward.advice",
+        "name": "발크스의 조언 (+50~+100)",
+        "reward_type": "enhancement",
+        "is_choice": false,
+        "notes": null,
+        "order_no": 1,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.reward.crystals",
+        "name": "정령의 수정 4종",
+        "reward_type": "crystal",
+        "is_choice": false,
+        "notes": null,
+        "order_no": 2,
+        "min_amount": null,
+        "max_amount": null
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.reward.gold",
+        "name": "금괴",
+        "reward_type": "currency",
+        "is_choice": false,
+        "notes": "규모별 requirement 참조",
+        "order_no": 3,
+        "min_amount": null,
+        "max_amount": null
+      }
+    ],
+    "sections": [
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.section.boundary",
+        "section_type": "notes",
+        "title": "보상 경계",
+        "body_markdown": "상단 요약과 규모별 상세 표가 다르면 상세 표를 보존한다.",
+        "order_no": 1
+      }
+    ],
+    "schedules": [],
+    "checklists": [],
+    "relations": [
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.relation.system",
+        "to_content_slug": "guild-boss-current-system",
+        "relation_type": "prerequisite",
+        "note": "직접 소환 규칙",
+        "order_no": 1
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.relation.gumiho",
+        "to_content_slug": "donghae-shrine-gumiho",
+        "relation_type": "related",
+        "note": "동명 검은사당과 분리",
+        "order_no": 2
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.relation.duoksini",
+        "to_content_slug": "donghae-shrine-duoksini",
+        "relation_type": "related",
+        "note": "동명 검은사당과 분리",
+        "order_no": 3
+      }
+    ],
+    "evidence": [
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.claim.summary",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-gumiho-duoksini",
+        "claim_key": "summary",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.claim.purpose",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-gumiho-duoksini",
+        "claim_key": "purpose",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.claim.access",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-gumiho-duoksini.access",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.claim.encounter",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-gumiho-duoksini.encounter",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.claim.rewards",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-gumiho-duoksini.rewards",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.claim.identity",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "guild-boss-gumiho-duoksini.identity",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.claim.step.bosses",
+        "entity_type": "content_step",
+        "entity_seed_key": "guild-boss-gumiho-duoksini.step.bosses",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.claim.step.chest",
+        "entity_type": "content_step",
+        "entity_seed_key": "guild-boss-gumiho-duoksini.step.chest",
+        "claim_key": "description",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.claim.section.boundary",
+        "entity_type": "content_section",
+        "entity_seed_key": "guild-boss-gumiho-duoksini.section.boundary",
+        "claim_key": "body",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      },
+      {
+        "seed_key": "guild-boss-gumiho-duoksini.claim.rewards",
+        "entity_type": "content",
+        "entity_seed_key": "guild-boss-gumiho-duoksini",
+        "claim_key": "rewards",
+        "source_ids": [
+          "guild-boss-guide-current",
+          "edania-inner-boss-2026-08-12"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-08",
+        "active": true
+      }
+    ]
+  }
 ]

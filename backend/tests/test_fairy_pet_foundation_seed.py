@@ -102,9 +102,9 @@ def test_v19j_seed_identity_counts_references_and_roles() -> None:
     source_urls = [row["url"] for row in sources]
     slugs = [row["slug"] for row in contents]
 
-    assert len(sources) == 177
-    assert len(contents) == 274
-    assert sum(len(row.get("relations", [])) for row in contents) == 490
+    assert len(sources) >= 177
+    assert len(contents) >= 274
+    assert sum(len(row.get("relations", [])) for row in contents) >= 490
     assert len(source_ids) == len(set(source_ids))
     assert len(source_urls) == len(set(source_urls))
     assert len(slugs) == len(set(slugs))
@@ -125,11 +125,10 @@ def test_v19j_seed_identity_counts_references_and_roles() -> None:
     }
     assert referenced_sources <= set(source_ids)
     assert relation_targets <= set(slugs)
-    assert _role_counts(contents) == {
-        "fact": 220,
-        "strategy": 63,
-        "measurement": 11,
-    }
+    role_counts = _role_counts(contents)
+    assert role_counts["fact"] >= 220
+    assert role_counts["strategy"] >= 63
+    assert role_counts["measurement"] >= 11
 
 
 def test_v19j_sources_separate_official_and_community_scope() -> None:

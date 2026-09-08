@@ -324,6 +324,12 @@ def test_v19i_temp_db_import_is_idempotent_and_preserves_history(tmp_path, monke
         index for index, row in enumerate(content_rows) if row["slug"] == CONTENT_SLUG
     )
     baseline_contents = content_rows[:first_new_content_index]
+    while True:
+        baseline_slugs = {row["slug"] for row in baseline_contents}
+        dependent_slugs = {row["slug"] for row in baseline_contents if any(relation["to_content_slug"] not in baseline_slugs for relation in row.get("relations", []))}
+        if not dependent_slugs:
+            break
+        baseline_contents = [row for row in baseline_contents if row["slug"] not in dependent_slugs]
 
     baseline_dir = tmp_path / "v19h-seed"
     baseline_dir.mkdir()
