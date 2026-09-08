@@ -318,6 +318,13 @@ def test_v17c_temp_db_migration_import_idempotence_and_history_preservation(tmp_
     baseline_content_rows = [
         row for row in content_rows if row["slug"] not in V17C_CONTENT_SLUGS
     ]
+    while True:
+        baseline_slugs = {row["slug"] for row in baseline_content_rows}
+        dependent_slugs = {row["slug"] for row in baseline_content_rows if any(relation["to_content_slug"] not in baseline_slugs for relation in row.get("relations", []))}
+        if not dependent_slugs:
+            break
+        baseline_content_rows = [row for row in baseline_content_rows if row["slug"] not in dependent_slugs]
+
     # Later content may reuse a source introduced with V1.7C. Keep every source
     # still referenced by the synthetic baseline so the fixture remains closed.
     baseline_source_ids = {

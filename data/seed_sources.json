@@ -1129,12 +1129,13 @@
   {
     "id": "marni-combat-analyzer-2026-08-05",
     "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=15998",
-    "title": "8월 5일(수) 업데이트 안내 - 마르니의 전투 분석기",
+    "title": "8월 5일(수) 업데이트 안내(최종 수정 : 2026-08-06 18:05)",
     "publisher": "Pearl Abyss",
     "source_type": "official_patch_notes",
     "published_at": "2026-08-05",
     "retrieved_at": "2026-09-04T12:00:00+09:00",
-    "region": "KR"
+    "region": "KR",
+    "notes": "전체 공식 업데이트 문서. 마르니 분석기와 길드 명성 재충전에 공유한다."
   },
   {
     "id": "edania-external-history-2026-09-04",
@@ -1344,5 +1345,34 @@
     ,{"id":"pet-fifth-generation-guide-current","url":"https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=296","title":"5세대 반려동물 훈련","publisher":"Pearl Abyss","source_type":"official_guide","published_at":null,"retrieved_at":"2026-09-07T15:00:00+09:00","region":"KR","notes":"4세대에서 5세대 훈련, 제왕의 깃털, 교환 제한, 대장 임명 및 효과의 현재 안내"}
     ,{"id":"fairy-beginner-strategy-2026-08-20","url":"https://www.inven.co.kr/board/black/3584/59007","title":"뉴비 요정작 방법","publisher":"검은사막 인벤 / 화나면문다","source_type":"community_strategy","published_at":"2026-08-20","retrieved_at":"2026-09-07T15:00:00+09:00","region":"KR","notes":"신비한 응원과 아낌없는 손길을 입문 우선순위로 보는 최근 커뮤니티 사례. 이벤트 재화, 거래소 상황, 종결 조합과 비용은 canonical FACT로 채택하지 않음"}
     ,{"id":"pet-exchange-decisions-2026-06-04","url":"https://www.inven.co.kr/board/black/3584/58842","title":"반려동물 3세대 교환 어느게 효율적인지","publisher":"검은사막 인벤 / 카나트","source_type":"community_strategy","published_at":"2026-06-04","retrieved_at":"2026-09-07T15:00:00+09:00","region":"KR","notes":"교환 선택이 보유 반려동물과 위험 선호에 따라 달라지는 커뮤니티 사례. 확률 계산과 특정 세대 효율 결론은 canonical 전략에 채택하지 않음"}
-    ,{"id":"fairy-continuous-care-introduction-2022-08-10","url":"https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=8708","title":"8월 10일(수) 업데이트 안내","publisher":"Pearl Abyss","source_type":"official_patch","published_at":"2022-08-10","retrieved_at":"2026-09-07T15:30:00+09:00","region":"KR","notes":"아낌없는 손길 도입 당시 I~V 사용 가능 아이템 수 5/8/12/16/20을 명시한 공식 patch chain 기준"}
+    ,{"id":"fairy-continuous-care-introduction-2022-08-10","url":"https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=8708","title":"8월 10일(수) 업데이트 안내","publisher":"Pearl Abyss","source_type":"official_patch","published_at":"2022-08-10","retrieved_at":"2026-09-07T15:30:00+09:00","region":"KR","notes":"아낌없는 손길 도입 당시 I~V 사용 가능 아이템 수 5/8/12/16/20을 명시한 공식 patch chain 기준"},
+  {
+    "id": "guild-boss-guide-current",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=171",
+    "title": "길드 소환 우두머리 레이드",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "retrieved_at": "2026-09-08T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "guild-boss-overhaul-2026-01-07",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=15054",
+    "title": "1월 7일(수) 업데이트 안내 (최종 수정 : 2026-01-07 18:46)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2026-01-07",
+    "retrieved_at": "2026-09-08T12:00:00+09:00",
+    "region": "KR"
+  },
+  {
+    "id": "guild-boss-reset-rework-2019-12-04",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?boardNo=903&countryType=ko-KR",
+    "title": "12월 4일 (수) 업데이트 안내 (최종 수정 : 2019-12-19 16:16)",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2019-12-04",
+    "retrieved_at": "2026-09-08T12:00:00+09:00",
+    "region": "KR"
+  }
 ]
