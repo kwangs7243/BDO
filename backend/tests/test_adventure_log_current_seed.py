@@ -223,9 +223,7 @@ def test_current_catalog_unlocks_rewards_and_identity_boundaries(session: Sessio
         "https://www.kr.playblackdesert.com/ko-KR/News/Detail?"
         "countryType=ko-KR&groupContentNo=14803"
     )
-    assert justin_source.title == (
-        "11월 19일(수) 업데이트 안내(최종 수정 : 2025-11-20 17:43)"
-    )
+    assert justin_source.title == "11월 19일(수) 업데이트 안내"
     unlock_sources = {
         row.source_id
         for row in session.scalars(
