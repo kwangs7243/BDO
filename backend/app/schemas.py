@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import date, datetime
 from enum import StrEnum
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
@@ -247,6 +247,66 @@ class ContentDetailOut(ContentSummaryOut):
     related_contents: list[ContentRelationOut]
     user_state: UserContentStateOut
     sources: list[SourceOut]
+
+
+class KnowledgeContentOut(ContentSummaryOut):
+    purpose: str | None
+    party_type: str | None
+    difficulty: str | None
+    requirements: list[ContentRequirementOut]
+    sections: list[ContentSectionOut]
+    steps: list[ContentStepOut]
+    schedules: list[ScheduleOut]
+    rewards: list[RewardOut]
+    related_contents: list[ContentRelationOut]
+    sources: list[SourceOut]
+
+
+class KnowledgeProjectStageOut(BaseModel):
+    seed_key: str
+    name: str
+    description: str | None
+    order_no: int
+    dependencies: list[str]
+
+
+class KnowledgeProjectMaterialOut(BaseModel):
+    seed_key: str
+    material_key: str
+    name_ko: str
+    unit: str
+    stage_seed_key: str | None
+    required_quantity: float
+    notes: str | None
+    order_no: int
+    source_entity_type: str | None
+    source_entity_seed_key: str | None
+    sources: list[ProjectMaterialSourceOut]
+
+
+class KnowledgeProjectOut(BaseModel):
+    slug: str
+    name_ko: str
+    content_slug: str | None
+    summary: str | None
+    active: bool
+    stages: list[KnowledgeProjectStageOut]
+    materials: list[KnowledgeProjectMaterialOut]
+
+
+class KnowledgeSearchMatchOut(BaseModel):
+    field: str
+    text: str
+
+
+class KnowledgeSearchResultOut(BaseModel):
+    resource_type: Literal["content", "project"]
+    slug: str
+    name_ko: str
+    category: str | None
+    summary: str | None
+    verification_status: str | None
+    matches: list[KnowledgeSearchMatchOut]
 
 
 class LifeProgressOut(BaseModel):

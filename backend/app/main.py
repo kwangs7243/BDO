@@ -12,6 +12,7 @@ from sqlalchemy.orm import Session
 from app.checklists import get_current_checklists
 from app.content import get_content_detail, list_contents
 from app.database import create_schema, get_session
+from app.knowledge import get_knowledge_content, get_knowledge_project, search_knowledge
 from app.life import get_life_hub, get_life_skill
 from app.models import ChecklistItemState, Content, UserContentState
 from app.periods import KST, SUNDAY, daily_period, next_weekly_occurrence, weekly_period
@@ -30,6 +31,9 @@ from app.schemas import (
     ContentSummaryOut,
     LifeHubOut,
     LifeSkillDetailOut,
+    KnowledgeContentOut,
+    KnowledgeProjectOut,
+    KnowledgeSearchResultOut,
     PromptContextBundle,
     PromptRenderOut,
     PromptRequest,
@@ -88,6 +92,34 @@ def content_detail(slug: str, session: Session = Depends(get_session)):
     result = get_content_detail(session, slug, now_kst())
     if result is None:
         raise HTTPException(status_code=404, detail="Content not found")
+    return result
+
+
+@app.get("/api/knowledge/search", response_model=list[KnowledgeSearchResultOut])
+def knowledge_search(
+    q: str = Query(..., min_length=1, max_length=200),
+    limit: int = Query(20, ge=1, le=50),
+    session: Session = Depends(get_session),
+):
+    try:
+        return search_knowledge(session, q, limit)
+    except ValueError as error:
+        raise HTTPException(status_code=422, detail=str(error)) from error
+
+
+@app.get("/api/knowledge/contents/{slug}", response_model=KnowledgeContentOut)
+def knowledge_content(slug: str, session: Session = Depends(get_session)):
+    result = get_knowledge_content(session, slug, now_kst())
+    if result is None:
+        raise HTTPException(status_code=404, detail="Content not found")
+    return result
+
+
+@app.get("/api/knowledge/projects/{slug}", response_model=KnowledgeProjectOut)
+def knowledge_project(slug: str, session: Session = Depends(get_session)):
+    result = get_knowledge_project(session, slug)
+    if result is None:
+        raise HTTPException(status_code=404, detail="Project not found")
     return result
 
 

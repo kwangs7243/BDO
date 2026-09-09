@@ -23,7 +23,15 @@ Canonical Knowledge DB
 (Content / Requirement / Step / Reward / Section / Relation
  Schedule / Source / Evidence / Project canonical definitions)
         │
-        ├──────────────► Existing FastAPI structured APIs
+        ├──────────────► Knowledge Read Service
+        │                   ├─ deterministic lexical search
+        │                   ├─ canonical-only Content projection
+        │                   └─ canonical-only Project projection
+        │                              │
+        │                              ▼
+        │                     GET /api/knowledge/*
+        │
+        ├──────────────► Existing FastAPI structured/local APIs
         │
         ├──────────────► Prompt Context Builder
         │                   │
@@ -55,7 +63,7 @@ Consumer UX expansion is not an implicit architecture requirement.
 
 ## Backend
 
-FastAPI/domain modules include canonical content retrieval, period/reset computation, checklist state, Project projection/calculation, Life projections, user/local state, research/evidence flows, and `prompt_bridge`.
+FastAPI/domain modules include canonical content retrieval, the V1.9N `knowledge` read service, period/reset computation, checklist state, Project projection/calculation, Life projections, user/local state, research/evidence flows, and `prompt_bridge`. The knowledge service exposes deterministic lexical search and canonical-only Content/Project projections without reading personal-state tables.
 
 Existing domain functions are the preferred reuse boundary.
 
@@ -135,7 +143,7 @@ existing BDO domain services
 
 The adapter is not implemented merely because this architecture permits it.
 
-Potential future capability gaps to evaluate only when needed include server-side search/identity resolution, knowledge-only context, and pure deterministic calculations with caller-provided state.
+V1.9N implements server-side lexical search/identity resolution and knowledge-only Content/Project retrieval at `/api/knowledge/*`. A remaining capability to evaluate only when explicitly needed is pure deterministic calculation with caller-provided state.
 
 ## Data update philosophy
 
