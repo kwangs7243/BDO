@@ -86,3 +86,11 @@ Canonical game knowledge must not be independently maintained in Notion or anoth
 The frontend remains a supported reference / inspection / admin / local operational consumer. Consumer-UI expansion is lower roadmap priority unless explicitly requested.
 
 **Reason:** Actual usage shows that conversational interaction through ChatGPT can be more effective than manually navigating a dedicated tracker UI, while the repository's strongest reusable asset is its structured, sourced, version-aware game knowledge. Keeping the canonical backend and current compatibility intact preserves previous implementation value and allows AI or external personal-state integrations to be introduced incrementally without a rewrite.
+
+## ADR-016 Caller-provided personal state is ephemeral calculation input
+
+**Status:** Accepted 2026-09-09.
+
+**Decision:** External or caller-owned personal state may be supplied as input to a deterministic calculation request. The V1.9O Project calculator combines caller-provided material quantities with canonical Project requirements, but does not automatically write those values to local user-state tables. Canonical Project requirements remain owned by the BDO database. A missing caller quantity means `0`, not a fallback to `UserMaterialInventory`. Persistence and synchronization require a separate explicit milestone.
+
+**Reason:** Keeping caller state ephemeral allows future AI or external personal-state consumers to reuse canonical formulas without creating a second writable Source of Truth, mutating the local tracker, or making the same request depend on hidden local values. The result remains deterministic for the same canonical Project definition and request payload.
