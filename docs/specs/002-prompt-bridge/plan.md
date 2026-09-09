@@ -1,3 +1,7 @@
+> **Status — completed V1.5 implementation plan; historical**
+>
+> Do not use this file as the current repository roadmap.
+
 # Implementation Plan — Prompt Bridge V1.5
 
 ## Phase PB-0 Contract first

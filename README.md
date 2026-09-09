@@ -1,6 +1,8 @@
-# BDO Companion — 검은사막 개인 운영체제
+# BDO Companion — 검은사막 KR Knowledge Companion
 
-목표: 단순 숙제 체크리스트가 아니라, **검은사막 콘텐츠 위키 + 진행도 + 반복 숙제 + 프로젝트/재료 트래커 + 근거 관리**를 하나로 묶는 로컬 웹앱.
+목표: **검증된 검은사막 KR canonical knowledge, Source/Evidence, historical rule changes, deterministic game-domain calculations**를 구조화해 local UI와 향후 AI consumer가 재사용할 수 있게 한다.
+
+기존 React frontend와 local user-state 기능은 계속 지원하지만, 사람이 매일 직접 탐색하는 consumer UI를 제품의 유일한 중심으로 가정하지 않는다. 현재 제품/ownership 방향은 `docs/PRODUCT_DIRECTION.md`를 따른다.
 
 현재 구현 milestone은 **V1.9M — Blood Altar 22–24 Current System Closure**다.
 
@@ -13,16 +15,17 @@
 - 테스트: backend 331 passed / frontend 57 passed
 - 주요 데이터 영역: Routine, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss, Atoraxxion / Last Gladiius Weekly, Account / Main Quest / Magnus Progression Foundation, Adventure Log Current Catalog, Fairy / Pets Foundation, Guild Boss Current System, Blood Altar 24-stage Current System
 
-## 제품 목표 사용 시나리오
+## 현재 제품 역할
 
-아래 목록은 장기 제품 목표다. 현재 구현된 시나리오는 대시보드·주간 체크리스트, Content 상세·근거 확인, Prompt Bridge, Project 부족량 추적과 사용자 데이터 JSON 백업·복원이다.
+현재 구현은 세 층으로 본다.
 
-1. "수렵 한번 해볼까?" → 수렵 페이지 진입 → 왜 하는지 / 준비물 / 장비 / 시작 루트 / 체크리스트 / 추천 다음 단계 확인.
-2. "이번 주 뭐 안 했지?" → 주간 대시보드 → 초기화 규칙별로 남은 콘텐츠 확인.
-3. "중범선 언제 완성하지?" → 프로젝트 페이지 → 현재 재고 입력 → 부족량 / 일퀘·주간·물교 수급처 / 다음 행동 확인.
-4. "이 정보 최신 맞아?" → 모든 핵심 규칙에 출처와 마지막 검증일 표시.
-5. "이 상태를 ChatGPT에 물어보고 싶어" → 현재 진행도/부족량/검증 근거를 자동 선별한 prompt를 만들어 복사.
-6. "내 기록을 옮기고 싶어" → 설정/백업 → 사용자 상태 JSON 다운로드 → 다른 seed 초기화 DB에서 검증 후 병합 또는 전체 복원.
+1. **Canonical knowledge** — Content/Requirement/Step/Reward/Relation, Schedule/reset, Source/Evidence, knowledge roles, historical/superseded, Project canonical requirements and deterministic calculations.
+2. **Existing local consumers** — Dashboard/Weekly, Content/Life/Project reference, Source/Evidence inspection, local user-state/checklist/inventory/backup, Prompt Bridge preview/copy.
+3. **Future consumers** — ChatGPT/MCP/API adapters and domain-scoped external personal-state workflows. 이들은 architecture가 허용한다고 자동 구현하지 않는다.
+
+Frontend는 reference/inspection/admin/debug/local operational UI로 계속 가치가 있다. Consumer-facing polish는 자동 roadmap 우선순위가 아니다.
+
+Personal state는 domain별로 다른 backend가 owner가 될 수 있지만 기존 local state는 유지하며 repository-wide Notion migration을 가정하지 않는다.
 
 ## 권장 기술 스택
 
@@ -36,14 +39,14 @@
 
 ## 로컬 실행 원칙
 
-- 인터넷 연결 없이도 **이미 저장된 데이터와 진행도는 100% 동작**해야 한다.
+- 외부 AI 서비스가 없어도 **이미 저장된 canonical knowledge와 기존 local 기능은 동작**해야 한다.
 - 외부 정보 갱신은 별도 "Research/Import" 흐름으로 취급한다.
 - 체크리스트 초기화는 데이터 삭제가 아니라 **기간별 checklist instance** 생성으로 처리한다.
 
 ## Codex 시작
 
 1. 현재 branch와 작업 트리 상태를 확인한다.
-2. `AGENTS.md`와 관련 스펙·handoff 문서를 먼저 읽는다.
+2. `AGENTS.md`, `docs/PRODUCT_DIRECTION.md`, 관련 스펙·handoff 문서를 먼저 읽는다.
 3. `docs/specs/001-core/tasks.md`의 현재 완료 상태와 요청된 milestone 범위를 확인한다.
 
 기존 단일 HTML 프로토타입은 `legacy-prototype/`에 보존했다. 새 앱은 이를 그대로 확장하지 말고 데이터 모델부터 재구성한다.
@@ -51,13 +54,17 @@
 
 ## 현재 범위와 AI 원칙
 
-현재 V1.9M까지 비용이 발생하는 AI 연동 없이 V1.5의 로컬 Prompt Bridge 원칙을 유지하며, V1.5 범위의 Prompt Bridge 기능은 완료되었다.
+V1.5 Prompt Bridge is complete and remains a supported deterministic retrieval/context contract.
 
-- OpenAI API: 사용 안 함
-- 타사 LLM API: 사용 안 함
-- 로컬 LLM: 사용 안 함
-- Fine-tuning: 사용 안 함
-- Prompt Bridge: 사용
+Current implementation still has no required runtime OpenAI/MCP/Notion dependency.
+
+- OpenAI runtime adapter: not implemented
+- MCP adapter: not implemented
+- Notion integration in this repository: not implemented
+- local LLM: not used
+- Prompt Bridge / `PromptContextBundle`: implemented and preserved
+
+Future AI integration, if explicitly selected as a milestone, should normally attach as a thin adapter behind the current structured APIs/domain services/`PromptContextBundle`. The current product-direction change does not authorize an immediate adapter implementation or core rewrite.
 
 앱이 DB 조회, reset 계산, 완료 상태와 source verification을 처리한 뒤 사용자가 ChatGPT에 직접 붙여넣을 prompt를 생성한다. 다섯 가지 preset은 Dashboard 전체 또는 선택한 Content/Project의 현재 상태와 검증 근거를 사용한다. V1.8E에서는 mode/target별 context selector, `full_prompt`/`context_only`, `auto`/`detailed` 크기 모드를 제공하고, 12,000 estimated tokens를 넘는 auto 출력은 관련 콘텐츠·저우선 source·획득처·서술 항목을 완전한 item 단위로 결정적으로 생략한다. V1.9D에서는 verified 지식을 `FACT`/`STRATEGY`/`MEASUREMENT` 역할과 함께 직렬화해 전략이나 측정값을 공식 사실과 구분한다. 기존 API selector 키인 `canonical_facts`는 호환성을 위해 유지한다. 상세 명세는 `docs/specs/002-prompt-bridge/spec.md`를 따른다.
 

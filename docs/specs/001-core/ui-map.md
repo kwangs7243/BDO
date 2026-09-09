@@ -1,3 +1,9 @@
+> **Status — existing/reference UI information architecture**
+>
+> This map describes the local web UI and remains a reference for supported screens.
+> It no longer implies that every listed consumer screen must be completed or polished before knowledge-backend work.
+> The frontend may serve as reference / inspection / admin / local operational UI under `docs/PRODUCT_DIRECTION.md`.
+
 # UI / Information Architecture
 
 ## Global navigation

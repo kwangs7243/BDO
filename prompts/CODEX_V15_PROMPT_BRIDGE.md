@@ -1,3 +1,7 @@
+> **HISTORICAL V1.5 IMPLEMENTATION PROMPT — DO NOT USE AS CURRENT MILESTONE INSTRUCTIONS**
+>
+> Current Codex work must start from `AGENTS.md`, `docs/PRODUCT_DIRECTION.md`, current `main`, and the explicit milestone task.
+
 # Codex Follow-up — Complete V1.5 Prompt Bridge
 
 현재 구현을 먼저 읽고 테스트를 실행하라. 그 다음 `docs/specs/002-prompt-bridge/`를 source of truth로 사용해 아직 빠진 V1.5 Prompt Bridge 항목만 구현하라.

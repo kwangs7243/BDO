@@ -1,39 +1,94 @@
 # BDO Companion Agent Map
 
-이 프로젝트는 검은사막 개인 위키/숙제/진행도 앱이다. **추측으로 게임 데이터를 만들지 않는다.**
+BDO Companion is a **Black Desert Online KR canonical knowledge service with an existing local reference/operational web app**.
 
-## 먼저 읽을 문서
+Do not invent game data.
 
-1. `docs/CONSTITUTION.md` — 절대 규칙
-2. `docs/specs/001-core/spec.md` — 제품 요구사항
-3. `docs/specs/001-core/data-model.md` — 데이터 모델
-4. `docs/research/SOURCE_POLICY.md` — 검은사막 정보 검증 규칙
-5. `docs/research/SEED_CATALOG.md` — 초기 콘텐츠 범위
-6. `docs/specs/001-core/ui-map.md` — 화면 구조
-7. `docs/specs/001-core/tasks.md` — 구현 순서
-8. `docs/specs/002-prompt-bridge/spec.md` — V1.5 ChatGPT 프롬프트 브리지
+## Document precedence
 
-## 개발 원칙
+Read in this order for future work:
 
-- 한국 서버 / Asia-Seoul 기준.
-- 반복 콘텐츠의 `재수주 초기화`, `기록 집계`, `보상 지급`, `출현 스케줄`을 하나의 reset 필드로 뭉치지 않는다.
-- 소스가 없는 게임 규칙은 `unverified`로 저장하고 UI에서 확정 정보처럼 노출하지 않는다.
-- 핵심 규칙 변경 시 source/evidence record와 last_verified_at을 함께 갱신한다.
-- 과거 체크 기록은 삭제하지 않는다.
-- 특정 날짜의 상태를 재현할 수 있어야 한다.
-- DB는 MySQL/SQLite 모두 지원하도록 SQLAlchemy dialect-independent하게 작성한다.
-- 기존 `legacy-prototype`은 참고만 하고 신규 구조의 source of truth로 사용하지 않는다.
-- **V1.5에서는 어떤 LLM/API도 런타임 호출하지 않는다.** AI 기능은 로컬 데이터로 ChatGPT용 prompt/context bundle을 생성하는 `Prompt Bridge`까지만 구현한다.
-- API key 입력/저장, OpenAI SDK, 로컬 LLM, embedding API는 V2 이전에 추가하지 않는다.
+1. `docs/PRODUCT_DIRECTION.md`
+2. `docs/CONSTITUTION.md`
+3. `ARCHITECTURE.md`
+4. `docs/DECISIONS.md`
+5. latest relevant `handoff/`
+6. relevant `docs/specs/`
+7. `docs/research/SOURCE_POLICY.md`
+8. `docs/research/SEED_CATALOG.md`
 
-## 테스트 필수 항목
+`docs/specs/001-core/` and `docs/specs/002-prompt-bridge/` contain implemented contracts and V1 history, but their old consumer-UI product assumptions do not override `docs/PRODUCT_DIRECTION.md`.
 
-- KST 일일 00:00 경계
-- 일반 주간 목요일 00:00 경계
-- 일요일 00:00 보상 규칙이 있는 콘텐츠
-- 월跨/연跨(12/31→1/1) 기간 키
-- source가 stale/superseded일 때 표시
-- project material shortage 계산
-- checklist history 보존
-- Prompt Bridge가 네트워크 호출 없이 deterministic Markdown을 생성하는지
-- 완료/미완료 체크 상태와 source verification 상태가 prompt context에 정확히 반영되는지
+GitHub `main` remains Source of Truth for implemented state.
+
+## Current product boundary
+
+The repository's highest-value asset is the verified game-domain backend:
+
+- canonical Content
+- Requirements / Steps / Rewards / Sections / Relations
+- Schedule/reset semantics
+- Source / claim-level Evidence
+- FACT / STRATEGY / MEASUREMENT
+- historical / superseded preservation
+- Project canonical definitions
+- deterministic calculations
+- retrieval/context contracts
+
+The React frontend remains supported as reference / inspection / admin / local operational UI.
+
+Do not assume consumer-facing UI polish or new dashboards are a default priority.
+
+## Personal state
+
+Canonical game knowledge and personal state must remain separate.
+
+Existing local state remains supported and must not be deleted or migrated without an explicit milestone:
+
+- `UserContentState`
+- checklist instances/item state
+- `UserMaterialInventory`
+- `UserProjectStageState`
+- backup/restore history
+
+Some personal-state domains may later use an external store such as Notion. Do not assume all domains are external or all domains are local. Ownership changes must be explicit and domain-scoped.
+
+Never duplicate BDO canonical game knowledge into an external personal-state store as a second independently maintained Source of Truth.
+
+## AI / adapter boundary
+
+The existing `PromptContextBundle` and structured APIs are reusable contracts.
+
+Future MCP/OpenAI/ChatGPT/other adapters should normally be thin consumers behind existing domain services.
+
+Do not add OpenAI SDK, MCP server, Notion integration, LLM runtime, embedding/vector DB unless the current milestone explicitly requires it.
+
+Do not break existing API or PromptContextBundle compatibility as speculative preparation.
+
+## Development principles
+
+- KR region / Asia-Seoul.
+- Accuracy over feature count.
+- Latest official KR evidence wins when current official sources conflict.
+- Do not collapse `quest_reset`, `attempt_reset`, `record_cutoff`, `reward_payout`, and `spawn_schedule`.
+- Do not expose unresolved data as verified fact.
+- Update source/evidence and `last_verified_at` with rule changes.
+- Preserve historical canonical rows and user history.
+- Stable `seed_key` identity must survive text/order changes.
+- DB code remains SQLAlchemy dialect-independent for SQLite/MySQL compatibility.
+- Deterministic calculations belong in backend/domain logic, not LLM reasoning.
+- Local core behavior must remain usable without an external AI service.
+
+## Before a new milestone
+
+1. fetch latest `main`
+2. read the latest relevant handoff
+3. inspect current code/data/tests
+4. classify the requested value as canonical knowledge, deterministic domain logic, personal state, reference/admin UI, or future adapter/transport
+5. make the smallest compatible change
+
+Do not turn a product-direction discussion into a large rewrite unless the milestone explicitly authorizes one.
+
+## Test invariants
+
+Preserve tests for KST boundaries, custom reset boundaries, reward payout semantics, stale/superseded Evidence, stable seed identity, historical import, Project calculations, checklist/user-state history, Prompt Bridge deterministic output/knowledge roles, and current content-specific semantic regressions.

@@ -1,5 +1,11 @@
 # Feature Spec 001 — BDO Companion Core
 
+> **Status — implemented V1 core contract, not current product-priority authority**
+>
+> This document records the original local-web-app functional contract and remains useful for compatibility and existing feature behavior.
+> For future product role, consumer priority, personal-state ownership, and AI-adapter direction, `docs/PRODUCT_DIRECTION.md` takes precedence.
+> Existing implemented features remain supported unless an explicit migration milestone changes them.
+
 ## Product statement
 검은사막의 방대한 콘텐츠를 "무엇인지 알아보기 → 기반 준비 → 최초 완료 → 반복 관리 → 장기 성장"으로 연결하는 개인용 로컬 웹앱.
 

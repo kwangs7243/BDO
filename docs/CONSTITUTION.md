@@ -1,57 +1,69 @@
 # Constitution
 
 ## 1. 정확성이 기능보다 우선
-게임 데이터는 UI 편의를 위해 임의 단순화하지 않는다. 불확실하면 `미검증`으로 표시한다.
 
-## 2. 최신 공식 자료 우선
-KR 공식 업데이트/모험가 가이드/GM노트가 최상위 근거다. 최근 공식 업데이트가 오래된 가이드와 충돌하면 최신 업데이트를 우선한다.
+게임 데이터는 UI나 AI 편의를 위해 임의 단순화하거나 만들지 않는다. 불확실하면 `unverified`/`needs_review`/`conflict` 등으로 표현한다.
+
+## 2. 최신 KR 공식 자료 우선
+
+현재 규칙은 최신 KR 공식 패치/업데이트와 가이드를 우선한다. 오래된 공식 자료와 최신 effective rule이 충돌하면 최신 규칙을 사용하고 과거 근거는 history로 보존한다.
 
 ## 3. 반복 규칙을 분리
-각 콘텐츠는 필요 시 다음 이벤트를 독립적으로 가진다.
-- `quest_reset`: 재수주 가능 시점
-- `attempt_reset`: 횟수/입장권 초기화
-- `record_cutoff`: 주간 기록 집계 경계
-- `reward_payout`: 자동 보상 지급 시점
-- `spawn_schedule`: 월드보스 등 출현 시간
 
-## 4. 지식과 사용자 상태 분리
-공식/공용 지식 데이터와 사용자의 완료·메모·재고를 같은 테이블 의미로 섞지 않는다.
+필요 시 `quest_reset`, `attempt_reset`, `record_cutoff`, `reward_payout`, `spawn_schedule`, event deadline을 독립적으로 보존한다.
 
-## 5. 콘텐츠 페이지 하나로 입문 가능해야 함
-각 상세 페이지는 최소한 아래 질문에 답해야 한다.
-- 이게 뭔가?
-- 왜 하는가?
-- 누구에게 필요한가?
-- 선행조건은?
-- 준비물/스펙/파티는?
-- 어디서 어떻게 시작하는가?
-- 처음 한 번 무엇을 해야 하는가?
-- 반복할 경우 주기와 초기화는?
-- 보상은 무엇이며 선택보상 추천은?
-- 흔한 함정/실수는?
-- 내 진행도는?
-- 근거는 최신인가?
+## 4. Canonical game knowledge와 personal state를 분리
+
+게임 자체에 대한 공용 정본과 사용자의 목표/보유량/진행/Task/메모를 같은 ownership으로 섞지 않는다.
+
+Personal-state domain은 local 또는 external일 수 있지만 owner가 명시되어야 한다. 같은 canonical game fact를 BDO DB와 personal-state system에 독립 정본으로 중복 관리하지 않는다.
+
+## 5. Canonical Content는 유용한 답변에 충분해야 함
+
+근거가 존재한다면 canonical representation은 무엇인지, 왜 하는지, 선행조건, 준비, 시작, 절차, 반복 규칙, reset/payout, 보상, 주의점, 관련 content/project, evidence freshness를 답할 수 있어야 한다.
+
+이는 canonical representation 요구사항이며 특정 frontend page layout을 강제하지 않는다.
 
 ## 6. 자동 초기화는 기록 삭제가 아님
-반복 체크는 period key 기반 인스턴스로 생성하고 지난 기록을 보존한다.
 
-## 7. 정보 범위는 넓게, 기본 화면은 좁게
-DB에는 많은 콘텐츠를 넣되 대시보드에는 사용자에게 relevant한 것만 노출한다. `활성/보류/관심없음/완료` 상태로 개인화한다.
+반복 상태는 period instance로 보존하고 history를 지우지 않는다. Historical/superseded canonical evidence도 삭제 대신 추적 가능하게 유지한다.
 
-## 8. 프로젝트는 재료와 행동을 연결
-중범선/보물작/모험일지 등 프로젝트는 `필요 재료`뿐 아니라 `다음 행동`, `수급처`, `선행 단계`, `반복 콘텐츠`와 관계를 가진다.
+## 7. 정보 범위는 넓게, consumer context는 좁게
+
+DB에는 넓은 지식을 저장하되 각 consumer는 질문/작업에 필요한 범위만 조회한다. local UI, Prompt Bridge, future AI adapter 모두 동일하다.
+
+## 8. Project는 canonical requirement와 행동을 연결
+
+Project definition은 stage, prerequisite, required material, acquisition source, recurring content, deterministic calculation을 연결한다. Personal project state는 별도다.
 
 ## 9. 원문 출처를 추적 가능하게
-핵심 claim은 source URL, publication date, last verified date, evidence note를 저장한다.
 
-## 10. Local-first
-앱은 localhost에서 완전 동작해야 하며 외부 서비스 장애가 체크/검색/기록을 깨면 안 된다.
+핵심 claim은 source URL, publication date, verification/retrieval date, evidence status/note로 추적 가능해야 한다.
 
-## 11. V1.5 AI는 전송이 아니라 컨텍스트 생성
-V1.5는 LLM을 앱 내부에서 호출하지 않는다. 앱은 검색, 계산, 진행도 판정, 출처 선별을 수행하고 ChatGPT에 붙여넣을 구조화 프롬프트만 생성한다.
+## 10. Core는 외부 AI 없이도 동작 가능
 
-- API key를 요구하지 않는다.
-- 외부 전송을 자동화하지 않는다.
-- 미검증 정보를 AI가 메우도록 설계하지 않는다.
-- 프로젝트 부족량, reset 계산 등 결정론적으로 계산 가능한 값은 앱이 계산한다.
-- ChatGPT에는 해석, 우선순위화, 설명, 최신 재검증 요청을 맡긴다.
+Canonical knowledge service와 기존 local 기능은 mandatory external AI service 없이 동작해야 한다.
+
+이 원칙은 local web UI가 사용자의 primary daily interface여야 한다는 뜻이 아니다.
+
+## 11. Deterministic work before generative reasoning
+
+Reset window, period key, shortage arithmetic, canonical lookup, evidence status처럼 결정적으로 해결 가능한 값은 backend/domain logic이 맡는다.
+
+AI는 설명, 우선순위화, synthesis, open-ended reasoning을 담당한다.
+
+## 12. Existing contracts are preserved unless explicitly migrated
+
+Future integration 대비만을 이유로 stable seed key, historical import, local user-state, backup semantics, public API, `PromptContextBundle`, `canonical_facts` 호환 key를 깨지 않는다.
+
+Migration/deprecation은 explicit milestone과 compatibility plan이 필요하다.
+
+## 13. Product role
+
+Repository의 장기 핵심 가치는 검증된 BDO KR knowledge backend와 deterministic game-domain logic이다.
+
+Frontend는 supported reference/admin/local operational consumer로 유지한다.
+
+Future AI adapters may become primary interaction surfaces, but implementation is a separate explicit milestone.
+
+See `docs/PRODUCT_DIRECTION.md`.

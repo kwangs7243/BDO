@@ -1,3 +1,7 @@
+> **Status — current Prompt Bridge preset contract**
+>
+> These presets remain supported. They are not the required tool surface for a future MCP/API adapter.
+
 # Prompt Presets
 
 아래 문구는 템플릿의 목적을 정의한다. 게임 사실은 템플릿에 하드코딩하지 않는다.

@@ -1,3 +1,10 @@
+> **Status — implemented V1.5 compatibility contract**
+>
+> Prompt Bridge remains supported and `PromptContextBundle` is a reusable retrieval/context contract.
+> The copy/download Markdown workflow is a V1 consumer mechanism, not a restriction on future explicitly approved AI adapters.
+> Future transport must preserve current compatibility unless an explicit migration milestone says otherwise.
+> See `docs/PRODUCT_DIRECTION.md`.
+
 # Feature Spec 002 — ChatGPT Prompt Bridge (V1.5)
 
 ## Product statement

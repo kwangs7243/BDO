@@ -1,3 +1,8 @@
+> **Status — historical implementation sequence**
+>
+> Phases below describe the V1 build sequence and are not the current roadmap.
+> Future milestone selection follows `docs/PRODUCT_DIRECTION.md`, latest `main`, current handoff, and explicit milestone instructions.
+
 # Implementation Plan
 
 ## Phase 0 — Repository & quality gates

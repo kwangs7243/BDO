@@ -1,3 +1,7 @@
+> **Status — completed V1.5 task checklist; historical**
+>
+> Preserve as implementation evidence and regression context. New AI integration work requires a separate explicit milestone.
+
 # Tasks — Prompt Bridge V1.5
 
 > V1.8E에서 context selector, output mode와 deterministic size compaction까지 구현해 Prompt Bridge V1.5 범위를 완료했다. V1.9D에서는 API selector 호환성을 유지하면서 verified knowledge의 FACT/STRATEGY/MEASUREMENT 의미론을 명시했다.

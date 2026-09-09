@@ -2,6 +2,8 @@
 
 > V1.9M 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
 
+> Product-priority note: completed consumer UI features remain supported, but new consumer-facing UI expansion is not an implicit next milestone. Canonical knowledge, evidence quality, deterministic domain logic, and future-compatible retrieval boundaries may be prioritized according to `docs/PRODUCT_DIRECTION.md`.
+
 ## Milestone A: working vertical slice
 
 - [x] Create `frontend/` React+TS+Vite

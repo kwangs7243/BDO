@@ -71,3 +71,18 @@
 **Decision:** Prompt Bridge의 verified knowledge는 claim마다 `fact`, `strategy`, `measurement` 역할을 명시한다. 역할은 Requirement의 `structured_value.knowledge_role`과 Content 구조에서 결정하며 source type으로 추론하지 않는다. 모든 Requirement가 같은 지원 역할을 선언한 Content만 그 역할을 기본값으로 사용하고, 혼합·누락·지원하지 않는 값은 `fact` 기본값으로 처리한다. `strategy` Section은 항상 전략, Reward/Schedule과 Project의 결정적 투영·계산은 항상 사실로 분류한다. verification 상태와 역할은 독립적이므로 unresolved/conflict 항목도 원래 역할을 유지한다. API bundle 및 12개 context selector의 `canonical_facts` 키는 호환성을 위해 유지하고 Markdown 표시 heading만 `VERIFIED_KNOWLEDGE`로 명확히 한다.
 
 **Reason:** verified는 근거 검증 상태이지 공식 사실 여부를 뜻하지 않는다. 커뮤니티 기반 전략과 측정 관찰값도 검증될 수 있으므로 이를 사실과 구분해야 ChatGPT가 전략·측정값을 게임의 공식 규칙처럼 단정하지 않는다. 동시에 공개 계약 키를 바꾸지 않아 기존 UI와 요청 payload를 깨뜨리지 않는다.
+
+## ADR-015 Product role centered on canonical knowledge; personal-state ownership is domain-scoped
+
+**Status:** Accepted 2026-09-09.
+**Supersedes:** ADR-001 only where ADR-001 states that Notion is merely reference storage and the local web app must be the primary tracker for all personal progress.
+
+**Decision:** BDO Companion's primary long-term responsibility is verified Black Desert Online KR canonical knowledge, evidence/history, deterministic game-domain logic, and stable retrieval/context contracts. The existing local frontend and local personal-state system remain supported, but they are not required to be the user's primary daily interaction surface.
+
+Personal-state ownership may be assigned by domain. Actual life-project usage has validated an external Notion workspace as an effective AI-readable/writable personal-state backend, but this does not authorize migration of all user state. Existing `UserContentState`, checklist history, `UserMaterialInventory`, `UserProjectStageState`, and backup behavior remain intact until an explicit domain migration/integration milestone changes their ownership.
+
+Canonical game knowledge must not be independently maintained in Notion or another personal-state store. Future ChatGPT/MCP/API integrations should normally be thin consumers behind the existing domain service/API/`PromptContextBundle` boundaries rather than replacements for the canonical database.
+
+The frontend remains a supported reference / inspection / admin / local operational consumer. Consumer-UI expansion is lower roadmap priority unless explicitly requested.
+
+**Reason:** Actual usage shows that conversational interaction through ChatGPT can be more effective than manually navigating a dedicated tracker UI, while the repository's strongest reusable asset is its structured, sourced, version-aware game knowledge. Keeping the canonical backend and current compatibility intact preserves previous implementation value and allows AI or external personal-state integrations to be introduced incrementally without a rewrite.
