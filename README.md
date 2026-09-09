@@ -2,16 +2,16 @@
 
 목표: 단순 숙제 체크리스트가 아니라, **검은사막 콘텐츠 위키 + 진행도 + 반복 숙제 + 프로젝트/재료 트래커 + 근거 관리**를 하나로 묶는 로컬 웹앱.
 
-현재 구현 milestone은 **V1.9K — Guild Boss Current System & Weekly Raid Closure**이다.
+현재 구현 milestone은 **V1.9L — Adventure Log Current Catalog & Reward Reconciliation**이다.
 
 ## 현재 baseline
 
-- Source: 180
-- Content: 280 (모두 active)
-- 지식 역할: FACT 250 / STRATEGY 63 / MEASUREMENT 11
+- Source: 182
+- Content: 294 (모두 active)
+- 지식 역할: FACT 279 / STRATEGY 63 / MEASUREMENT 11
 - Project Tracker: Project 1 / Stage 4 / Material 9 / ProjectMaterial 9 / MaterialSource 9
-- 테스트: backend 316 passed / frontend 57 passed
-- 주요 데이터 영역: Routine, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss, Atoraxxion / Last Gladiius Weekly, Account / Main Quest / Adventure Log / Magnus Progression Foundation, Fairy / Pets Foundation, Guild Boss Current System
+- 테스트: backend 324 passed / frontend 57 passed
+- 주요 데이터 영역: Routine, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss, Atoraxxion / Last Gladiius Weekly, Account / Main Quest / Magnus Progression Foundation, Adventure Log Current Catalog, Fairy / Pets Foundation, Guild Boss Current System
 
 ## 제품 목표 사용 시나리오
 
@@ -51,7 +51,7 @@
 
 ## 현재 범위와 AI 원칙
 
-현재 V1.9K까지 비용이 발생하는 AI 연동 없이 V1.5의 로컬 Prompt Bridge 원칙을 유지하며, V1.5 범위의 Prompt Bridge 기능은 완료되었다.
+현재 V1.9L까지 비용이 발생하는 AI 연동 없이 V1.5의 로컬 Prompt Bridge 원칙을 유지하며, V1.5 범위의 Prompt Bridge 기능은 완료되었다.
 
 - OpenAI API: 사용 안 함
 - 타사 LLM API: 사용 안 함
@@ -86,6 +86,7 @@
 - Routine과 해양, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss, Atoraxxion / Last Gladiius Weekly 및 현행 길드 우두머리 seed
 - 요정 획득·등급·성장·기술과 반려동물 행동·배고픔·교환·5세대 대장 규칙 및 조건부 초기 설정 전략
 - Account / Main Quest / Adventure Log / Magnus Progression Foundation seed
+- 공식 KR live 책장 기준 Adventure Log current catalog, 대표 해금 조건·총량 보상·Emma 13장 progression과 stale/known-issue 경계
 - Project/Stage DAG, Material projection, global inventory와 stage completion 상태
 - Carrack Advance backend tracker와 결정적 shortage 계산
 - Project 목록·상세 화면, stage 완료/해제, material 재고 저장과 Content 수급처 이동
@@ -99,7 +100,7 @@
 - 설정 화면의 로컬 JSON 다운로드, 검증 summary, 기본 merge와 명시적 확인이 필요한 replace 복원
 - unknown identity 전체 거부, 단일 transaction restore와 canonical knowledge 불변성
 
-정본 seed 형식은 `docs/data/SEED_FORMAT.md`, V1.8A backend 기반은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B frontend 경험은 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub는 `handoff/V19A_LIFE_HUB_REPORT.md`, V1.9B 사용자 백업·복원은 `handoff/V19B_USER_BACKUP_RESTORE_REPORT.md`, V1.9C 생활 전략 팩은 `handoff/V19C_LIFE_STRATEGY_DEEP1_REPORT.md`, V1.9D 지식 역할 의미론 정리는 `handoff/V19D_PROMPT_KNOWLEDGE_ROLE_REPORT.md`, V1.9E 재배·가공 전략 팩은 `handoff/V19E_LIFE_STRATEGY_DEEP2_REPORT.md`, V1.9F 요리·연금 전략 팩은 `handoff/V19F_LIFE_STRATEGY_DEEP3_REPORT.md`, V1.9G 항해·물물교환 전략 팩은 `handoff/V19G_LIFE_STRATEGY_DEEP4_REPORT.md`, V1.9H 조련 실전 전략 팩은 `handoff/V19H_TRAINING_STRATEGY_DEEP5_REPORT.md`, V1.9I 최후의 글라디우스 주간 콘텐츠는 `handoff/V19I_LAST_GLADIIUS_WEEKLY_REPORT.md`, V1.9J 요정·반려동물 기반은 `handoff/V19J_FAIRY_PETS_FOUNDATION_REPORT.md`, V1.9K 길드 우두머리 현행 시스템은 `handoff/V19K_GUILD_BOSS_CURRENT_REPORT.md`에 기록한다.
+정본 seed 형식은 `docs/data/SEED_FORMAT.md`, V1.8A backend 기반은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B frontend 경험은 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub는 `handoff/V19A_LIFE_HUB_REPORT.md`, V1.9B 사용자 백업·복원은 `handoff/V19B_USER_BACKUP_RESTORE_REPORT.md`, V1.9C 생활 전략 팩은 `handoff/V19C_LIFE_STRATEGY_DEEP1_REPORT.md`, V1.9D 지식 역할 의미론 정리는 `handoff/V19D_PROMPT_KNOWLEDGE_ROLE_REPORT.md`, V1.9E 재배·가공 전략 팩은 `handoff/V19E_LIFE_STRATEGY_DEEP2_REPORT.md`, V1.9F 요리·연금 전략 팩은 `handoff/V19F_LIFE_STRATEGY_DEEP3_REPORT.md`, V1.9G 항해·물물교환 전략 팩은 `handoff/V19G_LIFE_STRATEGY_DEEP4_REPORT.md`, V1.9H 조련 실전 전략 팩은 `handoff/V19H_TRAINING_STRATEGY_DEEP5_REPORT.md`, V1.9I 최후의 글라디우스 주간 콘텐츠는 `handoff/V19I_LAST_GLADIIUS_WEEKLY_REPORT.md`, V1.9J 요정·반려동물 기반은 `handoff/V19J_FAIRY_PETS_FOUNDATION_REPORT.md`, V1.9K 길드 우두머리 현행 시스템은 `handoff/V19K_GUILD_BOSS_CURRENT_REPORT.md`, V1.9L 모험일지 현행 카탈로그는 `handoff/V19L_ADVENTURE_LOG_CURRENT_REPORT.md`에 기록한다.
 
 ## 실행
 
@@ -142,12 +143,12 @@ uv run uvicorn app.main:app --reload
 
 ## 검증 명령과 결과
 
-2026-09-08 기준 backend 테스트는 316 passed, frontend 테스트는 57 passed다.
+2026-09-09 기준 backend 테스트는 324 passed, frontend 테스트는 57 passed다.
 
 ```powershell
 cd backend
 uv run pytest
-# 316 passed
+# 324 passed
 
 cd ../frontend
 npm run typecheck
@@ -157,4 +158,4 @@ npm run build
 # frontend: 57 passed
 ```
 
-V1.6A 기반 구조는 `handoff/V16A_SNAPSHOT.md`, V1.7 데이터 팩 결과는 `handoff/V17A_COMBAT_FOUNDATION_REPORT.md`, `handoff/V17B_GRIND_SPOT_REPORT.md`, `handoff/V17C_BOSS_BLACK_SHRINE_REPORT.md`, `handoff/V17D_ACCOUNT_PROGRESSION_REPORT.md`에 기록되어 있다. V1.8A Project Tracker backend foundation은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B Carrack Project UI는 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub Experience는 `handoff/V19A_LIFE_HUB_REPORT.md`, V1.9B User Data Backup & Restore는 `handoff/V19B_USER_BACKUP_RESTORE_REPORT.md`, V1.9C Life Strategy Deep Pack I은 `handoff/V19C_LIFE_STRATEGY_DEEP1_REPORT.md`, V1.9D Prompt Knowledge Role Semantics Closure는 `handoff/V19D_PROMPT_KNOWLEDGE_ROLE_REPORT.md`, V1.9E Life Strategy Deep Pack II는 `handoff/V19E_LIFE_STRATEGY_DEEP2_REPORT.md`, V1.9F Life Strategy Deep Pack III는 `handoff/V19F_LIFE_STRATEGY_DEEP3_REPORT.md`, V1.9G Life Strategy Deep Pack IV는 `handoff/V19G_LIFE_STRATEGY_DEEP4_REPORT.md`, V1.9H Training Practical Strategy Deep Pack은 `handoff/V19H_TRAINING_STRATEGY_DEEP5_REPORT.md`, V1.9I Last Gladiius Weekly Content Closure는 `handoff/V19I_LAST_GLADIIUS_WEEKLY_REPORT.md`, V1.9J Fairy / Pets Foundation은 `handoff/V19J_FAIRY_PETS_FOUNDATION_REPORT.md`, V1.9K Guild Boss Current System은 `handoff/V19K_GUILD_BOSS_CURRENT_REPORT.md`에 기록한다.
+V1.6A 기반 구조는 `handoff/V16A_SNAPSHOT.md`, V1.7 데이터 팩 결과는 `handoff/V17A_COMBAT_FOUNDATION_REPORT.md`, `handoff/V17B_GRIND_SPOT_REPORT.md`, `handoff/V17C_BOSS_BLACK_SHRINE_REPORT.md`, `handoff/V17D_ACCOUNT_PROGRESSION_REPORT.md`에 기록되어 있다. V1.8A Project Tracker backend foundation은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B Carrack Project UI는 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub Experience는 `handoff/V19A_LIFE_HUB_REPORT.md`, V1.9B User Data Backup & Restore는 `handoff/V19B_USER_BACKUP_RESTORE_REPORT.md`, V1.9C Life Strategy Deep Pack I은 `handoff/V19C_LIFE_STRATEGY_DEEP1_REPORT.md`, V1.9D Prompt Knowledge Role Semantics Closure는 `handoff/V19D_PROMPT_KNOWLEDGE_ROLE_REPORT.md`, V1.9E Life Strategy Deep Pack II는 `handoff/V19E_LIFE_STRATEGY_DEEP2_REPORT.md`, V1.9F Life Strategy Deep Pack III는 `handoff/V19F_LIFE_STRATEGY_DEEP3_REPORT.md`, V1.9G Life Strategy Deep Pack IV는 `handoff/V19G_LIFE_STRATEGY_DEEP4_REPORT.md`, V1.9H Training Practical Strategy Deep Pack은 `handoff/V19H_TRAINING_STRATEGY_DEEP5_REPORT.md`, V1.9I Last Gladiius Weekly Content Closure는 `handoff/V19I_LAST_GLADIIUS_WEEKLY_REPORT.md`, V1.9J Fairy / Pets Foundation은 `handoff/V19J_FAIRY_PETS_FOUNDATION_REPORT.md`, V1.9K Guild Boss Current System은 `handoff/V19K_GUILD_BOSS_CURRENT_REPORT.md`, V1.9L 모험일지 현행 카탈로그는 `handoff/V19L_ADVENTURE_LOG_CURRENT_REPORT.md`에 기록한다.
