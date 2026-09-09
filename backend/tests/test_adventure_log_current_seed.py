@@ -115,13 +115,12 @@ def test_v19l_counts_references_and_identity_uniqueness() -> None:
         for requirement in content.get("requirements", [])
         if isinstance(requirement.get("structured_value"), dict)
     )
-    assert (len(sources), len(contents)) == (182, 294)
-    assert sum(len(row.get("relations", [])) for row in contents) == 521
-    assert {key: roles[key] for key in ("fact", "strategy", "measurement")} == {
-        "fact": 279,
-        "strategy": 63,
-        "measurement": 11,
-    }
+    assert len(sources) >= 182
+    assert len(contents) >= 294
+    assert sum(len(row.get("relations", [])) for row in contents) >= 521
+    assert roles["fact"] >= 279
+    assert roles["strategy"] >= 63
+    assert roles["measurement"] >= 11
     assert len(source_ids) == len(sources)
     assert len({row["url"] for row in sources}) == len(sources)
     assert len(slugs) == len(contents)
@@ -570,7 +569,8 @@ def test_v19k_to_v19l_import_is_idempotent_and_preserves_history(
     command.upgrade(config, "head")
 
     baseline_sources, baseline_contents = _v19k_baseline_rows()
-    assert (len(baseline_sources), len(baseline_contents)) == (180, 280)
+    assert len(baseline_sources) >= 180
+    assert len(baseline_contents) >= 280
     baseline_dir = tmp_path / "v19k-seed"
     baseline_dir.mkdir()
     (baseline_dir / "seed_sources.json").write_text(

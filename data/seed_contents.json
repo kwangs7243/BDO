@@ -63,11 +63,11 @@
     "slug": "blood-altar",
     "name_ko": "피의 제단",
     "category": "combat_pve",
-    "summary": "Lv.56 이상 3인이 도전하는 21단계 콘텐츠. 주간 입장 제한은 없고, 파티당 도전 10회와 일요일 주간 보상 정산을 분리해 관리한다.",
+    "summary": "Lv.56 이상 3인이 도전하는 24단계 콘텐츠. 주간 입장 제한은 없고, 파티당 도전 10회와 일요일 주간 보상 정산, 단계별 최초 클리어 보상을 분리해 관리한다. 심연의 환상 1~3은 2026-09-09 삭제되어 current 난이도에 포함하지 않는다.",
     "purpose": "주간 최고 단계 기록에 따른 가문 보상을 받기 위해 진행하는 단계형 협동 콘텐츠.",
     "party_type": "party",
     "status": "active",
-    "last_verified_at": "2026-09-03",
+    "last_verified_at": "2026-09-09",
     "requirements": [
       {
         "seed_key": "blood-altar.party-size",
@@ -93,9 +93,9 @@
         "seed_key": "blood-altar.stages",
         "kind": "other",
         "title": "단계와 기록",
-        "description": "총 21단계이며 최고 클리어 기록은 초기화되지 않는다.",
+        "description": "총 24단계이며 최고 클리어 기록은 초기화되지 않는다.",
         "structured_value": {
-          "stage_count": 21,
+          "stage_count": 24,
           "highest_clear_persists": true
         },
         "requirement_level": "required"
@@ -133,6 +133,391 @@
           "cumulative": false
         },
         "requirement_level": "required"
+      },
+      {
+        "seed_key": "blood-altar.high-tier-current",
+        "kind": "stat",
+        "title": "22~24단계 current 구조",
+        "description": "2026-09-09 기준 22단계 권장 405/465·최종 2110/810, 23단계 권장 410/470·최종 2200/815, 24단계 권장 415/475·최종 2290/820이며 각 단계에 주간 보상과 최초 클리어 보상이 있다. 심연의 환상 1~3은 같은 날 삭제되었다.",
+        "structured_value": {
+          "knowledge_role": "fact",
+          "current_stage_cap": 24,
+          "future_high_tiers_possible": true,
+          "removed_effective_date": "2026-09-09",
+          "removed_difficulties": [
+            {
+              "key": "abyss_illusion_1",
+              "name": "심연의 환상 1",
+              "current": false
+            },
+            {
+              "key": "abyss_illusion_2",
+              "name": "심연의 환상 2",
+              "current": false
+            },
+            {
+              "key": "abyss_illusion_3",
+              "name": "심연의 환상 3",
+              "current": false
+            }
+          ],
+          "stages": {
+            "22": {
+              "recommended_ap": 405,
+              "recommended_dp": 465,
+              "recommended_final_ap": 2110,
+              "recommended_final_dp": 810,
+              "weekly_reward": {
+                "chance_based": [
+                  {
+                    "name": "금괴 상자",
+                    "amount": 14,
+                    "unit": "개",
+                    "contents": {
+                      "name": "금괴 1kG",
+                      "min_amount": 3,
+                      "max_amount": 10,
+                      "unit": "개"
+                    }
+                  },
+                  {
+                    "name": "발크스의 조언 (+300)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "발크스의 조언 (+250)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "발크스의 조언 (+200)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "영롱한 포식의 기원",
+                    "amount": 4,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "영롱한 포식의 정수",
+                    "amount": 9,
+                    "unit": "개"
+                  }
+                ],
+                "quantity_guaranteed": [
+                  {
+                    "name": "금괴 상자",
+                    "min_amount": 4,
+                    "max_amount": 5,
+                    "unit": "개",
+                    "contents": {
+                      "name": "금괴 1kG",
+                      "min_amount": 3,
+                      "max_amount": 10,
+                      "unit": "개"
+                    }
+                  },
+                  {
+                    "name": "영롱한 포식의 기원",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "발크스의 조언 (+100)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "자연의 흔적",
+                    "min_amount": 25,
+                    "max_amount": 30,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "봉인된 검은 마력의 수정",
+                    "min_amount": 60,
+                    "max_amount": 65,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "블랙스톤",
+                    "min_amount": 125,
+                    "max_amount": 130,
+                    "unit": "개"
+                  }
+                ]
+              },
+              "first_clear_reward": {
+                "guaranteed": [
+                  {
+                    "name": "금괴 상자",
+                    "amount": 3,
+                    "unit": "개",
+                    "contents": {
+                      "name": "금괴 1kG",
+                      "min_amount": 3,
+                      "max_amount": 10,
+                      "unit": "개"
+                    }
+                  },
+                  {
+                    "name": "영롱한 포식의 기원",
+                    "amount": 2,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "발크스의 조언 (+200)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "피의 제단 : 제22의 환상",
+                    "amount": 1,
+                    "unit": "지식"
+                  }
+                ]
+              }
+            },
+            "23": {
+              "recommended_ap": 410,
+              "recommended_dp": 470,
+              "recommended_final_ap": 2200,
+              "recommended_final_dp": 815,
+              "weekly_reward": {
+                "chance_based": [
+                  {
+                    "name": "금괴 상자",
+                    "amount": 14,
+                    "unit": "개",
+                    "contents": {
+                      "name": "금괴 1kG",
+                      "min_amount": 3,
+                      "max_amount": 10,
+                      "unit": "개"
+                    }
+                  },
+                  {
+                    "name": "발크스의 조언 (+300)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "발크스의 조언 (+250)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "발크스의 조언 (+200)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "영롱한 포식의 기원",
+                    "amount": 4,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "영롱한 포식의 정수",
+                    "amount": 9,
+                    "unit": "개"
+                  }
+                ],
+                "quantity_guaranteed": [
+                  {
+                    "name": "금괴 상자",
+                    "amount": 5,
+                    "unit": "개",
+                    "contents": {
+                      "name": "금괴 1kG",
+                      "min_amount": 3,
+                      "max_amount": 10,
+                      "unit": "개"
+                    }
+                  },
+                  {
+                    "name": "영롱한 포식의 기원",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "발크스의 조언 (+100)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "자연의 흔적",
+                    "min_amount": 26,
+                    "max_amount": 31,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "봉인된 검은 마력의 수정",
+                    "min_amount": 65,
+                    "max_amount": 70,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "블랙스톤",
+                    "min_amount": 130,
+                    "max_amount": 135,
+                    "unit": "개"
+                  }
+                ]
+              },
+              "first_clear_reward": {
+                "guaranteed": [
+                  {
+                    "name": "금괴 상자",
+                    "amount": 3,
+                    "unit": "개",
+                    "contents": {
+                      "name": "금괴 1kG",
+                      "min_amount": 3,
+                      "max_amount": 10,
+                      "unit": "개"
+                    }
+                  },
+                  {
+                    "name": "영롱한 포식의 기원",
+                    "amount": 2,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "발크스의 조언 (+200)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "피의 제단 : 제23의 환상",
+                    "amount": 1,
+                    "unit": "지식"
+                  }
+                ]
+              }
+            },
+            "24": {
+              "recommended_ap": 415,
+              "recommended_dp": 475,
+              "recommended_final_ap": 2290,
+              "recommended_final_dp": 820,
+              "weekly_reward": {
+                "chance_based": [
+                  {
+                    "name": "금괴 상자",
+                    "amount": 14,
+                    "unit": "개",
+                    "contents": {
+                      "name": "금괴 1kG",
+                      "min_amount": 3,
+                      "max_amount": 10,
+                      "unit": "개"
+                    }
+                  },
+                  {
+                    "name": "발크스의 조언 (+300)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "발크스의 조언 (+250)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "발크스의 조언 (+200)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "영롱한 포식의 기원",
+                    "amount": 4,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "영롱한 포식의 정수",
+                    "amount": 9,
+                    "unit": "개"
+                  }
+                ],
+                "quantity_guaranteed": [
+                  {
+                    "name": "금괴 상자",
+                    "min_amount": 5,
+                    "max_amount": 6,
+                    "unit": "개",
+                    "contents": {
+                      "name": "금괴 1kG",
+                      "min_amount": 3,
+                      "max_amount": 10,
+                      "unit": "개"
+                    }
+                  },
+                  {
+                    "name": "영롱한 포식의 기원",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "발크스의 조언 (+100)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "자연의 흔적",
+                    "min_amount": 27,
+                    "max_amount": 32,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "봉인된 검은 마력의 수정",
+                    "min_amount": 70,
+                    "max_amount": 75,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "블랙스톤",
+                    "min_amount": 135,
+                    "max_amount": 140,
+                    "unit": "개"
+                  }
+                ]
+              },
+              "first_clear_reward": {
+                "guaranteed": [
+                  {
+                    "name": "금괴 상자",
+                    "amount": 3,
+                    "unit": "개",
+                    "contents": {
+                      "name": "금괴 1kG",
+                      "min_amount": 3,
+                      "max_amount": 10,
+                      "unit": "개"
+                    }
+                  },
+                  {
+                    "name": "영롱한 포식의 기원",
+                    "amount": 2,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "발크스의 조언 (+200)",
+                    "amount": 1,
+                    "unit": "개"
+                  },
+                  {
+                    "name": "피의 제단 : 제24의 환상",
+                    "amount": 1,
+                    "unit": "지식"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "requirement_level": "recommended"
       }
     ],
     "steps": [
@@ -167,6 +552,60 @@
         "reward_type": "first_clear_reward",
         "is_choice": false,
         "notes": "각 난이도 최초 클리어 시 가문당 1회; 주간 보상과 별도"
+      },
+      {
+        "seed_key": "blood-altar.reward.stage-22-weekly",
+        "name": "22단계 주간 최고 기록 보상",
+        "reward_type": "weekly_reward",
+        "amount": 1,
+        "unit": "묶음",
+        "is_choice": false,
+        "notes": "정확한 확률 획득 목록과 수량 보장 범위는 blood-altar.high-tier-current의 22단계 canonical FACT 참조"
+      },
+      {
+        "seed_key": "blood-altar.reward.stage-22-first-clear",
+        "name": "22단계 최초 클리어 보상",
+        "reward_type": "first_clear_reward",
+        "amount": 1,
+        "unit": "묶음",
+        "is_choice": false,
+        "notes": "가문당 1회; 정확한 구성은 blood-altar.high-tier-current의 22단계 canonical FACT 참조"
+      },
+      {
+        "seed_key": "blood-altar.reward.stage-23-weekly",
+        "name": "23단계 주간 최고 기록 보상",
+        "reward_type": "weekly_reward",
+        "amount": 1,
+        "unit": "묶음",
+        "is_choice": false,
+        "notes": "정확한 확률 획득 목록과 수량 보장 범위는 blood-altar.high-tier-current의 23단계 canonical FACT 참조"
+      },
+      {
+        "seed_key": "blood-altar.reward.stage-23-first-clear",
+        "name": "23단계 최초 클리어 보상",
+        "reward_type": "first_clear_reward",
+        "amount": 1,
+        "unit": "묶음",
+        "is_choice": false,
+        "notes": "가문당 1회; 정확한 구성은 blood-altar.high-tier-current의 23단계 canonical FACT 참조"
+      },
+      {
+        "seed_key": "blood-altar.reward.stage-24-weekly",
+        "name": "24단계 주간 최고 기록 보상",
+        "reward_type": "weekly_reward",
+        "amount": 1,
+        "unit": "묶음",
+        "is_choice": false,
+        "notes": "정확한 확률 획득 목록과 수량 보장 범위는 blood-altar.high-tier-current의 24단계 canonical FACT 참조"
+      },
+      {
+        "seed_key": "blood-altar.reward.stage-24-first-clear",
+        "name": "24단계 최초 클리어 보상",
+        "reward_type": "first_clear_reward",
+        "amount": 1,
+        "unit": "묶음",
+        "is_choice": false,
+        "notes": "가문당 1회; 정확한 구성은 blood-altar.high-tier-current의 24단계 canonical FACT 참조"
       }
     ],
     "sections": [
@@ -226,14 +665,26 @@
         "seed_key": "blood-altar.summary",
         "entity_type": "content",
         "entity_seed_key": "blood-altar",
-        "claim_key": "summary",
+        "claim_key": "general_mechanics",
         "source_ids": [
-          "blood-altar-guide",
-          "blood-altar-challenge-2026-07-15"
+          "blood-altar-guide"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "21단계·3인·무제한 주간 입장과 최신 파티 도전 10회"
+        "last_verified_at": "2026-09-09",
+        "note": "3인 협동, 최고 기록 유지, 무제한 주간 입장과 주간 보상 일반 구조만 사용"
+      },
+      {
+        "seed_key": "blood-altar.summary",
+        "entity_type": "content",
+        "entity_seed_key": "blood-altar",
+        "claim_key": "summary",
+        "source_ids": [
+          "blood-altar-challenge-2026-07-15",
+          "blood-altar-high-tier-2026-09-09"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-09",
+        "note": "파티당 10회와 current 24단계, 심연의 환상 1~3 삭제"
       },
       {
         "seed_key": "blood-altar.purpose",
@@ -275,13 +726,25 @@
         "seed_key": "blood-altar.requirement.stages",
         "entity_type": "content_requirement",
         "entity_seed_key": "blood-altar.stages",
-        "claim_key": "structured_value",
+        "claim_key": "highest_clear_persists",
         "source_ids": [
           "blood-altar-guide"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "21단계 및 최고 기록 유지"
+        "last_verified_at": "2026-09-09",
+        "note": "최고 클리어 기록 유지 근거만 사용; 가이드의 21단계 상한은 current 근거가 아님"
+      },
+      {
+        "seed_key": "blood-altar.requirement.stages",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "blood-altar.stages",
+        "claim_key": "structured_value",
+        "source_ids": [
+          "blood-altar-high-tier-2026-09-09"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-09",
+        "note": "22~24단계 추가에 따른 current stage_count 24"
       },
       {
         "seed_key": "blood-altar.requirement.entry-limit",
@@ -331,6 +794,102 @@
         "verification_status": "verified",
         "last_verified_at": "2026-09-03",
         "note": "가문당 주 1회 최고 단계만 산정"
+      },
+      {
+        "seed_key": "blood-altar.requirement.high-tier-current",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "blood-altar.high-tier-current",
+        "claim_key": "description",
+        "source_ids": [
+          "blood-altar-high-tier-2026-09-09"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-09",
+        "note": "Prompt Bridge가 사용하는 22~24단계 능력치·보상·삭제 경계 설명"
+      },
+      {
+        "seed_key": "blood-altar.requirement.high-tier-current.structured",
+        "entity_type": "content_requirement",
+        "entity_seed_key": "blood-altar.high-tier-current",
+        "claim_key": "structured_value",
+        "source_ids": [
+          "blood-altar-high-tier-2026-09-09"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-09",
+        "note": "22~24단계 exact 능력치·보상 구조와 심연의 환상 1~3 삭제 current FACT"
+      },
+      {
+        "seed_key": "blood-altar.reward.stage-22-weekly",
+        "entity_type": "reward",
+        "entity_seed_key": "blood-altar.reward.stage-22-weekly",
+        "claim_key": "reward",
+        "source_ids": [
+          "blood-altar-high-tier-2026-09-09"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-09",
+        "note": "22단계 주간 최고 기록 보상 묶음"
+      },
+      {
+        "seed_key": "blood-altar.reward.stage-22-first-clear",
+        "entity_type": "reward",
+        "entity_seed_key": "blood-altar.reward.stage-22-first-clear",
+        "claim_key": "reward",
+        "source_ids": [
+          "blood-altar-high-tier-2026-09-09"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-09",
+        "note": "22단계 최초 클리어 보상 묶음"
+      },
+      {
+        "seed_key": "blood-altar.reward.stage-23-weekly",
+        "entity_type": "reward",
+        "entity_seed_key": "blood-altar.reward.stage-23-weekly",
+        "claim_key": "reward",
+        "source_ids": [
+          "blood-altar-high-tier-2026-09-09"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-09",
+        "note": "23단계 주간 최고 기록 보상 묶음"
+      },
+      {
+        "seed_key": "blood-altar.reward.stage-23-first-clear",
+        "entity_type": "reward",
+        "entity_seed_key": "blood-altar.reward.stage-23-first-clear",
+        "claim_key": "reward",
+        "source_ids": [
+          "blood-altar-high-tier-2026-09-09"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-09",
+        "note": "23단계 최초 클리어 보상 묶음"
+      },
+      {
+        "seed_key": "blood-altar.reward.stage-24-weekly",
+        "entity_type": "reward",
+        "entity_seed_key": "blood-altar.reward.stage-24-weekly",
+        "claim_key": "reward",
+        "source_ids": [
+          "blood-altar-high-tier-2026-09-09"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-09",
+        "note": "24단계 주간 최고 기록 보상 묶음"
+      },
+      {
+        "seed_key": "blood-altar.reward.stage-24-first-clear",
+        "entity_type": "reward",
+        "entity_seed_key": "blood-altar.reward.stage-24-first-clear",
+        "claim_key": "reward",
+        "source_ids": [
+          "blood-altar-high-tier-2026-09-09"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-09",
+        "note": "24단계 최초 클리어 보상 묶음"
       },
       {
         "seed_key": "blood-altar.step.weekly-record",
@@ -384,14 +943,25 @@
         "seed_key": "blood-altar.section.entry-and-challenge",
         "entity_type": "content_section",
         "entity_seed_key": "blood-altar.entry-and-challenge",
+        "claim_key": "entry_rule",
+        "source_ids": [
+          "blood-altar-guide"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-09",
+        "note": "주간 입장 제한 없음 근거만 사용; 가이드의 파티당 5회 표기는 current 근거가 아님"
+      },
+      {
+        "seed_key": "blood-altar.section.entry-and-challenge",
+        "entity_type": "content_section",
+        "entity_seed_key": "blood-altar.entry-and-challenge",
         "claim_key": "body",
         "source_ids": [
-          "blood-altar-guide",
           "blood-altar-challenge-2026-07-15"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "입장과 도전 횟수 분리"
+        "last_verified_at": "2026-09-09",
+        "note": "파티당 10회 도전과 소진 뒤 재매칭"
       },
       {
         "seed_key": "blood-altar.section.why",
@@ -409,13 +979,25 @@
         "seed_key": "blood-altar.section.payout-warning",
         "entity_type": "content_section",
         "entity_seed_key": "blood-altar.payout-warning",
-        "claim_key": "body",
+        "claim_key": "general_rules",
         "source_ids": [
           "blood-altar-guide"
         ],
         "verification_status": "verified",
-        "last_verified_at": "2026-09-03",
-        "note": "보상 산정과 입장 제한 분리"
+        "last_verified_at": "2026-09-09",
+        "note": "무제한 입장, 최고 기록 보상과 일요일 지급의 분리 근거"
+      },
+      {
+        "seed_key": "blood-altar.section.payout-warning",
+        "entity_type": "content_section",
+        "entity_seed_key": "blood-altar.payout-warning",
+        "claim_key": "body",
+        "source_ids": [
+          "blood-altar-challenge-2026-07-15"
+        ],
+        "verification_status": "verified",
+        "last_verified_at": "2026-09-09",
+        "note": "파티당 10회 current 도전 규칙"
       }
     ]
   },

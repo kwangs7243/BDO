@@ -1,6 +1,6 @@
 # Tasks — first implementation milestone
 
-> V1.9L 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
+> V1.9M 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
 
 ## Milestone A: working vertical slice
 
@@ -31,7 +31,7 @@
 V1.9B 완료로 현재 정의된 Milestone B 항목은 모두 구현되었다.
 
 ## Milestone C: broad catalog
-- [x] Blood Altar
+- [x] Blood Altar — V1.9M에서 2026-09-09 기준 22~24단계, 최대 24단계, 심연의 환상 1~3 제거, 파티당 10회와 일요일 최고 단계 보상까지 currentize
 - [x] Black Shrine variants (current rules verified in V1.7C seed)
 - [x] Pit of Undying
 - [x] Atoraxxion regions
