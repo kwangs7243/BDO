@@ -89,7 +89,7 @@ The frontend remains a supported reference / inspection / admin / local operatio
 
 ## ADR-016 Caller-provided personal state is ephemeral calculation input
 
-**Status:** Accepted 2026-09-09.
+**Status:** Accepted 2026-09-10.
 
 **Decision:** External or caller-owned personal state may be supplied as input to a deterministic calculation request. The V1.9O Project calculator combines caller-provided material quantities with canonical Project requirements, but does not automatically write those values to local user-state tables. Canonical Project requirements remain owned by the BDO database. A missing caller quantity means `0`, not a fallback to `UserMaterialInventory`. Persistence and synchronization require a separate explicit milestone.
 
