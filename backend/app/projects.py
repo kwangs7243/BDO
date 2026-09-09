@@ -5,6 +5,7 @@ from datetime import UTC, datetime
 from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
+from app.project_calculations import calculate_shortage
 from app.models import (
     Material,
     Project,
@@ -42,8 +43,6 @@ def _project_query():
     )
 
 
-def _shortage(required: float, owned: float) -> float:
-    return max(required - owned, 0.0)
 
 
 def list_projects(session: Session) -> list[ProjectSummaryOut]:
@@ -55,7 +54,7 @@ def list_projects(session: Session) -> list[ProjectSummaryOut]:
         shortage_material_ids = {
             item.material_id
             for item in project.materials
-            if item.active and _shortage(item.required_quantity, item.material.inventory.quantity if item.material.inventory else 0) > 0
+            if item.active and calculate_shortage(item.required_quantity, item.material.inventory.quantity if item.material.inventory else 0) > 0
         }
         result.append(
             ProjectSummaryOut(
@@ -115,7 +114,7 @@ def get_project_detail(session: Session, slug: str) -> ProjectDetailOut | None:
                 stage_seed_key=stage_by_id[item.stage_id].seed_key if item.stage_id else None,
                 required_quantity=item.required_quantity,
                 owned_quantity=owned,
-                shortage=_shortage(item.required_quantity, owned),
+                shortage=calculate_shortage(item.required_quantity, owned),
                 inventory_note=inventory.note if inventory else None,
                 inventory_updated_at=_aware_utc(inventory.updated_at) if inventory else None,
                 notes=item.notes,

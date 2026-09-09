@@ -16,6 +16,7 @@ from app.knowledge import get_knowledge_content, get_knowledge_project, search_k
 from app.life import get_life_hub, get_life_skill
 from app.models import ChecklistItemState, Content, UserContentState
 from app.periods import KST, SUNDAY, daily_period, next_weekly_occurrence, weekly_period
+from app.project_calculations import calculate_project
 from app.prompt_bridge import build_context, render_result
 from app.projects import (
     get_project_detail,
@@ -37,6 +38,8 @@ from app.schemas import (
     PromptContextBundle,
     PromptRenderOut,
     PromptRequest,
+    ProjectCalculationOut,
+    ProjectCalculationRequest,
     MaterialInventoryOut,
     MaterialInventoryUpdate,
     ProjectDetailOut,
@@ -217,6 +220,23 @@ def put_user_content_state(
         note=state.note,
         updated_at=state.updated_at.replace(tzinfo=UTC) if state.updated_at.tzinfo is None else state.updated_at,
     )
+
+
+@app.post(
+    "/api/calculations/projects/{slug}",
+    response_model=ProjectCalculationOut,
+)
+def project_calculation(
+    slug: str,
+    request: ProjectCalculationRequest,
+    session: Session = Depends(get_session),
+):
+    try:
+        return calculate_project(session, slug, request)
+    except LookupError as error:
+        raise HTTPException(status_code=404, detail="Project not found") from error
+    except ValueError as error:
+        raise HTTPException(status_code=422, detail=str(error)) from error
 
 
 @app.get("/api/projects", response_model=list[ProjectSummaryOut])

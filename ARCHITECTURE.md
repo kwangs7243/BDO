@@ -93,7 +93,21 @@ Canonical Project data includes project identity, stage DAG, required quantities
 
 Personal project state includes owned quantity, completed stage, personal notes, and other user-specific progress.
 
-The current repository stores some personal project state locally. A future external personal-state integration may provide these values instead, but canonical requirements/formulas must remain reusable regardless of where personal values live.
+The current repository stores some personal project state locally. External personal-state consumers may instead provide quantities to the V1.9O stateless calculation boundary without changing ownership or persisting those values.
+
+```text
+Canonical Project
+      +
+Caller-provided quantities
+      │
+      ▼
+Stateless Project Calculation Service
+      │
+      ▼
+POST /api/calculations/projects/{slug}
+```
+
+The calculator reuses the canonical-only V1.9N Project projection and the same shortage formula as the local tracker. Caller state is ephemeral request input: it is not written to the database, merged with `UserMaterialInventory`, or replaced by a local fallback when a quantity is missing.
 
 ## Prompt Bridge
 
@@ -143,7 +157,7 @@ existing BDO domain services
 
 The adapter is not implemented merely because this architecture permits it.
 
-V1.9N implements server-side lexical search/identity resolution and knowledge-only Content/Project retrieval at `/api/knowledge/*`. A remaining capability to evaluate only when explicitly needed is pure deterministic calculation with caller-provided state.
+V1.9N implements server-side lexical search/identity resolution and knowledge-only Content/Project retrieval at `/api/knowledge/*`. V1.9O adds pure deterministic Project shortage calculation with caller-provided quantities at `/api/calculations/projects/{slug}`; transport adapters, external persistence, synchronization, and optimization remain outside this boundary.
 
 ## Data update philosophy
 

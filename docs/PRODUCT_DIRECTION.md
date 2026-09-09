@@ -125,7 +125,7 @@ Preserve:
 
 The Markdown renderer and copy/download UI are V1 consumer mechanisms.
 
-Future AI integrations may consume the V1.9N knowledge-only Content/Project APIs, `PromptContextBundle`, other structured APIs, or deterministic calculation functions.
+Future AI integrations may consume the V1.9N knowledge-only Content/Project APIs, the V1.9O caller-state Project calculation API, `PromptContextBundle`, or other structured domain APIs.
 
 Do not require all AI consumers to use rendered Markdown when structured data is more appropriate.
 
@@ -151,7 +151,7 @@ Do not redesign core canonical models around a specific AI vendor or protocol.
 
 Do not implement an adapter unless the milestone explicitly asks for it.
 
-V1.9N implements deterministic server-side lexical search/identity resolution and knowledge-only Content/Project retrieval without local state. A possible future gap is pure deterministic calculation that accepts caller-provided personal state; this remains a design input, not work authorized by this document.
+V1.9N implements deterministic server-side lexical search/identity resolution and knowledge-only Content/Project retrieval without local state. V1.9O implements the minimal deterministic Project shortage calculation boundary for ephemeral caller-provided quantities, without persistence, local-state fallback, transport integration, or optimization semantics.
 
 ## 9. Project model boundary
 

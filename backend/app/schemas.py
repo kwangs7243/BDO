@@ -4,7 +4,7 @@ from datetime import date, datetime
 from enum import StrEnum
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, FiniteFloat, field_validator, model_validator
 
 
 class SourceOut(BaseModel):
@@ -307,6 +307,55 @@ class KnowledgeSearchResultOut(BaseModel):
     summary: str | None
     verification_status: str | None
     matches: list[KnowledgeSearchMatchOut]
+
+
+class ProjectCalculationInventoryInput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    material_key: str = Field(min_length=1)
+    quantity: FiniteFloat = Field(ge=0)
+
+
+class ProjectCalculationRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    inventory: list[ProjectCalculationInventoryInput] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def reject_duplicate_material_keys(self) -> ProjectCalculationRequest:
+        counts: dict[str, int] = {}
+        for item in self.inventory:
+            counts[item.material_key] = counts.get(item.material_key, 0) + 1
+        duplicates = sorted(key for key, count in counts.items() if count > 1)
+        if duplicates:
+            raise ValueError(f"Duplicate material keys: {', '.join(duplicates)}")
+        return self
+
+
+class ProjectCalculationMaterialOut(BaseModel):
+    project_material_seed_key: str
+    material_key: str
+    name_ko: str
+    unit: str
+    stage_seed_key: str | None
+    required_quantity: float
+    provided_quantity: float
+    shortage: float
+    satisfied: bool
+
+
+class ProjectCalculationSummaryOut(BaseModel):
+    material_requirement_count: int
+    satisfied_requirement_count: int
+    shortage_requirement_count: int
+    all_requirements_satisfied: bool
+
+
+class ProjectCalculationOut(BaseModel):
+    project_slug: str
+    name_ko: str
+    materials: list[ProjectCalculationMaterialOut]
+    summary: ProjectCalculationSummaryOut
 
 
 class LifeProgressOut(BaseModel):
