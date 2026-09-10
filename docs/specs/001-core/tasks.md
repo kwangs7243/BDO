@@ -1,6 +1,6 @@
 # Tasks — first implementation milestone
 
-> V1.9O 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
+> V1.9P 완료 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
 
 > Product-priority note: completed consumer UI features remain supported, but new consumer-facing UI expansion is not an implicit next milestone. Canonical knowledge, evidence quality, deterministic domain logic, and future-compatible retrieval boundaries may be prioritized according to `docs/PRODUCT_DIRECTION.md`.
 
@@ -19,6 +19,7 @@
 - [x] API: list content, content detail, current checklist
 - [x] API: unified canonical knowledge search와 personal-state-free Content/Project read boundary — V1.9N에서 /api/knowledge/* backend contract 구현, consumer UI 연결은 범위 밖
 - [x] API: caller-provided quantity만 사용하는 stateless Project shortage calculation boundary — V1.9O에서 /api/calculations/projects/{slug} 구현, persistence/local inventory fallback/frontend 연결은 범위 밖
+- [x] Export: V1.9P deterministic canonical AI export surface — 임시 DB와 기존 knowledge service에서 `ai_exports/`를 생성·검사하며 personal state, 유료 API/MCP, 새 UI는 범위 밖
 - [x] UI: Dashboard / Content explorer / Content detail
 - [x] UI: source badge with last verified
 - [x] UI: checklist state persistence

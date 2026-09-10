@@ -127,6 +127,8 @@ The Markdown renderer and copy/download UI are V1 consumer mechanisms.
 
 Future AI integrations may consume the V1.9N knowledge-only Content/Project APIs, the V1.9O caller-state Project calculation API, `PromptContextBundle`, or other structured domain APIs.
 
+Under the current cost constraint, V1.9P provides a zero-cost static consumer surface through committed `ai_exports/`. These generated files are disposable projections of the canonical seed/domain model, not a replacement Source of Truth, and they do not imply that an MCP or OpenAI runtime adapter has been implemented.
+
 Do not require all AI consumers to use rendered Markdown when structured data is more appropriate.
 
 ## 8. Future AI adapters

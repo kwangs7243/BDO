@@ -1,0 +1,2366 @@
+{
+  "content_count": 294,
+  "contents": [
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "가문 성장 기반",
+      "path": "contents/account-progression-foundation.md",
+      "slug": "account-progression-foundation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "적중과 회피 현행 시스템",
+      "path": "contents/accuracy-evasion-current-system.md",
+      "slug": "accuracy-evasion-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "모험일지 기반",
+      "path": "contents/adventure-log-foundation.md",
+      "slug": "adventure-log-foundation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "어느 모험가의 낯선 풍경",
+      "path": "contents/adventurer-strange-scenery.md",
+      "slug": "adventurer-strange-scenery",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "아에테리온 성",
+      "path": "contents/aetherion.md",
+      "slug": "aetherion",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "아그리스의 열기",
+      "path": "contents/agris-fever.md",
+      "slug": "agris-fever",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "연금 현재 시스템",
+      "path": "contents/alchemy-current-system.md",
+      "slug": "alchemy-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "연금 성장 깜짝 의뢰",
+      "path": "contents/alchemy-growth-surprise-quest.md",
+      "slug": "alchemy-growth-surprise-quest",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "황실 연금 현재 상자표",
+      "path": "contents/alchemy-imperial-current.md",
+      "slug": "alchemy-imperial-current",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "연금 숙련도 효과",
+      "path": "contents/alchemy-mastery-effects.md",
+      "slug": "alchemy-mastery-effects",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-06",
+      "name_ko": "연금 입문 전략",
+      "path": "contents/alchemy-onboarding-strategy.md",
+      "slug": "alchemy-onboarding-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "연금 결과물과 부산물",
+      "path": "contents/alchemy-products-and-byproducts.md",
+      "slug": "alchemy-products-and-byproducts",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "연금석 현재 성장 체계",
+      "path": "contents/alchemy-stone-current-progression.md",
+      "slug": "alchemy-stone-current-progression",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "연금석 성장 확률과 아그리스",
+      "path": "contents/alchemy-stone-growth.md",
+      "slug": "alchemy-stone-growth",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "알루스틴의 연금일지",
+      "path": "contents/alustin-alchemy-journal.md",
+      "slug": "alustin-alchemy-journal",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "아프로돈 신전",
+      "path": "contents/aphrodon-temple.md",
+      "slug": "aphrodon-temple",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "아레시온 신전",
+      "path": "contents/aresion-temple.md",
+      "slug": "aresion-temple",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "아토락시온 주간 토벌",
+      "path": "contents/atoraxxion-weekly.md",
+      "slug": "atoraxxion-weekly",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "일반 자동 낚시",
+      "path": "contents/auto-fishing.md",
+      "slug": "auto-fishing",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_barter",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "현행 물물교환 시스템",
+      "path": "contents/barter-current-system.md",
+      "slug": "barter-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_barter",
+      "last_verified_at": "2026-09-07",
+      "name_ko": "물물교환 입문 운영 전략",
+      "path": "contents/barter-onboarding-strategy.md",
+      "slug": "barter-onboarding-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_barter",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "물물교환 동선 전략",
+      "path": "contents/barter-route-strategy.md",
+      "slug": "barter-route-strategy",
+      "verification_status": "community_consensus"
+    },
+    {
+      "category": "ocean_barter",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "물물교환 단계별 가치와 무게",
+      "path": "contents/barter-stage-values.md",
+      "slug": "barter-stage-values",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_barter",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "6단계 물물교환 교역로",
+      "path": "contents/barter-tier6-routes.md",
+      "slug": "barter-tier6-routes",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_barter",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "7단계 물물교환 교역로",
+      "path": "contents/barter-tier7-routes.md",
+      "slug": "barter-tier7-routes",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "검은 기운 범람지",
+      "path": "contents/black-energy-overflow-zone.md",
+      "slug": "black-energy-overflow-zone",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "검은사당 동해도 현재 시스템",
+      "path": "contents/black-shrine-donghae-current-system.md",
+      "slug": "black-shrine-donghae-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "검은 사당 - 동해도 주간 토벌",
+      "path": "contents/black-shrine-donghae-weekly.md",
+      "slug": "black-shrine-donghae-weekly",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "검은사당 황해도 현재 시스템",
+      "path": "contents/black-shrine-hwanghae-current-system.md",
+      "slug": "black-shrine-hwanghae-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "검은 사당 - 황해도 주간 토벌",
+      "path": "contents/black-shrine-hwanghae-weekly.md",
+      "slug": "black-shrine-hwanghae-weekly",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-09",
+      "name_ko": "피의 제단",
+      "path": "contents/blood-altar.md",
+      "slug": "blood-altar",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "마가한의 서",
+      "path": "contents/book-of-margahan.md",
+      "slug": "book-of-margahan",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "우두머리 콘텐츠 분류",
+      "path": "contents/boss-content-taxonomy.md",
+      "slug": "boss-content-taxonomy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "우두머리 가이드 충돌 및 발표 상태",
+      "path": "contents/boss-guide-conflicts.md",
+      "slug": "boss-guide-conflicts",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "야영지 전투 버프",
+      "path": "contents/camp-combat-buffs.md",
+      "slug": "camp-combat-buffs",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "카프라스의 기록",
+      "path": "contents/caphras-record.md",
+      "slug": "caphras-record",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "에페리아 중범선 : 점진",
+      "path": "contents/carrack-advance.md",
+      "slug": "carrack-advance",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "중범선 치로 장비",
+      "path": "contents/carrack-chiro-gear.md",
+      "slug": "carrack-chiro-gear",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "팔라시 장비 강화",
+      "path": "contents/carrack-palasi-enhancement.md",
+      "slug": "carrack-palasi-enhancement",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "중범선 팔라시 장비",
+      "path": "contents/carrack-palasi-gear.md",
+      "slug": "carrack-palasi-gear",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "중범선 선원 낚시",
+      "path": "contents/carrack-sailor-fishing.md",
+      "slug": "carrack-sailor-fishing",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "에페리아 중범선 네 종류",
+      "path": "contents/carrack-types.md",
+      "slug": "carrack-types",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "중범선 분기별 증축 핵심 재료",
+      "path": "contents/carrack-upgrade-materials.md",
+      "slug": "carrack-upgrade-materials",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "청명의 보주",
+      "path": "contents/cheongmyeong-orb.md",
+      "slug": "cheongmyeong-orb",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "현행 교회 버프",
+      "path": "contents/church-buff-current.md",
+      "slug": "church-buff-current",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "죽은 자들의 도시",
+      "path": "contents/city-of-the-dead.md",
+      "slug": "city-of-the-dead",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "전투 유물",
+      "path": "contents/combat-artifacts.md",
+      "slug": "combat-artifacts",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "전투 버프 기초",
+      "path": "contents/combat-buff-foundation.md",
+      "slug": "combat-buff-foundation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "전투 수정 시스템",
+      "path": "contents/combat-crystal-system.md",
+      "slug": "combat-crystal-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "전투 음식·비약·향수",
+      "path": "contents/combat-food-elixir-perfume.md",
+      "slug": "combat-food-elixir-perfume",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "전투 장비 성장 전략",
+      "path": "contents/combat-gear-progression-strategy.md",
+      "slug": "combat-gear-progression-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "전투 광명석",
+      "path": "contents/combat-lightstones.md",
+      "slug": "combat-lightstones",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "전투 능력치 기초",
+      "path": "contents/combat-stat-foundation.md",
+      "slug": "combat-stat-foundation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "콘텐츠 해금 기반",
+      "path": "contents/content-unlock-foundation.md",
+      "slug": "content-unlock-foundation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "공헌도 경제 기반",
+      "path": "contents/contribution-economy-foundation.md",
+      "slug": "contribution-economy-foundation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "요리 현재 시스템",
+      "path": "contents/cooking-current-system.md",
+      "slug": "cooking-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "요리 성장 깜짝 의뢰",
+      "path": "contents/cooking-growth-surprise-quest.md",
+      "slug": "cooking-growth-surprise-quest",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "대량 요리",
+      "path": "contents/cooking-mass-production.md",
+      "slug": "cooking-mass-production",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "요리 숙련도 효과",
+      "path": "contents/cooking-mastery-effects.md",
+      "slug": "cooking-mastery-effects",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-06",
+      "name_ko": "요리 입문 전략",
+      "path": "contents/cooking-onboarding-strategy.md",
+      "slug": "cooking-onboarding-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "준마 시스템",
+      "path": "contents/courser-system.md",
+      "slug": "courser-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-07",
+      "name_ko": "까마귀 주화 증축 재료 상점",
+      "path": "contents/crow-coin-material-shop.md",
+      "slug": "crow-coin-material-shop",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "어둠의 틈 주기",
+      "path": "contents/dark-rift-cycle.md",
+      "slug": "dark-rift-cycle",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "어둠 추종자 침소",
+      "path": "contents/darkseekers-retreat.md",
+      "slug": "darkseekers-retreat",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "[데키아 II] 잿빛 숲",
+      "path": "contents/dehkia-ash-ii.md",
+      "slug": "dehkia-ash-ii",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "[데키아] 가이핀라시아 사원 지상",
+      "path": "contents/dehkia-gyfin-upper.md",
+      "slug": "dehkia-gyfin-upper",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "[데키아] 미루목 유적지",
+      "path": "contents/dehkia-miru.md",
+      "slug": "dehkia-miru",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "[데키아 II] 올룬의 계곡",
+      "path": "contents/dehkia-olun-ii.md",
+      "slug": "dehkia-olun-ii",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "데베의 만물사전",
+      "path": "contents/deve-encyclopedia.md",
+      "slug": "deve-encyclopedia",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "도깨비숲",
+      "path": "contents/dokkebi-forest.md",
+      "slug": "dokkebi-forest",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "동해도 우두머리 전략",
+      "path": "contents/donghae-boss-strategy.md",
+      "slug": "donghae-boss-strategy",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "동해도 팔·구·십재시니",
+      "path": "contents/donghae-calamity-8-10.md",
+      "slug": "donghae-calamity-8-10",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "동해도 하이퍼 부스트 방어구 지원",
+      "path": "contents/donghae-hyperboost-armor-support.md",
+      "slug": "donghae-hyperboost-armor-support",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "동해도 빛의 보옥 시스템",
+      "path": "contents/donghae-light-orb-system.md",
+      "slug": "donghae-light-orb-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "동해도 보상 및 순위",
+      "path": "contents/donghae-reward-ranking.md",
+      "slug": "donghae-reward-ranking",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "대창귀 우두머리 (동해도 검은사당)",
+      "path": "contents/donghae-shrine-apex-changui.md",
+      "slug": "donghae-shrine-apex-changui",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "죽엽군장 (동해도 검은사당)",
+      "path": "contents/donghae-shrine-bamboo-legion-lieutenant.md",
+      "slug": "donghae-shrine-bamboo-legion-lieutenant",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "바리 (동해도 검은사당)",
+      "path": "contents/donghae-shrine-bari.md",
+      "slug": "donghae-shrine-bari",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "두억시니 (동해도 검은사당)",
+      "path": "contents/donghae-shrine-duoksini.md",
+      "slug": "donghae-shrine-duoksini",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "금돼지왕 (동해도 검은사당)",
+      "path": "contents/donghae-shrine-golden-pig-king.md",
+      "slug": "donghae-shrine-golden-pig-king",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "구미호 (동해도 검은사당)",
+      "path": "contents/donghae-shrine-gumiho.md",
+      "slug": "donghae-shrine-gumiho",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "이무기 (동해도 검은사당)",
+      "path": "contents/donghae-shrine-imoogi.md",
+      "slug": "donghae-shrine-imoogi",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "어둑시니 (동해도 검은사당)",
+      "path": "contents/donghae-shrine-oduksini.md",
+      "slug": "donghae-shrine-oduksini",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "산군 (동해도 검은사당)",
+      "path": "contents/donghae-shrine-sangoon.md",
+      "slug": "donghae-shrine-sangoon",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "손각시 (동해도 검은사당)",
+      "path": "contents/donghae-shrine-songakshi.md",
+      "slug": "donghae-shrine-songakshi",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "도린 모르그림의 비밀일지",
+      "path": "contents/dorin-morgrim-secret-journal.md",
+      "slug": "dorin-morgrim-secret-journal",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "환상마 각성",
+      "path": "contents/dream-horse-awakening.md",
+      "slug": "dream-horse-awakening",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-07",
+      "name_ko": "꿈결 환상마 재료 루틴",
+      "path": "contents/dream-horse-material-routines.md",
+      "slug": "dream-horse-material-routines",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "에벤루스의 놀",
+      "path": "contents/ebenruth-nol.md",
+      "slug": "ebenruth-nol",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "생태 지식·가문 명성 획득 확률 보너스",
+      "path": "contents/ecology-family-drop-bonus.md",
+      "slug": "ecology-family-drop-bonus",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "에다니아 우두머리 주간",
+      "path": "contents/edania-boss-weekly.md",
+      "slug": "edania-boss-weekly",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "엠마 바탈리의 기록일지",
+      "path": "contents/emma-bartali-record-log.md",
+      "slug": "emma-bartali-record-log",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "기운 기반",
+      "path": "contents/energy-foundation.md",
+      "slug": "energy-foundation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "사건의 지평선",
+      "path": "contents/event-horizon.md",
+      "slug": "event-horizon",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-07",
+      "name_ko": "요정 레이라 현재 시스템",
+      "path": "contents/fairy-current-system.md",
+      "slug": "fairy-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-07",
+      "name_ko": "요정·반려동물 초기 설정 전략",
+      "path": "contents/fairy-pet-setup-strategy.md",
+      "slug": "fairy-pet-setup-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "가문 편의 기능 해금",
+      "path": "contents/family-convenience-unlock-foundation.md",
+      "slug": "family-convenience-unlock-foundation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "가문 통합 은화",
+      "path": "contents/family-silver-unification.md",
+      "slug": "family-silver-unification",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "재배 현재 주기",
+      "path": "contents/farming-current-cycle.md",
+      "slug": "farming-current-cycle",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "재배 울타리",
+      "path": "contents/farming-fences.md",
+      "slug": "farming-fences",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "재배 두더지와 슈슈",
+      "path": "contents/farming-moles.md",
+      "slug": "farming-moles",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-06",
+      "name_ko": "재배 입문 전략",
+      "path": "contents/farming-onboarding-strategy.md",
+      "slug": "farming-onboarding-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "재배 씨앗·수확·품종개량",
+      "path": "contents/farming-seeds-harvest-breeding.md",
+      "slug": "farming-seeds-harvest-breeding",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "물고기 신선도와 무역",
+      "path": "contents/fish-freshness-and-trade.md",
+      "slug": "fish-freshness-and-trade",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "낚시 현재 시스템",
+      "path": "contents/fishing-current-system.md",
+      "slug": "fishing-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "어류 도감과 주간 낚시 대회",
+      "path": "contents/fishing-encyclopedia-and-weekly-contest.md",
+      "slug": "fishing-encyclopedia-and-weekly-contest",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-06",
+      "name_ko": "낚시 입문 전략",
+      "path": "contents/fishing-onboarding-strategy.md",
+      "slug": "fishing-onboarding-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "플로아모스 액세서리",
+      "path": "contents/floamos-accessories.md",
+      "slug": "floamos-accessories",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "푸가르의 성공시대",
+      "path": "contents/fughar-success-era.md",
+      "slug": "fughar-success-era",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "가비냐 해안 절벽",
+      "path": "contents/gabinya-coastal-cliff.md",
+      "slug": "gabinya-coastal-cliff",
+      "verification_status": "verified"
+    },
+    {
+      "category": "world_boss",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "가모스",
+      "path": "contents/garmoth.md",
+      "slug": "garmoth",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "채집 현재 시스템",
+      "path": "contents/gathering-current-system.md",
+      "slug": "gathering-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "초록 장인 채집 미니게임",
+      "path": "contents/gathering-green-artisan-minigames.md",
+      "slug": "gathering-green-artisan-minigames",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-06",
+      "name_ko": "채집 입문 전략",
+      "path": "contents/gathering-onboarding-strategy.md",
+      "slug": "gathering-onboarding-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "채집 특수 획득물",
+      "path": "contents/gathering-special-drops.md",
+      "slug": "gathering-special-drops",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "채집 도구",
+      "path": "contents/gathering-tools.md",
+      "slug": "gathering-tools",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "금돼지굴",
+      "path": "contents/golden-pig-cave.md",
+      "slug": "golden-pig-cave",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "사냥 세팅 전략 기초",
+      "path": "contents/grind-setup-strategy-foundation.md",
+      "slug": "grind-setup-strategy-foundation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "사냥터 공격력 제한",
+      "path": "contents/grind-zone-attack-cap.md",
+      "slug": "grind-zone-attack-cap",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "사냥터 추천 시스템",
+      "path": "contents/grind-zone-recommendation-system.md",
+      "slug": "grind-zone-recommendation-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "대왕 고래와 도망자 칼크 파티 수렵",
+      "path": "contents/group-hunting-whale-khalk.md",
+      "slug": "group-hunting-whale-khalk",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "길드 우두머리 현행 시스템",
+      "path": "contents/guild-boss-current-system.md",
+      "slug": "guild-boss-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "페리드",
+      "path": "contents/guild-boss-ferrid.md",
+      "slug": "guild-boss-ferrid",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "거대한 진흙 괴물",
+      "path": "contents/guild-boss-giant-mudster.md",
+      "slug": "guild-boss-giant-mudster",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "길드 우두머리 구미호·두억시니",
+      "path": "contents/guild-boss-gumiho-duoksini.md",
+      "slug": "guild-boss-gumiho-duoksini",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "모굴리스",
+      "path": "contents/guild-boss-mogulis.md",
+      "slug": "guild-boss-mogulis",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "오르그",
+      "path": "contents/guild-boss-orgg.md",
+      "slug": "guild-boss-orgg",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "외침꾼의 일지",
+      "path": "contents/herald-journal.md",
+      "slug": "herald-journal",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "에메시아 내성",
+      "path": "contents/hermesia-citadel.md",
+      "slug": "hermesia-citadel",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "[엘비아] 헥세 성역",
+      "path": "contents/hexe-sanctuary-elvia.md",
+      "slug": "hexe-sanctuary-elvia",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "공허한 마레타",
+      "path": "contents/hollow-maretta.md",
+      "slug": "hollow-maretta",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "말 교배와 교환",
+      "path": "contents/horse-breeding-exchange.md",
+      "slug": "horse-breeding-exchange",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "말 황실 납품",
+      "path": "contents/horse-imperial-delivery.md",
+      "slug": "horse-imperial-delivery",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "집과 생활 경제",
+      "path": "contents/housing-life-economy.md",
+      "slug": "housing-life-economy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "수렵 현재 시스템",
+      "path": "contents/hunting-current-system.md",
+      "slug": "hunting-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "수렵 장비와 화승총 강화",
+      "path": "contents/hunting-firearms.md",
+      "slug": "hunting-firearms",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "수렵 성장 깜짝 의뢰",
+      "path": "contents/hunting-growth-surprise-quest.md",
+      "slug": "hunting-growth-surprise-quest",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "수렵 숙련도 효과",
+      "path": "contents/hunting-mastery-effects.md",
+      "slug": "hunting-mastery-effects",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-06",
+      "name_ko": "수렵 입문 전략",
+      "path": "contents/hunting-onboarding-strategy.md",
+      "slug": "hunting-onboarding-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "황해도 기운 선택",
+      "path": "contents/hwanghae-aura-system.md",
+      "slug": "hwanghae-aura-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "황해도 검은사당 현재 명단",
+      "path": "contents/hwanghae-current-roster.md",
+      "slug": "hwanghae-current-roster",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "황해도 파티 전략",
+      "path": "contents/hwanghae-party-strategy.md",
+      "slug": "hwanghae-party-strategy",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "황해도 보상 및 순위",
+      "path": "contents/hwanghae-reward-ranking.md",
+      "slug": "hwanghae-reward-ranking",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "비형랑 (황해도 검은사당)",
+      "path": "contents/hwanghae-shrine-bihyung.md",
+      "slug": "hwanghae-shrine-bihyung",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "청의동자 (황해도 검은사당)",
+      "path": "contents/hwanghae-shrine-blue-clad-youth.md",
+      "slug": "hwanghae-shrine-blue-clad-youth",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "불가살 (황해도 검은사당)",
+      "path": "contents/hwanghae-shrine-bulgasal.md",
+      "slug": "hwanghae-shrine-bulgasal",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "흑봉황 (황해도 검은사당)",
+      "path": "contents/hwanghae-shrine-dark-bonghwang.md",
+      "slug": "hwanghae-shrine-dark-bonghwang",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "폐세자 (황해도 검은사당)",
+      "path": "contents/hwanghae-shrine-deposed-crown-prince.md",
+      "slug": "hwanghae-shrine-deposed-crown-prince",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "지귀 (황해도 검은사당)",
+      "path": "contents/hwanghae-shrine-jigwi.md",
+      "slug": "hwanghae-shrine-jigwi",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "우투리 (황해도 검은사당)",
+      "path": "contents/hwanghae-shrine-uturi.md",
+      "slug": "hwanghae-shrine-uturi",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "이고르 바탈리의 모험일지",
+      "path": "contents/igor-bartali-adventure-log.md",
+      "slug": "igor-bartali-adventure-log",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[물물교환][주간] 교역의 중심 일리야 섬",
+      "path": "contents/iliya-weekly-barter.md",
+      "slug": "iliya-weekly-barter",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "황실 제작 납품 일일",
+      "path": "contents/imperial-crafting-delivery-daily.md",
+      "slug": "imperial-crafting-delivery-daily",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "황실 낚시 납품",
+      "path": "contents/imperial-fishing-delivery.md",
+      "slug": "imperial-fishing-delivery",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "오네트·오도어 주간 재료 의뢰",
+      "path": "contents/infinite-potion-weeklies.md",
+      "slug": "infinite-potion-weeklies",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "아이템 획득 확률 증가 상한",
+      "path": "contents/item-drop-rate-cap.md",
+      "slug": "item-drop-rate-cap",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "아이템 획득 확률 증가 시스템",
+      "path": "contents/item-drop-rate-system.md",
+      "slug": "item-drop-rate-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "심판의 천칭",
+      "path": "contents/judgment-scales.md",
+      "slug": "judgment-scales",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-09",
+      "name_ko": "저스틴 바탈리의 모험일지",
+      "path": "contents/justin-bartali-adventure-log.md",
+      "slug": "justin-bartali-adventure-log",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "카마실비아 가문 방어력 의뢰",
+      "path": "contents/kamasylvia-family-defense-quest.md",
+      "slug": "kamasylvia-family-defense-quest",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "대양의 눈동자 칸",
+      "path": "contents/khan-guild-boss.md",
+      "slug": "khan-guild-boss",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "라뮤트 유랑단의 모험일지",
+      "path": "contents/lamute-gang-adventure-log.md",
+      "slug": "lamute-gang-adventure-log",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-07",
+      "name_ko": "최후의 글라디우스 주간 토벌",
+      "path": "contents/last-gladiius-weekly.md",
+      "slug": "last-gladiius-weekly",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "레크라샨 해왕류 의뢰",
+      "path": "contents/lekrashan-hunting.md",
+      "slug": "lekrashan-hunting",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "생활 액세서리 진행 체계",
+      "path": "contents/life-accessory-progression.md",
+      "slug": "life-accessory-progression",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "생활 연금석",
+      "path": "contents/life-alchemy-stones.md",
+      "slug": "life-alchemy-stones",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "생활 유물과 광명석",
+      "path": "contents/life-artifacts-lightstones.md",
+      "slug": "life-artifacts-lightstones",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "생활 통합 장비",
+      "path": "contents/life-common-gear.md",
+      "slug": "life-common-gear",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "가문 통합 생활 레벨",
+      "path": "contents/life-family-levels.md",
+      "slug": "life-family-levels",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "생활 분야별 숙련도 효과",
+      "path": "contents/life-mastery-effects.md",
+      "slug": "life-mastery-effects",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "생활 숙련도 기반",
+      "path": "contents/life-mastery-foundation.md",
+      "slug": "life-mastery-foundation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "생활 숙련도 도구",
+      "path": "contents/life-mastery-tools.md",
+      "slug": "life-mastery-tools",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "아이템 획득 증가 주문서",
+      "path": "contents/loot-scroll-system.md",
+      "slug": "loot-scroll-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "행운의 금돼지굴",
+      "path": "contents/lucky-golden-pig-cave.md",
+      "slug": "lucky-golden-pig-cave",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "마가이아 신전",
+      "path": "contents/magaia-temple.md",
+      "slug": "magaia-temple",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "마그누스 전체 진행",
+      "path": "contents/magnus-progression.md",
+      "slug": "magnus-progression",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "마그누스 원격 창고",
+      "path": "contents/magnus-remote-storage.md",
+      "slug": "magnus-remote-storage",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "발레노스 메인 의뢰",
+      "path": "contents/main-quest-balenos.md",
+      "slug": "main-quest-balenos",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "드리간 메인 의뢰",
+      "path": "contents/main-quest-drieghan.md",
+      "slug": "main-quest-drieghan",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "조르다인 사가",
+      "path": "contents/main-quest-jordaine-saga.md",
+      "slug": "main-quest-jordaine-saga",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "카마실비아 메인 의뢰",
+      "path": "contents/main-quest-kamasylvia.md",
+      "slug": "main-quest-kamasylvia",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "메디아 메인 의뢰",
+      "path": "contents/main-quest-mediah.md",
+      "slug": "main-quest-mediah",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "아침의 나라 메인 의뢰",
+      "path": "contents/main-quest-morning-land.md",
+      "slug": "main-quest-morning-land",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "끝없는 겨울의 산 메인 의뢰",
+      "path": "contents/main-quest-mountain-of-eternal-winter.md",
+      "slug": "main-quest-mountain-of-eternal-winter",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "오드락시아 메인 의뢰",
+      "path": "contents/main-quest-odyllita.md",
+      "slug": "main-quest-odyllita",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "메인 의뢰 성장 기반",
+      "path": "contents/main-quest-progression-foundation.md",
+      "slug": "main-quest-progression-foundation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "발렌시아 메인 의뢰",
+      "path": "contents/main-quest-valencia.md",
+      "slug": "main-quest-valencia",
+      "verification_status": "verified"
+    },
+    {
+      "category": "system",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "마르니의 전투 분석기",
+      "path": "contents/marni-combat-analyzer.md",
+      "slug": "marni-combat-analyzer",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "마르니 저격총",
+      "path": "contents/marni-sniper-rifle.md",
+      "slug": "marni-sniper-rifle",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "대량가공",
+      "path": "contents/mass-processing.md",
+      "slug": "mass-processing",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "몬스터 추가 공격력",
+      "path": "contents/monster-extra-ap.md",
+      "slug": "monster-extra-ap",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "우두머리 도감 : 아침의 나라",
+      "path": "contents/morning-land-boss-codex.md",
+      "slug": "morning-land-boss-codex",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "아침의 나라 이야기 도감 : 동해도/황해도 편",
+      "path": "contents/morning-land-story-codex.md",
+      "slug": "morning-land-story-codex",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "아침의 나라 월드 우두머리",
+      "path": "contents/morning-land-world-bosses.md",
+      "slug": "morning-land-world-bosses",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "심청의 신묘한 어항",
+      "path": "contents/mystical-fish-tank.md",
+      "slug": "mystical-fish-tank",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "꿈결 환상마",
+      "path": "contents/mythical-dream-horse.md",
+      "slug": "mythical-dream-horse",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "거점 네트워크 현재 시스템",
+      "path": "contents/node-network-current-system.md",
+      "slug": "node-network-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "님파마레 성",
+      "path": "contents/nymphamare.md",
+      "slug": "nymphamare",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "현행 항해·교역 소비품",
+      "path": "contents/ocean-consumables.md",
+      "slug": "ocean-consumables",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[이벤트] 프리코의 항해 기원석 연계 의뢰",
+      "path": "contents/ocean-event-frico-wish-stone-2026.md",
+      "slug": "ocean-event-frico-wish-stone-2026",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[이벤트][주간] 바다의 질서를 위협하는 공포",
+      "path": "contents/ocean-event-weekly-terror-2026.md",
+      "slug": "ocean-event-weekly-terror-2026",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[이벤트][주간] 바닷길을 가로막는 위협",
+      "path": "contents/ocean-event-weekly-threat-2026.md",
+      "slug": "ocean-event-weekly-threat-2026",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "대양 부선장",
+      "path": "contents/ocean-first-mates.md",
+      "slug": "ocean-first-mates",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[물물교환][일일] 활기찬 일리야 섬",
+      "path": "contents/ocean-iliya-daily-barter.md",
+      "slug": "ocean-iliya-daily-barter",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[일일] 보급물자 운송 (오킬루아의 눈)",
+      "path": "contents/ocean-supply-transport-oquilla.md",
+      "slug": "ocean-supply-transport-oquilla",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "오드락시아 가문 공격력 의뢰",
+      "path": "contents/odyllita-family-attack-quest.md",
+      "slug": "odyllita-family-attack-quest",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "클로의 그믐달 씨앗 주머니",
+      "path": "contents/old-moon-seed-pouch.md",
+      "slug": "old-moon-seed-pouch",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[일일] 그믐달 길드의 검은무쇠이빨 사냥꾼",
+      "path": "contents/oquilla-daily-black-rust-hunter.md",
+      "slug": "oquilla-daily-black-rust-hunter",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[일일] 그믐달 길드의 칸디둠 사냥꾼",
+      "path": "contents/oquilla-daily-candidum-hunter.md",
+      "slug": "oquilla-daily-candidum-hunter",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[일일] 길드는 자선단체가 아니다",
+      "path": "contents/oquilla-daily-guild-charity.md",
+      "slug": "oquilla-daily-guild-charity",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[일일] 너도 좋고, 나도 좋고",
+      "path": "contents/oquilla-daily-mutual-benefit.md",
+      "slug": "oquilla-daily-mutual-benefit",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[일일] 그믐달 길드의 나인샤크 사냥꾼",
+      "path": "contents/oquilla-daily-nineshark-hunter.md",
+      "slug": "oquilla-daily-nineshark-hunter",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[일일] 제 몸 하나는 스스로 지켜야",
+      "path": "contents/oquilla-daily-self-defense.md",
+      "slug": "oquilla-daily-self-defense",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[일일] 그믐달 어린 해왕류 사냥꾼",
+      "path": "contents/oquilla-daily-young-sea-monster-hunter.md",
+      "slug": "oquilla-daily-young-sea-monster-hunter",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[주간] 그믐달 길드의 검은무쇠이빨 사냥꾼",
+      "path": "contents/oquilla-weekly-black-rust-hunter.md",
+      "slug": "oquilla-weekly-black-rust-hunter",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[주간] 그믐달 길드의 칸디둠 사냥꾼",
+      "path": "contents/oquilla-weekly-candidum-hunter.md",
+      "slug": "oquilla-weekly-candidum-hunter",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[주간] 그믐달 길드의 나인샤크 사냥꾼",
+      "path": "contents/oquilla-weekly-nineshark-hunter.md",
+      "slug": "oquilla-weekly-nineshark-hunter",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[주간] 개체수 증가 보고",
+      "path": "contents/oquilla-weekly-population-report.md",
+      "slug": "oquilla-weekly-population-report",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[주간] 오킬루아에서 지내고 싶다고?",
+      "path": "contents/oquilla-weekly-swordfish.md",
+      "slug": "oquilla-weekly-swordfish",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "[주간] 어린 해달 상인들을 위해",
+      "path": "contents/oquilla-weekly-young-otters.md",
+      "slug": "oquilla-weekly-young-otters",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "오르비타 성",
+      "path": "contents/orbita.md",
+      "slug": "orbita",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "판옥선",
+      "path": "contents/panokseon.md",
+      "slug": "panokseon",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "판옥선 청운 장비",
+      "path": "contents/panokseon-cheongun.md",
+      "slug": "panokseon-cheongun",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "판옥선 해모·벽계 장비",
+      "path": "contents/panokseon-haemo-byeokgye.md",
+      "slug": "panokseon-haemo-byeokgye",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "파비노 그레코의 잡학도서",
+      "path": "contents/pavino-greko-miscellany.md",
+      "slug": "pavino-greko-miscellany",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "영구 가문 보상 기반",
+      "path": "contents/permanent-family-reward-foundation.md",
+      "slug": "permanent-family-reward-foundation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "영구 능력치 성장",
+      "path": "contents/permanent-stat-progression.md",
+      "slug": "permanent-stat-progression",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-07",
+      "name_ko": "반려동물 현재 시스템",
+      "path": "contents/pet-current-system.md",
+      "slug": "pet-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-07",
+      "name_ko": "5세대 반려동물과 대장",
+      "path": "contents/pet-fifth-generation.md",
+      "slug": "pet-fifth-generation",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "불멸의 나락",
+      "path": "contents/pit-of-undying.md",
+      "slug": "pit-of-undying",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "프리오네 액세서리",
+      "path": "contents/prione-accessories.md",
+      "slug": "prione-accessories",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "가공 현재 시스템",
+      "path": "contents/processing-current-system.md",
+      "slug": "processing-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-06",
+      "name_ko": "가공 입문 전략",
+      "path": "contents/processing-onboarding-strategy.md",
+      "slug": "processing-onboarding-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "가공석과 가공복",
+      "path": "contents/processing-stones-and-clothes.md",
+      "slug": "processing-stones-and-clothes",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "2026 생산 거점 개편",
+      "path": "contents/production-node-2026-overhaul.md",
+      "slug": "production-node-2026-overhaul",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "생산 거점 현재 시스템",
+      "path": "contents/production-node-current-system.md",
+      "slug": "production-node-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "PvE 수정 구성 전략",
+      "path": "contents/pve-crystal-strategy.md",
+      "slug": "pve-crystal-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "PvE 광명석 조합 전략",
+      "path": "contents/pve-lightstone-strategy.md",
+      "slug": "pve-lightstone-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "종족 추가 공격력",
+      "path": "contents/race-extra-ap.md",
+      "slug": "race-extra-ap",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_combat",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "린바크 군락지",
+      "path": "contents/rinbach-colony.md",
+      "slug": "rinbach-colony",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "왕실 공방 현재 시스템",
+      "path": "contents/royal-workshop-current-system.md",
+      "slug": "royal-workshop-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "왕실 공방 일꾼 효과",
+      "path": "contents/royal-workshop-worker-effects.md",
+      "slug": "royal-workshop-worker-effects",
+      "verification_status": "verified"
+    },
+    {
+      "category": "progression",
+      "last_verified_at": "2026-09-08",
+      "name_ko": "룰루피의 여행일지",
+      "path": "contents/rulupee-travel-log.md",
+      "slug": "rulupee-travel-log",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-07",
+      "name_ko": "항해 입문 운영 전략",
+      "path": "contents/sailing-onboarding-strategy.md",
+      "slug": "sailing-onboarding-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "항해 스페셜 패스 (2026)",
+      "path": "contents/sailing-special-pass-2026.md",
+      "slug": "sailing-special-pass-2026",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "선원 건강과 식량",
+      "path": "contents/sailor-health-food.md",
+      "slug": "sailor-health-food",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "선원 고용과 성장",
+      "path": "contents/sailor-hiring-growth.md",
+      "slug": "sailor-hiring-growth",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "선원 역할 슬롯",
+      "path": "contents/sailor-role-slots.md",
+      "slug": "sailor-role-slots",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_guide",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "바다 악어 사냥",
+      "path": "contents/sea-crocodile-hunting.md",
+      "slug": "sea-crocodile-hunting",
+      "verification_status": "verified"
+    },
+    {
+      "category": "ocean_project",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "해원석 progression",
+      "path": "contents/sea-crystals.md",
+      "slug": "sea-crystals",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "표기 공격력 구간 보너스",
+      "path": "contents/sheet-ap-bonus-table.md",
+      "slug": "sheet-ap-bonus-table",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "표기 방어력 구간 보너스",
+      "path": "contents/sheet-dp-bonus-table.md",
+      "slug": "sheet-dp-bonus-table",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "표기 능력치와 최종 능력치",
+      "path": "contents/sheet-vs-final-stats.md",
+      "slug": "sheet-vs-final-stats",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "저격 수렵",
+      "path": "contents/sniper-hunting.md",
+      "slug": "sniper-hunting",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "특수 공격 시스템",
+      "path": "contents/special-attack-system.md",
+      "slug": "special-attack-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "창고 현재 시스템",
+      "path": "contents/storage-current-system.md",
+      "slug": "storage-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "일반 창고 수송",
+      "path": "contents/storage-transport.md",
+      "slug": "storage-transport",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "테네브라움 성",
+      "path": "contents/tenebraum.md",
+      "slug": "tenebraum",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "조련 현재 시스템",
+      "path": "contents/training-current-system.md",
+      "slug": "training-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "조련 성장 깜짝 의뢰",
+      "path": "contents/training-growth-surprise-quest.md",
+      "slug": "training-growth-surprise-quest",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "조련 숙련도 효과",
+      "path": "contents/training-mastery-effects.md",
+      "slug": "training-mastery-effects",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-07",
+      "name_ko": "조련 입문 운영 전략",
+      "path": "contents/training-onboarding-strategy.md",
+      "slug": "training-onboarding-strategy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "보물 등급 물고기",
+      "path": "contents/treasure-grade-fish.md",
+      "slug": "treasure-grade-fish",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "툰그라드 유적지",
+      "path": "contents/tungrad-ruins.md",
+      "slug": "tungrad-ruins",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "world_boss",
+      "last_verified_at": "2026-09-02",
+      "name_ko": "벨",
+      "path": "contents/vell.md",
+      "slug": "vell",
+      "verification_status": "verified"
+    },
+    {
+      "category": "system",
+      "last_verified_at": "2026-09-02",
+      "name_ko": "주간 의뢰 공통 규칙",
+      "path": "contents/weekly-quest-framework.md",
+      "slug": "weekly-quest-framework",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "야생마 포획",
+      "path": "contents/wild-horse-capture.md",
+      "slug": "wild-horse-capture",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-03",
+      "name_ko": "마녀의 별미",
+      "path": "contents/witch-delicacy.md",
+      "slug": "witch-delicacy",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "일꾼 현재 시스템",
+      "path": "contents/worker-current-system.md",
+      "slug": "worker-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "일꾼 성장·승급·기술 변경",
+      "path": "contents/worker-growth-promotion.md",
+      "slug": "worker-growth-promotion",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "일꾼 숙소",
+      "path": "contents/worker-lodging.md",
+      "slug": "worker-lodging",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "일꾼 거래소",
+      "path": "contents/worker-market.md",
+      "slug": "worker-market",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "일꾼 종족과 등급",
+      "path": "contents/worker-races-grades.md",
+      "slug": "worker-races-grades",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "일꾼 기술과 행운",
+      "path": "contents/worker-skills-luck.md",
+      "slug": "worker-skills-luck",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "일꾼 특송",
+      "path": "contents/worker-special-delivery.md",
+      "slug": "worker-special-delivery",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "일꾼 행동력과 자동 회복",
+      "path": "contents/worker-stamina-auto-recovery.md",
+      "slug": "worker-stamina-auto-recovery",
+      "verification_status": "verified"
+    },
+    {
+      "category": "life",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "공방 제작 물류",
+      "path": "contents/workshop-crafting-logistics.md",
+      "slug": "workshop-crafting-logistics",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "검은 봉황 (월드 우두머리)",
+      "path": "contents/world-boss-black-phoenix.md",
+      "slug": "world-boss-black-phoenix",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "불가살 (월드 우두머리)",
+      "path": "contents/world-boss-bulgasal.md",
+      "slug": "world-boss-bulgasal",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "월드 우두머리 현재 명단",
+      "path": "contents/world-boss-current-roster.md",
+      "slug": "world-boss-current-roster",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "월드 우두머리 현재 시스템",
+      "path": "contents/world-boss-current-system.md",
+      "slug": "world-boss-current-system",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "금돼지왕 (월드 우두머리)",
+      "path": "contents/world-boss-golden-pig-king.md",
+      "slug": "world-boss-golden-pig-king",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "카란다 (월드 우두머리)",
+      "path": "contents/world-boss-karanda.md",
+      "slug": "world-boss-karanda",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "쿠툼 (월드 우두머리)",
+      "path": "contents/world-boss-kutum.md",
+      "slug": "world-boss-kutum",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "크자카 (월드 우두머리)",
+      "path": "contents/world-boss-kzarka.md",
+      "slug": "world-boss-kzarka",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "무라카 (월드 우두머리)",
+      "path": "contents/world-boss-muraka.md",
+      "slug": "world-boss-muraka",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "누베르 (월드 우두머리)",
+      "path": "contents/world-boss-nouver.md",
+      "slug": "world-boss-nouver",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "미루목 파괴자 오핀 (월드 우두머리)",
+      "path": "contents/world-boss-offin.md",
+      "slug": "world-boss-offin",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "귄트 (월드 우두머리)",
+      "path": "contents/world-boss-quint.md",
+      "slug": "world-boss-quint",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "2025-12-23 월드 우두머리 보상 개편",
+      "path": "contents/world-boss-reward-2025-overhaul.md",
+      "slug": "world-boss-reward-2025-overhaul",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "산군 (월드 우두머리)",
+      "path": "contents/world-boss-sangoon.md",
+      "slug": "world-boss-sangoon",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat_pve",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "우투리 (월드 우두머리)",
+      "path": "contents/world-boss-uturi.md",
+      "slug": "world-boss-uturi",
+      "verification_status": "verified"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "이스라히드 고원",
+      "path": "contents/yzrahid-highlands.md",
+      "slug": "yzrahid-highlands",
+      "verification_status": "needs_review"
+    },
+    {
+      "category": "combat",
+      "last_verified_at": "2026-09-04",
+      "name_ko": "제피로스 성",
+      "path": "contents/zephyros.md",
+      "slug": "zephyros",
+      "verification_status": "verified"
+    }
+  ],
+  "project_count": 1,
+  "projects": [
+    {
+      "name_ko": "에페리아 중범선 : 점진",
+      "path": "projects/carrack-advance.md",
+      "slug": "carrack-advance"
+    }
+  ],
+  "schema_version": 1
+}

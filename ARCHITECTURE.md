@@ -43,6 +43,28 @@ Canonical Knowledge DB
 
 Canonical game knowledge belongs here. Do not independently maintain the same game facts in Notion or another personal-state backend.
 
+## Static AI export surface
+
+```text
+Canonical Seed
+     │
+     ▼
+Temporary in-memory DB + existing domain services
+     │
+     ▼
+Deterministic AI Export Builder
+     │
+     ▼
+ai_exports/
+     │
+     ▼
+GitHub / static AI consumer
+```
+
+V1.9P generates `ai_exports/` as a disposable canonical projection. It is not a Source of Truth and must not be edited as independently maintained knowledge. The builder imports reviewed seed into an isolated temporary database, uses the V1.9N canonical Content/Project services, and excludes personal state, volatile runtime schedule fields, and numeric database identities.
+
+The committed export can be read without a running BDO server and requires no OpenAI API, MCP hosting, paid cloud, external LLM, or other paid AI dependency. Automated freshness checks fail when the committed generated tree differs from the canonical seed/domain result.
+
 ## Personal-state boundary
 
 Current local capabilities include `UserContentState`, checklist state/history, `UserMaterialInventory`, and `UserProjectStageState`.
@@ -63,7 +85,7 @@ Consumer UX expansion is not an implicit architecture requirement.
 
 ## Backend
 
-FastAPI/domain modules include canonical content retrieval, the V1.9N `knowledge` read service, period/reset computation, checklist state, Project projection/calculation, Life projections, user/local state, research/evidence flows, and `prompt_bridge`. The knowledge service exposes deterministic lexical search and canonical-only Content/Project projections without reading personal-state tables.
+FastAPI/domain modules include canonical content retrieval, the V1.9N `knowledge` read service, the V1.9P deterministic `ai_export` builder, period/reset computation, checklist state, Project projection/calculation, Life projections, user/local state, research/evidence flows, and `prompt_bridge`. The knowledge service exposes deterministic lexical search and canonical-only Content/Project projections without reading personal-state tables; the exporter consumes those projections through a temporary in-memory database.
 
 Existing domain functions are the preferred reuse boundary.
 

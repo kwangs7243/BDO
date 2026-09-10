@@ -94,3 +94,11 @@ The frontend remains a supported reference / inspection / admin / local operatio
 **Decision:** External or caller-owned personal state may be supplied as input to a deterministic calculation request. The V1.9O Project calculator combines caller-provided material quantities with canonical Project requirements, but does not automatically write those values to local user-state tables. Canonical Project requirements remain owned by the BDO database. A missing caller quantity means `0`, not a fallback to `UserMaterialInventory`. Persistence and synchronization require a separate explicit milestone.
 
 **Reason:** Keeping caller state ephemeral allows future AI or external personal-state consumers to reuse canonical formulas without creating a second writable Source of Truth, mutating the local tracker, or making the same request depend on hidden local values. The result remains deterministic for the same canonical Project definition and request payload.
+
+## ADR-017 Generated AI exports are derived, disposable consumer artifacts
+
+**Status:** Accepted 2026-09-10.
+
+**Decision:** `ai_exports/` contains disposable consumer artifacts generated from the canonical BDO backend. Humans do not authoritatively edit these files; the canonical seed and domain model remain the Source of Truth. Exports contain no personal state, are deterministic for the same canonical input, and must be usable from GitHub or another static reader without a paid runtime/API dependency. Automated freshness checks fail when committed output is missing, changed, or contains unexpected files. A future MCP or API consumer must not promote this export directory into a canonical store.
+
+**Reason:** This makes the existing structured backend directly useful in the current ChatGPT Plus + GitHub environment without additional paid infrastructure, while preventing generated Markdown from becoming a manually maintained second Source of Truth.
