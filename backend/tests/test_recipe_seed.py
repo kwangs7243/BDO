@@ -51,7 +51,7 @@ def test_recipe_catalog_exact_counts_and_formulas(session):
     for model, count in [(Material, 41), (IngredientGroup, 4), (IngredientGroupMember, 20),
                          (Recipe, 4), (RecipeIngredientSlot, 16), (RecipeIngredientOption, 18)]:
         assert session.scalar(select(func.count()).select_from(model).where(model.active.is_(True))) == count
-    assert session.scalar(select(func.count()).select_from(Source)) == 190
+    assert session.scalar(select(func.count()).select_from(Source)) == 191
     expected = {
         "beer": [[("grain", 5)], [("mineral-water", 6), ("purified-water", 3)],
                  [("leavening-agent", 2)], [("sugar", 1)]],
@@ -63,7 +63,7 @@ def test_recipe_catalog_exact_counts_and_formulas(session):
     }
     for slug, formula in expected.items():
         recipe = get_knowledge_recipe(session, slug)
-        assert recipe.verification_status == "needs_review"
+        assert recipe.verification_status == "verified"
         assert recipe.required_skill_level == 1
         assert recipe.required_skill_tier == ("apprentice" if slug == "pickled-vegetables" else "beginner")
         assert [[(o.material_key or o.ingredient_group.key, o.required_quantity) for o in s.options]
@@ -77,6 +77,70 @@ def test_recipe_catalog_exact_counts_and_formulas(session):
     sources = read("seed_sources.json")
     assert len({s["url"] for s in sources}) == len(sources)
     assert "materials" not in read("seed_projects.json")
+
+
+def test_recipe_evidence_verification_and_source_boundaries(session):
+    recipe_entity_types = {"ingredient_group", "recipe", "recipe_ingredient_option"}
+    evidence = list(
+        session.scalars(
+            select(Evidence).where(Evidence.entity_type.in_(recipe_entity_types))
+        )
+    )
+    assert len(evidence) == 44
+    assert all(row.verification_status == "verified" for row in evidence)
+    assert all(row.last_verified_at.isoformat() == "2026-09-11" for row in evidence)
+
+    official = session.get(Source, "cooking-grilled-bird-meat-official-2018")
+    assert official is not None
+    assert official.url == (
+        "https://www.kr.playblackdesert.com/ko-KR/News/Detail?"
+        "countryType=ko-KR&groupContentNo=905"
+    )
+    assert official.title == "2018년 7월 업데이트 안내"
+    assert official.publisher == "Pearl Abyss"
+    assert official.source_type == "official_patch"
+    assert official.published_at.isoformat() == "2018-07-01"
+
+    assert session.get(Source, "cooking-beer-community-2019").source_type == "community_guide"
+    assert session.get(Source, "cooking-vinegar-community-2020").source_type == "community_guide"
+    for source_id in (
+        "codex-beer-9213",
+        "codex-vinegar-9066",
+        "codex-pickled-vegetables-9202",
+        "codex-grilled-bird-meat-9492",
+    ):
+        assert session.get(Source, source_id).source_type == "third_party_database"
+
+    def source_ids(seed_key):
+        return {
+            row.source_id
+            for row in evidence
+            if row.seed_key.split("::", maxsplit=1)[0] == seed_key
+        }
+
+    assert source_ids("recipe.pickled-vegetables.formula") == {
+        "cooking-lara-event-2021",
+        "cooking-vinegar-community-2020",
+        "codex-pickled-vegetables-9202",
+    }
+    supported_by_official = {
+        "recipe.grilled-bird-meat.skill",
+        "recipe.grilled-bird-meat.ingredient.bird-meat.option.bird-meat.quantity",
+        "recipe.grilled-bird-meat.ingredient.oil.option.deep-frying-oil.quantity",
+        "recipe.grilled-bird-meat.ingredient.cooking-wine.option.cooking-wine.quantity",
+        "recipe.grilled-bird-meat.ingredient.salt.option.salt.quantity",
+    }
+    assert {
+        row.seed_key.split("::", maxsplit=1)[0]
+        for row in evidence
+        if row.source_id == official.id
+    } == supported_by_official
+    assert source_ids(
+        "recipe.grilled-bird-meat.ingredient.oil.option.cottonseed-oil.quantity"
+    ) == {"codex-grilled-bird-meat-9492"}
+    assert source_ids("recipe.grilled-bird-meat.formula") == {
+        "codex-grilled-bird-meat-9492"
+    }
 
 
 def test_recipe_reimport_preserves_all_stable_ids(session):

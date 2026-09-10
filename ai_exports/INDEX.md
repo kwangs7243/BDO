@@ -326,7 +326,7 @@ Canonical source remains the BDO Companion seed/domain model.
 
 | Name | Slug | Process | Result | Verification | Last verified | Path |
 | --- | --- | --- | --- | --- | --- | --- |
-| 맥주 | beer | cooking | 맥주 | needs_review | 2026-09-10 | [open](recipes/beer.md) |
-| 새구이 | grilled-bird-meat | cooking | 새구이 | needs_review | 2026-09-10 | [open](recipes/grilled-bird-meat.md) |
-| 식초 | vinegar | cooking | 식초 | needs_review | 2026-09-10 | [open](recipes/vinegar.md) |
-| 채소 절임 | pickled-vegetables | cooking | 채소 절임 | needs_review | 2026-09-10 | [open](recipes/pickled-vegetables.md) |
+| 맥주 | beer | cooking | 맥주 | verified | 2026-09-11 | [open](recipes/beer.md) |
+| 새구이 | grilled-bird-meat | cooking | 새구이 | verified | 2026-09-11 | [open](recipes/grilled-bird-meat.md) |
+| 식초 | vinegar | cooking | 식초 | verified | 2026-09-11 | [open](recipes/vinegar.md) |
+| 채소 절임 | pickled-vegetables | cooking | 채소 절임 | verified | 2026-09-11 | [open](recipes/pickled-vegetables.md) |

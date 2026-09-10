@@ -153,7 +153,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content"
 - entity_id: "cooking-current-system"
@@ -173,7 +173,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content"
 - entity_id: "cooking-current-system"
@@ -193,7 +193,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content"
 - entity_id: "cooking-current-system"

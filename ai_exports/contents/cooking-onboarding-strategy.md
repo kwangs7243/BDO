@@ -395,7 +395,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content"
 - entity_id: "cooking-onboarding-strategy"
@@ -455,7 +455,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content"
 - entity_id: "cooking-onboarding-strategy"
@@ -595,7 +595,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "cooking-onboarding-strategy.ingredient-sourcing"
@@ -655,7 +655,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "cooking-onboarding-strategy.purpose-choice"
@@ -715,7 +715,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "cooking-onboarding-strategy.recipe-selection"
@@ -775,7 +775,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "cooking-onboarding-strategy.session-bottlenecks"
@@ -835,7 +835,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_section"
 - entity_id: "cooking-onboarding-strategy.section.common-mistakes"
@@ -895,7 +895,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_section"
 - entity_id: "cooking-onboarding-strategy.section.goal-supply"
@@ -1015,7 +1015,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "cooking-onboarding-strategy.step.check-session-bottleneck"
@@ -1075,7 +1075,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "cooking-onboarding-strategy.step.choose-goal"
@@ -1175,7 +1175,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "cooking-onboarding-strategy.step.choose-output"
@@ -1215,7 +1215,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "cooking-onboarding-strategy.step.choose-supply-route"
@@ -1255,7 +1255,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "cooking-onboarding-strategy.step.classify-ingredients"
@@ -1295,7 +1295,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "cooking-onboarding-strategy.step.improve-one-bottleneck"
@@ -1335,7 +1335,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "cooking-onboarding-strategy.step.run-small-batch"
@@ -1375,7 +1375,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "cooking-onboarding-strategy.step.verify-recipe"

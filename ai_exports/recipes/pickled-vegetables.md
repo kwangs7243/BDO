@@ -9,9 +9,9 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - slug: "pickled-vegetables"
 - process_type: "cooking"
-- summary: "요리 1회 시도에 필요한 재료 정의. 정확한 현행 제작식의 공식 검증은 추가 확인이 필요하다."
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
+- summary: "요리 1회 시도에 필요한 재료 정의. 과거 공식 자료와 current game-data를 claim별로 교차검증했다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
 
 ## Result
 
@@ -41,7 +41,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - group: "vegetable"
 - name_ko: "채소"
 - verification_status: "verified"
-- last_verified_at: "2026-09-10"
+- last_verified_at: "2026-09-11"
 
 Allowed current members:
 
@@ -124,14 +124,14 @@ Allowed current members:
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "ingredient_group"
 - entity_id: "vegetable"
 - claim_key: "members"
 - verification_status: "verified"
-- last_verified_at: "2026-09-10"
-- evidence_note: "공식 current 요리 가이드 대체품 목록의 구성원. 그룹 소속은 전역 수량 환산을 뜻하지 않는다."
+- last_verified_at: "2026-09-11"
+- evidence_note: "2026-09-11 공식 current 요리 가이드의 대체품 목록을 재확인했다. 그룹 소속은 전역 수량 환산을 뜻하지 않는다."
 - active: true
 - is_active: true
 
@@ -144,14 +144,14 @@ Allowed current members:
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe"
 - entity_id: "pickled-vegetables"
 - claim_key: "ingredients"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "과거 공식/커뮤니티 및 DB 보조 자료를 보존한다. current KR first-party exact formula를 검증한 것으로 승격하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "2021년 공식 이벤트의 exact formula를 current BDO Codex와 교차검증했다. community_guide는 보조 계보로 유지한다."
 - active: true
 - is_active: true
 
@@ -164,14 +164,14 @@ Allowed current members:
 - publisher: "Pearl Abyss"
 - source_type: "official_event"
 - published_at: "2021-05-04"
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe"
 - entity_id: "pickled-vegetables"
 - claim_key: "ingredients"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "과거 공식/커뮤니티 및 DB 보조 자료를 보존한다. current KR first-party exact formula를 검증한 것으로 승격하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "2021년 공식 이벤트의 exact formula를 current BDO Codex와 교차검증했다. community_guide는 보조 계보로 유지한다."
 - active: true
 - is_active: true
 
@@ -184,14 +184,14 @@ Allowed current members:
 - publisher: "Shy아조씨"
 - source_type: "community_guide"
 - published_at: "2020-09-24"
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe"
 - entity_id: "pickled-vegetables"
 - claim_key: "ingredients"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "과거 공식/커뮤니티 및 DB 보조 자료를 보존한다. current KR first-party exact formula를 검증한 것으로 승격하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "2021년 공식 이벤트의 exact formula를 current BDO Codex와 교차검증했다. community_guide는 보조 계보로 유지한다."
 - active: true
 - is_active: true
 
@@ -204,14 +204,14 @@ Allowed current members:
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe"
 - entity_id: "pickled-vegetables"
 - claim_key: "per_attempt"
 - verification_status: "verified"
-- last_verified_at: "2026-09-10"
-- evidence_note: "재료는 한 번 요리할 분량이며 대량 요리는 10회분 재료를 소비한다."
+- last_verified_at: "2026-09-11"
+- evidence_note: "2026-09-11 공식 current 요리 가이드에서 1회분 투입과 대량 요리의 10회분 소비를 재확인했다."
 - active: true
 - is_active: true
 
@@ -224,14 +224,14 @@ Allowed current members:
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe"
 - entity_id: "pickled-vegetables"
 - claim_key: "required_skill"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "현재 first-party 제작 조건의 추가 검증 필요."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "요리 견습 1 조건을 2021년 공식 이벤트와 current BDO Codex에서 교차검증했다."
 - active: true
 - is_active: true
 
@@ -244,14 +244,14 @@ Allowed current members:
 - publisher: "Pearl Abyss"
 - source_type: "official_event"
 - published_at: "2021-05-04"
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe"
 - entity_id: "pickled-vegetables"
 - claim_key: "required_skill"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "현재 first-party 제작 조건의 추가 검증 필요."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "요리 견습 1 조건을 2021년 공식 이벤트와 current BDO Codex에서 교차검증했다."
 - active: true
 - is_active: true
 
@@ -264,14 +264,14 @@ Allowed current members:
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe_ingredient_option"
 - entity_id: "pickled-vegetables.ingredient.leavening-agent.option.leavening-agent"
 - claim_key: "required_quantity"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "해당 Recipe option의 수량이다. 다른 recipe 또는 품질 등급에 대한 전역 환산·혼합 재료 사용은 추론하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "발효제 2를 2021년 공식 exact formula와 current BDO Codex에서 교차검증했다. 다른 recipe의 수량으로 일반화하지 않는다."
 - active: true
 - is_active: true
 
@@ -284,14 +284,14 @@ Allowed current members:
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe_ingredient_option"
 - entity_id: "pickled-vegetables.ingredient.sugar.option.sugar"
 - claim_key: "required_quantity"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "해당 Recipe option의 수량이다. 다른 recipe 또는 품질 등급에 대한 전역 환산·혼합 재료 사용은 추론하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "설탕 2를 2021년 공식 exact formula와 current BDO Codex에서 교차검증했다. 다른 recipe의 수량으로 일반화하지 않는다."
 - active: true
 - is_active: true
 
@@ -304,14 +304,14 @@ Allowed current members:
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe_ingredient_option"
 - entity_id: "pickled-vegetables.ingredient.vegetable.option.vegetable"
 - claim_key: "required_quantity"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "해당 Recipe option의 수량이다. 다른 recipe 또는 품질 등급에 대한 전역 환산·혼합 재료 사용은 추론하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "채소 8을 공식 exact formula와 current BDO Codex에서 교차검증했다. 현행 공식 가이드의 채소 그룹만 적용하며 전역 환산·혼합 사용은 추론하지 않는다."
 - active: true
 - is_active: true
 
@@ -324,14 +324,14 @@ Allowed current members:
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe_ingredient_option"
 - entity_id: "pickled-vegetables.ingredient.vinegar.option.vinegar"
 - claim_key: "required_quantity"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "해당 Recipe option의 수량이다. 다른 recipe 또는 품질 등급에 대한 전역 환산·혼합 재료 사용은 추론하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "식초 4를 2021년 공식 exact formula와 current BDO Codex에서 교차검증했다. 다른 recipe의 수량으로 일반화하지 않는다."
 - active: true
 - is_active: true
 

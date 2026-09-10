@@ -1,6 +1,6 @@
 # Tasks — first implementation milestone
 
-> V1.9Q 구현 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
+> V1.9R 구현 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
 
 > Product-priority note: completed consumer UI features remain supported, but new consumer-facing UI expansion is not an implicit next milestone. Canonical knowledge, evidence quality, deterministic domain logic, and future-compatible retrieval boundaries may be prioritized according to `docs/PRODUCT_DIRECTION.md`.
 
@@ -21,6 +21,7 @@
 - [x] API: caller-provided quantity만 사용하는 stateless Project shortage calculation boundary — V1.9O에서 /api/calculations/projects/{slug} 구현, persistence/local inventory fallback/frontend 연결은 범위 밖
 - [x] Export: V1.9P deterministic canonical AI export surface — 임시 DB와 기존 knowledge service에서 `ai_exports/`를 생성·검사하며 personal state, 유료 API/MCP, 새 UI는 범위 밖
 - [x] V1.9Q Cooking Recipe canonical foundation — shared Material 41개, IngredientGroup 4개/멤버 20개, Recipe 4개/슬롯 16개/옵션 18개, migration 0004, canonical Recipe read/search와 AI export manifest v2. 기존 Carrack ID·재고와 legacy import 호환성 유지; 정확한 배합은 needs_review이며 계산기·UI는 구현하지 않음
+- [x] V1.9R Cooking Recipe evidence verification closure — 맥주·식초·채소 절임·새구이의 31개 needs_review claim을 공식/커뮤니티/제3자 출처 구분을 유지한 채 교차검증하고 4개 Recipe aggregate를 verified로 마감. 새구이 2018 official patch는 면실유를 제외한 직접 지원 claim에만 연결; 수치·구조·계산기·UI 변경 없음
 - [x] UI: Dashboard / Content explorer / Content detail
 - [x] UI: source badge with last verified
 - [x] UI: checklist state persistence
@@ -48,7 +49,7 @@ V1.9B 완료로 현재 정의된 Milestone B 항목은 모두 구현되었다.
 - [ ] adventure logs — V1.7D Foundation·이고르 바탈리·마가한의 서를 기반으로 V1.9L에서 공식 책장 10개 그룹과 상시 카탈로그, 대표 해금 조건·총량 보상·엠마 13장 progression을 반영했다. 전 장별 공략과 이벤트 Adventure Log Deep Pack은 미완료다.
 - [ ] Magnus — V1.7D에서 progression foundation과 주요 checkpoint는 구현했으나 퍼즐·지역별 상세를 포함한 Deep Pack은 미완료
 - [x] fairy/pets/workers/nodes — workers/nodes는 V1.6I, fairy/pets current foundation과 조건부 초기 설정 전략은 V1.9J에 반영
-- [ ] remaining life skills — V1.6F-H 생활 심화 seed와 V1.9C/E/F/G/H의 채집·낚시·수렵·재배·가공·요리·연금·항해·물물교환·조련 onboarding/strategy pack 및 V1.9Q 요리 Recipe 4종 기반은 반영되었다. 전체 recipe catalog/measurement/economy 심화 범위는 미완료
+- [ ] remaining life skills — V1.6F-H 생활 심화 seed와 V1.9C/E/F/G/H의 채집·낚시·수렵·재배·가공·요리·연금·항해·물물교환·조련 onboarding/strategy pack, V1.9Q 요리 Recipe 4종 기반 및 V1.9R 해당 4종 Evidence 검증은 반영되었다. 전체 recipe catalog/measurement/economy 심화 범위는 미완료
 
 ## Definition of done for any content seed
 

@@ -104,7 +104,9 @@
     "title": "요리",
     "publisher": "Pearl Abyss",
     "source_type": "official_guide",
-    "notes": "요리 입문/재료/노드"
+    "retrieved_at": "2026-09-11T00:00:00+09:00",
+    "region": "KR",
+    "notes": "2026-09-11 재검증. 공식 현행 가이드(페이지 표시 최근 수정 2026-02-06)의 1회분 투입, 재료 대체 그룹, 대체재별 필요 수량 차이 가능성과 대량 요리 10회분 소비 근거. 개별 Recipe의 exact formula 표 근거로 사용하지 않는다."
   },
   {
     "id": "node-guide",
@@ -1418,9 +1420,9 @@
     "publisher": "Pearl Abyss",
     "source_type": "official_event",
     "published_at": "2021-05-04",
-    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "retrieved_at": "2026-09-11T00:00:00+09:00",
     "region": "KR",
-    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+    "notes": "2021년 당시 채소 절임의 양배추 8, 식초 4, 발효제 2, 설탕 2와 요리 견습 Lv.1을 직접 명시한 과거 공식 자료. 현행 공식 가이드의 채소 그룹과 current BDO Codex를 함께 교차검증하되 전역 품질 환산 근거로 사용하지 않는다."
   },
   {
     "id": "cooking-beer-community-2019",
@@ -1429,9 +1431,9 @@
     "publisher": "삐읏",
     "source_type": "community_guide",
     "published_at": "2019-11-23",
-    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "retrieved_at": "2026-09-11T00:00:00+09:00",
     "region": "KR",
-    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+    "notes": "맥주 배합의 교차자료. Pearl Abyss 도메인의 이용자 작성 글이므로 community_guide이며 공식 문서로 취급하지 않는다."
   },
   {
     "id": "cooking-vinegar-community-2020",
@@ -1440,9 +1442,9 @@
     "publisher": "Shy아조씨",
     "source_type": "community_guide",
     "published_at": "2020-09-24",
-    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "retrieved_at": "2026-09-11T00:00:00+09:00",
     "region": "KR",
-    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+    "notes": "식초 배합의 교차자료. Pearl Abyss 도메인의 이용자 작성 글이므로 community_guide이며 공식 문서로 취급하지 않는다."
   },
   {
     "id": "codex-beer-9213",
@@ -1451,9 +1453,9 @@
     "publisher": "BDO Codex",
     "source_type": "third_party_database",
     "published_at": null,
-    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "retrieved_at": "2026-09-11T00:00:00+09:00",
     "region": "KR",
-    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+    "notes": "2026-09-11 current game-data 교차검증에 사용한 맥주 Recipe 자료. 현행 공식 가이드의 곡물·물 대체 그룹 및 community_guide와 함께 검증했으며 source_type은 third_party_database로 유지한다. 정제수 3 대안은 current game-data 확인 범위이며 이 페이지 단독 표기라고 과장하지 않는다."
   },
   {
     "id": "codex-vinegar-9066",
@@ -1462,9 +1464,9 @@
     "publisher": "BDO Codex",
     "source_type": "third_party_database",
     "published_at": null,
-    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "retrieved_at": "2026-09-11T00:00:00+09:00",
     "region": "KR",
-    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+    "notes": "2026-09-11 current game-data 교차검증에 사용한 식초 Recipe 자료. community_guide와 수량·요구 숙련을 대조했으며 source_type은 third_party_database로 유지한다."
   },
   {
     "id": "codex-pickled-vegetables-9202",
@@ -1473,9 +1475,9 @@
     "publisher": "BDO Codex",
     "source_type": "third_party_database",
     "published_at": null,
-    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "retrieved_at": "2026-09-11T00:00:00+09:00",
     "region": "KR",
-    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+    "notes": "2026-09-11 current game-data 교차검증에 사용한 채소 절임 Recipe 자료. 2021년 공식 이벤트의 exact formula 및 현행 공식 가이드의 채소 그룹과 함께 검증했으며 source_type은 third_party_database로 유지한다."
   },
   {
     "id": "codex-grilled-bird-meat-9492",
@@ -1484,8 +1486,19 @@
     "publisher": "BDO Codex",
     "source_type": "third_party_database",
     "published_at": null,
-    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "retrieved_at": "2026-09-11T00:00:00+09:00",
     "region": "KR",
-    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+    "notes": "2026-09-11 current game-data 교차검증에 사용한 새구이 Recipe 자료. 닭고기 2, 튀김용 오일 6 또는 면실유 6, 조리용 와인 2, 소금 1과 초급 1을 확인했으며 source_type은 third_party_database로 유지한다. 2018년 공식 자료는 면실유 대안을 뒷받침하지 않는다."
+  },
+  {
+    "id": "cooking-grilled-bird-meat-official-2018",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?countryType=ko-KR&groupContentNo=905",
+    "title": "2018년 7월 업데이트 안내",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_patch",
+    "published_at": "2018-07-01",
+    "retrieved_at": "2026-09-11T00:00:00+09:00",
+    "region": "KR",
+    "notes": "새구이 추가 당시 닭고기 2, 튀김용 오일 6, 조리용 와인 2, 소금 1과 요리 초급 1 이상을 직접 명시한 공식 과거 자료. 면실유 6 대안은 명시하지 않으므로 해당 claim 근거로 사용하지 않는다."
   }
 ]
