@@ -13,10 +13,10 @@ from sqlalchemy.pool import StaticPool
 
 from app.config import PROJECT_ROOT, seed_dir
 from app.database import Base
-from app.knowledge import get_knowledge_content, get_knowledge_project
-from app.models import Content, Project
+from app.knowledge import get_knowledge_content, get_knowledge_project, get_knowledge_recipe
+from app.models import Content, Project, Recipe
 from app.seed import import_seed
-from app.schemas import KnowledgeContentOut, KnowledgeProjectOut, SourceOut
+from app.schemas import KnowledgeContentOut, KnowledgeProjectOut, KnowledgeRecipeOut, SourceOut
 
 
 GENERATED_HEADER = """<!-- GENERATED FILE — DO NOT EDIT BY HAND.
@@ -399,9 +399,64 @@ def render_project_markdown(
     return "\n".join(lines).rstrip() + "\n"
 
 
+def render_recipe_markdown(recipe: KnowledgeRecipeOut) -> str:
+    """Render canonical slots/options without inferring yields or mixed substitutions."""
+    lines = [GENERATED_HEADER, "", f"# {recipe.name_ko}"]
+    _section(lines, "Identity", [_fields([
+        ("slug", recipe.slug), ("process_type", recipe.process_type),
+        ("summary", recipe.summary), ("verification_status", recipe.verification_status),
+        ("last_verified_at", recipe.last_verified_at)])])
+    _section(lines, "Result", [_fields([
+        ("material_key", recipe.result_material_key),
+        ("name_ko", recipe.result_material_name_ko), ("unit", recipe.result_unit)])])
+    _section(lines, "Cooking Requirement", [_fields([
+        ("required_skill_tier", recipe.required_skill_tier),
+        ("required_skill_level", recipe.required_skill_level)])])
+    blocks = []
+    group_sources = {}
+    for slot in recipe.ingredient_slots:
+        blocks.extend([f"### {slot.label}", "", _fields([
+            ("seed_key", slot.seed_key), ("order_no", slot.order_no), ("notes", slot.notes)])])
+        for option in slot.options:
+            blocks.extend(["", f"#### {option.seed_key}", "", _fields([
+                ("target_type", option.target_type), ("required_quantity", option.required_quantity),
+                ("order_no", option.order_no), ("notes", option.notes)])])
+            if option.ingredient_group is None:
+                blocks.append(_fields([("material_key", option.material_key),
+                                       ("name_ko", option.material_name_ko), ("unit", option.unit)]))
+            else:
+                group = option.ingredient_group
+                blocks.append(_fields([("group", group.key), ("name_ko", group.name_ko),
+                                       ("verification_status", group.verification_status),
+                                       ("last_verified_at", group.last_verified_at)]))
+                blocks.extend(["", "Allowed current members:", ""])
+                blocks.extend(f"- {m.material_key} / {m.name_ko} ({m.unit})" for m in group.members)
+                group_sources[group.key] = group.sources
+        blocks.append("")
+    _section(lines, "Ingredient Slots", blocks)
+    _section(lines, "Substitution Semantics", [
+        "- Ingredient quantities are per one cooking attempt.",
+        "- All active slots are required (AND).",
+        "- Options inside one slot are alternatives (OR); select one allowed material.",
+        "- IngredientGroup membership does not define a global quantity conversion.",
+        "- required_quantity belongs to this Recipe option.",
+        "- Mixed option consumption is not inferred.",
+        "- Result quantity is not guaranteed by this Recipe definition.",
+        "- High-quality/special multipliers and yield probabilities are not defined.",
+    ])
+    sources = [*recipe.sources, *[s for key in sorted(group_sources) for s in group_sources[key]]]
+    lines.extend(["", "## Evidence and Sources", "", "### Current evidence", ""])
+    lines.extend(_evidence_blocks([s for s in sources if s.is_active]) or ["- None"])
+    lines.extend(["", "### Historical / inactive evidence", ""])
+    lines.extend(_evidence_blocks([s for s in sources if not s.is_active]) or ["- None"])
+    return "\n".join(lines).rstrip() + "\n"
+
+
+
 def _render_index(
     contents: list[KnowledgeContentOut],
     projects: list[KnowledgeProjectOut],
+    recipes: list[KnowledgeRecipeOut],
 ) -> str:
     lines = [
         GENERATED_HEADER,
@@ -415,7 +470,7 @@ def _render_index(
         "## How to use",
         "",
         "1. Search this index or the GitHub repository.",
-        "2. Open the matching Content or Project page.",
+        "2. Open the matching Content, Project or Recipe page.",
         "3. Prefer current verified evidence.",
         "4. Treat strategy and measurement separately from official fact.",
         "5. For personal state, use the caller/user source rather than this export.",
@@ -460,15 +515,32 @@ def _render_index(
         lines.append(
             f"| {project.name_ko.replace('|', '\\|')} | `{project.slug}` | [open]({path}) |"
         )
+    lines.extend(["", "## Recipes", "",
+                  "| Name | Slug | Process | Result | Verification | Last verified | Path |",
+                  "| --- | --- | --- | --- | --- | --- | --- |"])
+    for r in sorted(recipes, key=lambda r: (r.name_ko, r.slug)):
+        lines.append(f"| {r.name_ko} | {r.slug} | {r.process_type} | "
+                     f"{r.result_material_name_ko} | {r.verification_status} | "
+                     f"{r.last_verified_at} | [open](recipes/{r.slug}.md) |")
     return "\n".join(lines).rstrip() + "\n"
 
 
 def _render_manifest(
     contents: list[KnowledgeContentOut],
     projects: list[KnowledgeProjectOut],
+    recipes: list[KnowledgeRecipeOut],
 ) -> str:
     payload = {
-        "schema_version": 1,
+        "schema_version": 2,
+        "recipe_count": len(recipes),
+        "recipes": [
+            {"slug": r.slug, "name_ko": r.name_ko, "process_type": r.process_type,
+             "result_material_key": r.result_material_key,
+             "verification_status": r.verification_status,
+             "last_verified_at": r.last_verified_at.isoformat() if r.last_verified_at else None,
+             "path": f"recipes/{r.slug}.md"}
+            for r in sorted(recipes, key=lambda r: r.slug)
+        ],
         "content_count": len(contents),
         "project_count": len(projects),
         "contents": [
@@ -554,8 +626,15 @@ def build_ai_exports(
             for project in projects
         }
     )
-    files["INDEX.md"] = _render_index(contents, projects)
-    files["manifest.json"] = _render_manifest(contents, projects)
+    recipes = []
+    for slug in session.scalars(select(Recipe.slug).where(Recipe.active.is_(True)).order_by(Recipe.slug)):
+        recipe = get_knowledge_recipe(session, slug)
+        if recipe is None:
+            raise RuntimeError(f"Canonical Recipe disappeared during export: {slug}")
+        recipes.append(recipe)
+        files[f"recipes/{slug}.md"] = render_recipe_markdown(recipe)
+    files["INDEX.md"] = _render_index(contents, projects, recipes)
+    files["manifest.json"] = _render_manifest(contents, projects, recipes)
     return dict(sorted(files.items()))
 
 
@@ -649,7 +728,8 @@ def _run(command: str) -> int:
         print(
             f"AI export written: {len(expected)} files "
             f"({sum(path.startswith('contents/') for path in expected)} contents, "
-            f"{sum(path.startswith('projects/') for path in expected)} projects)"
+            f"{sum(path.startswith('projects/') for path in expected)} projects, "
+            f"{sum(path.startswith('recipes/') for path in expected)} recipes)"
         )
         return 0
 

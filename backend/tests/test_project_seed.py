@@ -52,12 +52,14 @@ def test_carrack_project_seed_shape_and_existing_baseline(session) -> None:
         Project: 1,
         ProjectStage: 4,
         ProjectStageDependency: 4,
-        Material: 9,
         ProjectMaterial: 9,
         ProjectMaterialSource: 9,
     }
     for model, expected in expected_counts.items():
         assert session.scalar(select(func.count()).select_from(model)) == expected
+    referenced_materials = set(session.scalars(select(ProjectMaterial.material_id)))
+    assert len(referenced_materials) == 9
+    assert all(session.get(Material, key).active for key in referenced_materials)
 
     project = session.scalar(select(Project).where(Project.slug == "carrack-advance"))
     assert project.content.slug == "carrack-advance"
@@ -270,7 +272,10 @@ def test_project_seed_rejects_invalid_identity_or_reference(
     payload = _project_payload(data_dir)
     project = payload["projects"][0]
     if invalid_case == "duplicate-material":
-        payload["materials"].append(dict(payload["materials"][0]))
+        material_path = data_dir / "seed_materials.json"
+        materials = json.loads(material_path.read_text(encoding="utf-8"))
+        materials.append(dict(materials[0]))
+        material_path.write_text(json.dumps(materials, ensure_ascii=False), encoding="utf-8")
     elif invalid_case == "duplicate-project":
         payload["projects"].append(dict(project))
     elif invalid_case == "unknown-content":

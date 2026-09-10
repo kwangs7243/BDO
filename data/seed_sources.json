@@ -1410,5 +1410,82 @@
     "retrieved_at": "2026-09-09T01:04:30+09:00",
     "region": "KR",
     "notes": "저스틴 바탈리의 모험일지 해금 조건, I~XVII의 17개 진행 단위, 각 진행 단위의 보상과 최종 완료 보상을 직접 명시한 공식 패치"
+  },
+  {
+    "id": "cooking-lara-event-2021",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/News/Detail?groupContentNo=5469",
+    "title": "[이벤트] 라라의 부탁을 들어줘!",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_event",
+    "published_at": "2021-05-04",
+    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "region": "KR",
+    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+  },
+  {
+    "id": "cooking-beer-community-2019",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Forum/ForumTopic/Detail?_topicNo=12232",
+    "title": "[요리, 채집, 재배] 0부터 세렌디아 정식까지 - 2",
+    "publisher": "삐읏",
+    "source_type": "community_guide",
+    "published_at": "2019-11-23",
+    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "region": "KR",
+    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+  },
+  {
+    "id": "cooking-vinegar-community-2020",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Forum/ForumTopic/Detail?_topicNo=26907",
+    "title": "요리와 생활의관계 명장까지 추천요리",
+    "publisher": "Shy아조씨",
+    "source_type": "community_guide",
+    "published_at": "2020-09-24",
+    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "region": "KR",
+    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+  },
+  {
+    "id": "codex-beer-9213",
+    "url": "https://bdocodex.com/kr/item/9213/",
+    "title": "맥주",
+    "publisher": "BDO Codex",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "region": "KR",
+    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+  },
+  {
+    "id": "codex-vinegar-9066",
+    "url": "https://bdocodex.com/kr/item/9066/",
+    "title": "식초",
+    "publisher": "BDO Codex",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "region": "KR",
+    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+  },
+  {
+    "id": "codex-pickled-vegetables-9202",
+    "url": "https://bdocodex.com/kr/item/9202/",
+    "title": "채소 절임",
+    "publisher": "BDO Codex",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "region": "KR",
+    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
+  },
+  {
+    "id": "codex-grilled-bird-meat-9492",
+    "url": "https://bdocodex.com/kr/item/9492/",
+    "title": "새구이",
+    "publisher": "BDO Codex",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-10T00:00:00+09:00",
+    "region": "KR",
+    "notes": "V1.9Q 조사: 정확한 현행 제작식은 needs_review. 과거 공식 또는 community/database 보조 근거로만 사용한다."
   }
 ]

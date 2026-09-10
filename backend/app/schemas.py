@@ -294,13 +294,87 @@ class KnowledgeProjectOut(BaseModel):
     materials: list[KnowledgeProjectMaterialOut]
 
 
+class KnowledgeRecipeEvidenceOut(BaseModel):
+    """Stable source/claim identities only; no numeric DB IDs."""
+    evidence_seed_key: str | None
+    id: str
+    title: str
+    url: str
+    publisher: str | None
+    source_type: str
+    published_at: date | None
+    retrieved_at: datetime | None
+    region: str
+    entity_type: str
+    entity_id: str
+    claim_key: str
+    verification_status: str
+    last_verified_at: date
+    evidence_note: str | None
+    active: bool
+    is_active: bool
+
+
+class KnowledgeIngredientGroupMemberOut(BaseModel):
+    material_key: str
+    name_ko: str
+    unit: str
+    order_no: int
+
+
+class KnowledgeIngredientGroupOut(BaseModel):
+    key: str
+    name_ko: str
+    last_verified_at: date | None
+    verification_status: str
+    members: list[KnowledgeIngredientGroupMemberOut]
+    sources: list[KnowledgeRecipeEvidenceOut]
+
+
+class KnowledgeRecipeIngredientOptionOut(BaseModel):
+    seed_key: str
+    target_type: Literal["material", "ingredient_group"]
+    required_quantity: float
+    order_no: int
+    notes: str | None
+    material_key: str | None = None
+    material_name_ko: str | None = None
+    unit: str | None = None
+    ingredient_group: KnowledgeIngredientGroupOut | None = None
+
+
+class KnowledgeRecipeIngredientSlotOut(BaseModel):
+    seed_key: str
+    label: str
+    order_no: int
+    notes: str | None
+    options: list[KnowledgeRecipeIngredientOptionOut]
+
+
+class KnowledgeRecipeOut(BaseModel):
+    slug: str
+    name_ko: str
+    process_type: str
+    summary: str | None
+    result_material_key: str
+    result_material_name_ko: str
+    result_unit: str
+    required_skill_tier: str | None
+    required_skill_level: int | None
+    last_verified_at: date | None
+    verification_status: str
+    ingredient_slots: list[KnowledgeRecipeIngredientSlotOut]
+    sources: list[KnowledgeRecipeEvidenceOut]
+
+
+
 class KnowledgeSearchMatchOut(BaseModel):
     field: str
     text: str
 
 
 class KnowledgeSearchResultOut(BaseModel):
-    resource_type: Literal["content", "project"]
+    resource_type: Literal["content", "project", "recipe"]
     slug: str
     name_ko: str
     category: str | None

@@ -1,12 +1,15 @@
-# Seed Format (V1.8A baseline)
+# Seed Format (V1.9Q baseline)
 
 ## 정본 파일
 
 - `data/seed_sources.json`: 출처 목록
 - `data/seed_contents.json`: 콘텐츠와 중첩 지식·일정·체크리스트·관계·근거
+- `data/seed_materials.json`: Project/Recipe 공용 Material 배열
+- `data/seed_projects.json`: Project와 중첩 행 (`projects` 객체 필드)
+- `data/seed_recipes.json`: `ingredient_groups`, `recipes` 배열을 가진 객체
 - importer: `backend/app/seed.py`
 
-`seed_sources.json`과 `seed_contents.json`은 UTF-8 JSON 배열이다. V1.8A의 선택 파일 `seed_projects.json`은 `materials`와 `projects` 배열을 가진 UTF-8 JSON 객체다. 기존 두 파일만 가진 임시 seed directory에서는 project import를 건너뛰어 과거 회귀 테스트와 importer 호환성을 유지한다.
+모든 파일은 UTF-8 JSON이다. Source/Content는 필수 배열이며 Material/Project/Recipe 파일은 선택적이다. 현재 Project 파일에는 `projects`만 있고 Material 정본은 shared catalog에 있다. 이전 두 파일만 가진 directory는 Project/Recipe import를 건너뛴다. 공유 파일이 없을 때만 과거 Project의 embedded `materials`를 허용한다. 공유 파일과 embedded `materials`가 동시에 있으면 빈 배열이어도 중복 정본 오류다.
 
 ## 안정 key 규칙
 
@@ -200,15 +203,12 @@ DB의 Evidence `seed_key`는 `{claim seed_key}::{source id}`로 만들어진다.
 
 전체 canonical 행과 나머지 claim들은 `data/seed_contents.json`의 `blood-altar` 항목을 사용한다.
 
-## V1.8A Project seed 형식
+## Project seed 형식 (V1.8A 호환, V1.9Q shared catalog)
 
-`seed_projects.json`의 최상위 구조는 다음과 같다.
+현재 `seed_projects.json`의 최상위 구조는 다음과 같다. 아래 Material key는 별도 `seed_materials.json`에 먼저 정의한다.
 
 ```json
 {
-  "materials": [
-    {"key": "stable-material-key", "name_ko": "표시 이름", "unit": "개", "active": true}
-  ],
   "projects": [
     {
       "slug": "project-slug",
@@ -263,8 +263,45 @@ DB의 Evidence `seed_key`는 `{claim seed_key}::{source id}`로 만들어진다.
 
 ## 검토 절차
 
+검증용 import는 임시 DB에서 실행한다. 기본 설정의 seed CLI는 실제 로컬 DB를 수정하므로 검증 목적으로 무심코 실행하지 않는다.
+
 1. 기존 행이면 `seed_key`를 유지하고 사실·문구·검증일만 수정한다.
 2. 정확한 변동 사실은 별도 evidence claim에 연결한다.
 3. 수량/시간이 확인되지 않았으면 nullable/미기재로 둔다.
 4. 삭제가 필요하면 JSON에서 제거하거나 `active=false`로 두고 import 후 이력이 보존되는지 테스트한다.
-5. `uv run python -m app.seed` 재실행 후 중복 수, 변경 행 ID, checklist history를 검증한다.
+5. 임시 DB를 쓰는 `uv run pytest tests/test_recipe_seed.py tests/test_recipe_migration.py` 등 해당 회귀에서 중복 수, 변경 행 ID, checklist history를 검증한다.
+
+## V1.9Q shared Material catalog
+
+```json
+[
+  {"key": "wheat", "name_ko": "밀", "unit": "개", "active": true}
+]
+```
+
+`material_seed.sync_materials`가 key로 제자리 갱신한다. shared catalog에서 빠진 Material만 archive한다. 파일 자체가 없으면 기존 행을 archive하지 않는다. legacy embedded catalog는 부분 목록이므로 다른 도메인의 Material을 archive하지 않는다. Project importer는 전역 Material 동기화/삭제를 수행하지 않는다. Recipe와 Project 모두 반환된 공유 key map을 resolve한다. 표시명 변경은 key/ID/FK/개인 재고를 바꾸지 않는다. 실제 전체 목록은 41개이며 기존 Carrack 9개가 포함된다.
+
+## V1.9Q Recipe 입력 계약
+
+정확한 validation 정의는 `backend/app/recipe_seed.py`의 Pydantic 모델이다. 알려지지 않은 Recipe 필드는 거부한다. 아래 `?`는 선택 필드다.
+
+| 계층 | 필수 필드 | 선택 필드/기본값 |
+| --- | --- | --- |
+| Group | `key`, `name_ko`, `last_verified_at` | `members=[]`, `evidence=[]`, `active=true` |
+| Member | `seed_key`, `material_key` | `order_no=1`, `active=true` |
+| Recipe | `slug`, `name_ko`, `process_type`, `result_material_key`, `last_verified_at` | `summary=null`, `required_skill_tier=null`, `required_skill_level=null`, `ingredients=[]`, `evidence=[]`, `active=true` |
+| Slot | `seed_key`, `label` | `options=[]`, `order_no=1`, `notes=null`, `active=true` |
+| Option | `seed_key`, `required_quantity`, 정확히 하나의 `material_key` 또는 `ingredient_group_key` | `order_no=1`, `notes=null`, `active=true` |
+| Evidence | `seed_key`, `entity_type`, `entity_seed_key`, `claim_key`, `source_ids`, `last_verified_at` | `verification_status=unverified`, `note=null`, `active=true` |
+
+현재 process는 `cooking`만 지원하며 초기 skill tier는 `beginner`, `apprentice`다. level은 null 또는 양의 정수다. option quantity는 유한한 양수다. result/member/option 참조와 Source ID는 존재해야 한다. 중복 recipe slug/group key/member material/중첩 key/evidence key는 거부한다.
+
+Stable key 예시: `beer`, `ingredient-group.grain.wheat`, `beer.water`, `beer.water.mineral-water`. Slot key는 Recipe slug, Option key는 Slot key, Member key는 `ingredient-group.{group key}.`로 시작한다. 같은 key는 기존 ID를 유지하며 누락 행은 archive한다. 부모가 비활성화되면 하위 row와 관련 Evidence도 비활성화한다. 동일 key 재등장은 기존 row를 재활성화한다. Recipe 파일 부재는 과거 seed import로 간주하여 기존 Recipe를 archive하지 않는다.
+
+Evidence target은 `recipe`(Recipe slug), `recipe_ingredient_slot`(Slot key), `recipe_ingredient_option`(Option key), `ingredient_group`(Group key)다. 해당 소유자의 `evidence` 배열에 기록하고 `(entity_type, entity_seed_key)`로 구분한다. DB Evidence stable key는 `{claim seed_key}::{source_id}`다. 정상 조회는 active 구조를 반환하며 Evidence의 inactive/superseded 이력은 따로 유지한다.
+
+수량은 **요리 1회 시도** 기준이다. 슬롯 간 AND, 같은 슬롯 옵션 간 OR이며 IngredientGroup은 멤버십만 나타낸다. 전역 multiplier, 고급/특상품 환산, 혼합 대체, 결과물 고정 수량, 대량 요리 10회 분량을 추론하지 않는다. 예를 들어 맥주의 물 슬롯은 `mineral-water:6` 또는 `purified-water:3`으로 별도 옵션이다. 전체 실행 가능한 예시는 `data/seed_recipes.json`의 네 Recipe를 사용한다.
+
+공식 현행 가이드의 그룹 멤버십·1회 시도 의미는 verified, 공식 현행 exact formula 확인이 부족한 배합·option quantity는 needs_review로 유지한다. conflict/superseded는 편한 값을 선택해 verified로 승격하지 않는다. 날짜는 확인한 날을 사용하며 모르는 발행일은 null로 둔다.
+
+seed에는 numeric DB ID, 사용자 inventory/note/state, shortage, 계산 결과, generated export 필드를 작성하지 않는다. 개인 재고는 기존 UserMaterialInventory와 backup version 1의 별도 소유 영역이다. Recipe API/export는 사용자 상태를 읽지 않는다.

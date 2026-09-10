@@ -83,7 +83,9 @@ def test_v19m_exact_baseline_and_reference_integrity() -> None:
         if isinstance(requirement.get("structured_value"), dict)
     )
 
-    assert (len(sources), len(contents)) == (183, 294)
+    # V1.9Q adds Recipe-only sources; the V1.9M Content baseline remains exact.
+    assert len(sources) >= 183
+    assert len(contents) == 294
     assert sum(len(row.get("relations", [])) for row in contents) == 521
     assert {key: roles[key] for key in ("fact", "strategy", "measurement")} == {
         "fact": 280,
@@ -457,7 +459,8 @@ def test_v19l_to_v19m_import_is_idempotent_and_preserves_history(
     command.upgrade(config, "head")
 
     baseline_sources, baseline_contents = _v19l_baseline_rows()
-    assert (len(baseline_sources), len(baseline_contents)) == (182, 294)
+    assert len(baseline_sources) >= 182
+    assert len(baseline_contents) == 294
     baseline_dir = tmp_path / "v19l-seed"
     baseline_dir.mkdir()
     (baseline_dir / "seed_sources.json").write_text(
@@ -467,6 +470,7 @@ def test_v19l_to_v19m_import_is_idempotent_and_preserves_history(
         json.dumps(baseline_contents, ensure_ascii=False), encoding="utf-8"
     )
     shutil.copy(DATA / "seed_projects.json", baseline_dir / "seed_projects.json")
+    shutil.copy(DATA / "seed_materials.json", baseline_dir / "seed_materials.json")
 
     nested_models = (
         ScheduleRule,

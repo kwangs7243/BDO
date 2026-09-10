@@ -12,7 +12,7 @@ Canonical source remains the BDO Companion seed/domain model.
 ## How to use
 
 1. Search this index or the GitHub repository.
-2. Open the matching Content or Project page.
+2. Open the matching Content, Project or Recipe page.
 3. Prefer current verified evidence.
 4. Treat strategy and measurement separately from official fact.
 5. For personal state, use the caller/user source rather than this export.
@@ -321,3 +321,12 @@ Canonical source remains the BDO Companion seed/domain model.
 | Name | Slug | Path |
 | --- | --- | --- |
 | 에페리아 중범선 : 점진 | `carrack-advance` | [open](projects/carrack-advance.md) |
+
+## Recipes
+
+| Name | Slug | Process | Result | Verification | Last verified | Path |
+| --- | --- | --- | --- | --- | --- | --- |
+| 맥주 | beer | cooking | 맥주 | needs_review | 2026-09-10 | [open](recipes/beer.md) |
+| 새구이 | grilled-bird-meat | cooking | 새구이 | needs_review | 2026-09-10 | [open](recipes/grilled-bird-meat.md) |
+| 식초 | vinegar | cooking | 식초 | needs_review | 2026-09-10 | [open](recipes/vinegar.md) |
+| 채소 절임 | pickled-vegetables | cooking | 채소 절임 | needs_review | 2026-09-10 | [open](recipes/pickled-vegetables.md) |
