@@ -204,7 +204,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content"
 - entity_id: "imperial-crafting-delivery-daily"
@@ -284,7 +284,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "imperial-crafting-delivery-daily.personal-limit"
@@ -324,7 +324,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "schedule_rule"
 - entity_id: "imperial-crafting-delivery-daily.personal-reset"

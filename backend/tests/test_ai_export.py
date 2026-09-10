@@ -330,11 +330,12 @@ def test_recipe_export_contract_and_counts(export_context):
     for heading in ["Identity", "Result", "Cooking Requirement", "Ingredient Slots",
                     "Substitution Semantics", "Evidence and Sources"]:
         assert f"## {heading}" in beer
-    for value in ["needs_review", "verified", "mineral-water", "purified-water",
+    for value in ["verified", "mineral-water", "purified-water",
                   "required_quantity: 6.0", "required_quantity: 3.0", "wheat / 밀", "potato / 감자",
                   "per one cooking attempt", "Mixed option consumption is not inferred",
                   "Result quantity is not guaranteed"]:
         assert value in beer
+    assert "needs_review" not in beer
     assert "- evidence_id:" not in beer
     assert "- id:" not in beer
     assert "owned_quantity" not in beer

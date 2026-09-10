@@ -2365,40 +2365,40 @@
   "recipe_count": 4,
   "recipes": [
     {
-      "last_verified_at": "2026-09-10",
+      "last_verified_at": "2026-09-11",
       "name_ko": "맥주",
       "path": "recipes/beer.md",
       "process_type": "cooking",
       "result_material_key": "beer",
       "slug": "beer",
-      "verification_status": "needs_review"
+      "verification_status": "verified"
     },
     {
-      "last_verified_at": "2026-09-10",
+      "last_verified_at": "2026-09-11",
       "name_ko": "새구이",
       "path": "recipes/grilled-bird-meat.md",
       "process_type": "cooking",
       "result_material_key": "grilled-bird-meat",
       "slug": "grilled-bird-meat",
-      "verification_status": "needs_review"
+      "verification_status": "verified"
     },
     {
-      "last_verified_at": "2026-09-10",
+      "last_verified_at": "2026-09-11",
       "name_ko": "채소 절임",
       "path": "recipes/pickled-vegetables.md",
       "process_type": "cooking",
       "result_material_key": "pickled-vegetables",
       "slug": "pickled-vegetables",
-      "verification_status": "needs_review"
+      "verification_status": "verified"
     },
     {
-      "last_verified_at": "2026-09-10",
+      "last_verified_at": "2026-09-11",
       "name_ko": "식초",
       "path": "recipes/vinegar.md",
       "process_type": "cooking",
       "result_material_key": "vinegar",
       "slug": "vinegar",
-      "verification_status": "needs_review"
+      "verification_status": "verified"
     }
   ],
   "schema_version": 2

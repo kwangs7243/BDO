@@ -9,9 +9,9 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - slug: "vinegar"
 - process_type: "cooking"
-- summary: "요리 1회 시도에 필요한 재료 정의. 정확한 현행 제작식의 공식 검증은 추가 확인이 필요하다."
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
+- summary: "요리 1회 시도에 필요한 재료 정의. community 자료와 current game-data를 claim별로 교차검증했다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
 
 ## Result
 
@@ -41,7 +41,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - group: "grain"
 - name_ko: "곡물"
 - verification_status: "verified"
-- last_verified_at: "2026-09-10"
+- last_verified_at: "2026-09-11"
 
 Allowed current members:
 
@@ -66,7 +66,7 @@ Allowed current members:
 - group: "fruit"
 - name_ko: "과일"
 - verification_status: "verified"
-- last_verified_at: "2026-09-10"
+- last_verified_at: "2026-09-11"
 
 Allowed current members:
 
@@ -135,14 +135,14 @@ Allowed current members:
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "ingredient_group"
 - entity_id: "fruit"
 - claim_key: "members"
 - verification_status: "verified"
-- last_verified_at: "2026-09-10"
-- evidence_note: "공식 current 요리 가이드 대체품 목록의 구성원. 그룹 소속은 전역 수량 환산을 뜻하지 않는다."
+- last_verified_at: "2026-09-11"
+- evidence_note: "2026-09-11 공식 current 요리 가이드의 대체품 목록을 재확인했다. 그룹 소속은 전역 수량 환산을 뜻하지 않는다."
 - active: true
 - is_active: true
 
@@ -155,14 +155,14 @@ Allowed current members:
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "ingredient_group"
 - entity_id: "grain"
 - claim_key: "members"
 - verification_status: "verified"
-- last_verified_at: "2026-09-10"
-- evidence_note: "공식 current 요리 가이드 대체품 목록의 구성원. 그룹 소속은 전역 수량 환산을 뜻하지 않는다."
+- last_verified_at: "2026-09-11"
+- evidence_note: "2026-09-11 공식 current 요리 가이드의 대체품 목록을 재확인했다. 그룹 소속은 전역 수량 환산을 뜻하지 않는다."
 - active: true
 - is_active: true
 
@@ -175,14 +175,14 @@ Allowed current members:
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe"
 - entity_id: "vinegar"
 - claim_key: "ingredients"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "과거 공식/커뮤니티 및 DB 보조 자료를 보존한다. current KR first-party exact formula를 검증한 것으로 승격하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "community_guide와 current BDO Codex의 exact formula가 일치함을 교차검증했다. 공식 문서만으로 검증했다는 의미는 아니다."
 - active: true
 - is_active: true
 
@@ -195,14 +195,14 @@ Allowed current members:
 - publisher: "Shy아조씨"
 - source_type: "community_guide"
 - published_at: "2020-09-24"
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe"
 - entity_id: "vinegar"
 - claim_key: "ingredients"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "과거 공식/커뮤니티 및 DB 보조 자료를 보존한다. current KR first-party exact formula를 검증한 것으로 승격하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "community_guide와 current BDO Codex의 exact formula가 일치함을 교차검증했다. 공식 문서만으로 검증했다는 의미는 아니다."
 - active: true
 - is_active: true
 
@@ -215,14 +215,14 @@ Allowed current members:
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: null
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe"
 - entity_id: "vinegar"
 - claim_key: "per_attempt"
 - verification_status: "verified"
-- last_verified_at: "2026-09-10"
-- evidence_note: "재료는 한 번 요리할 분량이며 대량 요리는 10회분 재료를 소비한다."
+- last_verified_at: "2026-09-11"
+- evidence_note: "2026-09-11 공식 current 요리 가이드에서 1회분 투입과 대량 요리의 10회분 소비를 재확인했다."
 - active: true
 - is_active: true
 
@@ -235,14 +235,14 @@ Allowed current members:
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe"
 - entity_id: "vinegar"
 - claim_key: "required_skill"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "현재 first-party 제작 조건의 추가 검증 필요."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "요리 초급 1 조건을 current BDO Codex에서 확인하고 전체 formula 교차검증과 함께 canonical current 사용에 충분하다고 판정했다."
 - active: true
 - is_active: true
 
@@ -255,14 +255,14 @@ Allowed current members:
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe_ingredient_option"
 - entity_id: "vinegar.ingredient.fruit.option.fruit"
 - claim_key: "required_quantity"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "해당 Recipe option의 수량이다. 다른 recipe 또는 품질 등급에 대한 전역 환산·혼합 재료 사용은 추론하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "과일 1을 community_guide와 current BDO Codex에서 교차검증했다. 현행 공식 가이드의 과일 그룹만 적용하며 전역 환산·혼합 사용은 추론하지 않는다."
 - active: true
 - is_active: true
 
@@ -275,14 +275,14 @@ Allowed current members:
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe_ingredient_option"
 - entity_id: "vinegar.ingredient.grain.option.grain"
 - claim_key: "required_quantity"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "해당 Recipe option의 수량이다. 다른 recipe 또는 품질 등급에 대한 전역 환산·혼합 재료 사용은 추론하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "곡물 1을 community_guide와 current BDO Codex에서 교차검증했다. 현행 공식 가이드의 곡물 그룹만 적용하며 전역 환산·혼합 사용은 추론하지 않는다."
 - active: true
 - is_active: true
 
@@ -295,14 +295,14 @@ Allowed current members:
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe_ingredient_option"
 - entity_id: "vinegar.ingredient.leavening-agent.option.leavening-agent"
 - claim_key: "required_quantity"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "해당 Recipe option의 수량이다. 다른 recipe 또는 품질 등급에 대한 전역 환산·혼합 재료 사용은 추론하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "발효제 1을 community_guide와 current BDO Codex에서 교차검증했다. 다른 recipe의 수량으로 일반화하지 않는다."
 - active: true
 - is_active: true
 
@@ -315,14 +315,14 @@ Allowed current members:
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
-- retrieved_at: "2026-09-10T00:00:00+00:00"
+- retrieved_at: "2026-09-11T00:00:00+00:00"
 - region: "KR"
 - entity_type: "recipe_ingredient_option"
 - entity_id: "vinegar.ingredient.sugar.option.sugar"
 - claim_key: "required_quantity"
-- verification_status: "needs_review"
-- last_verified_at: "2026-09-10"
-- evidence_note: "해당 Recipe option의 수량이다. 다른 recipe 또는 품질 등급에 대한 전역 환산·혼합 재료 사용은 추론하지 않는다."
+- verification_status: "verified"
+- last_verified_at: "2026-09-11"
+- evidence_note: "설탕 1을 community_guide와 current BDO Codex에서 교차검증했다. 다른 recipe의 수량으로 일반화하지 않는다."
 - active: true
 - is_active: true
 
