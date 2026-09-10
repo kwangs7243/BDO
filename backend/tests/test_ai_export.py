@@ -63,7 +63,8 @@ def test_build_from_seed_uses_an_isolated_database() -> None:
 
     assert manifest["content_count"] == 294
     assert manifest["project_count"] == 1
-    assert len(exports) == 297
+    assert manifest["recipe_count"] == 4
+    assert len(exports) == 301
 
 
 def test_manifest_counts_match_active_canonical_rows(export_context) -> None:
@@ -88,7 +89,7 @@ def test_all_markdown_is_marked_generated(export_context) -> None:
         path: content for path, content in exports.items() if path.endswith(".md")
     }
 
-    assert len(markdown_files) == 296
+    assert len(markdown_files) == 300
     assert all(content.startswith(GENERATED_HEADER) for content in markdown_files.values())
 
 
@@ -312,3 +313,48 @@ def test_export_build_does_not_mutate_any_database_table(export_context) -> None
 def test_committed_ai_exports_are_current(export_context) -> None:
     _, exports = export_context
     assert compare_export_tree(exports, DEFAULT_OUTPUT_DIR) == []
+
+
+def test_recipe_export_contract_and_counts(export_context):
+    session, exports = export_context
+    from app.models import Recipe
+    manifest = json.loads(exports["manifest.json"])
+    active = list(session.scalars(select(Recipe.slug).where(Recipe.active.is_(True))))
+    assert manifest["schema_version"] == 2
+    assert manifest["recipe_count"] == len(active) == 4
+    assert len(exports) == manifest["content_count"] + manifest["project_count"] + len(active) + 2
+    assert len([p for p in exports if p.startswith("recipes/")]) == 4
+    assert "## Recipes" in exports["INDEX.md"]
+    assert [r["slug"] for r in manifest["recipes"]] == sorted(active)
+    beer = exports["recipes/beer.md"]
+    for heading in ["Identity", "Result", "Cooking Requirement", "Ingredient Slots",
+                    "Substitution Semantics", "Evidence and Sources"]:
+        assert f"## {heading}" in beer
+    for value in ["needs_review", "verified", "mineral-water", "purified-water",
+                  "required_quantity: 6.0", "required_quantity: 3.0", "wheat / 밀", "potato / 감자",
+                  "per one cooking attempt", "Mixed option consumption is not inferred",
+                  "Result quantity is not guaranteed"]:
+        assert value in beer
+    assert "- evidence_id:" not in beer
+    assert "- id:" not in beer
+    assert "owned_quantity" not in beer
+
+
+def test_recipe_export_preserves_historical_evidence(export_context):
+    session, _ = export_context
+    from app.knowledge import get_knowledge_recipe
+    from app.ai_export import render_recipe_markdown
+    from app.models import Evidence
+    evidence = session.scalar(select(Evidence).where(
+        Evidence.entity_type == "recipe", Evidence.entity_id == "beer", Evidence.claim_key == "ingredients"))
+    old_status = evidence.verification_status
+    try:
+        evidence.verification_status = "superseded"
+        session.flush()
+        page = render_recipe_markdown(get_knowledge_recipe(session, "beer"))
+        historical = page.split("### Historical / inactive evidence")[1]
+        assert evidence.seed_key in historical
+        assert 'verification_status: "superseded"' in historical
+    finally:
+        evidence.verification_status = old_status
+        session.flush()

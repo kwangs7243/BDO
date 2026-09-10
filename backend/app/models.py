@@ -442,3 +442,97 @@ class UserProjectStageState(Base):
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
 
     stage: Mapped[ProjectStage] = relationship(back_populates="user_state")
+
+class IngredientGroup(Base):
+    __tablename__ = "ingredient_group"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    key: Mapped[str] = mapped_column(String(160), unique=True, nullable=False)
+    name_ko: Mapped[str] = mapped_column(String(255), nullable=False)
+    last_verified_at: Mapped[date | None] = mapped_column(Date)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+
+    members: Mapped[list[IngredientGroupMember]] = relationship(back_populates="group")
+
+
+class IngredientGroupMember(Base):
+    __tablename__ = "ingredient_group_member"
+    __table_args__ = (
+        UniqueConstraint("group_id", "material_id", name="uq_ingredient_group_material"),
+        UniqueConstraint("group_id", "seed_key", name="uq_ingredient_group_member_seed"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    group_id: Mapped[int] = mapped_column(ForeignKey("ingredient_group.id"), nullable=False)
+    material_id: Mapped[int] = mapped_column(ForeignKey("material.id"), nullable=False)
+    seed_key: Mapped[str] = mapped_column(String(200), nullable=False)
+    order_no: Mapped[int] = mapped_column(Integer, nullable=False)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+
+    group: Mapped[IngredientGroup] = relationship(back_populates="members")
+    material: Mapped[Material] = relationship()
+
+
+class Recipe(Base):
+    __tablename__ = "recipe"
+    __table_args__ = (
+        CheckConstraint("required_skill_level IS NULL OR required_skill_level > 0",
+                        name="ck_recipe_skill_positive"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    slug: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
+    name_ko: Mapped[str] = mapped_column(String(255), nullable=False)
+    process_type: Mapped[str] = mapped_column(String(32), nullable=False)
+    result_material_id: Mapped[int] = mapped_column(ForeignKey("material.id"), nullable=False)
+    summary: Mapped[str | None] = mapped_column(Text)
+    required_skill_tier: Mapped[str | None] = mapped_column(String(32))
+    required_skill_level: Mapped[int | None] = mapped_column(Integer)
+    last_verified_at: Mapped[date | None] = mapped_column(Date)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+
+    result_material: Mapped[Material] = relationship()
+    ingredient_slots: Mapped[list[RecipeIngredientSlot]] = relationship(back_populates="recipe")
+
+
+class RecipeIngredientSlot(Base):
+    __tablename__ = "recipe_ingredient_slot"
+    __table_args__ = (UniqueConstraint("recipe_id", "seed_key", name="uq_recipe_slot_seed"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    recipe_id: Mapped[int] = mapped_column(ForeignKey("recipe.id"), nullable=False)
+    seed_key: Mapped[str] = mapped_column(String(200), nullable=False)
+    label: Mapped[str] = mapped_column(String(255), nullable=False)
+    order_no: Mapped[int] = mapped_column(Integer, nullable=False)
+    notes: Mapped[str | None] = mapped_column(Text)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+
+    recipe: Mapped[Recipe] = relationship(back_populates="ingredient_slots")
+    options: Mapped[list[RecipeIngredientOption]] = relationship(back_populates="slot")
+
+
+class RecipeIngredientOption(Base):
+    __tablename__ = "recipe_ingredient_option"
+    __table_args__ = (
+        UniqueConstraint("slot_id", "seed_key", name="uq_recipe_option_seed"),
+        CheckConstraint("required_quantity > 0", name="ck_recipe_option_quantity_positive"),
+        CheckConstraint(
+            "(material_id IS NOT NULL AND ingredient_group_id IS NULL) OR "
+            "(material_id IS NULL AND ingredient_group_id IS NOT NULL)",
+            name="ck_recipe_option_target_xor",
+        ),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    slot_id: Mapped[int] = mapped_column(ForeignKey("recipe_ingredient_slot.id"), nullable=False)
+    seed_key: Mapped[str] = mapped_column(String(220), nullable=False)
+    material_id: Mapped[int | None] = mapped_column(ForeignKey("material.id"))
+    ingredient_group_id: Mapped[int | None] = mapped_column(ForeignKey("ingredient_group.id"))
+    required_quantity: Mapped[float] = mapped_column(Float, nullable=False)
+    order_no: Mapped[int] = mapped_column(Integer, nullable=False)
+    notes: Mapped[str | None] = mapped_column(Text)
+    active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+
+    slot: Mapped[RecipeIngredientSlot] = relationship(back_populates="options")
+    material: Mapped[Material | None] = relationship()
+    ingredient_group: Mapped[IngredientGroup | None] = relationship()

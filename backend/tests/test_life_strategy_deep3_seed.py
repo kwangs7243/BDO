@@ -418,6 +418,7 @@ def test_v19f_temp_db_import_is_idempotent_and_preserves_user_history(
         json.dumps(baseline_contents, ensure_ascii=False), encoding="utf-8"
     )
     shutil.copy(DATA_DIR / "seed_projects.json", baseline_dir / "seed_projects.json")
+    shutil.copy(DATA_DIR / "seed_materials.json", baseline_dir / "seed_materials.json")
 
     canonical_models = (
         Source,

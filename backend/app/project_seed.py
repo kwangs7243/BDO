@@ -81,30 +81,6 @@ def _validate_dag(
         visit(node)
 
 
-def _sync_materials(session: Session, rows: list[dict[str, Any]]) -> dict[str, Material]:
-    _unique(rows, "key", "materials")
-    existing = list(session.scalars(select(Material)).all())
-    by_key = {item.key: item for item in existing}
-    seen: set[str] = set()
-    result: dict[str, Material] = {}
-    for row in rows:
-        key = str(row["key"])
-        seen.add(key)
-        material = by_key.get(key)
-        if material is None:
-            material = Material(key=key)
-            session.add(material)
-        material.name_ko = row["name_ko"]
-        material.unit = row.get("unit", "개")
-        material.active = bool(row.get("active", True))
-        result[key] = material
-    for material in existing:
-        if material.key not in seen:
-            material.active = False
-    session.flush()
-    return result
-
-
 def _sync_stages(
     session: Session, project: Project, rows: list[dict[str, Any]]
 ) -> dict[str, ProjectStage]:
@@ -265,7 +241,7 @@ def _sync_project_materials(
                 source.active = False
 
 
-def sync_projects(session: Session, directory: Path) -> None:
+def sync_projects(session: Session, directory: Path, materials: dict[str, Material]) -> None:
     """Synchronize optional canonical project data without touching user-owned rows."""
 
     path = directory / "seed_projects.json"
@@ -274,12 +250,10 @@ def sync_projects(session: Session, directory: Path) -> None:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise ValueError("seed_projects.json must contain an object")
-    material_rows = payload.get("materials", [])
     project_rows = payload.get("projects", [])
-    if not isinstance(material_rows, list) or not isinstance(project_rows, list):
-        raise ValueError("seed_projects.json materials/projects must be lists")
+    if not isinstance(project_rows, list):
+        raise ValueError("seed_projects.json projects must be a list")
     _unique(project_rows, "slug", "projects")
-    materials = _sync_materials(session, material_rows)
 
     existing_projects = list(session.scalars(select(Project)).all())
     by_slug = {item.slug: item for item in existing_projects}

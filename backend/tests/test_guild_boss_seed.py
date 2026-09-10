@@ -74,6 +74,7 @@ def test_v19k_historical_import_idempotence_and_history(tmp_path,monkeypatch):
  backend=Path(__file__).resolve().parents[1];cfg=Config(str(backend/"alembic.ini"));cfg.set_main_option("script_location",str(backend/"alembic"));command.upgrade(cfg,"20260902_0001");command.upgrade(cfg,"head")
  s,c=rows();bs=[copy.deepcopy(x) for x in s if x["id"] not in NEW_S];shared=next(x for x in bs if x["id"]=="marni-combat-analyzer-2026-08-05");shared["title"]="8월 5일(수) 업데이트 안내 - 마르니의 전투 분석기";shared.pop("notes",None)
  bd=tmp_path/"baseline";bd.mkdir();(bd/"seed_sources.json").write_text(json.dumps(bs,ensure_ascii=False),encoding="utf-8");(bd/"seed_contents.json").write_text(json.dumps(baseline_contents(c),ensure_ascii=False),encoding="utf-8");shutil.copy(DATA/"seed_projects.json",bd/"seed_projects.json")
+ shutil.copy(DATA/"seed_materials.json",bd/"seed_materials.json")
  engine=create_engine(url)
  with Session(engine) as ss:
   import_seed(ss,bd);k=ss.scalar(select(Content).where(Content.slug=="khan-guild-boss"));stable=(k.id,{x.seed_key:x.id for x in k.requirements},{x.seed_key:x.id for x in k.rewards},{x.seed_key:x.id for x in k.sections})

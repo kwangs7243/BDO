@@ -1,0 +1,248 @@
+[
+  {
+    "key": "moon-vein-flax",
+    "name_ko": "달의 핏줄이 새겨진 아마포",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "deep-tide-standardized-timber",
+    "name_ko": "짙은 파도빛이 감도는 규격 각목",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "brilliant-rock-salt-ingot",
+    "name_ko": "화려한 암염 주괴",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "brilliant-pearl-crystal",
+    "name_ko": "화려한 진주 결정",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "tear-of-the-ocean",
+    "name_ko": "심해의 눈물",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "caravel-black-dragon-figurehead-plus10",
+    "name_ko": "+10 에페리아 무역선 : 흑룡 선수상",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "caravel-upgraded-plating-plus10",
+    "name_ko": "+10 에페리아 무역선 : 개량형 장갑",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "caravel-mayna-cannon-plus10",
+    "name_ko": "+10 에페리아 무역선 : 메이나 함포",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "caravel-stratus-wind-sail-plus10",
+    "name_ko": "+10 에페리아 무역선 : 비층 바람 돛",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "beer",
+    "name_ko": "맥주",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "vinegar",
+    "name_ko": "식초",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "pickled-vegetables",
+    "name_ko": "채소 절임",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "grilled-bird-meat",
+    "name_ko": "새구이",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "wheat",
+    "name_ko": "밀",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "barley",
+    "name_ko": "보리",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "potato",
+    "name_ko": "감자",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "sweet-potato",
+    "name_ko": "고구마",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "corn",
+    "name_ko": "옥수수",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "grape",
+    "name_ko": "포도",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "strawberry",
+    "name_ko": "딸기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "apple",
+    "name_ko": "사과",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "cherry",
+    "name_ko": "체리",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "pear",
+    "name_ko": "배",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "banana",
+    "name_ko": "바나나",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "pineapple",
+    "name_ko": "파인애플",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "pumpkin",
+    "name_ko": "호박",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "olive",
+    "name_ko": "올리브",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "tomato",
+    "name_ko": "토마토",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "paprika",
+    "name_ko": "파프리카",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "cabbage",
+    "name_ko": "양배추",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "kuku-bird-meat",
+    "name_ko": "쿠쿠새 고기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "flamingo-meat",
+    "name_ko": "홍학 고기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "chicken-meat",
+    "name_ko": "닭고기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "mineral-water",
+    "name_ko": "요리용 생수",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "purified-water",
+    "name_ko": "정제수",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "leavening-agent",
+    "name_ko": "발효제",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "sugar",
+    "name_ko": "설탕",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "deep-frying-oil",
+    "name_ko": "튀김용 오일",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "cottonseed-oil",
+    "name_ko": "면실유",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "cooking-wine",
+    "name_ko": "조리용 와인",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "salt",
+    "name_ko": "소금",
+    "unit": "개",
+    "active": true
+  }
+]

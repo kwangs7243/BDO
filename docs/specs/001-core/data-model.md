@@ -191,7 +191,23 @@ seed 재수입은 두 user table을 수정하거나 archive하지 않는다. 부
 
 **절대 `checked=false` 일괄 UPDATE로 초기화하지 않는다.**
 
-## 후속 milestone로 연기된 모델
+## V1.9Q Cooking Recipe canonical entities
+
+Material은 Project 전용이 아닌 shared catalog identity다. `seed_materials.json`을 우선 사용하고 같은 Material ID에 Recipe 결과/재료, ProjectMaterial, UserMaterialInventory가 연결된다. Material 및 개인 상태 스키마 변경은 없다.
+
+Migration `20260910_0004`가 아래 다섯 테이블만 추가한다. 모든 행은 numeric PK와 `active`를 가지며 삭제 대신 archive한다. 외부 canonical DTO는 numeric PK를 노출하지 않는다.
+
+| 테이블 | 관계/필드 | 제약 |
+| --- | --- | --- |
+| `ingredient_group` | `key`, `name_ko`, `last_verified_at` | key unique |
+| `ingredient_group_member` | group_id → Group, material_id → Material, seed_key, order_no | (group_id, seed_key), (group_id, material_id) unique |
+| `recipe` | slug, name_ko, process_type, result_material_id → Material, summary, required_skill_tier/level, last_verified_at | slug unique; level null 또는 > 0 |
+| `recipe_ingredient_slot` | recipe_id → Recipe, seed_key, label, order_no, notes | (recipe_id, seed_key) unique |
+| `recipe_ingredient_option` | slot_id → Slot, seed_key, nullable material_id → Material/group_id reference (`ingredient_group_id`), required_quantity, order_no, notes | (slot_id, seed_key) unique; qty > 0; Material/Group XOR |
+
+Group에는 quantity conversion 필드가 없다. Slot AND / Option OR이며 필요량은 한 번의 요리 시도에 대한 option 값이다. 유한 수량·참조·도메인/중첩 stable key는 importer가 검증한다. 기존 Evidence의 typed target에 recipe, recipe_ingredient_slot, recipe_ingredient_option, ingredient_group을 사용하며 동일 key 재수입은 이력을 보존한다. Recipe calculator와 개인 Recipe state 테이블은 만들지 않는다.
+
+## 후속 milestone로 연기된 모델 (미구현)
 
 - `character`, `character_role`
 - `life_skill_profile`

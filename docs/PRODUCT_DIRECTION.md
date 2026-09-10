@@ -19,6 +19,7 @@ Continue to preserve and expand:
 - Requirements / Steps / Rewards / Sections / Relations
 - Schedule and reset semantics
 - Projects and canonical dependency/material definitions
+- shared Material catalog and structured Cooking Recipe definitions (V1.9Q foundation)
 - Source / claim-level Evidence
 - verification status
 - FACT / STRATEGY / MEASUREMENT semantics
@@ -54,6 +55,8 @@ BDO Companion remains the Source of Truth for shared Black Desert game-domain kn
 - deterministic calculations derived from canonical rules
 
 Do not create a second independently maintained canonical copy of this knowledge in Notion or another personal-state system.
+
+V1.9Q implements the first four cooking recipes through shared Materials, ingredient groups and recipe-specific alternative quantities. Recipe read/search and generated exports are canonical-only consumers. Exact formulas retain `needs_review` where current official confirmation is insufficient; this foundation does not implement a recipe calculator, profitability engine, new UI or personal-state ownership change.
 
 ## 4. Personal-state ownership
 

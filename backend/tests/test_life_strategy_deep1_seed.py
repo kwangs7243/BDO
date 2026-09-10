@@ -383,6 +383,7 @@ def test_v19c_temp_db_migration_import_idempotence_and_user_history_preservation
         encoding="utf-8",
     )
     shutil.copy(DATA_DIR / "seed_projects.json", baseline_dir / "seed_projects.json")
+    shutil.copy(DATA_DIR / "seed_materials.json", baseline_dir / "seed_materials.json")
     canonical_models = (
         Source,
         Content,

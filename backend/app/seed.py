@@ -25,6 +25,8 @@ from app.models import (
 )
 from app.periods import RESET_RULE_TYPES
 from app.project_seed import sync_projects
+from app.material_seed import sync_materials
+from app.recipe_seed import sync_recipes
 
 
 REQUIREMENT_KINDS = {"quest", "level", "gear", "stat", "item", "knowledge", "party", "character", "other"}
@@ -428,7 +430,9 @@ def import_seed(session: Session, directory: Path | None = None) -> None:
             ]
         _sync_evidence(session, content, evidence_rows, source_rows)
 
-    sync_projects(session, directory)
+    materials = sync_materials(session, directory)
+    sync_projects(session, directory, materials)
+    sync_recipes(session, directory, materials)
     session.commit()
 
 

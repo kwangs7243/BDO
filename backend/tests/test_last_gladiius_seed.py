@@ -340,6 +340,7 @@ def test_v19i_temp_db_import_is_idempotent_and_preserves_history(tmp_path, monke
         json.dumps(baseline_contents, ensure_ascii=False), encoding="utf-8"
     )
     shutil.copy(DATA_DIR / "seed_projects.json", baseline_dir / "seed_projects.json")
+    shutil.copy(DATA_DIR / "seed_materials.json", baseline_dir / "seed_materials.json")
 
     canonical_models = (
         Source,

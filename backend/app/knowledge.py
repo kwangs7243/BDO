@@ -4,7 +4,7 @@ import json
 import re
 from datetime import datetime
 
-from sqlalchemy import or_, select
+from sqlalchemy import and_, or_, select
 from sqlalchemy.orm import Session, selectinload
 
 from app.content import (
@@ -22,6 +22,7 @@ from app.models import (
     ProjectMaterial,
     ProjectMaterialSource,
     ProjectStage,
+    Recipe, RecipeIngredientSlot, RecipeIngredientOption, IngredientGroup, IngredientGroupMember,
 )
 from app.schemas import (
     ContentRequirementOut,
@@ -35,6 +36,8 @@ from app.schemas import (
     KnowledgeSearchResultOut,
     ProjectMaterialSourceOut,
     RewardOut,
+    KnowledgeRecipeOut, KnowledgeRecipeIngredientSlotOut, KnowledgeRecipeIngredientOptionOut,
+    KnowledgeIngredientGroupOut, KnowledgeIngredientGroupMemberOut, KnowledgeRecipeEvidenceOut,
 )
 
 
@@ -278,6 +281,122 @@ def get_knowledge_project(session: Session, slug: str) -> KnowledgeProjectOut | 
     )
 
 
+def _recipe_query():
+    options = selectinload(Recipe.ingredient_slots).selectinload(RecipeIngredientSlot.options)
+    return select(Recipe).options(
+        selectinload(Recipe.result_material),
+        options.selectinload(RecipeIngredientOption.material),
+        options.selectinload(RecipeIngredientOption.ingredient_group)
+        .selectinload(IngredientGroup.members).selectinload(IngredientGroupMember.material),
+    )
+
+
+def _recipe_evidence(session, recipe):
+    """Resolve typed stable targets, including archived children, without slug-prefix ambiguity."""
+    targets = [and_(Evidence.entity_type == "recipe", Evidence.entity_id == recipe.slug)]
+    slot_keys = [s.seed_key for s in recipe.ingredient_slots]
+    option_keys = [o.seed_key for s in recipe.ingredient_slots for o in s.options]
+    targets.extend([
+        and_(Evidence.entity_type == "recipe_ingredient_slot", Evidence.entity_id.in_(slot_keys)),
+        and_(Evidence.entity_type == "recipe_ingredient_option", Evidence.entity_id.in_(option_keys)),
+    ])
+    return list(session.scalars(select(Evidence).where(or_(*targets))
+                               .options(selectinload(Evidence.source))
+                               .order_by(Evidence.entity_type, Evidence.entity_id, Evidence.claim_key,
+                                         Evidence.seed_key, Evidence.source_id)))
+
+
+def _recipe_source_out(item):
+    return KnowledgeRecipeEvidenceOut.model_validate(
+        _source_out(item).model_dump(exclude={"evidence_id"})
+    )
+
+
+def get_knowledge_recipe(session: Session, slug: str) -> KnowledgeRecipeOut | None:
+    """Read canonical cooking knowledge, with typed evidence and no personal-state query."""
+    recipe = session.scalar(_recipe_query().where(Recipe.slug == slug, Recipe.active.is_(True)))
+    if recipe is None:
+        return None
+    evidence = _recipe_evidence(session, recipe)
+    groups = {}
+    slots = []
+    for slot in sorted(recipe.ingredient_slots, key=lambda s: (s.order_no, s.seed_key)):
+        if not slot.active:
+            continue
+        options = []
+        for option in sorted(slot.options, key=lambda o: (o.order_no, o.seed_key)):
+            if not option.active:
+                continue
+            values = dict(seed_key=option.seed_key, required_quantity=option.required_quantity,
+                          order_no=option.order_no, notes=option.notes)
+            if option.material is not None:
+                if not option.material.active:
+                    continue
+                values.update(target_type="material", material_key=option.material.key,
+                              material_name_ko=option.material.name_ko, unit=option.material.unit)
+            else:
+                group = option.ingredient_group
+                if group is None or not group.active:
+                    continue
+                if group.key not in groups:
+                    sources = list(session.scalars(
+                        select(Evidence).where(Evidence.entity_type == "ingredient_group",
+                                               Evidence.entity_id == group.key)
+                        .options(selectinload(Evidence.source))
+                        .order_by(Evidence.claim_key, Evidence.seed_key, Evidence.source_id)))
+                    groups[group.key] = KnowledgeIngredientGroupOut(
+                        key=group.key, name_ko=group.name_ko, last_verified_at=group.last_verified_at,
+                        verification_status=aggregate_verification(sources),
+                        members=[KnowledgeIngredientGroupMemberOut(
+                            material_key=m.material.key, name_ko=m.material.name_ko,
+                            unit=m.material.unit, order_no=m.order_no)
+                            for m in sorted(group.members, key=lambda m: (m.order_no, m.seed_key))
+                            if m.active and m.material.active],
+                        sources=[_recipe_source_out(e) for e in sources])
+                values.update(target_type="ingredient_group", ingredient_group=groups[group.key])
+            options.append(KnowledgeRecipeIngredientOptionOut(**values))
+        slots.append(KnowledgeRecipeIngredientSlotOut(
+            seed_key=slot.seed_key, label=slot.label, order_no=slot.order_no,
+            notes=slot.notes, options=options))
+    return KnowledgeRecipeOut(
+        slug=recipe.slug, name_ko=recipe.name_ko, process_type=recipe.process_type,
+        summary=recipe.summary, result_material_key=recipe.result_material.key,
+        result_material_name_ko=recipe.result_material.name_ko, result_unit=recipe.result_material.unit,
+        required_skill_tier=recipe.required_skill_tier, required_skill_level=recipe.required_skill_level,
+        last_verified_at=recipe.last_verified_at, verification_status=aggregate_verification(evidence),
+        ingredient_slots=slots, sources=[_recipe_source_out(e) for e in evidence])
+
+
+def _recipe_search_candidates(recipe):
+    candidates = [
+        ("recipe.name_ko", recipe.name_ko, 0, True),
+        ("recipe.slug", recipe.slug, 0, True),
+        ("recipe.result_material.name_ko", recipe.result_material.name_ko, 0, True),
+        ("recipe.result_material.key", recipe.result_material.key, 0, True),
+        ("recipe.summary", recipe.summary, 3, False),
+    ]
+    for slot in sorted(recipe.ingredient_slots, key=lambda s: (s.order_no, s.seed_key)):
+        if not slot.active:
+            continue
+        candidates.append(("recipe_slot.label", slot.label, 4, False))
+        for option in sorted(slot.options, key=lambda o: (o.order_no, o.seed_key)):
+            if not option.active:
+                continue
+            candidates.append(("recipe_option.notes", option.notes, 5, False))
+            if option.material is not None and option.material.active:
+                candidates.extend([("ingredient.name_ko", option.material.name_ko, 4, False),
+                                   ("ingredient.key", option.material.key, 4, False)])
+            group = option.ingredient_group
+            if group is not None and group.active:
+                candidates.extend([("ingredient_group.name_ko", group.name_ko, 4, False),
+                                   ("ingredient_group.key", group.key, 4, False)])
+                for member in sorted(group.members, key=lambda m: (m.order_no, m.seed_key)):
+                    if member.active and member.material.active:
+                        candidates.extend([("group_member.name_ko", member.material.name_ko, 4, False),
+                                           ("group_member.key", member.material.key, 4, False)])
+    return candidates
+
+
 def _normalize(value: str) -> str:
     return _WHITESPACE.sub(" ", value).strip().casefold()
 
@@ -486,5 +605,14 @@ def search_knowledge(
                 )
             )
 
+    for recipe in session.scalars(_recipe_query().where(Recipe.active.is_(True)).order_by(Recipe.slug)):
+        matches = _collect_matches(normalized_query, _recipe_search_candidates(recipe))
+        if matches:
+            ranked.append((matches[0][0], "recipe", recipe.name_ko, recipe.slug,
+                           KnowledgeSearchResultOut(
+                               resource_type="recipe", slug=recipe.slug, name_ko=recipe.name_ko,
+                               category=recipe.process_type, summary=recipe.summary,
+                               verification_status=aggregate_verification(_recipe_evidence(session, recipe)),
+                               matches=[item[2] for item in matches[:3]])))
     ranked.sort(key=lambda item: (item[0], item[1], item[2], item[3]))
     return [item[4] for item in ranked[:limit]]

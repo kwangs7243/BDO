@@ -26,7 +26,8 @@ Canonical Knowledge DB
         ├──────────────► Knowledge Read Service
         │                   ├─ deterministic lexical search
         │                   ├─ canonical-only Content projection
-        │                   └─ canonical-only Project projection
+        │                   ├─ canonical-only Project projection
+        │                   └─ canonical-only Recipe projection
         │                              │
         │                              ▼
         │                     GET /api/knowledge/*
@@ -61,7 +62,7 @@ ai_exports/
 GitHub / static AI consumer
 ```
 
-V1.9P generates `ai_exports/` as a disposable canonical projection. It is not a Source of Truth and must not be edited as independently maintained knowledge. The builder imports reviewed seed into an isolated temporary database, uses the V1.9N canonical Content/Project services, and excludes personal state, volatile runtime schedule fields, and numeric database identities.
+V1.9P generates `ai_exports/` as a disposable canonical projection. It is not a Source of Truth and must not be edited as independently maintained knowledge. The builder imports reviewed seed into an isolated temporary database, uses canonical Content/Project services and the V1.9Q Recipe read service, and excludes personal state, volatile runtime schedule fields, and numeric database identities. V1.9Q adds four recipe pages and a Recipes index; manifest version 2 includes `recipe_count` and `recipes` alongside existing entries.
 
 The committed export can be read without a running BDO server and requires no OpenAI API, MCP hosting, paid cloud, external LLM, or other paid AI dependency. Automated freshness checks fail when the committed generated tree differs from the canonical seed/domain result.
 
@@ -85,7 +86,15 @@ Consumer UX expansion is not an implicit architecture requirement.
 
 ## Backend
 
-FastAPI/domain modules include canonical content retrieval, the V1.9N `knowledge` read service, the V1.9P deterministic `ai_export` builder, period/reset computation, checklist state, Project projection/calculation, Life projections, user/local state, research/evidence flows, and `prompt_bridge`. The knowledge service exposes deterministic lexical search and canonical-only Content/Project projections without reading personal-state tables; the exporter consumes those projections through a temporary in-memory database.
+FastAPI/domain modules include canonical content retrieval, the `knowledge` read service, the deterministic `ai_export` builder, period/reset computation, checklist state, Project projection/calculation, Life projections, user/local state, research/evidence flows, and `prompt_bridge`. The knowledge service exposes deterministic lexical search and canonical-only Content/Project/Recipe projections without reading personal-state tables; the exporter consumes those projections through a temporary in-memory database.
+
+## Shared Material and Cooking Recipe foundation (V1.9Q)
+
+`material_seed` synchronizes `seed_materials.json` before `project_seed` and `recipe_seed` resolve Material keys. Only the shared catalog archives missing materials. Without that file, historical embedded Project materials remain a partial compatibility input; supplying both authorities is an error. Neither domain importer owns user inventory.
+
+Recipe → IngredientSlot → IngredientOption expresses AND between slots and OR within a slot. An option references either Material or IngredientGroup; members reference shared Material rows. Groups contain no global quantity multiplier. Quantities mean one cooking attempt, not guaranteed output, mixed substitution or large-cooking batch size. Migration `20260910_0004` adds five tables; existing Material and personal-state schemas are unchanged.
+
+`GET /api/knowledge/recipes/{slug}` and recipe search use typed claim Evidence and stable keys. Exact identity ranks before nested ingredient/member matches, capped at three per result. Official group membership can be verified independently of needs_review formulas. No Recipe calculator, Recipe UI, PromptContextBundle extension or backup version change is included.
 
 Existing domain functions are the preferred reuse boundary.
 

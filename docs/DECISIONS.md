@@ -102,3 +102,15 @@ The frontend remains a supported reference / inspection / admin / local operatio
 **Decision:** `ai_exports/` contains disposable consumer artifacts generated from the canonical BDO backend. Humans do not authoritatively edit these files; the canonical seed and domain model remain the Source of Truth. Exports contain no personal state, are deterministic for the same canonical input, and must be usable from GitHub or another static reader without a paid runtime/API dependency. Automated freshness checks fail when committed output is missing, changed, or contains unexpected files. A future MCP or API consumer must not promote this export directory into a canonical store.
 
 **Reason:** This makes the existing structured backend directly useful in the current ChatGPT Plus + GitHub environment without additional paid infrastructure, while preventing generated Markdown from becoming a manually maintained second Source of Truth.
+
+## ADR-018 — Material identity is shared; Recipe quantities belong to recipe options
+
+**Status:** Accepted 2026-09-10.
+
+**Decision:** `seed_materials.json` owns the shared Material catalog. Project and Recipe importers resolve stable keys rather than independently owning or archiving Material rows. Existing Material IDs, ProjectMaterial references and user inventory remain intact. Historical embedded Project materials are accepted only when the shared file is absent; simultaneous authorities are rejected. A legacy partial catalog never archives other domains' materials.
+
+Cooking recipes use IngredientGroup, IngredientGroupMember, Recipe, RecipeIngredientSlot and RecipeIngredientOption. Membership describes substitutability, not a global conversion ratio. Slots are AND; options within a slot are OR. Each option targets exactly one Material or IngredientGroup and records a positive, finite quantity for one cooking attempt. Mixed substitution, guaranteed output quantities, quality conversion, profitability and recipe calculations are not implemented.
+
+Recipe/group/slot/option claims reuse typed stable-key Evidence. Official membership and per-attempt semantics may be verified while an exact formula remains needs_review. Canonical recipe retrieval/search excludes personal state and numeric DB identities. Static recipe Markdown consumes the same read service through an isolated DB; manifest schema version 2 adds recipes while preserving Content/Project entries. PromptContextBundle, Project calculations and user backup version 1 remain unchanged.
+
+**Reason:** One Material identity supports recipes and existing projects without breaking inventory history. Option-level quantities avoid false global substitution multipliers; unconfirmed formulas remain inspectable without being promoted to verified official facts.

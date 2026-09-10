@@ -580,6 +580,7 @@ def test_v19k_to_v19l_import_is_idempotent_and_preserves_history(
         json.dumps(baseline_contents, ensure_ascii=False), encoding="utf-8"
     )
     shutil.copy(DATA / "seed_projects.json", baseline_dir / "seed_projects.json")
+    shutil.copy(DATA / "seed_materials.json", baseline_dir / "seed_materials.json")
 
     nested_models = (
         ScheduleRule,

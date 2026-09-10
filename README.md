@@ -4,15 +4,17 @@
 
 기존 React frontend와 local user-state 기능은 계속 지원하지만, 사람이 매일 직접 탐색하는 consumer UI를 제품의 유일한 중심으로 가정하지 않는다. 현재 제품/ownership 방향은 `docs/PRODUCT_DIRECTION.md`를 따른다.
 
-현재 구현 milestone은 **V1.9P — Zero-Cost AI Export Surface**다.
+현재 구현 milestone은 **V1.9Q — Cooking Recipe Canonical Foundation**이다.
 
 ## 현재 baseline
 
-- Source: 183
+- Source: 190
 - Content: 294 (모두 active)
 - 지식 역할: FACT 280 / STRATEGY 63 / MEASUREMENT 11
-- Project Tracker: Project 1 / Stage 4 / Material 9 / ProjectMaterial 9 / MaterialSource 9
-- 테스트: backend 391 passed / frontend 57 passed
+- Project Tracker: Project 1 / Stage 4 / Carrack Material 9 / ProjectMaterial 9 / MaterialSource 9
+- Shared Material catalog: 41 active (기존 Carrack 9 포함)
+- Cooking Recipe: Recipe 4 / IngredientGroup 4 / Members 20 / Slots 16 / Options 18 (모두 active)
+- 테스트: backend 428 passed / frontend 57 passed
 - 주요 데이터 영역: Routine, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss, Atoraxxion / Last Gladiius Weekly, Account / Main Quest / Magnus Progression Foundation, Adventure Log Current Catalog, Fairy / Pets Foundation, Guild Boss Current System, Blood Altar 24-stage Current System
 
 ## 현재 제품 역할
@@ -71,7 +73,7 @@ Future AI integration, if explicitly selected as a milestone, should normally at
 ## 현재 구현된 데이터 기반
 
 - FastAPI + SQLAlchemy + Alembic 백엔드
-- `/api/knowledge/search`, `/api/knowledge/contents/{slug}`, `/api/knowledge/projects/{slug}` canonical read-only API
+- `/api/knowledge/search`, `/api/knowledge/contents/{slug}`, `/api/knowledge/projects/{slug}`, `/api/knowledge/recipes/{slug}` canonical read-only API
 - `/api/calculations/projects/{slug}` caller-provided quantity 기반 stateless Project shortage API — 입력은 저장하지 않고 local inventory로 fallback하지 않음
 - `ai_exports/` canonical-only generated Markdown/manifest — 실행 중인 BDO 서버나 OpenAI API·MCP·유료 호스팅 없이 GitHub/AI consumer가 읽을 수 있으며 독립 Source of Truth가 아님
 - SQLite 기본 실행과 `DATABASE_URL` 기반 MySQL 전환
@@ -113,6 +115,12 @@ Future AI integration, if explicitly selected as a milestone, should normally at
 정본 seed 형식은 `docs/data/SEED_FORMAT.md`, V1.8A backend 기반은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B frontend 경험은 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub는 `handoff/V19A_LIFE_HUB_REPORT.md`, V1.9B 사용자 백업·복원은 `handoff/V19B_USER_BACKUP_RESTORE_REPORT.md`, V1.9C 생활 전략 팩은 `handoff/V19C_LIFE_STRATEGY_DEEP1_REPORT.md`, V1.9D 지식 역할 의미론 정리는 `handoff/V19D_PROMPT_KNOWLEDGE_ROLE_REPORT.md`, V1.9E 재배·가공 전략 팩은 `handoff/V19E_LIFE_STRATEGY_DEEP2_REPORT.md`, V1.9F 요리·연금 전략 팩은 `handoff/V19F_LIFE_STRATEGY_DEEP3_REPORT.md`, V1.9G 항해·물물교환 전략 팩은 `handoff/V19G_LIFE_STRATEGY_DEEP4_REPORT.md`, V1.9H 조련 실전 전략 팩은 `handoff/V19H_TRAINING_STRATEGY_DEEP5_REPORT.md`, V1.9I 최후의 글라디우스 주간 콘텐츠는 `handoff/V19I_LAST_GLADIIUS_WEEKLY_REPORT.md`, V1.9J 요정·반려동물 기반은 `handoff/V19J_FAIRY_PETS_FOUNDATION_REPORT.md`, V1.9K 길드 우두머리 현행 시스템은 `handoff/V19K_GUILD_BOSS_CURRENT_REPORT.md`, V1.9L 모험일지 현행 카탈로그는 `handoff/V19L_ADVENTURE_LOG_CURRENT_REPORT.md`, V1.9M 피의 제단 22~24단계 현행화는 `handoff/V19M_BLOOD_ALTAR_CURRENT_REPORT.md`, V1.9N canonical knowledge read interface는 `handoff/V19N_CANONICAL_KNOWLEDGE_READ_REPORT.md`, V1.9O stateless Project calculation interface는 `handoff/V19O_STATELESS_PROJECT_CALCULATION_REPORT.md`, V1.9P zero-cost AI export surface는 `handoff/V19P_ZERO_COST_AI_EXPORT_REPORT.md`에 기록한다.
 
 ## Canonical AI export
+
+V1.9Q는 shared Material과 맥주·식초·채소 절임·새구이 Recipe 기반을 추가했다. 각 슬롯은 모두 필요하고 슬롯 안 옵션은 대안이며 수량은 요리 1회 시도 기준이다. 공식 가이드의 재료 그룹 멤버십과 달리 정확한 배합은 `needs_review`로 유지한다. 전역 대체 비율, 고급/특상품 환산, 혼합 대체, 고정 산출량, Recipe 계산기와 새 UI는 구현하지 않았다. 기존 Project 계산·사용자 재고·PromptContextBundle·backup version 1은 유지한다.
+
+구현 및 검증 기록: [V1.9Q handoff](handoff/V19Q_COOKING_RECIPE_FOUNDATION_REPORT.md), [연구 근거](docs/research/V19Q_COOKING_RECIPE_FOUNDATION_RESEARCH.md), ADR-018.
+
+현재 generated export는 Content 294 / Project 1 / Recipe 4 페이지와 INDEX·manifest, 총 301개 파일이다. Manifest version 2는 기존 목록을 보존하면서 `recipe_count`와 `recipes`를 추가한다.
 
 `ai_exports/`는 canonical seed를 임시 in-memory DB에 import한 뒤 기존 domain service로 생성하는 disposable artifact다. 생성된 Markdown을 직접 정본처럼 수정하지 않는다.
 
@@ -165,12 +173,12 @@ uv run uvicorn app.main:app --reload
 
 ## 검증 명령과 결과
 
-2026-09-10 기준 backend 테스트는 391 passed, frontend 테스트는 57 passed다.
+2026-09-11 완료 확인 기준 backend 테스트는 428 passed, frontend 테스트는 57 passed다.
 
 ```powershell
 cd backend
 uv run pytest
-# 391 passed
+# 428 passed
 
 cd ../frontend
 npm run typecheck
