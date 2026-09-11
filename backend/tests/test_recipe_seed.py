@@ -48,10 +48,10 @@ def snapshot(session, models):
 
 
 def test_recipe_catalog_exact_counts_and_formulas(session):
-    for model, count in [(Material, 41), (IngredientGroup, 4), (IngredientGroupMember, 20),
-                         (Recipe, 4), (RecipeIngredientSlot, 16), (RecipeIngredientOption, 18)]:
+    for model, count in [(Material, 64), (IngredientGroup, 7), (IngredientGroupMember, 35),
+                         (Recipe, 9), (RecipeIngredientSlot, 36), (RecipeIngredientOption, 40)]:
         assert session.scalar(select(func.count()).select_from(model).where(model.active.is_(True))) == count
-    assert session.scalar(select(func.count()).select_from(Source)) == 191
+    assert session.scalar(select(func.count()).select_from(Source)) == 199
     expected = {
         "beer": [[("grain", 5)], [("mineral-water", 6), ("purified-water", 3)],
                  [("leavening-agent", 2)], [("sugar", 1)]],
@@ -60,17 +60,29 @@ def test_recipe_catalog_exact_counts_and_formulas(session):
                                [("leavening-agent", 2)], [("sugar", 2)]],
         "grilled-bird-meat": [[("bird-meat", 2)], [("deep-frying-oil", 6), ("cottonseed-oil", 6)],
                               [("cooking-wine", 2)], [("salt", 1)]],
+        "dressing": [[("egg", 1)], [("olive-oil", 1)], [("water", 1)], [("salt", 2)]],
+        "red-sauce": [[("base-sauce", 1)], [("meat", 1)],
+                      [("mineral-water", 2), ("purified-water", 1)], [("sugar", 2)]],
+        "white-sauce": [[("base-sauce", 1)], [("fruit", 1)], [("milk", 1)],
+                        [("cooking-wine", 2)]],
+        "tea-with-fine-scent": [[("flower", 4)], [("fruit", 4)],
+                                [("mineral-water", 7), ("purified-water", 3)],
+                                [("edible-honey", 3)]],
+        "omelet": [[("grain", 5)], [("olive-oil", 2)], [("egg", 5)], [("salt", 2)]],
     }
     for slug, formula in expected.items():
         recipe = get_knowledge_recipe(session, slug)
         assert recipe.verification_status == "verified"
         assert recipe.required_skill_level == 1
-        assert recipe.required_skill_tier == ("apprentice" if slug == "pickled-vegetables" else "beginner")
+        apprentice = {"pickled-vegetables", "tea-with-fine-scent", "omelet"}
+        assert recipe.required_skill_tier == ("apprentice" if slug in apprentice else "beginner")
         assert [[(o.material_key or o.ingredient_group.key, o.required_quantity) for o in s.options]
                 for s in recipe.ingredient_slots] == formula
     assert {g.key: len(g.members) for g in session.scalars(select(IngredientGroup))} == {
-        "grain": 5, "fruit": 7, "vegetable": 5, "bird-meat": 3}
-    forbidden = {"conversion_ratio", "quality_multiplier", "white_equivalent", "global_required_quantity"}
+        "grain": 5, "fruit": 7, "vegetable": 5, "bird-meat": 3,
+        "meat": 10, "flower": 3, "water": 2}
+    forbidden = {"conversion_ratio", "quantity_multiplier", "quality_multiplier",
+                 "white_equivalent", "global_quantity", "global_required_quantity"}
     assert not forbidden & set(IngredientGroup.__table__.columns.keys())
     assert not forbidden & set(IngredientGroupMember.__table__.columns.keys())
     assert "result_quantity" not in Recipe.__table__.columns
@@ -86,7 +98,7 @@ def test_recipe_evidence_verification_and_source_boundaries(session):
             select(Evidence).where(Evidence.entity_type.in_(recipe_entity_types))
         )
     )
-    assert len(evidence) == 44
+    assert len(evidence) == 115
     assert all(row.verification_status == "verified" for row in evidence)
     assert all(row.last_verified_at.isoformat() == "2026-09-11" for row in evidence)
 
@@ -183,7 +195,7 @@ def test_legacy_to_shared_material_transition_preserves_user_inventory(tmp_path)
         assert material_map(session)["beer"].active
         assert snapshot(session, (UserMaterialInventory,)) == inventory
         import_seed(session, DATA)
-        assert len(material_map(session)) == 41
+        assert len(material_map(session)) == 64
     engine.dispose()
 
 

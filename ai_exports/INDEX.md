@@ -326,7 +326,12 @@ Canonical source remains the BDO Companion seed/domain model.
 
 | Name | Slug | Process | Result | Verification | Last verified | Path |
 | --- | --- | --- | --- | --- | --- | --- |
+| 드레싱 | dressing | cooking | 드레싱 | verified | 2026-09-11 | [open](recipes/dressing.md) |
+| 레드소스 | red-sauce | cooking | 레드소스 | verified | 2026-09-11 | [open](recipes/red-sauce.md) |
 | 맥주 | beer | cooking | 맥주 | verified | 2026-09-11 | [open](recipes/beer.md) |
 | 새구이 | grilled-bird-meat | cooking | 새구이 | verified | 2026-09-11 | [open](recipes/grilled-bird-meat.md) |
 | 식초 | vinegar | cooking | 식초 | verified | 2026-09-11 | [open](recipes/vinegar.md) |
+| 오믈렛 | omelet | cooking | 오믈렛 | verified | 2026-09-11 | [open](recipes/omelet.md) |
 | 채소 절임 | pickled-vegetables | cooking | 채소 절임 | verified | 2026-09-11 | [open](recipes/pickled-vegetables.md) |
+| 향이 좋은 차 | tea-with-fine-scent | cooking | 향이 좋은 차 | verified | 2026-09-11 | [open](recipes/tea-with-fine-scent.md) |
+| 화이트소스 | white-sauce | cooking | 화이트소스 | verified | 2026-09-11 | [open](recipes/white-sauce.md) |
