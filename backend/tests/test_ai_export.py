@@ -64,7 +64,8 @@ def test_build_from_seed_uses_an_isolated_database() -> None:
     assert manifest["content_count"] == 294
     assert manifest["project_count"] == 1
     assert manifest["recipe_count"] == 15
-    assert len(exports) == 312
+    assert manifest["material_count"] == 78
+    assert len(exports) == 390
 
 
 def test_manifest_counts_match_active_canonical_rows(export_context) -> None:
@@ -76,11 +77,16 @@ def test_manifest_counts_match_active_canonical_rows(export_context) -> None:
     active_projects = session.scalars(
         select(Project.slug).where(Project.active.is_(True))
     ).all()
+    active_materials = session.scalars(
+        select(Material.key).where(Material.active.is_(True))
+    ).all()
 
     assert manifest["content_count"] == len(active_contents) == 294
     assert manifest["project_count"] == len(active_projects) == 1
     assert len(manifest["contents"]) == 294
     assert len(manifest["projects"]) == 1
+    assert manifest["material_count"] == len(active_materials) == 78
+    assert len(manifest["materials"]) == 78
 
 
 def test_all_markdown_is_marked_generated(export_context) -> None:
@@ -89,7 +95,7 @@ def test_all_markdown_is_marked_generated(export_context) -> None:
         path: content for path, content in exports.items() if path.endswith(".md")
     }
 
-    assert len(markdown_files) == 311
+    assert len(markdown_files) == 389
     assert all(content.startswith(GENERATED_HEADER) for content in markdown_files.values())
 
 
@@ -287,8 +293,10 @@ def test_manifest_has_stable_explicit_ordering(export_context) -> None:
 
     content_slugs = [item["slug"] for item in manifest["contents"]]
     project_slugs = [item["slug"] for item in manifest["projects"]]
+    material_keys = [item["key"] for item in manifest["materials"]]
     assert content_slugs == sorted(content_slugs)
     assert project_slugs == sorted(project_slugs)
+    assert material_keys == sorted(material_keys)
     assert "generated_at" not in manifest
 
 
@@ -320,9 +328,15 @@ def test_recipe_export_contract_and_counts(export_context):
     from app.models import Recipe
     manifest = json.loads(exports["manifest.json"])
     active = list(session.scalars(select(Recipe.slug).where(Recipe.active.is_(True))))
-    assert manifest["schema_version"] == 2
+    assert manifest["schema_version"] == 3
     assert manifest["recipe_count"] == len(active) == 15
-    assert len(exports) == manifest["content_count"] + manifest["project_count"] + len(active) + 2
+    assert len(exports) == (
+        manifest["content_count"]
+        + manifest["project_count"]
+        + manifest["recipe_count"]
+        + manifest["material_count"]
+        + 2
+    )
     assert len([p for p in exports if p.startswith("recipes/")]) == 15
     assert "## Recipes" in exports["INDEX.md"]
     assert [r["slug"] for r in manifest["recipes"]] == sorted(active)
@@ -354,6 +368,62 @@ def test_recipe_export_contract_and_counts(export_context):
     assert "- evidence_id:" not in beer
     assert "- id:" not in beer
     assert "owned_quantity" not in beer
+
+
+def test_material_export_contract_and_semantics(export_context) -> None:
+    _, exports = export_context
+    red_sauce = exports["materials/red-sauce.md"]
+    beef = exports["materials/beef.md"]
+    moon_flax = exports["materials/moon-vein-flax.md"]
+
+    for heading in (
+        "Identity",
+        "Produced By Recipes",
+        "Explicit Recipe Usages",
+        "Ingredient Group Memberships",
+        "Ingredient Group Candidate Recipe Usages",
+        "Project Requirements",
+        "Semantics",
+    ):
+        assert f"## {heading}" in red_sauce
+    assert '../recipes/red-sauce.md' in red_sauce
+    assert '../recipes/steak.md' in red_sauce
+    assert 'usage_semantics: "ingredient_group_candidate"' in beef
+    assert "Group membership does not mean the material is mandatory." in beef
+    assert 'group_required_quantity: 8.0' in beef
+    assert '../projects/carrack-advance.md' in moon_flax
+    assert '../contents/oquilla-daily-young-sea-monster-hunter.md' in moon_flax
+    assert "Scoped Acquisition Sources" in moon_flax
+    assert "No personal inventory is included." in moon_flax
+    assert "owned_quantity" not in moon_flax
+
+
+def test_material_export_is_independent_of_local_inventory(export_context) -> None:
+    session, exports = export_context
+    before = exports["materials/moon-vein-flax.md"]
+    material = session.scalar(select(Material).where(Material.key == "moon-vein-flax"))
+    inventory = session.scalar(
+        select(UserMaterialInventory).where(
+            UserMaterialInventory.material_id == material.id
+        )
+    )
+    if inventory is None:
+        session.add(
+            UserMaterialInventory(
+                material_id=material.id,
+                quantity=321,
+                note="must not enter material export",
+                updated_at=datetime(2026, 9, 12, tzinfo=UTC),
+            )
+        )
+    else:
+        inventory.quantity = 321
+        inventory.note = "must not enter material export"
+    session.flush()
+
+    after = build_ai_exports(session)["materials/moon-vein-flax.md"]
+    assert after == before
+    assert "must not enter material export" not in after
 
 
 def test_recipe_exports_include_direct_dependency_projection(export_context):

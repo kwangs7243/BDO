@@ -20,6 +20,7 @@ Continue to preserve and expand:
 - Schedule and reset semantics
 - Projects and canonical dependency/material definitions
 - shared Material catalog and structured Cooking Recipe definitions (V1.9Q foundation)
+- first-class Material canonical read/search/export projection (V1.9W)
 - Source / claim-level Evidence
 - verification status
 - FACT / STRATEGY / MEASUREMENT semantics
@@ -57,6 +58,13 @@ BDO Companion remains the Source of Truth for shared Black Desert game-domain kn
 Do not create a second independently maintained canonical copy of this knowledge in Notion or another personal-state system.
 
 V1.9Q implemented the first four cooking recipes through shared Materials, ingredient groups and recipe-specific alternative quantities; V1.9R subsequently verified those Recipe evidence sets. V1.9S adds personal-state-free deterministic batch scaling that preserves slot AND / option OR and IngredientGroup identity. V1.9T expanded the verified core catalog to 9 Recipes, and V1.9U expands it to 15 intermediate dependency-layer Recipes while recognizing the canonical cooking tiers from beginner through guru. V1.9V derives direct producer/consumer reads from result Material and explicit Material option identity without persisting a second relation. These milestones do not add option selection, recursive production planning, inventory, output quantity, profitability, a new UI, or a personal-state ownership change.
+
+V1.9W makes Material a first-class AI-readable canonical resource without
+changing canonical ownership. The read surface derives producer, explicit
+usage, group membership, group-candidate usage, and Project requirement
+relationships from existing owners. It supports repeated Material-centered
+lookup by GPT and future thin adapters, but it is not a frontend UI milestone
+and does not create a global acquisition, inventory, yield, or economy model.
 
 ## 4. Personal-state ownership
 
@@ -156,7 +164,7 @@ Do not redesign core canonical models around a specific AI vendor or protocol.
 
 Do not implement an adapter unless the milestone explicitly asks for it.
 
-V1.9N implements deterministic server-side lexical search/identity resolution and knowledge-only Content/Project/Recipe retrieval without local state. V1.9O implements the minimal deterministic Project shortage calculation boundary for ephemeral caller-provided quantities. V1.9S implements per-option Recipe batch scaling from canonical one-attempt quantities. Both calculation boundaries exclude persistence, hidden local-state fallback, transport integration, and optimization semantics.
+V1.9N implements deterministic server-side lexical search/identity resolution and knowledge-only Content/Project/Recipe retrieval without local state. V1.9W extends that boundary with a derived Material-centered cross-domain projection and first-class Material search/export. V1.9O implements the minimal deterministic Project shortage calculation boundary for ephemeral caller-provided quantities. V1.9S implements per-option Recipe batch scaling from canonical one-attempt quantities. Both calculation boundaries exclude persistence, hidden local-state fallback, transport integration, and optimization semantics.
 
 ## 9. Project model boundary
 

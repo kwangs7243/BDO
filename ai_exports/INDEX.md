@@ -12,7 +12,7 @@ Canonical source remains the BDO Companion seed/domain model.
 ## How to use
 
 1. Search this index or the GitHub repository.
-2. Open the matching Content, Project or Recipe page.
+2. Open the matching Content, Project, Recipe or Material page.
 3. Prefer current verified evidence.
 4. Treat strategy and measurement separately from official fact.
 5. For personal state, use the caller/user source rather than this export.
@@ -341,3 +341,86 @@ Canonical source remains the BDO Companion seed/domain model.
 | 햄 샌드위치 | ham-sandwich | cooking | 햄 샌드위치 | verified | 2026-09-11 | [open](recipes/ham-sandwich.md) |
 | 향이 좋은 차 | tea-with-fine-scent | cooking | 향이 좋은 차 | verified | 2026-09-11 | [open](recipes/tea-with-fine-scent.md) |
 | 화이트소스 | white-sauce | cooking | 화이트소스 | verified | 2026-09-11 | [open](recipes/white-sauce.md) |
+
+## Materials
+
+| Name | Key | Unit | Path |
+| --- | --- | --- | --- |
+| +10 에페리아 무역선 : 개량형 장갑 | caravel-upgraded-plating-plus10 | 개 | [open](materials/caravel-upgraded-plating-plus10.md) |
+| +10 에페리아 무역선 : 메이나 함포 | caravel-mayna-cannon-plus10 | 개 | [open](materials/caravel-mayna-cannon-plus10.md) |
+| +10 에페리아 무역선 : 비층 바람 돛 | caravel-stratus-wind-sail-plus10 | 개 | [open](materials/caravel-stratus-wind-sail-plus10.md) |
+| +10 에페리아 무역선 : 흑룡 선수상 | caravel-black-dragon-figurehead-plus10 | 개 | [open](materials/caravel-black-dragon-figurehead-plus10.md) |
+| 감자 | potato | 개 | [open](materials/potato.md) |
+| 고구마 | sweet-potato | 개 | [open](materials/sweet-potato.md) |
+| 곰 고기 | bear-meat | 개 | [open](materials/bear-meat.md) |
+| 구운 소시지 | grilled-sausage | 개 | [open](materials/grilled-sausage.md) |
+| 너구리 고기 | raccoon-meat | 개 | [open](materials/raccoon-meat.md) |
+| 늑대 고기 | wolf-meat | 개 | [open](materials/wolf-meat.md) |
+| 달걀 | egg | 개 | [open](materials/egg.md) |
+| 달의 핏줄이 새겨진 아마포 | moon-vein-flax | 개 | [open](materials/moon-vein-flax.md) |
+| 닭고기 | chicken-meat | 개 | [open](materials/chicken-meat.md) |
+| 돼지 고기 | pork | 개 | [open](materials/pork.md) |
+| 드레싱 | dressing | 개 | [open](materials/dressing.md) |
+| 딸기 | strawberry | 개 | [open](materials/strawberry.md) |
+| 레드소스 | red-sauce | 개 | [open](materials/red-sauce.md) |
+| 마늘 | garlic | 개 | [open](materials/garlic.md) |
+| 맥주 | beer | 개 | [open](materials/beer.md) |
+| 면실유 | cottonseed-oil | 개 | [open](materials/cottonseed-oil.md) |
+| 미트 샌드위치 | meat-sandwich | 개 | [open](materials/meat-sandwich.md) |
+| 밀 | wheat | 개 | [open](materials/wheat.md) |
+| 바나나 | banana | 개 | [open](materials/banana.md) |
+| 발효제 | leavening-agent | 개 | [open](materials/leavening-agent.md) |
+| 배 | pear | 개 | [open](materials/pear.md) |
+| 버터 | butter | 개 | [open](materials/butter.md) |
+| 베이스 소스 | base-sauce | 개 | [open](materials/base-sauce.md) |
+| 보리 | barley | 개 | [open](materials/barley.md) |
+| 부드러운 빵 | soft-bread | 개 | [open](materials/soft-bread.md) |
+| 사과 | apple | 개 | [open](materials/apple.md) |
+| 사슴 고기 | deer-meat | 개 | [open](materials/deer-meat.md) |
+| 새구이 | grilled-bird-meat | 개 | [open](materials/grilled-bird-meat.md) |
+| 설탕 | sugar | 개 | [open](materials/sugar.md) |
+| 소 고기 | beef | 개 | [open](materials/beef.md) |
+| 소금 | salt | 개 | [open](materials/salt.md) |
+| 수테차 | sute-tea | 개 | [open](materials/sute-tea.md) |
+| 스테이크 | steak | 개 | [open](materials/steak.md) |
+| 식용벌꿀 | edible-honey | 개 | [open](materials/edible-honey.md) |
+| 식초 | vinegar | 개 | [open](materials/vinegar.md) |
+| 심해의 눈물 | tear-of-the-ocean | 개 | [open](materials/tear-of-the-ocean.md) |
+| 양 고기 | sheep-meat | 개 | [open](materials/sheep-meat.md) |
+| 양배추 | cabbage | 개 | [open](materials/cabbage.md) |
+| 양파 | onion | 개 | [open](materials/onion.md) |
+| 여우 고기 | fox-meat | 개 | [open](materials/fox-meat.md) |
+| 오믈렛 | omelet | 개 | [open](materials/omelet.md) |
+| 옥수수 | corn | 개 | [open](materials/corn.md) |
+| 올리브 | olive | 개 | [open](materials/olive.md) |
+| 올리브 오일 | olive-oil | 개 | [open](materials/olive-oil.md) |
+| 요리용 생수 | mineral-water | 개 | [open](materials/mineral-water.md) |
+| 우유 | milk | 개 | [open](materials/milk.md) |
+| 장미꽃 | rose | 개 | [open](materials/rose.md) |
+| 정제수 | purified-water | 개 | [open](materials/purified-water.md) |
+| 조리용 와인 | cooking-wine | 개 | [open](materials/cooking-wine.md) |
+| 족제비 고기 | weasel-meat | 개 | [open](materials/weasel-meat.md) |
+| 짙은 파도빛이 감도는 규격 각목 | deep-tide-standardized-timber | 개 | [open](materials/deep-tide-standardized-timber.md) |
+| 채소 절임 | pickled-vegetables | 개 | [open](materials/pickled-vegetables.md) |
+| 체리 | cherry | 개 | [open](materials/cherry.md) |
+| 치즈 | cheese | 개 | [open](materials/cheese.md) |
+| 코뿔소 고기 | rhino-meat | 개 | [open](materials/rhino-meat.md) |
+| 쿠쿠새 고기 | kuku-bird-meat | 개 | [open](materials/kuku-bird-meat.md) |
+| 토마토 | tomato | 개 | [open](materials/tomato.md) |
+| 튀김용 오일 | deep-frying-oil | 개 | [open](materials/deep-frying-oil.md) |
+| 튤립 | tulip | 개 | [open](materials/tulip.md) |
+| 파인애플 | pineapple | 개 | [open](materials/pineapple.md) |
+| 파프리카 | paprika | 개 | [open](materials/paprika.md) |
+| 포도 | grape | 개 | [open](materials/grape.md) |
+| 프랭크 샌드위치 | frank-sandwich | 개 | [open](materials/frank-sandwich.md) |
+| 해바라기 | sunflower | 개 | [open](materials/sunflower.md) |
+| 햄 샌드위치 | ham-sandwich | 개 | [open](materials/ham-sandwich.md) |
+| 향이 좋은 차 | tea-with-fine-scent | 개 | [open](materials/tea-with-fine-scent.md) |
+| 향이 진한 차 | tea-with-strong-scent | 개 | [open](materials/tea-with-strong-scent.md) |
+| 호박 | pumpkin | 개 | [open](materials/pumpkin.md) |
+| 홍학 고기 | flamingo-meat | 개 | [open](materials/flamingo-meat.md) |
+| 화려한 암염 주괴 | brilliant-rock-salt-ingot | 개 | [open](materials/brilliant-rock-salt-ingot.md) |
+| 화려한 진주 결정 | brilliant-pearl-crystal | 개 | [open](materials/brilliant-pearl-crystal.md) |
+| 화이트소스 | white-sauce | 개 | [open](materials/white-sauce.md) |
+| 후추 | pepper | 개 | [open](materials/pepper.md) |
+| 훈연 소시지 | smoked-sausage | 개 | [open](materials/smoked-sausage.md) |

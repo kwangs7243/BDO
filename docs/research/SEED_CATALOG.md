@@ -67,6 +67,8 @@ V1.9U는 구운 소시지·스테이크·수테차·미트 샌드위치·햄 샌
 
 V1.9V는 동일한 15 verified Recipe 위에서 producer result Material과 consumer의 explicit Material option stable key가 같은 경우만 direct dependency로 파생하는 read interface/API/AI export를 추가했다. 현재 direct edge는 6개이며 relation은 seed나 DB에 저장하지 않는다. IngredientGroup membership, special-result producer 추정, 재귀 expansion, output/yield, inventory와 경제 계산은 계속 제외한다.
 
+V1.9W는 새 seed 없이 active Material 78개를 first-class canonical read/search/export resource로 투영한다. 파생 관계는 producer Recipe 15개, explicit Recipe usage 51개, IngredientGroup membership 35개, group candidate usage 99개, Project requirement 9개이며 ProjectMaterialSource 9개는 해당 Project requirement 아래에만 유지한다. Material aggregate verification, global acquisition, personal inventory, 재귀 생산 계획, output/yield와 시장·수익 계산은 만들지 않는다.
+
 ## 장기 프로젝트
 - [S] 중범선 : 점진
 - [R] 다른 중범선 3종
