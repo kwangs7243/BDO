@@ -122,3 +122,21 @@ Recipe/group/slot/option claims reuse typed stable-key Evidence. Official member
 **Decision:** Canonical `RecipeIngredientOption.required_quantity` means the quantity for one cooking attempt. The V1.9S stateless batch calculator multiplies each option independently by a strict positive integer `attempt_count`, preserving slot AND, option OR, option order, stable identities, and IngredientGroup targets. It does not select, sum, mix, or optimize OR options and does not resolve an IngredientGroup to one member. It reads no personal state and writes no database state. Result quantity, cooking proc behavior, quality conversion, inventory shortage, profitability, and optimization remain separate future milestones. Canonical Recipe data and the existing knowledge service are the calculation Source of Truth.
 
 **Reason:** Separating deterministic scaling from substitution and optimization makes the verified canonical one-attempt facts reusable without inventing unmodeled replacement, quality, production-output, or economic rules.
+
+## ADR-020 — Direct Recipe dependencies are derived from explicit Material identity
+
+**Status:** Accepted 2026-09-11.
+
+**Decision:** A direct Recipe dependency is derived when a producer Recipe's
+`result_material_key` equals a consumer Recipe's explicit Material option
+`material_key`. The relation is not persisted as a canonical row, table or
+seed. IngredientGroup options are not expanded because membership does not
+select one material. The projection exposes direct relations only and does not
+perform recursive expansion, output-yield inference, producer-attempt
+derivation or inventory resolution.
+
+**Reason:** Stable shared Material identities already own both canonical inputs,
+so persisting the same relation would create stale duplication. Expanding
+IngredientGroup members would imply automatic option selection contrary to
+ADR-018 and ADR-019. Without a canonical output quantity, recursive required
+material calculation is not deterministic.

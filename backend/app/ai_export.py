@@ -15,8 +15,16 @@ from app.config import PROJECT_ROOT, seed_dir
 from app.database import Base
 from app.knowledge import get_knowledge_content, get_knowledge_project, get_knowledge_recipe
 from app.models import Content, Project, Recipe
+from app.recipe_dependencies import build_recipe_dependency_index
 from app.seed import import_seed
-from app.schemas import KnowledgeContentOut, KnowledgeProjectOut, KnowledgeRecipeOut, SourceOut
+from app.schemas import (
+    KnowledgeContentOut,
+    KnowledgeProjectOut,
+    KnowledgeRecipeDependenciesOut,
+    KnowledgeRecipeDependencyEdgeOut,
+    KnowledgeRecipeOut,
+    SourceOut,
+)
 
 
 GENERATED_HEADER = """<!-- GENERATED FILE — DO NOT EDIT BY HAND.
@@ -399,7 +407,55 @@ def render_project_markdown(
     return "\n".join(lines).rstrip() + "\n"
 
 
-def render_recipe_markdown(recipe: KnowledgeRecipeOut) -> str:
+def _recipe_dependency_blocks(
+    edges: list[KnowledgeRecipeDependencyEdgeOut],
+    *,
+    link_to: str,
+) -> list[str]:
+    blocks: list[str] = []
+    for index, edge in enumerate(edges):
+        if index:
+            blocks.append("")
+        blocks.extend(
+            [
+                f"#### `{edge.producer_recipe_slug} -> {edge.consumer_recipe_slug}`",
+                "",
+                _fields(
+                    [
+                        ("producer_recipe_slug", edge.producer_recipe_slug),
+                        ("producer_recipe_name_ko", edge.producer_recipe_name_ko),
+                        (
+                            "producer_verification_status",
+                            edge.producer_verification_status,
+                        ),
+                        ("consumer_recipe_slug", edge.consumer_recipe_slug),
+                        ("consumer_recipe_name_ko", edge.consumer_recipe_name_ko),
+                        (
+                            "consumer_verification_status",
+                            edge.consumer_verification_status,
+                        ),
+                        ("material_key", edge.material_key),
+                        ("material_name_ko", edge.material_name_ko),
+                        ("unit", edge.unit),
+                        ("required_quantity", edge.required_quantity),
+                        ("consumer_slot_seed_key", edge.consumer_slot_seed_key),
+                        ("consumer_option_seed_key", edge.consumer_option_seed_key),
+                        ("is_alternative", edge.is_alternative),
+                        (
+                            "relative_path",
+                            f"../recipes/{getattr(edge, link_to)}.md",
+                        ),
+                    ]
+                ),
+            ]
+        )
+    return blocks or ["- None"]
+
+
+def render_recipe_markdown(
+    recipe: KnowledgeRecipeOut,
+    dependencies: KnowledgeRecipeDependenciesOut | None = None,
+) -> str:
     """Render canonical slots/options without inferring yields or mixed substitutions."""
     lines = [GENERATED_HEADER, "", f"# {recipe.name_ko}"]
     _section(lines, "Identity", [_fields([
@@ -444,6 +500,30 @@ def render_recipe_markdown(recipe: KnowledgeRecipeOut) -> str:
         "- Result quantity is not guaranteed by this Recipe definition.",
         "- High-quality/special multipliers and yield probabilities are not defined.",
     ])
+    dependency_lines = [
+        "- Only explicit Material options create dependency edges.",
+        "- IngredientGroup membership is not expanded.",
+        "- Dependencies are direct only.",
+        "- No recursive quantity propagation is performed.",
+        "- No producer output/yield is inferred.",
+        "",
+        "### Upstream Producers",
+        "",
+    ]
+    dependency_lines.extend(
+        _recipe_dependency_blocks(
+            dependencies.direct_upstream if dependencies is not None else [],
+            link_to="producer_recipe_slug",
+        )
+    )
+    dependency_lines.extend(["", "### Downstream Consumers", ""])
+    dependency_lines.extend(
+        _recipe_dependency_blocks(
+            dependencies.direct_downstream if dependencies is not None else [],
+            link_to="consumer_recipe_slug",
+        )
+    )
+    _section(lines, "Direct Recipe Dependencies", dependency_lines)
     sources = [*recipe.sources, *[s for key in sorted(group_sources) for s in group_sources[key]]]
     lines.extend(["", "## Evidence and Sources", "", "### Current evidence", ""])
     lines.extend(_evidence_blocks([s for s in sources if s.is_active]) or ["- None"])
@@ -632,7 +712,12 @@ def build_ai_exports(
         if recipe is None:
             raise RuntimeError(f"Canonical Recipe disappeared during export: {slug}")
         recipes.append(recipe)
-        files[f"recipes/{slug}.md"] = render_recipe_markdown(recipe)
+    dependency_index = build_recipe_dependency_index(recipes)
+    for recipe in recipes:
+        files[f"recipes/{recipe.slug}.md"] = render_recipe_markdown(
+            recipe,
+            dependency_index[recipe.slug],
+        )
     files["INDEX.md"] = _render_index(contents, projects, recipes)
     files["manifest.json"] = _render_manifest(contents, projects, recipes)
     return dict(sorted(files.items()))

@@ -98,6 +98,31 @@ Recipe → IngredientSlot → IngredientOption expresses AND between slots and O
 
 V1.9T and V1.9U expand the same model to 15 verified Cooking Recipes without a schema change. The Recipe seed importer now validates the complete canonical tier vocabulary from `beginner` through `guru`; the database and API continue to store and expose the existing string field. Recipe result Materials may be reused as another Recipe's explicit input identity, but the calculator does not recursively expand dependencies.
 
+## Direct Recipe dependency read model (V1.9V)
+
+```text
+Canonical Recipe DTOs
+      │
+      ├─ result Material identity
+      └─ explicit Material options
+                │
+                ▼
+Direct Recipe Dependency Builder
+                │
+                ├─ upstream producers
+                └─ downstream consumers
+                │
+                ▼
+GET /api/knowledge/recipes/{slug}/dependencies
+```
+
+`recipe_dependencies` derives an edge only when a producer
+`result_material_key` equals a consumer option's explicit `material_key`.
+The relation is not persisted. IngredientGroup membership is not expanded,
+only direct edges are returned, and no personal state is read. The projection
+does not infer output/yield, recursive quantities, option selection or
+producer attempt counts. AI Recipe exports consume the same builder.
+
 ## Stateless Recipe batch calculation (V1.9S)
 
 ```text

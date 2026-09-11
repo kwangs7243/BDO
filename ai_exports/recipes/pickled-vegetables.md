@@ -111,6 +111,37 @@ Allowed current members:
 - Result quantity is not guaranteed by this Recipe definition.
 - High-quality/special multipliers and yield probabilities are not defined.
 
+## Direct Recipe Dependencies
+
+- Only explicit Material options create dependency edges.
+- IngredientGroup membership is not expanded.
+- Dependencies are direct only.
+- No recursive quantity propagation is performed.
+- No producer output/yield is inferred.
+
+### Upstream Producers
+
+#### `vinegar -> pickled-vegetables`
+
+- producer_recipe_slug: "vinegar"
+- producer_recipe_name_ko: "식초"
+- producer_verification_status: "verified"
+- consumer_recipe_slug: "pickled-vegetables"
+- consumer_recipe_name_ko: "채소 절임"
+- consumer_verification_status: "verified"
+- material_key: "vinegar"
+- material_name_ko: "식초"
+- unit: "개"
+- required_quantity: 4.0
+- consumer_slot_seed_key: "pickled-vegetables.ingredient.vinegar"
+- consumer_option_seed_key: "pickled-vegetables.ingredient.vinegar.option.vinegar"
+- is_alternative: false
+- relative_path: "../recipes/vinegar.md"
+
+### Downstream Consumers
+
+- None
+
 ## Evidence and Sources
 
 ### Current evidence

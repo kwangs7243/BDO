@@ -116,6 +116,54 @@ Allowed current members:
 - Result quantity is not guaranteed by this Recipe definition.
 - High-quality/special multipliers and yield probabilities are not defined.
 
+## Direct Recipe Dependencies
+
+- Only explicit Material options create dependency edges.
+- IngredientGroup membership is not expanded.
+- Dependencies are direct only.
+- No recursive quantity propagation is performed.
+- No producer output/yield is inferred.
+
+### Upstream Producers
+
+- None
+
+### Downstream Consumers
+
+#### `grilled-sausage -> frank-sandwich`
+
+- producer_recipe_slug: "grilled-sausage"
+- producer_recipe_name_ko: "구운 소시지"
+- producer_verification_status: "verified"
+- consumer_recipe_slug: "frank-sandwich"
+- consumer_recipe_name_ko: "프랭크 샌드위치"
+- consumer_verification_status: "verified"
+- material_key: "grilled-sausage"
+- material_name_ko: "구운 소시지"
+- unit: "개"
+- required_quantity: 2.0
+- consumer_slot_seed_key: "frank-sandwich.ingredient.sausage"
+- consumer_option_seed_key: "frank-sandwich.ingredient.sausage.option.grilled-sausage"
+- is_alternative: true
+- relative_path: "../recipes/frank-sandwich.md"
+
+#### `grilled-sausage -> ham-sandwich`
+
+- producer_recipe_slug: "grilled-sausage"
+- producer_recipe_name_ko: "구운 소시지"
+- producer_verification_status: "verified"
+- consumer_recipe_slug: "ham-sandwich"
+- consumer_recipe_name_ko: "햄 샌드위치"
+- consumer_verification_status: "verified"
+- material_key: "grilled-sausage"
+- material_name_ko: "구운 소시지"
+- unit: "개"
+- required_quantity: 2.0
+- consumer_slot_seed_key: "ham-sandwich.ingredient.sausage"
+- consumer_option_seed_key: "ham-sandwich.ingredient.sausage.option.grilled-sausage"
+- is_alternative: true
+- relative_path: "../recipes/ham-sandwich.md"
+
 ## Evidence and Sources
 
 ### Current evidence
