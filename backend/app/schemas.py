@@ -4,7 +4,15 @@ from datetime import date, datetime
 from enum import StrEnum
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, FiniteFloat, field_validator, model_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    FiniteFloat,
+    StrictInt,
+    field_validator,
+    model_validator,
+)
 
 
 class SourceOut(BaseModel):
@@ -366,6 +374,54 @@ class KnowledgeRecipeOut(BaseModel):
     ingredient_slots: list[KnowledgeRecipeIngredientSlotOut]
     sources: list[KnowledgeRecipeEvidenceOut]
 
+
+class RecipeCalculationRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    attempt_count: StrictInt = Field(ge=1)
+
+
+class RecipeCalculationIngredientGroupOut(BaseModel):
+    key: str
+    name_ko: str
+    verification_status: str
+    last_verified_at: date | None
+    members: list[KnowledgeIngredientGroupMemberOut]
+
+
+class RecipeCalculationOptionOut(BaseModel):
+    option_seed_key: str
+    target_type: Literal["material", "ingredient_group"]
+    per_attempt_quantity: float
+    total_required_quantity: float
+    order_no: int
+    notes: str | None
+    material_key: str | None = None
+    material_name_ko: str | None = None
+    unit: str | None = None
+    ingredient_group: RecipeCalculationIngredientGroupOut | None = None
+
+
+class RecipeCalculationSlotOut(BaseModel):
+    slot_seed_key: str
+    label: str
+    order_no: int
+    notes: str | None
+    options: list[RecipeCalculationOptionOut]
+
+
+class RecipeCalculationOut(BaseModel):
+    recipe_slug: str
+    name_ko: str
+    result_material_key: str
+    result_material_name_ko: str
+    result_unit: str
+    attempt_count: int
+    required_skill_tier: str | None
+    required_skill_level: int | None
+    verification_status: str
+    last_verified_at: date | None
+    ingredient_slots: list[RecipeCalculationSlotOut]
 
 
 class KnowledgeSearchMatchOut(BaseModel):

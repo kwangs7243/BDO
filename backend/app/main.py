@@ -18,6 +18,7 @@ from app.models import ChecklistItemState, Content, UserContentState
 from app.periods import KST, SUNDAY, daily_period, next_weekly_occurrence, weekly_period
 from app.project_calculations import calculate_project
 from app.prompt_bridge import build_context, render_result
+from app.recipe_calculations import calculate_recipe
 from app.projects import (
     get_project_detail,
     list_projects,
@@ -41,6 +42,8 @@ from app.schemas import (
     PromptRequest,
     ProjectCalculationOut,
     ProjectCalculationRequest,
+    RecipeCalculationOut,
+    RecipeCalculationRequest,
     MaterialInventoryOut,
     MaterialInventoryUpdate,
     ProjectDetailOut,
@@ -246,6 +249,21 @@ def project_calculation(
         raise HTTPException(status_code=404, detail="Project not found") from error
     except ValueError as error:
         raise HTTPException(status_code=422, detail=str(error)) from error
+
+
+@app.post(
+    "/api/calculations/recipes/{slug}",
+    response_model=RecipeCalculationOut,
+)
+def recipe_calculation(
+    slug: str,
+    request: RecipeCalculationRequest,
+    session: Session = Depends(get_session),
+):
+    try:
+        return calculate_recipe(session, slug, request)
+    except LookupError as error:
+        raise HTTPException(status_code=404, detail="Recipe not found") from error
 
 
 @app.get("/api/projects", response_model=list[ProjectSummaryOut])

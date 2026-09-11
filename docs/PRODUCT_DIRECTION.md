@@ -56,7 +56,7 @@ BDO Companion remains the Source of Truth for shared Black Desert game-domain kn
 
 Do not create a second independently maintained canonical copy of this knowledge in Notion or another personal-state system.
 
-V1.9Q implements the first four cooking recipes through shared Materials, ingredient groups and recipe-specific alternative quantities. Recipe read/search and generated exports are canonical-only consumers. Exact formulas retain `needs_review` where current official confirmation is insufficient; this foundation does not implement a recipe calculator, profitability engine, new UI or personal-state ownership change.
+V1.9Q implemented the first four cooking recipes through shared Materials, ingredient groups and recipe-specific alternative quantities; at that foundation milestone exact formulas retained `needs_review` and no calculator was included. V1.9R subsequently verified those four Recipe evidence sets. V1.9S adds personal-state-free deterministic batch scaling that multiplies every canonical option independently while preserving slot AND / option OR and IngredientGroup identity. It does not add option selection, inventory, output quantity, profitability, a new UI, or a personal-state ownership change.
 
 ## 4. Personal-state ownership
 
@@ -128,7 +128,7 @@ Preserve:
 
 The Markdown renderer and copy/download UI are V1 consumer mechanisms.
 
-Future AI integrations may consume the V1.9N knowledge-only Content/Project APIs, the V1.9O caller-state Project calculation API, `PromptContextBundle`, or other structured domain APIs.
+Future AI integrations may consume the V1.9N knowledge-only Content/Project/Recipe APIs, the V1.9O caller-state Project calculation API, the V1.9S stateless Recipe batch calculation API, `PromptContextBundle`, or other structured domain APIs.
 
 Under the current cost constraint, V1.9P provides a zero-cost static consumer surface through committed `ai_exports/`. These generated files are disposable projections of the canonical seed/domain model, not a replacement Source of Truth, and they do not imply that an MCP or OpenAI runtime adapter has been implemented.
 
@@ -156,7 +156,7 @@ Do not redesign core canonical models around a specific AI vendor or protocol.
 
 Do not implement an adapter unless the milestone explicitly asks for it.
 
-V1.9N implements deterministic server-side lexical search/identity resolution and knowledge-only Content/Project retrieval without local state. V1.9O implements the minimal deterministic Project shortage calculation boundary for ephemeral caller-provided quantities, without persistence, local-state fallback, transport integration, or optimization semantics.
+V1.9N implements deterministic server-side lexical search/identity resolution and knowledge-only Content/Project/Recipe retrieval without local state. V1.9O implements the minimal deterministic Project shortage calculation boundary for ephemeral caller-provided quantities. V1.9S implements per-option Recipe batch scaling from canonical one-attempt quantities. Both calculation boundaries exclude persistence, hidden local-state fallback, transport integration, and optimization semantics.
 
 ## 9. Project model boundary
 

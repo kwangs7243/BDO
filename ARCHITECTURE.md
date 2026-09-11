@@ -86,7 +86,7 @@ Consumer UX expansion is not an implicit architecture requirement.
 
 ## Backend
 
-FastAPI/domain modules include canonical content retrieval, the `knowledge` read service, the deterministic `ai_export` builder, period/reset computation, checklist state, Project projection/calculation, Life projections, user/local state, research/evidence flows, and `prompt_bridge`. The knowledge service exposes deterministic lexical search and canonical-only Content/Project/Recipe projections without reading personal-state tables; the exporter consumes those projections through a temporary in-memory database.
+FastAPI/domain modules include canonical content retrieval, the `knowledge` read service, the deterministic `ai_export` builder, period/reset computation, checklist state, Project and Recipe projection/calculation, Life projections, user/local state, research/evidence flows, and `prompt_bridge`. The knowledge service exposes deterministic lexical search and canonical-only Content/Project/Recipe projections without reading personal-state tables; both stateless calculators consume those canonical projections, and the exporter consumes them through a temporary in-memory database.
 
 ## Shared Material and Cooking Recipe foundation (V1.9Q)
 
@@ -94,7 +94,25 @@ FastAPI/domain modules include canonical content retrieval, the `knowledge` read
 
 Recipe → IngredientSlot → IngredientOption expresses AND between slots and OR within a slot. An option references either Material or IngredientGroup; members reference shared Material rows. Groups contain no global quantity multiplier. Quantities mean one cooking attempt, not guaranteed output, mixed substitution or large-cooking batch size. Migration `20260910_0004` adds five tables; existing Material and personal-state schemas are unchanged.
 
-`GET /api/knowledge/recipes/{slug}` and recipe search use typed claim Evidence and stable keys. Exact identity ranks before nested ingredient/member matches, capped at three per result. Official group membership can be verified independently of needs_review formulas. No Recipe calculator, Recipe UI, PromptContextBundle extension or backup version change is included.
+`GET /api/knowledge/recipes/{slug}` and recipe search use typed claim Evidence and stable keys. Exact identity ranks before nested ingredient/member matches, capped at three per result. Official group membership can be verified independently of formula verification. V1.9Q itself included no Recipe calculator, Recipe UI, PromptContextBundle extension or backup version change.
+
+## Stateless Recipe batch calculation (V1.9S)
+
+```text
+Canonical Recipe
+      +
+attempt_count
+      │
+      ▼
+Stateless Recipe Batch Calculation Service
+      │
+      ▼
+POST /api/calculations/recipes/{slug}
+```
+
+`recipe_calculations` reuses `get_knowledge_recipe` and multiplies every `RecipeIngredientOption.required_quantity` by the strict positive integer `attempt_count`. It preserves slot AND, option OR, stable slot/option keys, option order, and IngredientGroup identity/member lists. Every alternative is returned independently; the service does not choose, add, mix, or optimize alternatives and does not resolve a group to one member.
+
+The request and response are personal-state-free. The service neither reads nor writes `UserMaterialInventory`, has no inventory fallback, and performs no database mutation. Output quantity, cooking procs, quality conversion, shortage, profitability and optimization semantics remain outside this boundary. No schema, migration, seed, AI export format, PromptContextBundle or frontend change is required.
 
 Existing domain functions are the preferred reuse boundary.
 
@@ -188,7 +206,7 @@ existing BDO domain services
 
 The adapter is not implemented merely because this architecture permits it.
 
-V1.9N implements server-side lexical search/identity resolution and knowledge-only Content/Project retrieval at `/api/knowledge/*`. V1.9O adds pure deterministic Project shortage calculation with caller-provided quantities at `/api/calculations/projects/{slug}`; transport adapters, external persistence, synchronization, and optimization remain outside this boundary.
+V1.9N implements server-side lexical search/identity resolution and knowledge-only Content/Project/Recipe retrieval at `/api/knowledge/*`. V1.9O adds pure deterministic Project shortage calculation with caller-provided quantities at `/api/calculations/projects/{slug}`. V1.9S adds pure Recipe option scaling at `/api/calculations/recipes/{slug}` while preserving all alternatives. Transport adapters, external persistence, synchronization, option resolution, output/profitability semantics, and optimization remain outside these boundaries.
 
 ## Data update philosophy
 

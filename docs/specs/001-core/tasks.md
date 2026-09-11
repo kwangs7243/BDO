@@ -1,6 +1,6 @@
 # Tasks — first implementation milestone
 
-> V1.9R 구현 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
+> V1.9S 구현 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
 
 > Product-priority note: completed consumer UI features remain supported, but new consumer-facing UI expansion is not an implicit next milestone. Canonical knowledge, evidence quality, deterministic domain logic, and future-compatible retrieval boundaries may be prioritized according to `docs/PRODUCT_DIRECTION.md`.
 
@@ -22,6 +22,7 @@
 - [x] Export: V1.9P deterministic canonical AI export surface — 임시 DB와 기존 knowledge service에서 `ai_exports/`를 생성·검사하며 personal state, 유료 API/MCP, 새 UI는 범위 밖
 - [x] V1.9Q Cooking Recipe canonical foundation — shared Material 41개, IngredientGroup 4개/멤버 20개, Recipe 4개/슬롯 16개/옵션 18개, migration 0004, canonical Recipe read/search와 AI export manifest v2. 기존 Carrack ID·재고와 legacy import 호환성 유지; 정확한 배합은 needs_review이며 계산기·UI는 구현하지 않음
 - [x] V1.9R Cooking Recipe evidence verification closure — 맥주·식초·채소 절임·새구이의 31개 needs_review claim을 공식/커뮤니티/제3자 출처 구분을 유지한 채 교차검증하고 4개 Recipe aggregate를 verified로 마감. 새구이 2018 official patch는 면실유를 제외한 직접 지원 claim에만 연결; 수치·구조·계산기·UI 변경 없음
+- [x] V1.9S Stateless Recipe batch calculation — `/api/calculations/recipes/{slug}`가 strict positive integer `attempt_count`로 각 canonical option을 독립 scaling. slot AND / option OR, IngredientGroup와 stable identity를 보존하고 personal state, inventory fallback, option 선택·합산·혼합, output/profitability, schema/seed/frontend 변경 없음
 - [x] UI: Dashboard / Content explorer / Content detail
 - [x] UI: source badge with last verified
 - [x] UI: checklist state persistence

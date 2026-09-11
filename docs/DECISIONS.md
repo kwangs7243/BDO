@@ -114,3 +114,11 @@ Cooking recipes use IngredientGroup, IngredientGroupMember, Recipe, RecipeIngred
 Recipe/group/slot/option claims reuse typed stable-key Evidence. Official membership and per-attempt semantics may be verified while an exact formula remains needs_review. Canonical recipe retrieval/search excludes personal state and numeric DB identities. Static recipe Markdown consumes the same read service through an isolated DB; manifest schema version 2 adds recipes while preserving Content/Project entries. PromptContextBundle, Project calculations and user backup version 1 remain unchanged.
 
 **Reason:** One Material identity supports recipes and existing projects without breaking inventory history. Option-level quantities avoid false global substitution multipliers; unconfirmed formulas remain inspectable without being promoted to verified official facts.
+
+## ADR-019 — Recipe batch calculation preserves alternative semantics
+
+**Status:** Accepted 2026-09-11.
+
+**Decision:** Canonical `RecipeIngredientOption.required_quantity` means the quantity for one cooking attempt. The V1.9S stateless batch calculator multiplies each option independently by a strict positive integer `attempt_count`, preserving slot AND, option OR, option order, stable identities, and IngredientGroup targets. It does not select, sum, mix, or optimize OR options and does not resolve an IngredientGroup to one member. It reads no personal state and writes no database state. Result quantity, cooking proc behavior, quality conversion, inventory shortage, profitability, and optimization remain separate future milestones. Canonical Recipe data and the existing knowledge service are the calculation Source of Truth.
+
+**Reason:** Separating deterministic scaling from substitution and optimization makes the verified canonical one-attempt facts reusable without inventing unmodeled replacement, quality, production-output, or economic rules.
