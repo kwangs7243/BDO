@@ -342,7 +342,8 @@ def test_recipe_export_contract_and_counts(export_context):
         assert f"recipes/{slug}.md" in exports
     beer = exports["recipes/beer.md"]
     for heading in ["Identity", "Result", "Cooking Requirement", "Ingredient Slots",
-                    "Substitution Semantics", "Evidence and Sources"]:
+                    "Substitution Semantics", "Direct Recipe Dependencies",
+                    "Evidence and Sources"]:
         assert f"## {heading}" in beer
     for value in ["verified", "mineral-water", "purified-water",
                   "required_quantity: 6.0", "required_quantity: 3.0", "wheat / 밀", "potato / 감자",
@@ -353,6 +354,32 @@ def test_recipe_export_contract_and_counts(export_context):
     assert "- evidence_id:" not in beer
     assert "- id:" not in beer
     assert "owned_quantity" not in beer
+
+
+def test_recipe_exports_include_direct_dependency_projection(export_context):
+    _, exports = export_context
+    frank = exports["recipes/frank-sandwich.md"]
+    grilled_sausage = exports["recipes/grilled-sausage.md"]
+    beer = exports["recipes/beer.md"]
+
+    for statement in (
+        "Only explicit Material options create dependency edges.",
+        "IngredientGroup membership is not expanded.",
+        "Dependencies are direct only.",
+        "No recursive quantity propagation is performed.",
+        "No producer output/yield is inferred.",
+    ):
+        assert statement in frank
+    assert "grilled-sausage -> frank-sandwich" in frank
+    assert "red-sauce -> frank-sandwich" in frank
+    assert 'relative_path: "../recipes/grilled-sausage.md"' in frank
+    assert 'relative_path: "../recipes/red-sauce.md"' in frank
+    assert "is_alternative: true" in frank
+    assert "is_alternative: false" in frank
+    assert "grilled-sausage -> ham-sandwich" in grilled_sausage
+    assert 'relative_path: "../recipes/ham-sandwich.md"' in grilled_sausage
+    assert "### Upstream Producers\n\n- None" in beer
+    assert "### Downstream Consumers\n\n- None" in beer
 
 
 def test_recipe_export_preserves_historical_evidence(export_context):

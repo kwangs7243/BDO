@@ -112,6 +112,54 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - Result quantity is not guaranteed by this Recipe definition.
 - High-quality/special multipliers and yield probabilities are not defined.
 
+## Direct Recipe Dependencies
+
+- Only explicit Material options create dependency edges.
+- IngredientGroup membership is not expanded.
+- Dependencies are direct only.
+- No recursive quantity propagation is performed.
+- No producer output/yield is inferred.
+
+### Upstream Producers
+
+#### `grilled-sausage -> frank-sandwich`
+
+- producer_recipe_slug: "grilled-sausage"
+- producer_recipe_name_ko: "구운 소시지"
+- producer_verification_status: "verified"
+- consumer_recipe_slug: "frank-sandwich"
+- consumer_recipe_name_ko: "프랭크 샌드위치"
+- consumer_verification_status: "verified"
+- material_key: "grilled-sausage"
+- material_name_ko: "구운 소시지"
+- unit: "개"
+- required_quantity: 2.0
+- consumer_slot_seed_key: "frank-sandwich.ingredient.sausage"
+- consumer_option_seed_key: "frank-sandwich.ingredient.sausage.option.grilled-sausage"
+- is_alternative: true
+- relative_path: "../recipes/grilled-sausage.md"
+
+#### `red-sauce -> frank-sandwich`
+
+- producer_recipe_slug: "red-sauce"
+- producer_recipe_name_ko: "레드소스"
+- producer_verification_status: "verified"
+- consumer_recipe_slug: "frank-sandwich"
+- consumer_recipe_name_ko: "프랭크 샌드위치"
+- consumer_verification_status: "verified"
+- material_key: "red-sauce"
+- material_name_ko: "레드소스"
+- unit: "개"
+- required_quantity: 1.0
+- consumer_slot_seed_key: "frank-sandwich.ingredient.red-sauce"
+- consumer_option_seed_key: "frank-sandwich.ingredient.red-sauce.option.red-sauce"
+- is_alternative: false
+- relative_path: "../recipes/red-sauce.md"
+
+### Downstream Consumers
+
+- None
+
 ## Evidence and Sources
 
 ### Current evidence

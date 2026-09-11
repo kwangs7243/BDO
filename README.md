@@ -4,7 +4,7 @@
 
 기존 React frontend와 local user-state 기능은 계속 지원하지만, 사람이 매일 직접 탐색하는 consumer UI를 제품의 유일한 중심으로 가정하지 않는다. 현재 제품/ownership 방향은 `docs/PRODUCT_DIRECTION.md`를 따른다.
 
-현재 구현 milestone은 **V1.9U — Intermediate Cooking Recipe & Skill Tier Expansion**이다.
+현재 구현 milestone은 **V1.9V — Direct Recipe Dependency Read Interface**이다.
 
 ## 현재 baseline
 
@@ -14,14 +14,14 @@
 - Project Tracker: Project 1 / Stage 4 / Carrack Material 9 / ProjectMaterial 9 / MaterialSource 9
 - Shared Material catalog: 78 active (기존 Carrack 9 포함)
 - Cooking Recipe: Recipe 15 / IngredientGroup 7 / Members 35 / Slots 60 / Options 67 (모두 active, 15개 Recipe aggregate verified)
-- 테스트: backend 484 passed / frontend 57 passed
+- 테스트: backend 493 passed / frontend 57 passed
 - 주요 데이터 영역: Routine, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss, Atoraxxion / Last Gladiius Weekly, Account / Main Quest / Magnus Progression Foundation, Adventure Log Current Catalog, Fairy / Pets Foundation, Guild Boss Current System, Blood Altar 24-stage Current System
 
 ## 현재 제품 역할
 
 현재 구현은 세 층으로 본다.
 
-1. **Canonical knowledge** — Content/Requirement/Step/Reward/Relation, Schedule/reset, Source/Evidence, knowledge roles, historical/superseded, Project/Recipe canonical requirements and deterministic calculations. V1.9N의 read-only 서비스가 personal state 없는 Content/Project/Recipe DTO를 투영하고, V1.9O는 caller 수량 기반 Project shortage를, V1.9S는 Recipe option별 batch 필요량을 stateless하게 계산하며, V1.9P는 canonical service 결과를 `ai_exports/`에 결정적으로 생성한다.
+1. **Canonical knowledge** — Content/Requirement/Step/Reward/Relation, Schedule/reset, Source/Evidence, knowledge roles, historical/superseded, Project/Recipe canonical requirements and deterministic calculations. V1.9N의 read-only 서비스가 personal state 없는 Content/Project/Recipe DTO를 투영하고, V1.9O는 caller 수량 기반 Project shortage를, V1.9S는 Recipe option별 batch 필요량을 stateless하게 계산하며, V1.9V는 Recipe result와 explicit Material option identity에서 direct dependency를 파생한다. V1.9P는 canonical service 결과를 `ai_exports/`에 결정적으로 생성한다.
 2. **Existing local consumers** — Dashboard/Weekly, Content/Life/Project reference, Source/Evidence inspection, local user-state/checklist/inventory/backup, Prompt Bridge preview/copy.
 3. **Future consumers** — ChatGPT/MCP/API adapters and domain-scoped external personal-state workflows. 이들은 architecture가 허용한다고 자동 구현하지 않는다.
 
@@ -74,6 +74,7 @@ Future AI integration, if explicitly selected as a milestone, should normally at
 
 - FastAPI + SQLAlchemy + Alembic 백엔드
 - `/api/knowledge/search`, `/api/knowledge/contents/{slug}`, `/api/knowledge/projects/{slug}`, `/api/knowledge/recipes/{slug}` canonical read-only API
+- `/api/knowledge/recipes/{slug}/dependencies` explicit Material identity 기반 direct upstream/downstream Recipe read API
 - `/api/calculations/projects/{slug}` caller-provided quantity 기반 stateless Project shortage API — 입력은 저장하지 않고 local inventory로 fallback하지 않음
 - `/api/calculations/recipes/{slug}` strict `attempt_count` 기반 stateless Recipe batch API — 각 option을 독립 배율 계산하고 AND/OR와 IngredientGroup target을 보존
 - `ai_exports/` canonical-only generated Markdown/manifest — 실행 중인 BDO 서버나 OpenAI API·MCP·유료 호스팅 없이 GitHub/AI consumer가 읽을 수 있으며 독립 Source of Truth가 아님
@@ -113,13 +114,13 @@ Future AI integration, if explicitly selected as a milestone, should normally at
 - 설정 화면의 로컬 JSON 다운로드, 검증 summary, 기본 merge와 명시적 확인이 필요한 replace 복원
 - unknown identity 전체 거부, 단일 transaction restore와 canonical knowledge 불변성
 
-정본 seed 형식은 `docs/data/SEED_FORMAT.md`, V1.8A backend 기반은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B frontend 경험은 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub는 `handoff/V19A_LIFE_HUB_REPORT.md`, V1.9B 사용자 백업·복원은 `handoff/V19B_USER_BACKUP_RESTORE_REPORT.md`, V1.9C 생활 전략 팩은 `handoff/V19C_LIFE_STRATEGY_DEEP1_REPORT.md`, V1.9D 지식 역할 의미론 정리는 `handoff/V19D_PROMPT_KNOWLEDGE_ROLE_REPORT.md`, V1.9E 재배·가공 전략 팩은 `handoff/V19E_LIFE_STRATEGY_DEEP2_REPORT.md`, V1.9F 요리·연금 전략 팩은 `handoff/V19F_LIFE_STRATEGY_DEEP3_REPORT.md`, V1.9G 항해·물물교환 전략 팩은 `handoff/V19G_LIFE_STRATEGY_DEEP4_REPORT.md`, V1.9H 조련 실전 전략 팩은 `handoff/V19H_TRAINING_STRATEGY_DEEP5_REPORT.md`, V1.9I 최후의 글라디우스 주간 콘텐츠는 `handoff/V19I_LAST_GLADIIUS_WEEKLY_REPORT.md`, V1.9J 요정·반려동물 기반은 `handoff/V19J_FAIRY_PETS_FOUNDATION_REPORT.md`, V1.9K 길드 우두머리 현행 시스템은 `handoff/V19K_GUILD_BOSS_CURRENT_REPORT.md`, V1.9L 모험일지 현행 카탈로그는 `handoff/V19L_ADVENTURE_LOG_CURRENT_REPORT.md`, V1.9M 피의 제단 22~24단계 현행화는 `handoff/V19M_BLOOD_ALTAR_CURRENT_REPORT.md`, V1.9N canonical knowledge read interface는 `handoff/V19N_CANONICAL_KNOWLEDGE_READ_REPORT.md`, V1.9O stateless Project calculation interface는 `handoff/V19O_STATELESS_PROJECT_CALCULATION_REPORT.md`, V1.9P zero-cost AI export surface는 `handoff/V19P_ZERO_COST_AI_EXPORT_REPORT.md`, V1.9Q Cooking Recipe foundation은 `handoff/V19Q_COOKING_RECIPE_FOUNDATION_REPORT.md`, V1.9R Recipe Evidence closure는 `handoff/V19R_COOKING_RECIPE_EVIDENCE_CLOSURE_REPORT.md`, V1.9S Recipe batch calculation은 `handoff/V19S_RECIPE_BATCH_CALCULATION_REPORT.md`, V1.9T core Recipe catalog 확장은 `handoff/V19T_CORE_COOKING_RECIPE_CATALOG_REPORT.md`, V1.9U intermediate Recipe 확장은 `handoff/V19U_INTERMEDIATE_COOKING_RECIPE_REPORT.md`에 기록한다.
+정본 seed 형식은 `docs/data/SEED_FORMAT.md`, V1.8A backend 기반은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B frontend 경험은 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub는 `handoff/V19A_LIFE_HUB_REPORT.md`, V1.9B 사용자 백업·복원은 `handoff/V19B_USER_BACKUP_RESTORE_REPORT.md`, V1.9C 생활 전략 팩은 `handoff/V19C_LIFE_STRATEGY_DEEP1_REPORT.md`, V1.9D 지식 역할 의미론 정리는 `handoff/V19D_PROMPT_KNOWLEDGE_ROLE_REPORT.md`, V1.9E 재배·가공 전략 팩은 `handoff/V19E_LIFE_STRATEGY_DEEP2_REPORT.md`, V1.9F 요리·연금 전략 팩은 `handoff/V19F_LIFE_STRATEGY_DEEP3_REPORT.md`, V1.9G 항해·물물교환 전략 팩은 `handoff/V19G_LIFE_STRATEGY_DEEP4_REPORT.md`, V1.9H 조련 실전 전략 팩은 `handoff/V19H_TRAINING_STRATEGY_DEEP5_REPORT.md`, V1.9I 최후의 글라디우스 주간 콘텐츠는 `handoff/V19I_LAST_GLADIIUS_WEEKLY_REPORT.md`, V1.9J 요정·반려동물 기반은 `handoff/V19J_FAIRY_PETS_FOUNDATION_REPORT.md`, V1.9K 길드 우두머리 현행 시스템은 `handoff/V19K_GUILD_BOSS_CURRENT_REPORT.md`, V1.9L 모험일지 현행 카탈로그는 `handoff/V19L_ADVENTURE_LOG_CURRENT_REPORT.md`, V1.9M 피의 제단 22~24단계 현행화는 `handoff/V19M_BLOOD_ALTAR_CURRENT_REPORT.md`, V1.9N canonical knowledge read interface는 `handoff/V19N_CANONICAL_KNOWLEDGE_READ_REPORT.md`, V1.9O stateless Project calculation interface는 `handoff/V19O_STATELESS_PROJECT_CALCULATION_REPORT.md`, V1.9P zero-cost AI export surface는 `handoff/V19P_ZERO_COST_AI_EXPORT_REPORT.md`, V1.9Q Cooking Recipe foundation은 `handoff/V19Q_COOKING_RECIPE_FOUNDATION_REPORT.md`, V1.9R Recipe Evidence closure는 `handoff/V19R_COOKING_RECIPE_EVIDENCE_CLOSURE_REPORT.md`, V1.9S Recipe batch calculation은 `handoff/V19S_RECIPE_BATCH_CALCULATION_REPORT.md`, V1.9T core Recipe catalog 확장은 `handoff/V19T_CORE_COOKING_RECIPE_CATALOG_REPORT.md`, V1.9U intermediate Recipe 확장은 `handoff/V19U_INTERMEDIATE_COOKING_RECIPE_REPORT.md`, V1.9V direct Recipe dependency read는 `handoff/V19V_RECIPE_DIRECT_DEPENDENCY_READ_REPORT.md`에 기록한다.
 
 ## Canonical AI export
 
-V1.9Q는 shared Material과 맥주·식초·채소 절임·새구이 Recipe 기반을 추가했고, V1.9R은 4개 Recipe를 `verified`로 마감했다. V1.9S는 각 option의 1회 수량을 strict `attempt_count`만큼 독립 배율 계산한다. V1.9T는 core Recipe를 9개로 확장했고, V1.9U는 구운 소시지·스테이크·수테차·미트/햄/프랭크 샌드위치를 추가해 15개로 확장하며 importer가 `beginner`부터 `guru`까지의 canonical skill tier를 허용하도록 일반화했다. 각 슬롯은 모두 필요하고 슬롯 안 option은 대안으로 그대로 남으며 API는 선택·합산·혼합하지 않는다. IngredientGroup도 한 member로 자동 변환하지 않는다. 현재도 inventory/shortage, 품질 환산, 산출량, 수익 계산, optimizer와 Recipe UI는 구현하지 않았다.
+V1.9Q는 shared Material과 맥주·식초·채소 절임·새구이 Recipe 기반을 추가했고, V1.9R은 4개 Recipe를 `verified`로 마감했다. V1.9S는 각 option의 1회 수량을 strict `attempt_count`만큼 독립 배율 계산한다. V1.9T는 core Recipe를 9개로 확장했고, V1.9U는 구운 소시지·스테이크·수테차·미트/햄/프랭크 샌드위치를 추가해 15개로 확장하며 importer가 `beginner`부터 `guru`까지의 canonical skill tier를 허용하도록 일반화했다. V1.9V는 result Material과 explicit Material option의 stable identity가 같은 경우만 direct upstream/downstream Recipe relation으로 파생하며 이를 저장하지 않는다. 각 슬롯은 모두 필요하고 슬롯 안 option은 대안으로 그대로 남으며 API는 선택·합산·혼합하지 않는다. IngredientGroup도 한 member로 자동 변환하지 않는다. 현재도 재귀 생산 계획, inventory/shortage, 품질 환산, 산출량, 수익 계산, optimizer와 Recipe UI는 구현하지 않았다.
 
-구현 및 검증 기록: [V1.9Q handoff](handoff/V19Q_COOKING_RECIPE_FOUNDATION_REPORT.md), [V1.9R handoff](handoff/V19R_COOKING_RECIPE_EVIDENCE_CLOSURE_REPORT.md), [V1.9S handoff](handoff/V19S_RECIPE_BATCH_CALCULATION_REPORT.md), [V1.9T handoff](handoff/V19T_CORE_COOKING_RECIPE_CATALOG_REPORT.md), [V1.9U handoff](handoff/V19U_INTERMEDIATE_COOKING_RECIPE_REPORT.md), [V1.9U research packet](docs/research/V19U_INTERMEDIATE_COOKING_RECIPE_RESEARCH.md), ADR-018/019.
+구현 및 검증 기록: [V1.9Q handoff](handoff/V19Q_COOKING_RECIPE_FOUNDATION_REPORT.md), [V1.9R handoff](handoff/V19R_COOKING_RECIPE_EVIDENCE_CLOSURE_REPORT.md), [V1.9S handoff](handoff/V19S_RECIPE_BATCH_CALCULATION_REPORT.md), [V1.9T handoff](handoff/V19T_CORE_COOKING_RECIPE_CATALOG_REPORT.md), [V1.9U handoff](handoff/V19U_INTERMEDIATE_COOKING_RECIPE_REPORT.md), [V1.9V handoff](handoff/V19V_RECIPE_DIRECT_DEPENDENCY_READ_REPORT.md), [V1.9U research packet](docs/research/V19U_INTERMEDIATE_COOKING_RECIPE_RESEARCH.md), [V1.9V research/design](docs/research/V19V_RECIPE_DIRECT_DEPENDENCY_READ_RESEARCH.md), ADR-018/019/020.
 
 현재 generated export는 Content 294 / Project 1 / Recipe 15 페이지와 INDEX·manifest, 총 312개 파일이다. Manifest version 2는 기존 목록을 보존하면서 `recipe_count`와 `recipes`를 추가한다.
 
@@ -174,12 +175,12 @@ uv run uvicorn app.main:app --reload
 
 ## 검증 명령과 결과
 
-2026-09-11 완료 확인 기준 backend 테스트는 484 passed, frontend 테스트는 57 passed다.
+2026-09-12 완료 확인 기준 backend 테스트는 493 passed, frontend 테스트는 57 passed다.
 
 ```powershell
 cd backend
 uv run pytest
-# 484 passed
+# 493 passed
 
 cd ../frontend
 npm run typecheck
@@ -191,4 +192,4 @@ npm run build
 
 V1.6A 기반 구조는 `handoff/V16A_SNAPSHOT.md`, V1.7 데이터 팩 결과는 `handoff/V17A_COMBAT_FOUNDATION_REPORT.md`, `handoff/V17B_GRIND_SPOT_REPORT.md`, `handoff/V17C_BOSS_BLACK_SHRINE_REPORT.md`, `handoff/V17D_ACCOUNT_PROGRESSION_REPORT.md`에 기록되어 있다. V1.8A Project Tracker backend foundation은 `handoff/V18A_PROJECT_TRACKER_FOUNDATION_REPORT.md`, V1.8B Carrack Project UI는 `handoff/V18B_CARRACK_PROJECT_UI_REPORT.md`, V1.8C Project Prompt Bridge는 `handoff/V18C_PROJECT_PROMPT_BRIDGE_REPORT.md`, V1.8D Prompt Preset Completion은 `handoff/V18D_PROMPT_PRESET_COMPLETION_REPORT.md`, V1.8E Prompt Bridge V1.5 Completion은 `handoff/V18E_PROMPT_BRIDGE_COMPLETION_REPORT.md`, V1.9A Life Hub Experience는 `handoff/V19A_LIFE_HUB_REPORT.md`, V1.9B User Data Backup & Restore는 `handoff/V19B_USER_BACKUP_RESTORE_REPORT.md`, V1.9C Life Strategy Deep Pack I은 `handoff/V19C_LIFE_STRATEGY_DEEP1_REPORT.md`, V1.9D Prompt Knowledge Role Semantics Closure는 `handoff/V19D_PROMPT_KNOWLEDGE_ROLE_REPORT.md`, V1.9E Life Strategy Deep Pack II는 `handoff/V19E_LIFE_STRATEGY_DEEP2_REPORT.md`, V1.9F Life Strategy Deep Pack III는 `handoff/V19F_LIFE_STRATEGY_DEEP3_REPORT.md`, V1.9G Life Strategy Deep Pack IV는 `handoff/V19G_LIFE_STRATEGY_DEEP4_REPORT.md`, V1.9H Training Practical Strategy Deep Pack은 `handoff/V19H_TRAINING_STRATEGY_DEEP5_REPORT.md`, V1.9I Last Gladiius Weekly Content Closure는 `handoff/V19I_LAST_GLADIIUS_WEEKLY_REPORT.md`, V1.9J Fairy / Pets Foundation은 `handoff/V19J_FAIRY_PETS_FOUNDATION_REPORT.md`, V1.9K Guild Boss Current System은 `handoff/V19K_GUILD_BOSS_CURRENT_REPORT.md`, V1.9L 모험일지 현행 카탈로그는 `handoff/V19L_ADVENTURE_LOG_CURRENT_REPORT.md`, V1.9M 피의 제단 22~24단계 현행화는 `handoff/V19M_BLOOD_ALTAR_CURRENT_REPORT.md`, V1.9N canonical knowledge read interface는 `handoff/V19N_CANONICAL_KNOWLEDGE_READ_REPORT.md`, V1.9O stateless Project calculation interface는 `handoff/V19O_STATELESS_PROJECT_CALCULATION_REPORT.md`, V1.9P zero-cost AI export surface는 `handoff/V19P_ZERO_COST_AI_EXPORT_REPORT.md`에 기록한다.
 
-Cooking Recipe 연속 milestone은 `handoff/V19Q_COOKING_RECIPE_FOUNDATION_REPORT.md`, `handoff/V19R_COOKING_RECIPE_EVIDENCE_CLOSURE_REPORT.md`, `handoff/V19S_RECIPE_BATCH_CALCULATION_REPORT.md`, `handoff/V19T_CORE_COOKING_RECIPE_CATALOG_REPORT.md`, `handoff/V19U_INTERMEDIATE_COOKING_RECIPE_REPORT.md`에 기록한다.
+Cooking Recipe 연속 milestone은 `handoff/V19Q_COOKING_RECIPE_FOUNDATION_REPORT.md`, `handoff/V19R_COOKING_RECIPE_EVIDENCE_CLOSURE_REPORT.md`, `handoff/V19S_RECIPE_BATCH_CALCULATION_REPORT.md`, `handoff/V19T_CORE_COOKING_RECIPE_CATALOG_REPORT.md`, `handoff/V19U_INTERMEDIATE_COOKING_RECIPE_REPORT.md`, `handoff/V19V_RECIPE_DIRECT_DEPENDENCY_READ_REPORT.md`에 기록한다.

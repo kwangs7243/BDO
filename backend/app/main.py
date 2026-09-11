@@ -19,6 +19,7 @@ from app.periods import KST, SUNDAY, daily_period, next_weekly_occurrence, weekl
 from app.project_calculations import calculate_project
 from app.prompt_bridge import build_context, render_result
 from app.recipe_calculations import calculate_recipe
+from app.recipe_dependencies import get_recipe_dependencies
 from app.projects import (
     get_project_detail,
     list_projects,
@@ -35,6 +36,7 @@ from app.schemas import (
     LifeSkillDetailOut,
     KnowledgeContentOut,
     KnowledgeProjectOut,
+    KnowledgeRecipeDependenciesOut,
     KnowledgeRecipeOut,
     KnowledgeSearchResultOut,
     PromptContextBundle,
@@ -133,6 +135,17 @@ def knowledge_project(slug: str, session: Session = Depends(get_session)):
 @app.get("/api/knowledge/recipes/{slug}", response_model=KnowledgeRecipeOut)
 def knowledge_recipe(slug: str, session: Session = Depends(get_session)):
     result = get_knowledge_recipe(session, slug)
+    if result is None:
+        raise HTTPException(status_code=404, detail="Recipe not found")
+    return result
+
+
+@app.get(
+    "/api/knowledge/recipes/{slug}/dependencies",
+    response_model=KnowledgeRecipeDependenciesOut,
+)
+def knowledge_recipe_dependencies(slug: str, session: Session = Depends(get_session)):
+    result = get_recipe_dependencies(session, slug)
     if result is None:
         raise HTTPException(status_code=404, detail="Recipe not found")
     return result

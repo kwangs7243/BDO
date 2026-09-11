@@ -375,6 +375,35 @@ class KnowledgeRecipeOut(BaseModel):
     sources: list[KnowledgeRecipeEvidenceOut]
 
 
+class KnowledgeRecipeDependencyEdgeOut(BaseModel):
+    producer_recipe_slug: str
+    producer_recipe_name_ko: str
+    producer_verification_status: str
+    consumer_recipe_slug: str
+    consumer_recipe_name_ko: str
+    consumer_verification_status: str
+    material_key: str
+    material_name_ko: str
+    unit: str
+    consumer_slot_seed_key: str
+    consumer_slot_label: str
+    consumer_option_seed_key: str
+    required_quantity: float
+    consumer_slot_order_no: int
+    consumer_option_order_no: int
+    is_alternative: bool
+
+
+class KnowledgeRecipeDependenciesOut(BaseModel):
+    recipe_slug: str
+    recipe_name_ko: str
+    process_type: str
+    result_material_key: str
+    result_material_name_ko: str
+    direct_upstream: list[KnowledgeRecipeDependencyEdgeOut]
+    direct_downstream: list[KnowledgeRecipeDependencyEdgeOut]
+
+
 class RecipeCalculationRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
 

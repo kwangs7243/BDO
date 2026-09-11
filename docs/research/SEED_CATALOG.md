@@ -65,6 +65,8 @@ V1.9Q/R/S에서 shared Material, 최초 Recipe 4종의 검증, stateless batch �
 
 V1.9U는 구운 소시지·스테이크·수테차·미트 샌드위치·햄 샌드위치·프랭크 샌드위치를 추가해 active verified Recipe를 15개, Material을 78개로 확장했다. IngredientGroup/Member는 7/35개로 유지하고 importer는 `beginner`부터 `guru`까지의 canonical 생활 등급을 허용한다. 수테차의 차 2/1과 햄·프랭크 샌드위치의 소시지 2/1은 Recipe 내부 OR option이며 global 품질 환산이 아니다. 결과량/proc, grain-flour/dough group, 재귀 dependency 계산, inventory·경제·optimizer는 계속 미완료다.
 
+V1.9V는 동일한 15 verified Recipe 위에서 producer result Material과 consumer의 explicit Material option stable key가 같은 경우만 direct dependency로 파생하는 read interface/API/AI export를 추가했다. 현재 direct edge는 6개이며 relation은 seed나 DB에 저장하지 않는다. IngredientGroup membership, special-result producer 추정, 재귀 expansion, output/yield, inventory와 경제 계산은 계속 제외한다.
+
 ## 장기 프로젝트
 - [S] 중범선 : 점진
 - [R] 다른 중범선 3종
