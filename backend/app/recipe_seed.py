@@ -13,6 +13,17 @@ from app.models import (Evidence, IngredientGroup, IngredientGroupMember, Materi
                         Recipe, RecipeIngredientSlot, RecipeIngredientOption, Source)
 
 
+COOKING_SKILL_TIERS = {
+    "beginner",
+    "apprentice",
+    "skilled",
+    "professional",
+    "artisan",
+    "master",
+    "guru",
+}
+
+
 class SeedRow(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -100,7 +111,7 @@ class RecipeSeed(SeedRow):
     @field_validator("required_skill_tier")
     @classmethod
     def skill_tier(cls, value):
-        if value is not None and value not in {"beginner", "apprentice"}:
+        if value is not None and value not in COOKING_SKILL_TIERS:
             raise ValueError("unsupported cooking skill tier")
         return value
 

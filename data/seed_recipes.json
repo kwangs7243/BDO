@@ -1787,6 +1787,1006 @@
           "note": "오믈렛 1회당 소금 2개를 교차확인했다."
         }
       ]
+    },
+    {
+      "slug": "grilled-sausage",
+      "name_ko": "구운 소시지",
+      "process_type": "cooking",
+      "result_material_key": "grilled-sausage",
+      "summary": "요리 1회 시도 기준 구운 소시지 배합. 훈연 소시지 proc·결과량은 포함하지 않는다.",
+      "required_skill_tier": "beginner",
+      "required_skill_level": 6,
+      "last_verified_at": "2026-09-11",
+      "ingredients": [
+        {
+          "seed_key": "grilled-sausage.ingredient.meat",
+          "label": "고기",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "grilled-sausage.ingredient.meat.option.meat",
+              "ingredient_group_key": "meat",
+              "required_quantity": 6,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "grilled-sausage.ingredient.onion",
+          "label": "양파",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "grilled-sausage.ingredient.onion.option.onion",
+              "material_key": "onion",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "grilled-sausage.ingredient.salt",
+          "label": "소금",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "grilled-sausage.ingredient.salt.option.salt",
+              "material_key": "salt",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "grilled-sausage.ingredient.pepper",
+          "label": "후추",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "grilled-sausage.ingredient.pepper.option.pepper",
+              "material_key": "pepper",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.grilled-sausage.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "grilled-sausage",
+          "claim_key": "ingredients",
+          "source_ids": [
+            "codex-grilled-sausage-9427",
+            "weingchicken-grilled-sausage-19"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "Research Packet의 지정 Source에서 1회 배합을 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.grilled-sausage.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "grilled-sausage",
+          "claim_key": "required_skill",
+          "source_ids": [
+            "codex-grilled-sausage-9427",
+            "weingchicken-grilled-sausage-19"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "Research Packet에서 허용한 Source만 required skill 근거로 연결한다."
+        },
+        {
+          "seed_key": "recipe.grilled-sausage.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "grilled-sausage",
+          "claim_key": "per_attempt",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 1회분 투입 의미만 연결한다."
+        },
+        {
+          "seed_key": "recipe.grilled-sausage.ingredient.meat.option.meat.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "grilled-sausage.ingredient.meat.option.meat",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-grilled-sausage-9427",
+            "weingchicken-grilled-sausage-19"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.grilled-sausage.ingredient.onion.option.onion.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "grilled-sausage.ingredient.onion.option.onion",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-grilled-sausage-9427",
+            "weingchicken-grilled-sausage-19"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.grilled-sausage.ingredient.salt.option.salt.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "grilled-sausage.ingredient.salt.option.salt",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-grilled-sausage-9427",
+            "weingchicken-grilled-sausage-19"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.grilled-sausage.ingredient.pepper.option.pepper.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "grilled-sausage.ingredient.pepper.option.pepper",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-grilled-sausage-9427",
+            "weingchicken-grilled-sausage-19"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        }
+      ]
+    },
+    {
+      "slug": "steak",
+      "name_ko": "스테이크",
+      "process_type": "cooking",
+      "result_material_key": "steak",
+      "summary": "요리 1회 시도 기준 스테이크 배합. V1.9T의 레드소스 Material identity를 재사용한다.",
+      "required_skill_tier": "apprentice",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-11",
+      "ingredients": [
+        {
+          "seed_key": "steak.ingredient.meat",
+          "label": "고기",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "steak.ingredient.meat.option.meat",
+              "ingredient_group_key": "meat",
+              "required_quantity": 8,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "steak.ingredient.garlic",
+          "label": "마늘",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "steak.ingredient.garlic.option.garlic",
+              "material_key": "garlic",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "steak.ingredient.red-sauce",
+          "label": "레드소스",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "steak.ingredient.red-sauce.option.red-sauce",
+              "material_key": "red-sauce",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "steak.ingredient.salt",
+          "label": "소금",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "steak.ingredient.salt.option.salt",
+              "material_key": "salt",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.steak.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "steak",
+          "claim_key": "ingredients",
+          "source_ids": [
+            "codex-steak-9401",
+            "weingchicken-steak-312"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "Research Packet의 지정 Source에서 1회 배합을 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.steak.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "steak",
+          "claim_key": "required_skill",
+          "source_ids": [
+            "codex-steak-9401",
+            "weingchicken-steak-312"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "Research Packet에서 허용한 Source만 required skill 근거로 연결한다."
+        },
+        {
+          "seed_key": "recipe.steak.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "steak",
+          "claim_key": "per_attempt",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 1회분 투입 의미만 연결한다."
+        },
+        {
+          "seed_key": "recipe.steak.ingredient.meat.option.meat.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "steak.ingredient.meat.option.meat",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-steak-9401",
+            "weingchicken-steak-312"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.steak.ingredient.garlic.option.garlic.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "steak.ingredient.garlic.option.garlic",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-steak-9401",
+            "weingchicken-steak-312"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.steak.ingredient.red-sauce.option.red-sauce.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "steak.ingredient.red-sauce.option.red-sauce",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-steak-9401",
+            "weingchicken-steak-312"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.steak.ingredient.salt.option.salt.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "steak.ingredient.salt.option.salt",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-steak-9401",
+            "weingchicken-steak-312"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        }
+      ]
+    },
+    {
+      "slug": "sute-tea",
+      "name_ko": "수테차",
+      "process_type": "cooking",
+      "result_material_key": "sute-tea",
+      "summary": "요리 1회 시도 기준 수테차 배합. 향이 좋은 차 2 또는 향이 진한 차 1을 Recipe 내부 OR option으로 보존한다.",
+      "required_skill_tier": "skilled",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-11",
+      "ingredients": [
+        {
+          "seed_key": "sute-tea.ingredient.tea",
+          "label": "차",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "sute-tea.ingredient.tea.option.tea-with-fine-scent",
+              "material_key": "tea-with-fine-scent",
+              "required_quantity": 2,
+              "order_no": 1
+            },
+            {
+              "seed_key": "sute-tea.ingredient.tea.option.tea-with-strong-scent",
+              "material_key": "tea-with-strong-scent",
+              "required_quantity": 1,
+              "order_no": 2
+            }
+          ]
+        },
+        {
+          "seed_key": "sute-tea.ingredient.milk",
+          "label": "우유",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "sute-tea.ingredient.milk.option.milk",
+              "material_key": "milk",
+              "required_quantity": 3,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "sute-tea.ingredient.salt",
+          "label": "소금",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "sute-tea.ingredient.salt.option.salt",
+              "material_key": "salt",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "sute-tea.ingredient.butter",
+          "label": "버터",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "sute-tea.ingredient.butter.option.butter",
+              "material_key": "butter",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.sute-tea.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "sute-tea",
+          "claim_key": "ingredients",
+          "source_ids": [
+            "codex-sute-tea-117",
+            "codex-sute-tea-special-560",
+            "weingchicken-healthy-sute-tea-222"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "Research Packet의 지정 Source에서 1회 배합을 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.sute-tea.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "sute-tea",
+          "claim_key": "required_skill",
+          "source_ids": [
+            "codex-sute-tea-117"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "Research Packet에서 허용한 Source만 required skill 근거로 연결한다."
+        },
+        {
+          "seed_key": "recipe.sute-tea.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "sute-tea",
+          "claim_key": "per_attempt",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 1회분 투입 의미만 연결한다."
+        },
+        {
+          "seed_key": "recipe.sute-tea.ingredient.tea.option.tea-with-fine-scent.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "sute-tea.ingredient.tea.option.tea-with-fine-scent",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-sute-tea-117",
+            "weingchicken-healthy-sute-tea-222"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.sute-tea.ingredient.tea.option.tea-with-strong-scent.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "sute-tea.ingredient.tea.option.tea-with-strong-scent",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-sute-tea-special-560",
+            "weingchicken-healthy-sute-tea-222"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.sute-tea.ingredient.milk.option.milk.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "sute-tea.ingredient.milk.option.milk",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-sute-tea-117",
+            "codex-sute-tea-special-560",
+            "weingchicken-healthy-sute-tea-222"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.sute-tea.ingredient.salt.option.salt.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "sute-tea.ingredient.salt.option.salt",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-sute-tea-117",
+            "codex-sute-tea-special-560",
+            "weingchicken-healthy-sute-tea-222"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.sute-tea.ingredient.butter.option.butter.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "sute-tea.ingredient.butter.option.butter",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-sute-tea-117",
+            "codex-sute-tea-special-560",
+            "weingchicken-healthy-sute-tea-222"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        }
+      ]
+    },
+    {
+      "slug": "meat-sandwich",
+      "name_ko": "미트 샌드위치",
+      "process_type": "cooking",
+      "result_material_key": "meat-sandwich",
+      "summary": "요리 1회 시도 기준 미트 샌드위치 배합. 기존 meat·vegetable IngredientGroup을 재사용한다.",
+      "required_skill_tier": "apprentice",
+      "required_skill_level": 6,
+      "last_verified_at": "2026-09-11",
+      "ingredients": [
+        {
+          "seed_key": "meat-sandwich.ingredient.meat",
+          "label": "고기",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "meat-sandwich.ingredient.meat.option.meat",
+              "ingredient_group_key": "meat",
+              "required_quantity": 7,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "meat-sandwich.ingredient.soft-bread",
+          "label": "부드러운 빵",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "meat-sandwich.ingredient.soft-bread.option.soft-bread",
+              "material_key": "soft-bread",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "meat-sandwich.ingredient.vegetable",
+          "label": "채소",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "meat-sandwich.ingredient.vegetable.option.vegetable",
+              "ingredient_group_key": "vegetable",
+              "required_quantity": 6,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "meat-sandwich.ingredient.cheese",
+          "label": "치즈",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "meat-sandwich.ingredient.cheese.option.cheese",
+              "material_key": "cheese",
+              "required_quantity": 3,
+              "order_no": 1
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.meat-sandwich.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "meat-sandwich",
+          "claim_key": "ingredients",
+          "source_ids": [
+            "weingchicken-meat-sandwich-228",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "Research Packet의 지정 Source에서 1회 배합을 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.meat-sandwich.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "meat-sandwich",
+          "claim_key": "required_skill",
+          "source_ids": [
+            "weingchicken-meat-sandwich-228"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "Research Packet에서 허용한 Source만 required skill 근거로 연결한다."
+        },
+        {
+          "seed_key": "recipe.meat-sandwich.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "meat-sandwich",
+          "claim_key": "per_attempt",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 1회분 투입 의미만 연결한다."
+        },
+        {
+          "seed_key": "recipe.meat-sandwich.ingredient.meat.option.meat.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "meat-sandwich.ingredient.meat.option.meat",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-meat-sandwich-228",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.meat-sandwich.ingredient.soft-bread.option.soft-bread.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "meat-sandwich.ingredient.soft-bread.option.soft-bread",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-meat-sandwich-228",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.meat-sandwich.ingredient.vegetable.option.vegetable.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "meat-sandwich.ingredient.vegetable.option.vegetable",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-meat-sandwich-228",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.meat-sandwich.ingredient.cheese.option.cheese.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "meat-sandwich.ingredient.cheese.option.cheese",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-meat-sandwich-228",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        }
+      ]
+    },
+    {
+      "slug": "ham-sandwich",
+      "name_ko": "햄 샌드위치",
+      "process_type": "cooking",
+      "result_material_key": "ham-sandwich",
+      "summary": "요리 1회 시도 기준 햄 샌드위치 배합. 구운 소시지 2 또는 훈연 소시지 1을 Recipe 내부 OR option으로 보존한다.",
+      "required_skill_tier": "skilled",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-11",
+      "ingredients": [
+        {
+          "seed_key": "ham-sandwich.ingredient.sausage",
+          "label": "소시지",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "ham-sandwich.ingredient.sausage.option.grilled-sausage",
+              "material_key": "grilled-sausage",
+              "required_quantity": 2,
+              "order_no": 1
+            },
+            {
+              "seed_key": "ham-sandwich.ingredient.sausage.option.smoked-sausage",
+              "material_key": "smoked-sausage",
+              "required_quantity": 1,
+              "order_no": 2
+            }
+          ]
+        },
+        {
+          "seed_key": "ham-sandwich.ingredient.soft-bread",
+          "label": "부드러운 빵",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "ham-sandwich.ingredient.soft-bread.option.soft-bread",
+              "material_key": "soft-bread",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "ham-sandwich.ingredient.vegetable",
+          "label": "채소",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "ham-sandwich.ingredient.vegetable.option.vegetable",
+              "ingredient_group_key": "vegetable",
+              "required_quantity": 5,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "ham-sandwich.ingredient.egg",
+          "label": "달걀",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "ham-sandwich.ingredient.egg.option.egg",
+              "material_key": "egg",
+              "required_quantity": 4,
+              "order_no": 1
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.ham-sandwich.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "ham-sandwich",
+          "claim_key": "ingredients",
+          "source_ids": [
+            "codex-ham-sandwich-136",
+            "weingchicken-ham-sandwich-139",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "Research Packet의 지정 Source에서 1회 배합을 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.ham-sandwich.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "ham-sandwich",
+          "claim_key": "required_skill",
+          "source_ids": [
+            "codex-ham-sandwich-136",
+            "weingchicken-ham-sandwich-139"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "Research Packet에서 허용한 Source만 required skill 근거로 연결한다."
+        },
+        {
+          "seed_key": "recipe.ham-sandwich.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "ham-sandwich",
+          "claim_key": "per_attempt",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 1회분 투입 의미만 연결한다."
+        },
+        {
+          "seed_key": "recipe.ham-sandwich.ingredient.sausage.option.grilled-sausage.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "ham-sandwich.ingredient.sausage.option.grilled-sausage",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-ham-sandwich-136",
+            "weingchicken-ham-sandwich-139",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.ham-sandwich.ingredient.sausage.option.smoked-sausage.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "ham-sandwich.ingredient.sausage.option.smoked-sausage",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-ham-sandwich-139"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.ham-sandwich.ingredient.soft-bread.option.soft-bread.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "ham-sandwich.ingredient.soft-bread.option.soft-bread",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-ham-sandwich-136",
+            "weingchicken-ham-sandwich-139",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.ham-sandwich.ingredient.vegetable.option.vegetable.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "ham-sandwich.ingredient.vegetable.option.vegetable",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-ham-sandwich-136",
+            "weingchicken-ham-sandwich-139",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.ham-sandwich.ingredient.egg.option.egg.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "ham-sandwich.ingredient.egg.option.egg",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-ham-sandwich-136",
+            "weingchicken-ham-sandwich-139",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        }
+      ]
+    },
+    {
+      "slug": "frank-sandwich",
+      "name_ko": "프랭크 샌드위치",
+      "process_type": "cooking",
+      "result_material_key": "frank-sandwich",
+      "summary": "요리 1회 시도 기준 프랭크 샌드위치 배합. 양배추 2는 vegetable group으로 일반화하지 않는다.",
+      "required_skill_tier": "professional",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-11",
+      "ingredients": [
+        {
+          "seed_key": "frank-sandwich.ingredient.sausage",
+          "label": "소시지",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "frank-sandwich.ingredient.sausage.option.grilled-sausage",
+              "material_key": "grilled-sausage",
+              "required_quantity": 2,
+              "order_no": 1
+            },
+            {
+              "seed_key": "frank-sandwich.ingredient.sausage.option.smoked-sausage",
+              "material_key": "smoked-sausage",
+              "required_quantity": 1,
+              "order_no": 2
+            }
+          ]
+        },
+        {
+          "seed_key": "frank-sandwich.ingredient.soft-bread",
+          "label": "부드러운 빵",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "frank-sandwich.ingredient.soft-bread.option.soft-bread",
+              "material_key": "soft-bread",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "frank-sandwich.ingredient.cabbage",
+          "label": "양배추",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "frank-sandwich.ingredient.cabbage.option.cabbage",
+              "material_key": "cabbage",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "frank-sandwich.ingredient.red-sauce",
+          "label": "레드소스",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "frank-sandwich.ingredient.red-sauce.option.red-sauce",
+              "material_key": "red-sauce",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.frank-sandwich.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "frank-sandwich",
+          "claim_key": "ingredients",
+          "source_ids": [
+            "codex-frank-sandwich-360",
+            "codex-frank-sandwich-smoked-361",
+            "weingchicken-frank-sandwich-375"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "Research Packet의 지정 Source에서 1회 배합을 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.frank-sandwich.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "frank-sandwich",
+          "claim_key": "required_skill",
+          "source_ids": [
+            "codex-frank-sandwich-360",
+            "weingchicken-frank-sandwich-375"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "Research Packet에서 허용한 Source만 required skill 근거로 연결한다."
+        },
+        {
+          "seed_key": "recipe.frank-sandwich.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "frank-sandwich",
+          "claim_key": "per_attempt",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 1회분 투입 의미만 연결한다."
+        },
+        {
+          "seed_key": "recipe.frank-sandwich.ingredient.sausage.option.grilled-sausage.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "frank-sandwich.ingredient.sausage.option.grilled-sausage",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-frank-sandwich-360",
+            "weingchicken-frank-sandwich-375"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.frank-sandwich.ingredient.sausage.option.smoked-sausage.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "frank-sandwich.ingredient.sausage.option.smoked-sausage",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-frank-sandwich-smoked-361",
+            "weingchicken-frank-sandwich-375"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.frank-sandwich.ingredient.soft-bread.option.soft-bread.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "frank-sandwich.ingredient.soft-bread.option.soft-bread",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-frank-sandwich-360",
+            "weingchicken-frank-sandwich-375"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.frank-sandwich.ingredient.cabbage.option.cabbage.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "frank-sandwich.ingredient.cabbage.option.cabbage",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-frank-sandwich-360",
+            "weingchicken-frank-sandwich-375"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        },
+        {
+          "seed_key": "recipe.frank-sandwich.ingredient.red-sauce.option.red-sauce.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "frank-sandwich.ingredient.red-sauce.option.red-sauce",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-frank-sandwich-360",
+            "weingchicken-frank-sandwich-375"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
+        }
+      ]
     }
   ]
 }

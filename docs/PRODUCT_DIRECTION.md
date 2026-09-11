@@ -56,7 +56,7 @@ BDO Companion remains the Source of Truth for shared Black Desert game-domain kn
 
 Do not create a second independently maintained canonical copy of this knowledge in Notion or another personal-state system.
 
-V1.9Q implemented the first four cooking recipes through shared Materials, ingredient groups and recipe-specific alternative quantities; at that foundation milestone exact formulas retained `needs_review` and no calculator was included. V1.9R subsequently verified those four Recipe evidence sets. V1.9S adds personal-state-free deterministic batch scaling that multiplies every canonical option independently while preserving slot AND / option OR and IngredientGroup identity. It does not add option selection, inventory, output quantity, profitability, a new UI, or a personal-state ownership change.
+V1.9Q implemented the first four cooking recipes through shared Materials, ingredient groups and recipe-specific alternative quantities; V1.9R subsequently verified those Recipe evidence sets. V1.9S adds personal-state-free deterministic batch scaling that preserves slot AND / option OR and IngredientGroup identity. V1.9T expanded the verified core catalog to 9 Recipes, and V1.9U expands it to 15 intermediate dependency-layer Recipes while recognizing the canonical cooking tiers from beginner through guru. These milestones do not add option selection, inventory, output quantity, profitability, a new UI, or a personal-state ownership change.
 
 ## 4. Personal-state ownership
 

@@ -63,6 +63,8 @@ V1.9C에서 채집·낚시·수렵, V1.9E에서 재배·가공, V1.9F에서 요�
 
 V1.9Q/R/S에서 shared Material, 최초 Recipe 4종의 검증, stateless batch 계산 기반을 구축했다. V1.9T는 Research owner ChatGPT가 제공한 2026-09-11 packet을 구현해 드레싱·레드소스·화이트소스·향이 좋은 차·오믈렛을 추가했다. active Recipe는 9개이며 Material 64개, IngredientGroup/Member 7/35개다. `cooking-guide`는 신규 meat/flower/water membership과 per-attempt 의미에만 연결하고 exact formula·skill·quantity에는 사용하지 않는다. 레드소스 물 2/1과 향이 좋은 차 물 7/3은 Recipe별 Material OR option으로 보존한다. 전체 Recipe catalog, 결과 수량/proc, 품질 환산, 경제·시장·optimizer와 재귀 계산은 미완료다.
 
+V1.9U는 구운 소시지·스테이크·수테차·미트 샌드위치·햄 샌드위치·프랭크 샌드위치를 추가해 active verified Recipe를 15개, Material을 78개로 확장했다. IngredientGroup/Member는 7/35개로 유지하고 importer는 `beginner`부터 `guru`까지의 canonical 생활 등급을 허용한다. 수테차의 차 2/1과 햄·프랭크 샌드위치의 소시지 2/1은 Recipe 내부 OR option이며 global 품질 환산이 아니다. 결과량/proc, grain-flour/dough group, 재귀 dependency 계산, inventory·경제·optimizer는 계속 미완료다.
+
 ## 장기 프로젝트
 - [S] 중범선 : 점진
 - [R] 다른 중범선 3종

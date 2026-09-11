@@ -382,5 +382,89 @@
     "name_ko": "늑대 고기",
     "unit": "개",
     "active": true
+  },
+  {
+    "key": "grilled-sausage",
+    "name_ko": "구운 소시지",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "steak",
+    "name_ko": "스테이크",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "sute-tea",
+    "name_ko": "수테차",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "meat-sandwich",
+    "name_ko": "미트 샌드위치",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "ham-sandwich",
+    "name_ko": "햄 샌드위치",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "frank-sandwich",
+    "name_ko": "프랭크 샌드위치",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "onion",
+    "name_ko": "양파",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "pepper",
+    "name_ko": "후추",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "garlic",
+    "name_ko": "마늘",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "butter",
+    "name_ko": "버터",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "tea-with-strong-scent",
+    "name_ko": "향이 진한 차",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "soft-bread",
+    "name_ko": "부드러운 빵",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "cheese",
+    "name_ko": "치즈",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "smoked-sausage",
+    "name_ko": "훈연 소시지",
+    "unit": "개",
+    "active": true
   }
 ]
