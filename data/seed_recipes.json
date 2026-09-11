@@ -183,6 +183,144 @@
           "note": "2026-09-11 공식 current 요리 가이드의 대체품 목록을 재확인했다. 그룹 소속은 전역 수량 환산을 뜻하지 않는다."
         }
       ]
+    },
+    {
+      "key": "meat",
+      "name_ko": "고기",
+      "last_verified_at": "2026-09-11",
+      "members": [
+        {
+          "seed_key": "ingredient-group.meat.member.deer-meat",
+          "material_key": "deer-meat",
+          "order_no": 1
+        },
+        {
+          "seed_key": "ingredient-group.meat.member.sheep-meat",
+          "material_key": "sheep-meat",
+          "order_no": 2
+        },
+        {
+          "seed_key": "ingredient-group.meat.member.fox-meat",
+          "material_key": "fox-meat",
+          "order_no": 3
+        },
+        {
+          "seed_key": "ingredient-group.meat.member.rhino-meat",
+          "material_key": "rhino-meat",
+          "order_no": 4
+        },
+        {
+          "seed_key": "ingredient-group.meat.member.pork",
+          "material_key": "pork",
+          "order_no": 5
+        },
+        {
+          "seed_key": "ingredient-group.meat.member.beef",
+          "material_key": "beef",
+          "order_no": 6
+        },
+        {
+          "seed_key": "ingredient-group.meat.member.raccoon-meat",
+          "material_key": "raccoon-meat",
+          "order_no": 7
+        },
+        {
+          "seed_key": "ingredient-group.meat.member.weasel-meat",
+          "material_key": "weasel-meat",
+          "order_no": 8
+        },
+        {
+          "seed_key": "ingredient-group.meat.member.bear-meat",
+          "material_key": "bear-meat",
+          "order_no": 9
+        },
+        {
+          "seed_key": "ingredient-group.meat.member.wolf-meat",
+          "material_key": "wolf-meat",
+          "order_no": 10
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "ingredient-group.meat.membership",
+          "entity_type": "ingredient_group",
+          "entity_seed_key": "meat",
+          "claim_key": "members",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 대체품 목록 근거. Group membership은 global quantity conversion을 의미하지 않으며 Recipe마다 대체재 필요 수량이 다를 수 있다."
+        }
+      ]
+    },
+    {
+      "key": "flower",
+      "name_ko": "꽃",
+      "last_verified_at": "2026-09-11",
+      "members": [
+        {
+          "seed_key": "ingredient-group.flower.member.rose",
+          "material_key": "rose",
+          "order_no": 1
+        },
+        {
+          "seed_key": "ingredient-group.flower.member.tulip",
+          "material_key": "tulip",
+          "order_no": 2
+        },
+        {
+          "seed_key": "ingredient-group.flower.member.sunflower",
+          "material_key": "sunflower",
+          "order_no": 3
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "ingredient-group.flower.membership",
+          "entity_type": "ingredient_group",
+          "entity_seed_key": "flower",
+          "claim_key": "members",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 대체품 목록 근거. Group membership은 global quantity conversion을 의미하지 않으며 Recipe마다 대체재 필요 수량이 다를 수 있다."
+        }
+      ]
+    },
+    {
+      "key": "water",
+      "name_ko": "물",
+      "last_verified_at": "2026-09-11",
+      "members": [
+        {
+          "seed_key": "ingredient-group.water.member.mineral-water",
+          "material_key": "mineral-water",
+          "order_no": 1
+        },
+        {
+          "seed_key": "ingredient-group.water.member.purified-water",
+          "material_key": "purified-water",
+          "order_no": 2
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "ingredient-group.water.membership",
+          "entity_type": "ingredient_group",
+          "entity_seed_key": "water",
+          "claim_key": "members",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 대체품 목록 근거. Group membership은 global quantity conversion을 의미하지 않으며 Recipe마다 대체재 필요 수량이 다를 수 있다."
+        }
+      ]
     }
   ],
   "recipes": [
@@ -829,6 +967,824 @@
           "verification_status": "verified",
           "last_verified_at": "2026-09-11",
           "note": "설탕 1을 community_guide와 current BDO Codex에서 교차검증했다. 다른 recipe의 수량으로 일반화하지 않는다."
+        }
+      ]
+    },
+    {
+      "slug": "dressing",
+      "name_ko": "드레싱",
+      "process_type": "cooking",
+      "result_material_key": "dressing",
+      "summary": "요리 1회 시도 기준 드레싱 배합. 물 대안은 이 Recipe에서 두 재료 모두 1개다.",
+      "required_skill_tier": "beginner",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-11",
+      "ingredients": [
+        {
+          "seed_key": "dressing.ingredient.egg",
+          "label": "달걀",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "dressing.ingredient.egg.option.egg",
+              "material_key": "egg",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "dressing.ingredient.olive-oil",
+          "label": "올리브 오일",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "dressing.ingredient.olive-oil.option.olive-oil",
+              "material_key": "olive-oil",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "dressing.ingredient.water",
+          "label": "물",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "dressing.ingredient.water.option.water",
+              "ingredient_group_key": "water",
+              "required_quantity": 1,
+              "order_no": 1,
+              "notes": "이 Recipe에서는 요리용 생수와 정제수 모두 1개로 확인되어 water group을 사용한다."
+            }
+          ]
+        },
+        {
+          "seed_key": "dressing.ingredient.salt",
+          "label": "소금",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "dressing.ingredient.salt.option.salt",
+              "material_key": "salt",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.dressing.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "dressing",
+          "claim_key": "ingredients",
+          "source_ids": [
+            "weingchicken-dressing-56",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "위잉치킨 제작노트와 인벤 Recipe DB에서 기본 배합을 교차확인했다. 공식 current 가이드는 exact formula 근거로 사용하지 않는다."
+        },
+        {
+          "seed_key": "recipe.dressing.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "dressing",
+          "claim_key": "required_skill",
+          "source_ids": [
+            "weingchicken-dressing-56"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "요리 초급 1 조건을 지정된 Recipe Source에서 확인했다."
+        },
+        {
+          "seed_key": "recipe.dressing.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "dressing",
+          "claim_key": "per_attempt",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 1회분 투입 의미만 연결한다."
+        },
+        {
+          "seed_key": "recipe.dressing.ingredient.egg.option.egg.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "dressing.ingredient.egg.option.egg",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-dressing-56",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "드레싱 1회당 달걀 1개를 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.dressing.ingredient.olive-oil.option.olive-oil.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "dressing.ingredient.olive-oil.option.olive-oil",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-dressing-56",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "드레싱 1회당 올리브 오일 1개를 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.dressing.ingredient.water.option.water.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "dressing.ingredient.water.option.water",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-dressing-56"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "드레싱에서는 요리용 생수와 정제수가 모두 1개임을 확인했다. 다른 Recipe의 물 수량으로 일반화하지 않는다."
+        },
+        {
+          "seed_key": "recipe.dressing.ingredient.salt.option.salt.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "dressing.ingredient.salt.option.salt",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-dressing-56",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "드레싱 1회당 소금 2개를 교차확인했다."
+        }
+      ]
+    },
+    {
+      "slug": "red-sauce",
+      "name_ko": "레드소스",
+      "process_type": "cooking",
+      "result_material_key": "red-sauce",
+      "summary": "요리 1회 시도 기준 레드소스 배합. 요리용 생수 2 또는 정제수 1을 별도 option으로 보존한다.",
+      "required_skill_tier": "beginner",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-11",
+      "ingredients": [
+        {
+          "seed_key": "red-sauce.ingredient.base-sauce",
+          "label": "베이스 소스",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "red-sauce.ingredient.base-sauce.option.base-sauce",
+              "material_key": "base-sauce",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "red-sauce.ingredient.meat",
+          "label": "고기",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "red-sauce.ingredient.meat.option.meat",
+              "ingredient_group_key": "meat",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "red-sauce.ingredient.water",
+          "label": "물",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "red-sauce.ingredient.water.option.mineral-water",
+              "material_key": "mineral-water",
+              "required_quantity": 2,
+              "order_no": 1
+            },
+            {
+              "seed_key": "red-sauce.ingredient.water.option.purified-water",
+              "material_key": "purified-water",
+              "required_quantity": 1,
+              "order_no": 2
+            }
+          ]
+        },
+        {
+          "seed_key": "red-sauce.ingredient.sugar",
+          "label": "설탕",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "red-sauce.ingredient.sugar.option.sugar",
+              "material_key": "sugar",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.red-sauce.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "red-sauce",
+          "claim_key": "ingredients",
+          "source_ids": [
+            "codex-red-sauce-9004",
+            "codex-red-sauce-purified-546",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "기본 배합과 정제수 1 대안을 지정된 세 Recipe DB에서 검증했다. 물 option별 수량을 하나의 global group 수량으로 축약하지 않는다."
+        },
+        {
+          "seed_key": "recipe.red-sauce.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "red-sauce",
+          "claim_key": "required_skill",
+          "source_ids": [
+            "codex-red-sauce-9004"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "요리 초급 1 조건을 지정된 BDO Codex Source에서 확인했다."
+        },
+        {
+          "seed_key": "recipe.red-sauce.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "red-sauce",
+          "claim_key": "per_attempt",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 1회분 투입 의미만 연결한다."
+        },
+        {
+          "seed_key": "recipe.red-sauce.ingredient.base-sauce.option.base-sauce.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "red-sauce.ingredient.base-sauce.option.base-sauce",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-red-sauce-9004",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "레드소스 1회당 베이스 소스 1개를 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.red-sauce.ingredient.meat.option.meat.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "red-sauce.ingredient.meat.option.meat",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-red-sauce-9004",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "레드소스 1회당 공식 current meat group 1개를 교차확인했다. 전역 품질 환산은 적용하지 않는다."
+        },
+        {
+          "seed_key": "recipe.red-sauce.ingredient.water.option.mineral-water.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "red-sauce.ingredient.water.option.mineral-water",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-red-sauce-9004",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "레드소스 1회당 요리용 생수 2개를 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.red-sauce.ingredient.water.option.purified-water.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "red-sauce.ingredient.water.option.purified-water",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-red-sauce-purified-546"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "레드소스 1회당 정제수 1개 대안은 전용 Source만 근거로 사용한다."
+        },
+        {
+          "seed_key": "recipe.red-sauce.ingredient.sugar.option.sugar.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "red-sauce.ingredient.sugar.option.sugar",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-red-sauce-9004",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "레드소스 1회당 설탕 2개를 교차확인했다."
+        }
+      ]
+    },
+    {
+      "slug": "white-sauce",
+      "name_ko": "화이트소스",
+      "process_type": "cooking",
+      "result_material_key": "white-sauce",
+      "summary": "요리 1회 시도 기준 화이트소스 배합. 기존 공식 current fruit IngredientGroup을 재사용한다.",
+      "required_skill_tier": "beginner",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-11",
+      "ingredients": [
+        {
+          "seed_key": "white-sauce.ingredient.base-sauce",
+          "label": "베이스 소스",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "white-sauce.ingredient.base-sauce.option.base-sauce",
+              "material_key": "base-sauce",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "white-sauce.ingredient.fruit",
+          "label": "과일",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "white-sauce.ingredient.fruit.option.fruit",
+              "ingredient_group_key": "fruit",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "white-sauce.ingredient.milk",
+          "label": "우유",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "white-sauce.ingredient.milk.option.milk",
+              "material_key": "milk",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "white-sauce.ingredient.cooking-wine",
+          "label": "조리용 와인",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "white-sauce.ingredient.cooking-wine.option.cooking-wine",
+              "material_key": "cooking-wine",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.white-sauce.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "white-sauce",
+          "claim_key": "ingredients",
+          "source_ids": [
+            "weingchicken-white-sauce-152",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "위잉치킨 제작노트와 인벤 Recipe DB에서 기본 배합을 교차확인했다. 공식 current 가이드는 exact formula 근거로 사용하지 않는다."
+        },
+        {
+          "seed_key": "recipe.white-sauce.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "white-sauce",
+          "claim_key": "required_skill",
+          "source_ids": [
+            "weingchicken-white-sauce-152"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "요리 초급 1 조건을 지정된 Recipe Source에서 확인했다."
+        },
+        {
+          "seed_key": "recipe.white-sauce.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "white-sauce",
+          "claim_key": "per_attempt",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 1회분 투입 의미만 연결한다."
+        },
+        {
+          "seed_key": "recipe.white-sauce.ingredient.base-sauce.option.base-sauce.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "white-sauce.ingredient.base-sauce.option.base-sauce",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-white-sauce-152",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "화이트소스 1회당 베이스 소스 1개를 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.white-sauce.ingredient.fruit.option.fruit.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "white-sauce.ingredient.fruit.option.fruit",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-white-sauce-152",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "화이트소스 1회당 공식 current fruit group 1개를 교차확인했다. 전역 품질 환산은 적용하지 않는다."
+        },
+        {
+          "seed_key": "recipe.white-sauce.ingredient.milk.option.milk.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "white-sauce.ingredient.milk.option.milk",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-white-sauce-152",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "화이트소스 1회당 우유 1개를 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.white-sauce.ingredient.cooking-wine.option.cooking-wine.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "white-sauce.ingredient.cooking-wine.option.cooking-wine",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-white-sauce-152",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "화이트소스 1회당 조리용 와인 2개를 교차확인했다."
+        }
+      ]
+    },
+    {
+      "slug": "tea-with-fine-scent",
+      "name_ko": "향이 좋은 차",
+      "process_type": "cooking",
+      "result_material_key": "tea-with-fine-scent",
+      "summary": "요리 1회 시도 기준 향이 좋은 차 배합. 요리용 생수 7 또는 정제수 3을 별도 option으로 보존한다.",
+      "required_skill_tier": "apprentice",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-11",
+      "ingredients": [
+        {
+          "seed_key": "tea-with-fine-scent.ingredient.flower",
+          "label": "꽃",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "tea-with-fine-scent.ingredient.flower.option.flower",
+              "ingredient_group_key": "flower",
+              "required_quantity": 4,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "tea-with-fine-scent.ingredient.fruit",
+          "label": "과일",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "tea-with-fine-scent.ingredient.fruit.option.fruit",
+              "ingredient_group_key": "fruit",
+              "required_quantity": 4,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "tea-with-fine-scent.ingredient.water",
+          "label": "물",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "tea-with-fine-scent.ingredient.water.option.mineral-water",
+              "material_key": "mineral-water",
+              "required_quantity": 7,
+              "order_no": 1
+            },
+            {
+              "seed_key": "tea-with-fine-scent.ingredient.water.option.purified-water",
+              "material_key": "purified-water",
+              "required_quantity": 3,
+              "order_no": 2
+            }
+          ]
+        },
+        {
+          "seed_key": "tea-with-fine-scent.ingredient.edible-honey",
+          "label": "식용벌꿀",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "tea-with-fine-scent.ingredient.edible-honey.option.edible-honey",
+              "material_key": "edible-honey",
+              "required_quantity": 3,
+              "order_no": 1
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.tea-with-fine-scent.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "tea-with-fine-scent",
+          "claim_key": "ingredients",
+          "source_ids": [
+            "codex-tea-with-fine-scent-9270",
+            "weingchicken-tea-with-fine-scent-218",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "기본 배합과 정제수 3 대안을 지정된 세 Recipe DB에서 검증했다. 물 option별 수량을 하나의 global group 수량으로 축약하지 않는다."
+        },
+        {
+          "seed_key": "recipe.tea-with-fine-scent.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "tea-with-fine-scent",
+          "claim_key": "required_skill",
+          "source_ids": [
+            "codex-tea-with-fine-scent-9270",
+            "weingchicken-tea-with-fine-scent-218"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "요리 견습 1 조건을 두 지정 Recipe Source에서 확인했다."
+        },
+        {
+          "seed_key": "recipe.tea-with-fine-scent.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "tea-with-fine-scent",
+          "claim_key": "per_attempt",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 1회분 투입 의미만 연결한다."
+        },
+        {
+          "seed_key": "recipe.tea-with-fine-scent.ingredient.flower.option.flower.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "tea-with-fine-scent.ingredient.flower.option.flower",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-tea-with-fine-scent-9270",
+            "weingchicken-tea-with-fine-scent-218",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "향이 좋은 차 1회당 공식 current flower group 4개를 교차확인했다. 전역 품질 환산은 적용하지 않는다."
+        },
+        {
+          "seed_key": "recipe.tea-with-fine-scent.ingredient.fruit.option.fruit.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "tea-with-fine-scent.ingredient.fruit.option.fruit",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-tea-with-fine-scent-9270",
+            "weingchicken-tea-with-fine-scent-218",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "향이 좋은 차 1회당 공식 current fruit group 4개를 교차확인했다. 전역 품질 환산은 적용하지 않는다."
+        },
+        {
+          "seed_key": "recipe.tea-with-fine-scent.ingredient.water.option.mineral-water.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "tea-with-fine-scent.ingredient.water.option.mineral-water",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-tea-with-fine-scent-9270",
+            "weingchicken-tea-with-fine-scent-218",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "향이 좋은 차 1회당 요리용 생수 7개를 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.tea-with-fine-scent.ingredient.water.option.purified-water.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "tea-with-fine-scent.ingredient.water.option.purified-water",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-tea-with-fine-scent-218"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "향이 좋은 차 1회당 정제수 3개 대안은 전용 Source만 근거로 사용하며 7개로 일반화하지 않는다."
+        },
+        {
+          "seed_key": "recipe.tea-with-fine-scent.ingredient.edible-honey.option.edible-honey.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "tea-with-fine-scent.ingredient.edible-honey.option.edible-honey",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "codex-tea-with-fine-scent-9270",
+            "weingchicken-tea-with-fine-scent-218",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "향이 좋은 차 1회당 식용벌꿀 3개를 교차확인했다."
+        }
+      ]
+    },
+    {
+      "slug": "omelet",
+      "name_ko": "오믈렛",
+      "process_type": "cooking",
+      "result_material_key": "omelet",
+      "summary": "요리 1회 시도 기준 오믈렛 배합. 기존 공식 current grain IngredientGroup을 재사용한다.",
+      "required_skill_tier": "apprentice",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-11",
+      "ingredients": [
+        {
+          "seed_key": "omelet.ingredient.grain",
+          "label": "곡물",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "omelet.ingredient.grain.option.grain",
+              "ingredient_group_key": "grain",
+              "required_quantity": 5,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "omelet.ingredient.olive-oil",
+          "label": "올리브 오일",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "omelet.ingredient.olive-oil.option.olive-oil",
+              "material_key": "olive-oil",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "omelet.ingredient.egg",
+          "label": "달걀",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "omelet.ingredient.egg.option.egg",
+              "material_key": "egg",
+              "required_quantity": 5,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "omelet.ingredient.salt",
+          "label": "소금",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "omelet.ingredient.salt.option.salt",
+              "material_key": "salt",
+              "required_quantity": 2,
+              "order_no": 1
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.omelet.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "omelet",
+          "claim_key": "ingredients",
+          "source_ids": [
+            "weingchicken-omelet-335",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "위잉치킨 제작노트와 인벤 Recipe DB에서 기본 배합을 교차확인했다. 공식 current 가이드는 exact formula 근거로 사용하지 않는다."
+        },
+        {
+          "seed_key": "recipe.omelet.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "omelet",
+          "claim_key": "required_skill",
+          "source_ids": [
+            "weingchicken-omelet-335"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "요리 견습 1 조건을 지정된 Recipe Source에서 확인했다."
+        },
+        {
+          "seed_key": "recipe.omelet.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "omelet",
+          "claim_key": "per_attempt",
+          "source_ids": [
+            "cooking-guide"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "공식 current 요리 가이드의 1회분 투입 의미만 연결한다."
+        },
+        {
+          "seed_key": "recipe.omelet.ingredient.grain.option.grain.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "omelet.ingredient.grain.option.grain",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-omelet-335",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "오믈렛 1회당 공식 current grain group 5개를 교차확인했다. 전역 품질 환산은 적용하지 않는다."
+        },
+        {
+          "seed_key": "recipe.omelet.ingredient.olive-oil.option.olive-oil.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "omelet.ingredient.olive-oil.option.olive-oil",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-omelet-335",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "오믈렛 1회당 올리브 오일 2개를 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.omelet.ingredient.egg.option.egg.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "omelet.ingredient.egg.option.egg",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-omelet-335",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "오믈렛 1회당 달걀 5개를 교차확인했다."
+        },
+        {
+          "seed_key": "recipe.omelet.ingredient.salt.option.salt.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "omelet.ingredient.salt.option.salt",
+          "claim_key": "required_quantity",
+          "source_ids": [
+            "weingchicken-omelet-335",
+            "inven-cooking-recipe-db"
+          ],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-11",
+          "note": "오믈렛 1회당 소금 2개를 교차확인했다."
         }
       ]
     }

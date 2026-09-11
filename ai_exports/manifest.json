@@ -2362,7 +2362,7 @@
       "slug": "carrack-advance"
     }
   ],
-  "recipe_count": 4,
+  "recipe_count": 9,
   "recipes": [
     {
       "last_verified_at": "2026-09-11",
@@ -2371,6 +2371,15 @@
       "process_type": "cooking",
       "result_material_key": "beer",
       "slug": "beer",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-11",
+      "name_ko": "드레싱",
+      "path": "recipes/dressing.md",
+      "process_type": "cooking",
+      "result_material_key": "dressing",
+      "slug": "dressing",
       "verification_status": "verified"
     },
     {
@@ -2384,6 +2393,15 @@
     },
     {
       "last_verified_at": "2026-09-11",
+      "name_ko": "오믈렛",
+      "path": "recipes/omelet.md",
+      "process_type": "cooking",
+      "result_material_key": "omelet",
+      "slug": "omelet",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-11",
       "name_ko": "채소 절임",
       "path": "recipes/pickled-vegetables.md",
       "process_type": "cooking",
@@ -2393,11 +2411,38 @@
     },
     {
       "last_verified_at": "2026-09-11",
+      "name_ko": "레드소스",
+      "path": "recipes/red-sauce.md",
+      "process_type": "cooking",
+      "result_material_key": "red-sauce",
+      "slug": "red-sauce",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-11",
+      "name_ko": "향이 좋은 차",
+      "path": "recipes/tea-with-fine-scent.md",
+      "process_type": "cooking",
+      "result_material_key": "tea-with-fine-scent",
+      "slug": "tea-with-fine-scent",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-11",
       "name_ko": "식초",
       "path": "recipes/vinegar.md",
       "process_type": "cooking",
       "result_material_key": "vinegar",
       "slug": "vinegar",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-11",
+      "name_ko": "화이트소스",
+      "path": "recipes/white-sauce.md",
+      "process_type": "cooking",
+      "result_material_key": "white-sauce",
+      "slug": "white-sauce",
       "verification_status": "verified"
     }
   ],

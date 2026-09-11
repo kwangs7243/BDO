@@ -59,7 +59,9 @@ V1.9J에서 `fairy-current-system`, `pet-current-system`, `pet-fifth-generation`
 - [S] 교역/물물교환
 - [R] 무역 — 현재 활성/재정비 상태를 최신 공식 자료로 검증 후 노출
 
-V1.9C에서 채집·낚시·수렵, V1.9E에서 재배·가공, V1.9F에서 요리·연금, V1.9G에서 항해·물물교환, V1.9H에서 조련의 onboarding/strategy layer를 추가했다. V1.9H는 기존 조련 FACT를 복제하지 않고 목적·보유 말·마구간 상태에 따라 포획·육성·교배·교환·황실 납품과 상위 progression을 고르는 조건부 STRATEGY를 연결한다. 2026-07-15 야생마 개체 수 증가는 기존 `wild-horse-capture`가 이미 소유하며, 2026-07-22 추가된 남는 고비 뿌리의 준마 훈련 재료 교환식만 기존 stable Content에 보완했다. 이벤트 보너스·종료일, 동적 시장 가격·수익·효율과 범용 최적 말·장소·방법은 정적 seed에서 제외한다. recipe/measurement/economy 심화 범위는 아직 완료 처리하지 않는다.
+V1.9C에서 채집·낚시·수렵, V1.9E에서 재배·가공, V1.9F에서 요리·연금, V1.9G에서 항해·물물교환, V1.9H에서 조련의 onboarding/strategy layer를 추가했다. V1.9H는 기존 조련 FACT를 복제하지 않고 목적·보유 말·마구간 상태에 따라 포획·육성·교배·교환·황실 납품과 상위 progression을 고르는 조건부 STRATEGY를 연결한다. 2026-07-15 야생마 개체 수 증가는 기존 `wild-horse-capture`가 이미 소유하며, 2026-07-22 추가된 남는 고비 뿌리의 준마 훈련 재료 교환식만 기존 stable Content에 보완했다. 이벤트 보너스·종료일, 동적 시장 가격·수익·효율과 범용 최적 말·장소·방법은 정적 seed에서 제외한다.
+
+V1.9Q/R/S에서 shared Material, 최초 Recipe 4종의 검증, stateless batch 계산 기반을 구축했다. V1.9T는 Research owner ChatGPT가 제공한 2026-09-11 packet을 구현해 드레싱·레드소스·화이트소스·향이 좋은 차·오믈렛을 추가했다. active Recipe는 9개이며 Material 64개, IngredientGroup/Member 7/35개다. `cooking-guide`는 신규 meat/flower/water membership과 per-attempt 의미에만 연결하고 exact formula·skill·quantity에는 사용하지 않는다. 레드소스 물 2/1과 향이 좋은 차 물 7/3은 Recipe별 Material OR option으로 보존한다. 전체 Recipe catalog, 결과 수량/proc, 품질 환산, 경제·시장·optimizer와 재귀 계산은 미완료다.
 
 ## 장기 프로젝트
 - [S] 중범선 : 점진

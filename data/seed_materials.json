@@ -244,5 +244,143 @@
     "name_ko": "소금",
     "unit": "개",
     "active": true
+  },
+  {
+    "key": "dressing",
+    "name_ko": "드레싱",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "red-sauce",
+    "name_ko": "레드소스",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "white-sauce",
+    "name_ko": "화이트소스",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "tea-with-fine-scent",
+    "name_ko": "향이 좋은 차",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "omelet",
+    "name_ko": "오믈렛",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "egg",
+    "name_ko": "달걀",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "olive-oil",
+    "name_ko": "올리브 오일",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "base-sauce",
+    "name_ko": "베이스 소스",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "milk",
+    "name_ko": "우유",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "edible-honey",
+    "name_ko": "식용벌꿀",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "rose",
+    "name_ko": "장미꽃",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "tulip",
+    "name_ko": "튤립",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "sunflower",
+    "name_ko": "해바라기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "deer-meat",
+    "name_ko": "사슴 고기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "sheep-meat",
+    "name_ko": "양 고기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "fox-meat",
+    "name_ko": "여우 고기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "rhino-meat",
+    "name_ko": "코뿔소 고기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "pork",
+    "name_ko": "돼지 고기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "beef",
+    "name_ko": "소 고기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "raccoon-meat",
+    "name_ko": "너구리 고기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "weasel-meat",
+    "name_ko": "족제비 고기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "bear-meat",
+    "name_ko": "곰 고기",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "wolf-meat",
+    "name_ko": "늑대 고기",
+    "unit": "개",
+    "active": true
   }
 ]
