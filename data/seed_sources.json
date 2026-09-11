@@ -1588,5 +1588,159 @@
     "retrieved_at": "2026-09-11T13:02:00+09:00",
     "region": "KR",
     "notes": "드레싱·레드소스·화이트소스·향이 좋은 차·오믈렛 기본 배합과 IngredientGroup 분류의 독립 교차근거. 레드소스 정제수 1과 향이 좋은 차 정제수 3 같은 별도 대체 수량의 owner로 사용하지 않는다."
+  },
+  {
+    "id": "life-level-experience-guide",
+    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=431",
+    "title": "생활 레벨별 요구 경험치",
+    "publisher": "Pearl Abyss",
+    "source_type": "official_guide",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "초급·견습·숙련·전문·장인·명장·도인의 현행 생활 등급 vocabulary 근거. Recipe별 요구 숙련도·배합·수량 Evidence에는 연결하지 않는다."
+  },
+  {
+    "id": "codex-grilled-sausage-9427",
+    "url": "https://bdocodex.com/kr/item/9427/",
+    "title": "구운 소시지",
+    "publisher": "BDO Codex",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "구운 소시지의 배합, 요구 숙련도와 1회 투입 수량을 확인한 third-party game-data Source. 훈연 소시지 발생 확률이나 결과 수량 근거로 사용하지 않는다."
+  },
+  {
+    "id": "weingchicken-grilled-sausage-19",
+    "url": "https://apps.weingchicken.com/bd/makings/19",
+    "title": "구운 소시지 - 검은사막 제작노트",
+    "publisher": "위잉치킨",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "구운 소시지의 배합, 초급 6과 재료별 1회 수량을 교차확인한 제작노트 Source."
+  },
+  {
+    "id": "codex-steak-9401",
+    "url": "https://bdocodex.com/kr/item/9401/",
+    "title": "스테이크",
+    "publisher": "BDO Codex",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "스테이크의 배합, 견습 1과 재료별 1회 수량 근거. 충돌하는 /kr/recipe/591/ 페이지는 Source catalog와 Evidence에서 제외한다."
+  },
+  {
+    "id": "weingchicken-steak-312",
+    "url": "https://apps.weingchicken.com/bd/makings/312",
+    "title": "스테이크 - 검은사막 제작노트",
+    "publisher": "위잉치킨",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "스테이크의 배합, 견습 1과 재료별 1회 수량을 교차확인한 제작노트 Source."
+  },
+  {
+    "id": "codex-sute-tea-117",
+    "url": "https://bdocodex.com/kr/recipe/117/",
+    "title": "수테차",
+    "publisher": "BDO Codex",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "일반 수테차의 배합과 숙련 1 요구 조건 근거. recipe.sute-tea.skill의 유일한 Source로 사용한다."
+  },
+  {
+    "id": "codex-sute-tea-special-560",
+    "url": "https://bdocodex.com/kr/recipe/560/",
+    "title": "수테차",
+    "publisher": "BDO Codex",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "향이 진한 차 1 대체 option과 우유 3·소금 1·버터 2 근거로만 사용한다. 페이지의 초급 1 표기는 일반 수테차 skill Evidence로 사용하지 않는다."
+  },
+  {
+    "id": "weingchicken-healthy-sute-tea-222",
+    "url": "https://apps.weingchicken.com/bd/makings/222",
+    "title": "몸에 좋은 수테차 - 검은사막 제작노트",
+    "publisher": "위잉치킨",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "수테차의 두 차 option과 공통 재료 수량 교차근거. 전문 7 표기는 몸에 좋은 수테차 proc 조건이므로 일반 수테차 skill Evidence로 사용하지 않는다."
+  },
+  {
+    "id": "weingchicken-meat-sandwich-228",
+    "url": "https://apps.weingchicken.com/bd/makings/228",
+    "title": "미트 샌드위치 - 검은사막 제작노트",
+    "publisher": "위잉치킨",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "미트 샌드위치의 견습 6, 배합과 재료별 1회 수량 근거. 기존 Inven Recipe DB와 교차검증한다."
+  },
+  {
+    "id": "codex-ham-sandwich-136",
+    "url": "https://bdocodex.com/kr/recipe/136/",
+    "title": "햄 샌드위치",
+    "publisher": "BDO Codex",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "햄 샌드위치의 기본 구운 소시지 배합, 숙련 1과 재료별 1회 수량 근거."
+  },
+  {
+    "id": "weingchicken-ham-sandwich-139",
+    "url": "https://apps.weingchicken.com/bd/makings/139",
+    "title": "햄 샌드위치 - 검은사막 제작노트",
+    "publisher": "위잉치킨",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "햄 샌드위치의 숙련 1, 기본 배합과 훈연 소시지 1 대체 option을 포함한 1회 수량 근거."
+  },
+  {
+    "id": "codex-frank-sandwich-360",
+    "url": "https://bdocodex.com/kr/recipe/360/",
+    "title": "프랭크 샌드위치",
+    "publisher": "BDO Codex",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "프랭크 샌드위치의 기본 구운 소시지 배합, 전문 1과 재료별 1회 수량 근거."
+  },
+  {
+    "id": "codex-frank-sandwich-smoked-361",
+    "url": "https://bdocodex.com/kr/recipe/361/",
+    "title": "프랭크 샌드위치",
+    "publisher": "BDO Codex",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "프랭크 샌드위치의 훈연 소시지 1 대체 option 근거로만 사용한다."
+  },
+  {
+    "id": "weingchicken-frank-sandwich-375",
+    "url": "https://apps.weingchicken.com/bd/makings/375",
+    "title": "프랭크 샌드위치 - 검은사막 제작노트",
+    "publisher": "위잉치킨",
+    "source_type": "third_party_database",
+    "published_at": null,
+    "retrieved_at": "2026-09-11T20:16:00+09:00",
+    "region": "KR",
+    "notes": "프랭크 샌드위치의 전문 1, 두 소시지 option과 나머지 재료별 1회 수량 근거."
   }
 ]

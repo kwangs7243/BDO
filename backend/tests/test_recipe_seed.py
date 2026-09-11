@@ -48,10 +48,10 @@ def snapshot(session, models):
 
 
 def test_recipe_catalog_exact_counts_and_formulas(session):
-    for model, count in [(Material, 64), (IngredientGroup, 7), (IngredientGroupMember, 35),
-                         (Recipe, 9), (RecipeIngredientSlot, 36), (RecipeIngredientOption, 40)]:
+    for model, count in [(Material, 78), (IngredientGroup, 7), (IngredientGroupMember, 35),
+                         (Recipe, 15), (RecipeIngredientSlot, 60), (RecipeIngredientOption, 67)]:
         assert session.scalar(select(func.count()).select_from(model).where(model.active.is_(True))) == count
-    assert session.scalar(select(func.count()).select_from(Source)) == 199
+    assert session.scalar(select(func.count()).select_from(Source)) == 213
     expected = {
         "beer": [[("grain", 5)], [("mineral-water", 6), ("purified-water", 3)],
                  [("leavening-agent", 2)], [("sugar", 1)]],
@@ -98,7 +98,7 @@ def test_recipe_evidence_verification_and_source_boundaries(session):
             select(Evidence).where(Evidence.entity_type.in_(recipe_entity_types))
         )
     )
-    assert len(evidence) == 115
+    assert len(evidence) == 206
     assert all(row.verification_status == "verified" for row in evidence)
     assert all(row.last_verified_at.isoformat() == "2026-09-11" for row in evidence)
 
@@ -195,7 +195,7 @@ def test_legacy_to_shared_material_transition_preserves_user_inventory(tmp_path)
         assert material_map(session)["beer"].active
         assert snapshot(session, (UserMaterialInventory,)) == inventory
         import_seed(session, DATA)
-        assert len(material_map(session)) == 64
+        assert len(material_map(session)) == 78
     engine.dispose()
 
 

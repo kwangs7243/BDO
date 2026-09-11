@@ -2362,7 +2362,7 @@
       "slug": "carrack-advance"
     }
   ],
-  "recipe_count": 9,
+  "recipe_count": 15,
   "recipes": [
     {
       "last_verified_at": "2026-09-11",
@@ -2384,11 +2384,47 @@
     },
     {
       "last_verified_at": "2026-09-11",
+      "name_ko": "프랭크 샌드위치",
+      "path": "recipes/frank-sandwich.md",
+      "process_type": "cooking",
+      "result_material_key": "frank-sandwich",
+      "slug": "frank-sandwich",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-11",
       "name_ko": "새구이",
       "path": "recipes/grilled-bird-meat.md",
       "process_type": "cooking",
       "result_material_key": "grilled-bird-meat",
       "slug": "grilled-bird-meat",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-11",
+      "name_ko": "구운 소시지",
+      "path": "recipes/grilled-sausage.md",
+      "process_type": "cooking",
+      "result_material_key": "grilled-sausage",
+      "slug": "grilled-sausage",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-11",
+      "name_ko": "햄 샌드위치",
+      "path": "recipes/ham-sandwich.md",
+      "process_type": "cooking",
+      "result_material_key": "ham-sandwich",
+      "slug": "ham-sandwich",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-11",
+      "name_ko": "미트 샌드위치",
+      "path": "recipes/meat-sandwich.md",
+      "process_type": "cooking",
+      "result_material_key": "meat-sandwich",
+      "slug": "meat-sandwich",
       "verification_status": "verified"
     },
     {
@@ -2416,6 +2452,24 @@
       "process_type": "cooking",
       "result_material_key": "red-sauce",
       "slug": "red-sauce",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-11",
+      "name_ko": "스테이크",
+      "path": "recipes/steak.md",
+      "process_type": "cooking",
+      "result_material_key": "steak",
+      "slug": "steak",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-11",
+      "name_ko": "수테차",
+      "path": "recipes/sute-tea.md",
+      "process_type": "cooking",
+      "result_material_key": "sute-tea",
+      "slug": "sute-tea",
       "verification_status": "verified"
     },
     {

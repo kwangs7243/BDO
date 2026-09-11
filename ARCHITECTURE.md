@@ -96,6 +96,8 @@ Recipe → IngredientSlot → IngredientOption expresses AND between slots and O
 
 `GET /api/knowledge/recipes/{slug}` and recipe search use typed claim Evidence and stable keys. Exact identity ranks before nested ingredient/member matches, capped at three per result. Official group membership can be verified independently of formula verification. V1.9Q itself included no Recipe calculator, Recipe UI, PromptContextBundle extension or backup version change.
 
+V1.9T and V1.9U expand the same model to 15 verified Cooking Recipes without a schema change. The Recipe seed importer now validates the complete canonical tier vocabulary from `beginner` through `guru`; the database and API continue to store and expose the existing string field. Recipe result Materials may be reused as another Recipe's explicit input identity, but the calculator does not recursively expand dependencies.
+
 ## Stateless Recipe batch calculation (V1.9S)
 
 ```text

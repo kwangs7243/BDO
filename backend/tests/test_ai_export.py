@@ -63,8 +63,8 @@ def test_build_from_seed_uses_an_isolated_database() -> None:
 
     assert manifest["content_count"] == 294
     assert manifest["project_count"] == 1
-    assert manifest["recipe_count"] == 9
-    assert len(exports) == 306
+    assert manifest["recipe_count"] == 15
+    assert len(exports) == 312
 
 
 def test_manifest_counts_match_active_canonical_rows(export_context) -> None:
@@ -89,7 +89,7 @@ def test_all_markdown_is_marked_generated(export_context) -> None:
         path: content for path, content in exports.items() if path.endswith(".md")
     }
 
-    assert len(markdown_files) == 305
+    assert len(markdown_files) == 311
     assert all(content.startswith(GENERATED_HEADER) for content in markdown_files.values())
 
 
@@ -321,9 +321,9 @@ def test_recipe_export_contract_and_counts(export_context):
     manifest = json.loads(exports["manifest.json"])
     active = list(session.scalars(select(Recipe.slug).where(Recipe.active.is_(True))))
     assert manifest["schema_version"] == 2
-    assert manifest["recipe_count"] == len(active) == 9
+    assert manifest["recipe_count"] == len(active) == 15
     assert len(exports) == manifest["content_count"] + manifest["project_count"] + len(active) + 2
-    assert len([p for p in exports if p.startswith("recipes/")]) == 9
+    assert len([p for p in exports if p.startswith("recipes/")]) == 15
     assert "## Recipes" in exports["INDEX.md"]
     assert [r["slug"] for r in manifest["recipes"]] == sorted(active)
     for slug in (
@@ -332,6 +332,12 @@ def test_recipe_export_contract_and_counts(export_context):
         "white-sauce",
         "tea-with-fine-scent",
         "omelet",
+        "grilled-sausage",
+        "steak",
+        "sute-tea",
+        "meat-sandwich",
+        "ham-sandwich",
+        "frank-sandwich",
     ):
         assert f"recipes/{slug}.md" in exports
     beer = exports["recipes/beer.md"]
