@@ -86,7 +86,7 @@ Consumer UX expansion is not an implicit architecture requirement.
 
 ## Backend
 
-FastAPI/domain modules include canonical content retrieval, the `knowledge` read service, the deterministic `ai_export` builder, period/reset computation, checklist state, Project and Recipe projection/calculation, Life projections, user/local state, research/evidence flows, and `prompt_bridge`. The knowledge service exposes deterministic lexical search and canonical-only Content/Project/Recipe projections without reading personal-state tables; both stateless calculators consume those canonical projections, and the exporter consumes them through a temporary in-memory database.
+FastAPI/domain modules include canonical content retrieval, the `knowledge` read service, the deterministic `ai_export` builder, period/reset computation, checklist state, Project and Recipe projection/calculation, Life projections, user/local state, research/evidence flows, and `prompt_bridge`. The knowledge service exposes deterministic lexical search and canonical-only Content/Project/Recipe/Material projections without reading personal-state tables; both stateless calculators consume those canonical projections, and the exporter consumes them through a temporary in-memory database.
 
 ## Shared Material and Cooking Recipe foundation (V1.9Q)
 
@@ -122,6 +122,39 @@ The relation is not persisted. IngredientGroup membership is not expanded,
 only direct edges are returned, and no personal state is read. The projection
 does not infer output/yield, recursive quantities, option selection or
 producer attempt counts. AI Recipe exports consume the same builder.
+
+## Material knowledge read projection (V1.9W)
+
+```text
+Shared Material
+      |
+      +-- Recipe result identity
+      +-- Recipe explicit Material option
+      +-- IngredientGroup membership
+      +-- Recipe IngredientGroup option
+      +-- ProjectMaterial
+                |
+                v
+     Material Knowledge Projection
+                |
+        +-------+-------+
+        |       |       |
+       API    Search  AI export
+```
+
+`GET /api/knowledge/materials/{key}` composes the five existing canonical
+relationships as a derived, non-persisted, canonical-only projection.
+Explicit Recipe Material usage is separate from IngredientGroup-mediated
+candidate usage: group membership means a Material is allowed for that group,
+not that it is mandatory. The quantity on a group usage belongs to the Recipe
+group option.
+
+Material identity has no invented aggregate verification status. Recipe and
+IngredientGroup relations retain their owning verification semantics, while
+ProjectMaterialSource stays nested under the corresponding Project
+requirement. The endpoint, search, and static export exclude personal state
+and do not read UserMaterialInventory. No schema, migration, seed, recursive
+graph, output/yield, or market/economy behavior is added.
 
 ## Stateless Recipe batch calculation (V1.9S)
 

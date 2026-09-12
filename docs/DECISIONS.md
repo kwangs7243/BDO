@@ -140,3 +140,21 @@ so persisting the same relation would create stale duplication. Expanding
 IngredientGroup members would imply automatic option selection contrary to
 ADR-018 and ADR-019. Without a canonical output quantity, recursive required
 material calculation is not deterministic.
+
+## ADR-021 — Material knowledge is a derived cross-domain read projection
+
+**Status:** Accepted 2026-09-12.
+
+**Decision:** Material remains the shared stable identity owned by
+`seed_materials.json`. Material knowledge retrieval composes existing
+Recipe, IngredientGroup, and Project canonical relationships. No duplicate
+Material relationship rows are persisted, and Material identity itself
+receives no invented aggregate verification status. Explicit Material Recipe
+usage and IngredientGroup-mediated candidate usage remain distinct semantics.
+ProjectMaterialSource stays scoped to its ProjectMaterial requirement and is
+not promoted to a universal Material acquisition fact. Personal inventory is
+not part of canonical Material knowledge.
+
+**Reason:** GPT consumers need one stable cross-domain lookup surface, but
+copying Recipe, Project, or IngredientGroup facts into Material-owned rows
+would create a second authority and stale duplication.

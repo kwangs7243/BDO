@@ -206,11 +206,16 @@ def test_search_finds_project_by_material_name_and_key(session) -> None:
     by_name = search_knowledge(session, "달의 핏줄이 새겨진 아마포")
     by_key = search_knowledge(session, "moon-vein-flax")
 
-    assert by_name[0].resource_type == "project"
-    assert by_name[0].slug == "carrack-advance"
+    assert by_name[0].resource_type == "material"
+    assert by_name[0].slug == "moon-vein-flax"
     assert by_name[0].matches[0].field == "material.name_ko"
-    assert by_key[0].slug == "carrack-advance"
+    assert by_key[0].resource_type == "material"
+    assert by_key[0].slug == "moon-vein-flax"
     assert by_key[0].matches[0].field == "material.key"
+    assert any(
+        item.resource_type == "project" and item.slug == "carrack-advance"
+        for item in by_key
+    )
 
 
 def test_search_ranking_dedup_and_order_are_deterministic(session) -> None:

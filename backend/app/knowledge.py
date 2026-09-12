@@ -18,6 +18,7 @@ from app.models import (
     Content,
     ContentRelation,
     Evidence,
+    Material,
     Project,
     ProjectMaterial,
     ProjectMaterialSource,
@@ -29,6 +30,12 @@ from app.schemas import (
     ContentSectionOut,
     ContentStepOut,
     KnowledgeContentOut,
+    KnowledgeMaterialGroupRecipeUsageOut,
+    KnowledgeMaterialIngredientGroupMembershipOut,
+    KnowledgeMaterialOut,
+    KnowledgeMaterialProjectRequirementOut,
+    KnowledgeMaterialRecipeProducerOut,
+    KnowledgeMaterialRecipeUsageOut,
     KnowledgeProjectMaterialOut,
     KnowledgeProjectOut,
     KnowledgeProjectStageOut,
@@ -43,6 +50,7 @@ from app.schemas import (
 
 _WHITESPACE = re.compile(r"\s+")
 _MAX_MATCH_TEXT = 240
+RESOURCE_ORDER = {"material": 0, "content": 1, "project": 2, "recipe": 3}
 
 
 def _content_query():
@@ -312,6 +320,47 @@ def _recipe_source_out(item):
     )
 
 
+def _ingredient_group_out(
+    session: Session,
+    group: IngredientGroup,
+) -> KnowledgeIngredientGroupOut:
+    sources = list(
+        session.scalars(
+            select(Evidence)
+            .where(
+                Evidence.entity_type == "ingredient_group",
+                Evidence.entity_id == group.key,
+            )
+            .options(selectinload(Evidence.source))
+            .order_by(
+                Evidence.claim_key,
+                Evidence.seed_key,
+                Evidence.source_id,
+            )
+        )
+    )
+    return KnowledgeIngredientGroupOut(
+        key=group.key,
+        name_ko=group.name_ko,
+        last_verified_at=group.last_verified_at,
+        verification_status=aggregate_verification(sources),
+        members=[
+            KnowledgeIngredientGroupMemberOut(
+                material_key=member.material.key,
+                name_ko=member.material.name_ko,
+                unit=member.material.unit,
+                order_no=member.order_no,
+            )
+            for member in sorted(
+                group.members,
+                key=lambda member: (member.order_no, member.seed_key),
+            )
+            if member.active and member.material.active
+        ],
+        sources=[_recipe_source_out(source) for source in sources],
+    )
+
+
 def get_knowledge_recipe(session: Session, slug: str) -> KnowledgeRecipeOut | None:
     """Read canonical cooking knowledge, with typed evidence and no personal-state query."""
     recipe = session.scalar(_recipe_query().where(Recipe.slug == slug, Recipe.active.is_(True)))
@@ -339,20 +388,7 @@ def get_knowledge_recipe(session: Session, slug: str) -> KnowledgeRecipeOut | No
                 if group is None or not group.active:
                     continue
                 if group.key not in groups:
-                    sources = list(session.scalars(
-                        select(Evidence).where(Evidence.entity_type == "ingredient_group",
-                                               Evidence.entity_id == group.key)
-                        .options(selectinload(Evidence.source))
-                        .order_by(Evidence.claim_key, Evidence.seed_key, Evidence.source_id)))
-                    groups[group.key] = KnowledgeIngredientGroupOut(
-                        key=group.key, name_ko=group.name_ko, last_verified_at=group.last_verified_at,
-                        verification_status=aggregate_verification(sources),
-                        members=[KnowledgeIngredientGroupMemberOut(
-                            material_key=m.material.key, name_ko=m.material.name_ko,
-                            unit=m.material.unit, order_no=m.order_no)
-                            for m in sorted(group.members, key=lambda m: (m.order_no, m.seed_key))
-                            if m.active and m.material.active],
-                        sources=[_recipe_source_out(e) for e in sources])
+                    groups[group.key] = _ingredient_group_out(session, group)
                 values.update(target_type="ingredient_group", ingredient_group=groups[group.key])
             options.append(KnowledgeRecipeIngredientOptionOut(**values))
         slots.append(KnowledgeRecipeIngredientSlotOut(
@@ -365,6 +401,210 @@ def get_knowledge_recipe(session: Session, slug: str) -> KnowledgeRecipeOut | No
         required_skill_tier=recipe.required_skill_tier, required_skill_level=recipe.required_skill_level,
         last_verified_at=recipe.last_verified_at, verification_status=aggregate_verification(evidence),
         ingredient_slots=slots, sources=[_recipe_source_out(e) for e in evidence])
+
+
+def list_knowledge_materials(session: Session) -> list[KnowledgeMaterialOut]:
+    """Project active Material rows through existing Recipe and Project contracts."""
+
+    materials = list(
+        session.scalars(
+            select(Material)
+            .where(Material.active.is_(True))
+            .order_by(Material.name_ko, Material.key)
+        )
+    )
+    recipes = [
+        recipe
+        for slug in session.scalars(
+            select(Recipe.slug)
+            .where(Recipe.active.is_(True))
+            .order_by(Recipe.slug)
+        )
+        if (recipe := get_knowledge_recipe(session, slug)) is not None
+    ]
+    projects = [
+        project
+        for slug in session.scalars(
+            select(Project.slug)
+            .where(Project.active.is_(True))
+            .order_by(Project.slug)
+        )
+        if (project := get_knowledge_project(session, slug)) is not None
+    ]
+    groups = list(
+        session.scalars(
+            select(IngredientGroup)
+            .where(IngredientGroup.active.is_(True))
+            .options(
+                selectinload(IngredientGroup.members).selectinload(
+                    IngredientGroupMember.material
+                )
+            )
+            .order_by(IngredientGroup.key)
+        )
+    )
+    group_outputs = {group.key: _ingredient_group_out(session, group) for group in groups}
+
+    rows: dict[str, dict[str, list]] = {
+        material.key: {
+            "producers": [],
+            "explicit": [],
+            "memberships": [],
+            "group_usages": [],
+            "projects": [],
+        }
+        for material in materials
+    }
+
+    for group in groups:
+        group_output = group_outputs[group.key]
+        for member in sorted(
+            group.members,
+            key=lambda item: (item.order_no, item.seed_key),
+        ):
+            if not member.active or not member.material.active:
+                continue
+            rows[member.material.key]["memberships"].append(
+                KnowledgeMaterialIngredientGroupMembershipOut(
+                    group_key=group.key,
+                    group_name_ko=group.name_ko,
+                    member_seed_key=member.seed_key,
+                    member_order_no=member.order_no,
+                    group_verification_status=group_output.verification_status,
+                    group_last_verified_at=group_output.last_verified_at,
+                    sources=group_output.sources,
+                )
+            )
+
+    for recipe in recipes:
+        if recipe.result_material_key in rows:
+            rows[recipe.result_material_key]["producers"].append(
+                KnowledgeMaterialRecipeProducerOut(
+                    recipe_slug=recipe.slug,
+                    recipe_name_ko=recipe.name_ko,
+                    process_type=recipe.process_type,
+                    required_skill_tier=recipe.required_skill_tier,
+                    required_skill_level=recipe.required_skill_level,
+                    verification_status=recipe.verification_status,
+                    last_verified_at=recipe.last_verified_at,
+                )
+            )
+        for slot in recipe.ingredient_slots:
+            is_alternative = len(slot.options) > 1
+            for option in slot.options:
+                if option.target_type == "material" and option.material_key in rows:
+                    rows[option.material_key]["explicit"].append(
+                        KnowledgeMaterialRecipeUsageOut(
+                            recipe_slug=recipe.slug,
+                            recipe_name_ko=recipe.name_ko,
+                            process_type=recipe.process_type,
+                            recipe_verification_status=recipe.verification_status,
+                            recipe_last_verified_at=recipe.last_verified_at,
+                            slot_seed_key=slot.seed_key,
+                            slot_label=slot.label,
+                            slot_order_no=slot.order_no,
+                            option_seed_key=option.seed_key,
+                            option_order_no=option.order_no,
+                            required_quantity=option.required_quantity,
+                            is_alternative=is_alternative,
+                        )
+                    )
+                group = option.ingredient_group
+                if option.target_type != "ingredient_group" or group is None:
+                    continue
+                for member in group.members:
+                    if member.material_key not in rows:
+                        continue
+                    rows[member.material_key]["group_usages"].append(
+                        KnowledgeMaterialGroupRecipeUsageOut(
+                            usage_semantics="ingredient_group_candidate",
+                            group_key=group.key,
+                            group_name_ko=group.name_ko,
+                            group_verification_status=group.verification_status,
+                            group_last_verified_at=group.last_verified_at,
+                            recipe_slug=recipe.slug,
+                            recipe_name_ko=recipe.name_ko,
+                            process_type=recipe.process_type,
+                            slot_seed_key=slot.seed_key,
+                            slot_label=slot.label,
+                            slot_order_no=slot.order_no,
+                            option_seed_key=option.seed_key,
+                            option_order_no=option.order_no,
+                            group_required_quantity=option.required_quantity,
+                            is_alternative=is_alternative,
+                            recipe_verification_status=recipe.verification_status,
+                            recipe_last_verified_at=recipe.last_verified_at,
+                        )
+                    )
+
+    for project in projects:
+        stage_names = {stage.seed_key: stage.name for stage in project.stages}
+        for material in project.materials:
+            if material.material_key not in rows:
+                continue
+            rows[material.material_key]["projects"].append(
+                KnowledgeMaterialProjectRequirementOut(
+                    project_slug=project.slug,
+                    project_name_ko=project.name_ko,
+                    project_material_seed_key=material.seed_key,
+                    stage_seed_key=material.stage_seed_key,
+                    stage_name=stage_names.get(material.stage_seed_key),
+                    required_quantity=material.required_quantity,
+                    order_no=material.order_no,
+                    notes=material.notes,
+                    source_entity_type=material.source_entity_type,
+                    source_entity_seed_key=material.source_entity_seed_key,
+                    sources=material.sources,
+                )
+            )
+
+    return [
+        KnowledgeMaterialOut(
+            key=material.key,
+            name_ko=material.name_ko,
+            unit=material.unit,
+            produced_by_recipes=sorted(
+                rows[material.key]["producers"],
+                key=lambda item: item.recipe_slug,
+            ),
+            explicit_recipe_usages=sorted(
+                rows[material.key]["explicit"],
+                key=lambda item: (
+                    item.recipe_slug,
+                    item.slot_order_no,
+                    item.option_order_no,
+                    item.option_seed_key,
+                ),
+            ),
+            ingredient_group_memberships=sorted(
+                rows[material.key]["memberships"],
+                key=lambda item: (item.group_key, item.member_order_no),
+            ),
+            group_recipe_usages=sorted(
+                rows[material.key]["group_usages"],
+                key=lambda item: (
+                    item.recipe_slug,
+                    item.group_key,
+                    item.slot_order_no,
+                    item.option_order_no,
+                ),
+            ),
+            project_requirements=rows[material.key]["projects"],
+        )
+        for material in materials
+    ]
+
+
+def get_knowledge_material(
+    session: Session,
+    key: str,
+) -> KnowledgeMaterialOut | None:
+    """Return one active canonical Material projection without personal state."""
+
+    return next(
+        (material for material in list_knowledge_materials(session) if material.key == key),
+        None,
+    )
 
 
 def _recipe_search_candidates(recipe):
@@ -535,7 +775,7 @@ def search_knowledge(
     query: str,
     limit: int = 20,
 ) -> list[KnowledgeSearchResultOut]:
-    """Search current canonical Content and Project rows with stable lexical ranking."""
+    """Search current canonical knowledge resources with stable lexical ranking."""
 
     normalized_query = _normalize(query)
     if not normalized_query:
@@ -555,14 +795,47 @@ def search_knowledge(
         root_slug = evidence.entity_id.split(".", 1)[0]
         evidence_by_slug.setdefault(root_slug, []).append(evidence)
 
-    ranked: list[tuple[int, str, str, str, KnowledgeSearchResultOut]] = []
+    ranked: list[tuple[int, int, str, str, KnowledgeSearchResultOut]] = []
+    materials = list(
+        session.scalars(
+            select(Material)
+            .where(Material.active.is_(True))
+            .order_by(Material.name_ko, Material.key)
+        )
+    )
+    for material in materials:
+        matches = _collect_matches(
+            normalized_query,
+            [
+                ("material.name_ko", material.name_ko, 0, True),
+                ("material.key", material.key, 0, True),
+            ],
+        )
+        if matches:
+            ranked.append(
+                (
+                    matches[0][0],
+                    RESOURCE_ORDER["material"],
+                    material.name_ko,
+                    material.key,
+                    KnowledgeSearchResultOut(
+                        resource_type="material",
+                        slug=material.key,
+                        name_ko=material.name_ko,
+                        category="material",
+                        summary=None,
+                        verification_status=None,
+                        matches=[item[2] for item in matches[:3]],
+                    ),
+                )
+            )
     for content in contents:
         matches = _collect_matches(normalized_query, _content_search_candidates(content))
         if matches:
             ranked.append(
                 (
                     matches[0][0],
-                    "content",
+                    RESOURCE_ORDER["content"],
                     content.name_ko,
                     content.slug,
                     KnowledgeSearchResultOut(
@@ -590,7 +863,7 @@ def search_knowledge(
             ranked.append(
                 (
                     matches[0][0],
-                    "project",
+                    RESOURCE_ORDER["project"],
                     project.name_ko,
                     project.slug,
                     KnowledgeSearchResultOut(
@@ -608,7 +881,7 @@ def search_knowledge(
     for recipe in session.scalars(_recipe_query().where(Recipe.active.is_(True)).order_by(Recipe.slug)):
         matches = _collect_matches(normalized_query, _recipe_search_candidates(recipe))
         if matches:
-            ranked.append((matches[0][0], "recipe", recipe.name_ko, recipe.slug,
+            ranked.append((matches[0][0], RESOURCE_ORDER["recipe"], recipe.name_ko, recipe.slug,
                            KnowledgeSearchResultOut(
                                resource_type="recipe", slug=recipe.slug, name_ko=recipe.name_ko,
                                category=recipe.process_type, summary=recipe.summary,

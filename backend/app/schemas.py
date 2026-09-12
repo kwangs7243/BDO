@@ -375,6 +375,86 @@ class KnowledgeRecipeOut(BaseModel):
     sources: list[KnowledgeRecipeEvidenceOut]
 
 
+class KnowledgeMaterialRecipeProducerOut(BaseModel):
+    recipe_slug: str
+    recipe_name_ko: str
+    process_type: str
+    required_skill_tier: str | None
+    required_skill_level: int | None
+    verification_status: str
+    last_verified_at: date | None
+
+
+class KnowledgeMaterialRecipeUsageOut(BaseModel):
+    recipe_slug: str
+    recipe_name_ko: str
+    process_type: str
+    recipe_verification_status: str
+    recipe_last_verified_at: date | None
+    slot_seed_key: str
+    slot_label: str
+    slot_order_no: int
+    option_seed_key: str
+    option_order_no: int
+    required_quantity: float
+    is_alternative: bool
+
+
+class KnowledgeMaterialIngredientGroupMembershipOut(BaseModel):
+    group_key: str
+    group_name_ko: str
+    member_seed_key: str
+    member_order_no: int
+    group_verification_status: str
+    group_last_verified_at: date | None
+    sources: list[KnowledgeRecipeEvidenceOut]
+
+
+class KnowledgeMaterialGroupRecipeUsageOut(BaseModel):
+    usage_semantics: Literal["ingredient_group_candidate"]
+    group_key: str
+    group_name_ko: str
+    group_verification_status: str
+    group_last_verified_at: date | None
+    recipe_slug: str
+    recipe_name_ko: str
+    process_type: str
+    slot_seed_key: str
+    slot_label: str
+    slot_order_no: int
+    option_seed_key: str
+    option_order_no: int
+    group_required_quantity: float
+    is_alternative: bool
+    recipe_verification_status: str
+    recipe_last_verified_at: date | None
+
+
+class KnowledgeMaterialProjectRequirementOut(BaseModel):
+    project_slug: str
+    project_name_ko: str
+    project_material_seed_key: str
+    stage_seed_key: str | None
+    stage_name: str | None
+    required_quantity: float
+    order_no: int
+    notes: str | None
+    source_entity_type: str | None
+    source_entity_seed_key: str | None
+    sources: list[ProjectMaterialSourceOut]
+
+
+class KnowledgeMaterialOut(BaseModel):
+    key: str
+    name_ko: str
+    unit: str
+    produced_by_recipes: list[KnowledgeMaterialRecipeProducerOut]
+    explicit_recipe_usages: list[KnowledgeMaterialRecipeUsageOut]
+    ingredient_group_memberships: list[KnowledgeMaterialIngredientGroupMembershipOut]
+    group_recipe_usages: list[KnowledgeMaterialGroupRecipeUsageOut]
+    project_requirements: list[KnowledgeMaterialProjectRequirementOut]
+
+
 class KnowledgeRecipeDependencyEdgeOut(BaseModel):
     producer_recipe_slug: str
     producer_recipe_name_ko: str
@@ -459,7 +539,7 @@ class KnowledgeSearchMatchOut(BaseModel):
 
 
 class KnowledgeSearchResultOut(BaseModel):
-    resource_type: Literal["content", "project", "recipe"]
+    resource_type: Literal["material", "content", "project", "recipe"]
     slug: str
     name_ko: str
     category: str | None

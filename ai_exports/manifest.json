@@ -2354,6 +2354,477 @@
       "verification_status": "verified"
     }
   ],
+  "material_count": 78,
+  "materials": [
+    {
+      "key": "apple",
+      "name_ko": "사과",
+      "path": "materials/apple.md",
+      "unit": "개"
+    },
+    {
+      "key": "banana",
+      "name_ko": "바나나",
+      "path": "materials/banana.md",
+      "unit": "개"
+    },
+    {
+      "key": "barley",
+      "name_ko": "보리",
+      "path": "materials/barley.md",
+      "unit": "개"
+    },
+    {
+      "key": "base-sauce",
+      "name_ko": "베이스 소스",
+      "path": "materials/base-sauce.md",
+      "unit": "개"
+    },
+    {
+      "key": "bear-meat",
+      "name_ko": "곰 고기",
+      "path": "materials/bear-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "beef",
+      "name_ko": "소 고기",
+      "path": "materials/beef.md",
+      "unit": "개"
+    },
+    {
+      "key": "beer",
+      "name_ko": "맥주",
+      "path": "materials/beer.md",
+      "unit": "개"
+    },
+    {
+      "key": "brilliant-pearl-crystal",
+      "name_ko": "화려한 진주 결정",
+      "path": "materials/brilliant-pearl-crystal.md",
+      "unit": "개"
+    },
+    {
+      "key": "brilliant-rock-salt-ingot",
+      "name_ko": "화려한 암염 주괴",
+      "path": "materials/brilliant-rock-salt-ingot.md",
+      "unit": "개"
+    },
+    {
+      "key": "butter",
+      "name_ko": "버터",
+      "path": "materials/butter.md",
+      "unit": "개"
+    },
+    {
+      "key": "cabbage",
+      "name_ko": "양배추",
+      "path": "materials/cabbage.md",
+      "unit": "개"
+    },
+    {
+      "key": "caravel-black-dragon-figurehead-plus10",
+      "name_ko": "+10 에페리아 무역선 : 흑룡 선수상",
+      "path": "materials/caravel-black-dragon-figurehead-plus10.md",
+      "unit": "개"
+    },
+    {
+      "key": "caravel-mayna-cannon-plus10",
+      "name_ko": "+10 에페리아 무역선 : 메이나 함포",
+      "path": "materials/caravel-mayna-cannon-plus10.md",
+      "unit": "개"
+    },
+    {
+      "key": "caravel-stratus-wind-sail-plus10",
+      "name_ko": "+10 에페리아 무역선 : 비층 바람 돛",
+      "path": "materials/caravel-stratus-wind-sail-plus10.md",
+      "unit": "개"
+    },
+    {
+      "key": "caravel-upgraded-plating-plus10",
+      "name_ko": "+10 에페리아 무역선 : 개량형 장갑",
+      "path": "materials/caravel-upgraded-plating-plus10.md",
+      "unit": "개"
+    },
+    {
+      "key": "cheese",
+      "name_ko": "치즈",
+      "path": "materials/cheese.md",
+      "unit": "개"
+    },
+    {
+      "key": "cherry",
+      "name_ko": "체리",
+      "path": "materials/cherry.md",
+      "unit": "개"
+    },
+    {
+      "key": "chicken-meat",
+      "name_ko": "닭고기",
+      "path": "materials/chicken-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "cooking-wine",
+      "name_ko": "조리용 와인",
+      "path": "materials/cooking-wine.md",
+      "unit": "개"
+    },
+    {
+      "key": "corn",
+      "name_ko": "옥수수",
+      "path": "materials/corn.md",
+      "unit": "개"
+    },
+    {
+      "key": "cottonseed-oil",
+      "name_ko": "면실유",
+      "path": "materials/cottonseed-oil.md",
+      "unit": "개"
+    },
+    {
+      "key": "deep-frying-oil",
+      "name_ko": "튀김용 오일",
+      "path": "materials/deep-frying-oil.md",
+      "unit": "개"
+    },
+    {
+      "key": "deep-tide-standardized-timber",
+      "name_ko": "짙은 파도빛이 감도는 규격 각목",
+      "path": "materials/deep-tide-standardized-timber.md",
+      "unit": "개"
+    },
+    {
+      "key": "deer-meat",
+      "name_ko": "사슴 고기",
+      "path": "materials/deer-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "dressing",
+      "name_ko": "드레싱",
+      "path": "materials/dressing.md",
+      "unit": "개"
+    },
+    {
+      "key": "edible-honey",
+      "name_ko": "식용벌꿀",
+      "path": "materials/edible-honey.md",
+      "unit": "개"
+    },
+    {
+      "key": "egg",
+      "name_ko": "달걀",
+      "path": "materials/egg.md",
+      "unit": "개"
+    },
+    {
+      "key": "flamingo-meat",
+      "name_ko": "홍학 고기",
+      "path": "materials/flamingo-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "fox-meat",
+      "name_ko": "여우 고기",
+      "path": "materials/fox-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "frank-sandwich",
+      "name_ko": "프랭크 샌드위치",
+      "path": "materials/frank-sandwich.md",
+      "unit": "개"
+    },
+    {
+      "key": "garlic",
+      "name_ko": "마늘",
+      "path": "materials/garlic.md",
+      "unit": "개"
+    },
+    {
+      "key": "grape",
+      "name_ko": "포도",
+      "path": "materials/grape.md",
+      "unit": "개"
+    },
+    {
+      "key": "grilled-bird-meat",
+      "name_ko": "새구이",
+      "path": "materials/grilled-bird-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "grilled-sausage",
+      "name_ko": "구운 소시지",
+      "path": "materials/grilled-sausage.md",
+      "unit": "개"
+    },
+    {
+      "key": "ham-sandwich",
+      "name_ko": "햄 샌드위치",
+      "path": "materials/ham-sandwich.md",
+      "unit": "개"
+    },
+    {
+      "key": "kuku-bird-meat",
+      "name_ko": "쿠쿠새 고기",
+      "path": "materials/kuku-bird-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "leavening-agent",
+      "name_ko": "발효제",
+      "path": "materials/leavening-agent.md",
+      "unit": "개"
+    },
+    {
+      "key": "meat-sandwich",
+      "name_ko": "미트 샌드위치",
+      "path": "materials/meat-sandwich.md",
+      "unit": "개"
+    },
+    {
+      "key": "milk",
+      "name_ko": "우유",
+      "path": "materials/milk.md",
+      "unit": "개"
+    },
+    {
+      "key": "mineral-water",
+      "name_ko": "요리용 생수",
+      "path": "materials/mineral-water.md",
+      "unit": "개"
+    },
+    {
+      "key": "moon-vein-flax",
+      "name_ko": "달의 핏줄이 새겨진 아마포",
+      "path": "materials/moon-vein-flax.md",
+      "unit": "개"
+    },
+    {
+      "key": "olive",
+      "name_ko": "올리브",
+      "path": "materials/olive.md",
+      "unit": "개"
+    },
+    {
+      "key": "olive-oil",
+      "name_ko": "올리브 오일",
+      "path": "materials/olive-oil.md",
+      "unit": "개"
+    },
+    {
+      "key": "omelet",
+      "name_ko": "오믈렛",
+      "path": "materials/omelet.md",
+      "unit": "개"
+    },
+    {
+      "key": "onion",
+      "name_ko": "양파",
+      "path": "materials/onion.md",
+      "unit": "개"
+    },
+    {
+      "key": "paprika",
+      "name_ko": "파프리카",
+      "path": "materials/paprika.md",
+      "unit": "개"
+    },
+    {
+      "key": "pear",
+      "name_ko": "배",
+      "path": "materials/pear.md",
+      "unit": "개"
+    },
+    {
+      "key": "pepper",
+      "name_ko": "후추",
+      "path": "materials/pepper.md",
+      "unit": "개"
+    },
+    {
+      "key": "pickled-vegetables",
+      "name_ko": "채소 절임",
+      "path": "materials/pickled-vegetables.md",
+      "unit": "개"
+    },
+    {
+      "key": "pineapple",
+      "name_ko": "파인애플",
+      "path": "materials/pineapple.md",
+      "unit": "개"
+    },
+    {
+      "key": "pork",
+      "name_ko": "돼지 고기",
+      "path": "materials/pork.md",
+      "unit": "개"
+    },
+    {
+      "key": "potato",
+      "name_ko": "감자",
+      "path": "materials/potato.md",
+      "unit": "개"
+    },
+    {
+      "key": "pumpkin",
+      "name_ko": "호박",
+      "path": "materials/pumpkin.md",
+      "unit": "개"
+    },
+    {
+      "key": "purified-water",
+      "name_ko": "정제수",
+      "path": "materials/purified-water.md",
+      "unit": "개"
+    },
+    {
+      "key": "raccoon-meat",
+      "name_ko": "너구리 고기",
+      "path": "materials/raccoon-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "red-sauce",
+      "name_ko": "레드소스",
+      "path": "materials/red-sauce.md",
+      "unit": "개"
+    },
+    {
+      "key": "rhino-meat",
+      "name_ko": "코뿔소 고기",
+      "path": "materials/rhino-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "rose",
+      "name_ko": "장미꽃",
+      "path": "materials/rose.md",
+      "unit": "개"
+    },
+    {
+      "key": "salt",
+      "name_ko": "소금",
+      "path": "materials/salt.md",
+      "unit": "개"
+    },
+    {
+      "key": "sheep-meat",
+      "name_ko": "양 고기",
+      "path": "materials/sheep-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "smoked-sausage",
+      "name_ko": "훈연 소시지",
+      "path": "materials/smoked-sausage.md",
+      "unit": "개"
+    },
+    {
+      "key": "soft-bread",
+      "name_ko": "부드러운 빵",
+      "path": "materials/soft-bread.md",
+      "unit": "개"
+    },
+    {
+      "key": "steak",
+      "name_ko": "스테이크",
+      "path": "materials/steak.md",
+      "unit": "개"
+    },
+    {
+      "key": "strawberry",
+      "name_ko": "딸기",
+      "path": "materials/strawberry.md",
+      "unit": "개"
+    },
+    {
+      "key": "sugar",
+      "name_ko": "설탕",
+      "path": "materials/sugar.md",
+      "unit": "개"
+    },
+    {
+      "key": "sunflower",
+      "name_ko": "해바라기",
+      "path": "materials/sunflower.md",
+      "unit": "개"
+    },
+    {
+      "key": "sute-tea",
+      "name_ko": "수테차",
+      "path": "materials/sute-tea.md",
+      "unit": "개"
+    },
+    {
+      "key": "sweet-potato",
+      "name_ko": "고구마",
+      "path": "materials/sweet-potato.md",
+      "unit": "개"
+    },
+    {
+      "key": "tea-with-fine-scent",
+      "name_ko": "향이 좋은 차",
+      "path": "materials/tea-with-fine-scent.md",
+      "unit": "개"
+    },
+    {
+      "key": "tea-with-strong-scent",
+      "name_ko": "향이 진한 차",
+      "path": "materials/tea-with-strong-scent.md",
+      "unit": "개"
+    },
+    {
+      "key": "tear-of-the-ocean",
+      "name_ko": "심해의 눈물",
+      "path": "materials/tear-of-the-ocean.md",
+      "unit": "개"
+    },
+    {
+      "key": "tomato",
+      "name_ko": "토마토",
+      "path": "materials/tomato.md",
+      "unit": "개"
+    },
+    {
+      "key": "tulip",
+      "name_ko": "튤립",
+      "path": "materials/tulip.md",
+      "unit": "개"
+    },
+    {
+      "key": "vinegar",
+      "name_ko": "식초",
+      "path": "materials/vinegar.md",
+      "unit": "개"
+    },
+    {
+      "key": "weasel-meat",
+      "name_ko": "족제비 고기",
+      "path": "materials/weasel-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "wheat",
+      "name_ko": "밀",
+      "path": "materials/wheat.md",
+      "unit": "개"
+    },
+    {
+      "key": "white-sauce",
+      "name_ko": "화이트소스",
+      "path": "materials/white-sauce.md",
+      "unit": "개"
+    },
+    {
+      "key": "wolf-meat",
+      "name_ko": "늑대 고기",
+      "path": "materials/wolf-meat.md",
+      "unit": "개"
+    }
+  ],
   "project_count": 1,
   "projects": [
     {
@@ -2500,5 +2971,5 @@
       "verification_status": "verified"
     }
   ],
-  "schema_version": 2
+  "schema_version": 3
 }

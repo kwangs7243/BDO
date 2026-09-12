@@ -13,12 +13,18 @@ from sqlalchemy.pool import StaticPool
 
 from app.config import PROJECT_ROOT, seed_dir
 from app.database import Base
-from app.knowledge import get_knowledge_content, get_knowledge_project, get_knowledge_recipe
+from app.knowledge import (
+    get_knowledge_content,
+    get_knowledge_project,
+    get_knowledge_recipe,
+    list_knowledge_materials,
+)
 from app.models import Content, Project, Recipe
 from app.recipe_dependencies import build_recipe_dependency_index
 from app.seed import import_seed
 from app.schemas import (
     KnowledgeContentOut,
+    KnowledgeMaterialOut,
     KnowledgeProjectOut,
     KnowledgeRecipeDependenciesOut,
     KnowledgeRecipeDependencyEdgeOut,
@@ -533,10 +539,176 @@ def render_recipe_markdown(
 
 
 
+def render_material_markdown(
+    material: KnowledgeMaterialOut,
+    exported_content_slugs: set[str],
+) -> str:
+    """Render canonical Material relationships without inferring acquisition facts."""
+
+    lines = [GENERATED_HEADER, "", f"# {material.name_ko}"]
+    _section(
+        lines,
+        "Identity",
+        [_fields([("key", material.key), ("name_ko", material.name_ko), ("unit", material.unit)])],
+    )
+    _section(
+        lines,
+        "Produced By Recipes",
+        _named_blocks(
+            (
+                producer.recipe_slug,
+                [
+                    ("recipe_slug", producer.recipe_slug),
+                    ("recipe_name_ko", producer.recipe_name_ko),
+                    ("process_type", producer.process_type),
+                    ("required_skill_tier", producer.required_skill_tier),
+                    ("required_skill_level", producer.required_skill_level),
+                    ("verification_status", producer.verification_status),
+                    ("last_verified_at", producer.last_verified_at),
+                    ("relative_path", f"../recipes/{producer.recipe_slug}.md"),
+                ],
+            )
+            for producer in material.produced_by_recipes
+        ),
+    )
+    _section(
+        lines,
+        "Explicit Recipe Usages",
+        _named_blocks(
+            (
+                usage.option_seed_key,
+                [
+                    ("recipe_slug", usage.recipe_slug),
+                    ("recipe_name_ko", usage.recipe_name_ko),
+                    ("process_type", usage.process_type),
+                    ("slot_seed_key", usage.slot_seed_key),
+                    ("slot_label", usage.slot_label),
+                    ("slot_order_no", usage.slot_order_no),
+                    ("option_seed_key", usage.option_seed_key),
+                    ("option_order_no", usage.option_order_no),
+                    ("required_quantity", usage.required_quantity),
+                    ("is_alternative", usage.is_alternative),
+                    ("recipe_verification_status", usage.recipe_verification_status),
+                    ("recipe_last_verified_at", usage.recipe_last_verified_at),
+                    ("relative_path", f"../recipes/{usage.recipe_slug}.md"),
+                ],
+            )
+            for usage in material.explicit_recipe_usages
+        ),
+    )
+    membership_blocks: list[str] = []
+    for membership in material.ingredient_group_memberships:
+        membership_blocks.extend(
+            _named_blocks(
+                [
+                    (
+                        membership.member_seed_key,
+                        [
+                            ("group_key", membership.group_key),
+                            ("group_name_ko", membership.group_name_ko),
+                            ("member_seed_key", membership.member_seed_key),
+                            ("member_order_no", membership.member_order_no),
+                            ("group_verification_status", membership.group_verification_status),
+                            ("group_last_verified_at", membership.group_last_verified_at),
+                        ],
+                    )
+                ]
+            )
+        )
+        membership_blocks.extend(["", "#### Evidence and Sources", ""])
+        membership_blocks.extend(_evidence_blocks(membership.sources) or ["- None"])
+    _section(lines, "Ingredient Group Memberships", membership_blocks)
+    _section(
+        lines,
+        "Ingredient Group Candidate Recipe Usages",
+        _named_blocks(
+            (
+                usage.option_seed_key,
+                [
+                    ("usage_semantics", usage.usage_semantics),
+                    ("group_key", usage.group_key),
+                    ("group_name_ko", usage.group_name_ko),
+                    ("group_verification_status", usage.group_verification_status),
+                    ("group_last_verified_at", usage.group_last_verified_at),
+                    ("recipe_slug", usage.recipe_slug),
+                    ("recipe_name_ko", usage.recipe_name_ko),
+                    ("process_type", usage.process_type),
+                    ("slot_seed_key", usage.slot_seed_key),
+                    ("slot_label", usage.slot_label),
+                    ("slot_order_no", usage.slot_order_no),
+                    ("option_seed_key", usage.option_seed_key),
+                    ("option_order_no", usage.option_order_no),
+                    ("group_required_quantity", usage.group_required_quantity),
+                    ("is_alternative", usage.is_alternative),
+                    ("recipe_verification_status", usage.recipe_verification_status),
+                    ("recipe_last_verified_at", usage.recipe_last_verified_at),
+                    ("relative_path", f"../recipes/{usage.recipe_slug}.md"),
+                ],
+            )
+            for usage in material.group_recipe_usages
+        ),
+    )
+    project_blocks: list[str] = []
+    for requirement in material.project_requirements:
+        project_blocks.extend(
+            _named_blocks(
+                [
+                    (
+                        requirement.project_material_seed_key,
+                        [
+                            ("project_slug", requirement.project_slug),
+                            ("project_name_ko", requirement.project_name_ko),
+                            ("project_material_seed_key", requirement.project_material_seed_key),
+                            ("stage_seed_key", requirement.stage_seed_key),
+                            ("stage_name", requirement.stage_name),
+                            ("required_quantity", requirement.required_quantity),
+                            ("order_no", requirement.order_no),
+                            ("notes", requirement.notes),
+                            ("source_entity_type", requirement.source_entity_type),
+                            ("source_entity_seed_key", requirement.source_entity_seed_key),
+                            ("relative_path", f"../projects/{requirement.project_slug}.md"),
+                        ],
+                    )
+                ]
+            )
+        )
+        project_blocks.extend(["", "#### Scoped Acquisition Sources", ""])
+        for source in requirement.sources:
+            fields: list[tuple[str, object]] = [
+                ("seed_key", source.seed_key),
+                ("content_slug", source.content_slug),
+                ("content_name_ko", source.content_name_ko),
+                ("quantity_per_completion", source.quantity_per_completion),
+                ("notes", source.notes),
+                ("order_no", source.order_no),
+            ]
+            if source.content_slug in exported_content_slugs:
+                fields.append(
+                    ("relative_path", f"../contents/{source.content_slug}.md")
+                )
+            project_blocks.extend(_named_blocks([(source.seed_key, fields)]))
+    _section(lines, "Project Requirements", project_blocks)
+    _section(
+        lines,
+        "Semantics",
+        [
+            "- Material identity itself has no invented aggregate verification status.",
+            "- Explicit Material usage and IngredientGroup candidate usage are different.",
+            "- Group membership does not mean the material is mandatory.",
+            "- Group required_quantity belongs to the Recipe group option.",
+            "- Project acquisition sources are scoped to that ProjectMaterial requirement.",
+            "- No personal inventory is included.",
+            "- No market price or profitability is included.",
+        ],
+    )
+    return "\n".join(lines).rstrip() + "\n"
+
+
 def _render_index(
     contents: list[KnowledgeContentOut],
     projects: list[KnowledgeProjectOut],
     recipes: list[KnowledgeRecipeOut],
+    materials: list[KnowledgeMaterialOut],
 ) -> str:
     lines = [
         GENERATED_HEADER,
@@ -550,7 +722,7 @@ def _render_index(
         "## How to use",
         "",
         "1. Search this index or the GitHub repository.",
-        "2. Open the matching Content, Project or Recipe page.",
+        "2. Open the matching Content, Project, Recipe or Material page.",
         "3. Prefer current verified evidence.",
         "4. Treat strategy and measurement separately from official fact.",
         "5. For personal state, use the caller/user source rather than this export.",
@@ -602,6 +774,20 @@ def _render_index(
         lines.append(f"| {r.name_ko} | {r.slug} | {r.process_type} | "
                      f"{r.result_material_name_ko} | {r.verification_status} | "
                      f"{r.last_verified_at} | [open](recipes/{r.slug}.md) |")
+    lines.extend(
+        [
+            "",
+            "## Materials",
+            "",
+            "| Name | Key | Unit | Path |",
+            "| --- | --- | --- | --- |",
+        ]
+    )
+    for material in sorted(materials, key=lambda item: (item.name_ko, item.key)):
+        lines.append(
+            f"| {material.name_ko} | {material.key} | {material.unit} | "
+            f"[open](materials/{material.key}.md) |"
+        )
     return "\n".join(lines).rstrip() + "\n"
 
 
@@ -609,9 +795,20 @@ def _render_manifest(
     contents: list[KnowledgeContentOut],
     projects: list[KnowledgeProjectOut],
     recipes: list[KnowledgeRecipeOut],
+    materials: list[KnowledgeMaterialOut],
 ) -> str:
     payload = {
-        "schema_version": 2,
+        "schema_version": 3,
+        "material_count": len(materials),
+        "materials": [
+            {
+                "key": material.key,
+                "name_ko": material.name_ko,
+                "unit": material.unit,
+                "path": f"materials/{material.key}.md",
+            }
+            for material in sorted(materials, key=lambda item: item.key)
+        ],
         "recipe_count": len(recipes),
         "recipes": [
             {"slug": r.slug, "name_ko": r.name_ko, "process_type": r.process_type,
@@ -718,8 +915,18 @@ def build_ai_exports(
             recipe,
             dependency_index[recipe.slug],
         )
-    files["INDEX.md"] = _render_index(contents, projects, recipes)
-    files["manifest.json"] = _render_manifest(contents, projects, recipes)
+    materials = list_knowledge_materials(session)
+    files.update(
+        {
+            f"materials/{material.key}.md": render_material_markdown(
+                material,
+                exported_content_slugs,
+            )
+            for material in materials
+        }
+    )
+    files["INDEX.md"] = _render_index(contents, projects, recipes, materials)
+    files["manifest.json"] = _render_manifest(contents, projects, recipes, materials)
     return dict(sorted(files.items()))
 
 
@@ -814,7 +1021,8 @@ def _run(command: str) -> int:
             f"AI export written: {len(expected)} files "
             f"({sum(path.startswith('contents/') for path in expected)} contents, "
             f"{sum(path.startswith('projects/') for path in expected)} projects, "
-            f"{sum(path.startswith('recipes/') for path in expected)} recipes)"
+            f"{sum(path.startswith('recipes/') for path in expected)} recipes, "
+            f"{sum(path.startswith('materials/') for path in expected)} materials)"
         )
         return 0
 
