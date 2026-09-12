@@ -153,12 +153,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 ### Current evidence
 
-### `recipe.concentration-elixir.formula::alchemy-advanced-guide`
+### `recipe.concentration-elixir.formula::alchemy-guide`
 
-- evidence_seed_key: "recipe.concentration-elixir.formula::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.concentration-elixir.formula::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -178,7 +178,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.concentration-elixir.formula::codex-concentration-elixir-19"
 - source_id: "codex-concentration-elixir-19"
 - title: "집중의 비약"
-- url: "https://bdocodex.com/kr/recipe/19/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/19/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -198,7 +198,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.concentration-elixir.formula::codex-concentration-elixir-473"
 - source_id: "codex-concentration-elixir-473"
 - title: "집중의 비약"
-- url: "https://bdocodex.com/kr/recipe/473/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/473/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -258,7 +258,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.concentration-elixir.skill::codex-concentration-elixir-19"
 - source_id: "codex-concentration-elixir-19"
 - title: "집중의 비약"
-- url: "https://bdocodex.com/kr/recipe/19/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/19/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -278,7 +278,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.concentration-elixir.skill::codex-concentration-elixir-473"
 - source_id: "codex-concentration-elixir-473"
 - title: "집중의 비약"
-- url: "https://bdocodex.com/kr/recipe/473/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/473/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -293,12 +293,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.concentration-elixir.ingredient.bear-blood.option.bear-blood.quantity::alchemy-advanced-guide`
+### `recipe.concentration-elixir.ingredient.bear-blood.option.bear-blood.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.concentration-elixir.ingredient.bear-blood.option.bear-blood.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.concentration-elixir.ingredient.bear-blood.option.bear-blood.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -318,7 +318,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.concentration-elixir.ingredient.bear-blood.option.bear-blood.quantity::codex-concentration-elixir-19"
 - source_id: "codex-concentration-elixir-19"
 - title: "집중의 비약"
-- url: "https://bdocodex.com/kr/recipe/19/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/19/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -338,7 +338,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.concentration-elixir.ingredient.bear-blood.option.bear-blood.quantity::codex-concentration-elixir-473"
 - source_id: "codex-concentration-elixir-473"
 - title: "집중의 비약"
-- url: "https://bdocodex.com/kr/recipe/473/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/473/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -373,12 +373,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.concentration-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity::alchemy-advanced-guide`
+### `recipe.concentration-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.concentration-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.concentration-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -398,7 +398,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.concentration-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity::codex-concentration-elixir-19"
 - source_id: "codex-concentration-elixir-19"
 - title: "집중의 비약"
-- url: "https://bdocodex.com/kr/recipe/19/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/19/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -418,7 +418,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.concentration-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity::codex-concentration-elixir-473"
 - source_id: "codex-concentration-elixir-473"
 - title: "집중의 비약"
-- url: "https://bdocodex.com/kr/recipe/473/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/473/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -453,12 +453,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.concentration-elixir.ingredient.cloud-mushroom.option.cloud-mushroom.quantity::alchemy-advanced-guide`
+### `recipe.concentration-elixir.ingredient.cloud-mushroom.option.cloud-mushroom.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.concentration-elixir.ingredient.cloud-mushroom.option.cloud-mushroom.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.concentration-elixir.ingredient.cloud-mushroom.option.cloud-mushroom.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -478,7 +478,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.concentration-elixir.ingredient.cloud-mushroom.option.cloud-mushroom.quantity::codex-concentration-elixir-19"
 - source_id: "codex-concentration-elixir-19"
 - title: "집중의 비약"
-- url: "https://bdocodex.com/kr/recipe/19/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/19/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -498,7 +498,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.concentration-elixir.ingredient.cloud-mushroom.option.cloud-mushroom.quantity::codex-concentration-elixir-473"
 - source_id: "codex-concentration-elixir-473"
 - title: "집중의 비약"
-- url: "https://bdocodex.com/kr/recipe/473/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/473/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -533,12 +533,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.concentration-elixir.ingredient.wild-herb.option.weed.quantity::alchemy-advanced-guide`
+### `recipe.concentration-elixir.ingredient.wild-herb.option.weed.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.concentration-elixir.ingredient.wild-herb.option.weed.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.concentration-elixir.ingredient.wild-herb.option.weed.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -558,7 +558,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.concentration-elixir.ingredient.wild-herb.option.weed.quantity::codex-concentration-elixir-473"
 - source_id: "codex-concentration-elixir-473"
 - title: "집중의 비약"
-- url: "https://bdocodex.com/kr/recipe/473/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/473/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -573,12 +573,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.concentration-elixir.ingredient.wild-herb.option.wild-grass.quantity::alchemy-advanced-guide`
+### `recipe.concentration-elixir.ingredient.wild-herb.option.wild-grass.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.concentration-elixir.ingredient.wild-herb.option.wild-grass.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.concentration-elixir.ingredient.wild-herb.option.wild-grass.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -598,7 +598,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.concentration-elixir.ingredient.wild-herb.option.wild-grass.quantity::codex-concentration-elixir-19"
 - source_id: "codex-concentration-elixir-19"
 - title: "집중의 비약"
-- url: "https://bdocodex.com/kr/recipe/19/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/19/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null

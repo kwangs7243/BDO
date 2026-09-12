@@ -69,7 +69,7 @@ V1.9V는 동일한 15 verified Recipe 위에서 producer result Material과 cons
 
 V1.9W는 새 seed 없이 active Material 78개를 first-class canonical read/search/export resource로 투영한다. 파생 관계는 producer Recipe 15개, explicit Recipe usage 51개, IngredientGroup membership 35개, group candidate usage 99개, Project requirement 9개이며 ProjectMaterialSource 9개는 해당 Project requirement 아래에만 유지한다. Material aggregate verification, global acquisition, personal inventory, 재귀 생산 계획, output/yield와 시장·수익 계산은 만들지 않는다.
 
-V1.9X는 기존 Recipe 모델을 schema 변경 없이 formulation-style Cooking과 Alchemy에 공용화하고 맑은 액체 시약·순수한 가루 시약·방어의 비약·집중의 비약을 추가했다. active Recipe 19개, Material 91개, Slot/Option 76/87개이며 직접 dependency는 8개다. 야생 들풀/잡초는 Recipe별 explicit OR option이고 혈액·수액·버섯 global group은 만들지 않는다. Alchemy `required_quantity`는 1회의 완전 배합이며 감소 투입 성공 확률, output/yield, mastery, 경제·optimizer, Processing은 제외한다. Packet의 신규 Source 목록 중 `alchemy-basic-guide`는 기존 stable ID와 Content Evidence가 이미 사용하므로 재사용해 실제 Source는 221개다.
+V1.9X는 기존 Recipe 모델을 schema 변경 없이 formulation-style Cooking과 Alchemy에 공용화하고 맑은 액체 시약·순수한 가루 시약·방어의 비약·집중의 비약을 추가했다. active Recipe 19개, Material 91개, Slot/Option 76/87개이며 직접 dependency는 8개다. 야생 들풀/잡초는 Recipe별 explicit OR option이고 혈액·수액·버섯 global group은 만들지 않는다. Alchemy `required_quantity`는 1회의 완전 배합이며 감소 투입 성공 확률, output/yield, mastery, 경제·optimizer, Processing은 제외한다. Repository audit에서 공식 Wiki 99의 `alchemy-basic-guide`와 Wiki 100의 `alchemy-guide`가 모두 기존 stable Source임을 확인해 재사용했으며, 신규 Source는 canonical tracking-free URL을 사용하는 BDO Codex 7개로 실제 Source는 220개다.
 
 ## 장기 프로젝트
 - [S] 중범선 : 점진

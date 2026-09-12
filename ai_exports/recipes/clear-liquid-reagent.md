@@ -182,12 +182,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 ### Current evidence
 
-### `recipe.clear-liquid-reagent.formula::alchemy-advanced-guide`
+### `recipe.clear-liquid-reagent.formula::alchemy-guide`
 
-- evidence_seed_key: "recipe.clear-liquid-reagent.formula::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.clear-liquid-reagent.formula::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -207,7 +207,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.clear-liquid-reagent.formula::codex-clear-liquid-reagent-47"
 - source_id: "codex-clear-liquid-reagent-47"
 - title: "맑은 액체 시약"
-- url: "https://bdocodex.com/kr/recipe/47/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/47/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -227,7 +227,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.clear-liquid-reagent.formula::codex-clear-liquid-reagent-648"
 - source_id: "codex-clear-liquid-reagent-648"
 - title: "맑은 액체 시약"
-- url: "https://bdocodex.com/kr/recipe/648/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/648/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -282,12 +282,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.clear-liquid-reagent.skill::alchemy-advanced-guide`
+### `recipe.clear-liquid-reagent.skill::alchemy-guide`
 
-- evidence_seed_key: "recipe.clear-liquid-reagent.skill::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.clear-liquid-reagent.skill::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -307,7 +307,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.clear-liquid-reagent.skill::codex-clear-liquid-reagent-47"
 - source_id: "codex-clear-liquid-reagent-47"
 - title: "맑은 액체 시약"
-- url: "https://bdocodex.com/kr/recipe/47/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/47/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -327,7 +327,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.clear-liquid-reagent.skill::codex-clear-liquid-reagent-648"
 - source_id: "codex-clear-liquid-reagent-648"
 - title: "맑은 액체 시약"
-- url: "https://bdocodex.com/kr/recipe/648/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/648/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -342,12 +342,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.clear-liquid-reagent.ingredient.dawn-herb.option.dawn-herb.quantity::alchemy-advanced-guide`
+### `recipe.clear-liquid-reagent.ingredient.dawn-herb.option.dawn-herb.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.dawn-herb.option.dawn-herb.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.dawn-herb.option.dawn-herb.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -367,7 +367,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.dawn-herb.option.dawn-herb.quantity::codex-clear-liquid-reagent-47"
 - source_id: "codex-clear-liquid-reagent-47"
 - title: "맑은 액체 시약"
-- url: "https://bdocodex.com/kr/recipe/47/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/47/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -387,7 +387,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.dawn-herb.option.dawn-herb.quantity::codex-clear-liquid-reagent-648"
 - source_id: "codex-clear-liquid-reagent-648"
 - title: "맑은 액체 시약"
-- url: "https://bdocodex.com/kr/recipe/648/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/648/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -422,12 +422,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.clear-liquid-reagent.ingredient.salt.option.salt.quantity::alchemy-advanced-guide`
+### `recipe.clear-liquid-reagent.ingredient.salt.option.salt.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.salt.option.salt.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.salt.option.salt.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -447,7 +447,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.salt.option.salt.quantity::codex-clear-liquid-reagent-47"
 - source_id: "codex-clear-liquid-reagent-47"
 - title: "맑은 액체 시약"
-- url: "https://bdocodex.com/kr/recipe/47/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/47/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -467,7 +467,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.salt.option.salt.quantity::codex-clear-liquid-reagent-648"
 - source_id: "codex-clear-liquid-reagent-648"
 - title: "맑은 액체 시약"
-- url: "https://bdocodex.com/kr/recipe/648/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/648/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -502,12 +502,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.clear-liquid-reagent.ingredient.water.option.distilled-water.quantity::alchemy-advanced-guide`
+### `recipe.clear-liquid-reagent.ingredient.water.option.distilled-water.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.water.option.distilled-water.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.water.option.distilled-water.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -522,12 +522,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.clear-liquid-reagent.ingredient.water.option.purified-water.quantity::alchemy-advanced-guide`
+### `recipe.clear-liquid-reagent.ingredient.water.option.purified-water.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.water.option.purified-water.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.water.option.purified-water.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -547,7 +547,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.water.option.purified-water.quantity::codex-clear-liquid-reagent-47"
 - source_id: "codex-clear-liquid-reagent-47"
 - title: "맑은 액체 시약"
-- url: "https://bdocodex.com/kr/recipe/47/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/47/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -567,7 +567,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.water.option.purified-water.quantity::codex-clear-liquid-reagent-648"
 - source_id: "codex-clear-liquid-reagent-648"
 - title: "맑은 액체 시약"
-- url: "https://bdocodex.com/kr/recipe/648/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/648/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -602,12 +602,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.clear-liquid-reagent.ingredient.wild-herb.option.weed.quantity::alchemy-advanced-guide`
+### `recipe.clear-liquid-reagent.ingredient.wild-herb.option.weed.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.wild-herb.option.weed.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.wild-herb.option.weed.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -627,7 +627,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.wild-herb.option.weed.quantity::codex-clear-liquid-reagent-648"
 - source_id: "codex-clear-liquid-reagent-648"
 - title: "맑은 액체 시약"
-- url: "https://bdocodex.com/kr/recipe/648/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/648/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -642,12 +642,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.clear-liquid-reagent.ingredient.wild-herb.option.wild-grass.quantity::alchemy-advanced-guide`
+### `recipe.clear-liquid-reagent.ingredient.wild-herb.option.wild-grass.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.wild-herb.option.wild-grass.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.wild-herb.option.wild-grass.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -667,7 +667,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.clear-liquid-reagent.ingredient.wild-herb.option.wild-grass.quantity::codex-clear-liquid-reagent-47"
 - source_id: "codex-clear-liquid-reagent-47"
 - title: "맑은 액체 시약"
-- url: "https://bdocodex.com/kr/recipe/47/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/47/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null

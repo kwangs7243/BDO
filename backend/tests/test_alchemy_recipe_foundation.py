@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
+import json
 from pathlib import Path
 
 import pytest
@@ -82,7 +83,7 @@ def test_v19x_catalog_counts_and_exact_alchemy_formulas(session) -> None:
         assert session.scalar(
             select(func.count()).select_from(model).where(model.active.is_(True))
         ) == count
-    assert session.scalar(select(func.count()).select_from(Source)) == 221
+    assert session.scalar(select(func.count()).select_from(Source)) == 220
 
     expected = {
         "clear-liquid-reagent": [
@@ -149,16 +150,46 @@ def test_alchemy_evidence_counts_and_pure_powder_source_boundary(session) -> Non
     advanced_claims = {
         row.claim_key
         for row in pure_rows
-        if row.source_id == "alchemy-advanced-guide"
+        if row.source_id == "alchemy-guide"
     }
     assert advanced_claims == {"required_skill"}
-    assert "alchemy-advanced-guide" not in _source_ids(
+    assert "alchemy-guide" not in _source_ids(
         session, "recipe.pure-powder-reagent.formula"
     )
     assert all(
-        row.source_id != "alchemy-advanced-guide"
+        row.source_id != "alchemy-guide"
         for row in pure_rows
         if row.claim_key == "required_quantity"
+    )
+
+
+def test_alchemy_sources_reuse_canonical_identity_without_tracking() -> None:
+    sources = json.loads((DATA / "seed_sources.json").read_text(encoding="utf-8"))
+    by_id = {source["id"]: source for source in sources}
+    v19x_source_ids = {
+        "alchemy-basic-guide",
+        "alchemy-guide",
+        "codex-clear-liquid-reagent-47",
+        "codex-clear-liquid-reagent-648",
+        "codex-pure-powder-reagent-48",
+        "codex-pure-powder-reagent-469",
+        "codex-defense-elixir-27",
+        "codex-concentration-elixir-19",
+        "codex-concentration-elixir-473",
+    }
+
+    assert len(sources) == len(by_id) == 220
+    assert "alchemy-advanced-guide" not in by_id
+    assert by_id["alchemy-guide"]["url"] == (
+        "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
+    )
+    assert by_id["alchemy-guide"]["title"] == "연금 고급 가이드"
+    assert by_id["alchemy-guide"]["retrieved_at"] == "2026-09-12T11:55:00+09:00"
+    assert "순수한 가루 시약" in by_id["alchemy-guide"]["notes"]
+    assert all(
+        tracking_key not in by_id[source_id]["url"]
+        for source_id in v19x_source_ids
+        for tracking_key in ("utm_source=", "utm_campaign=", "utm_medium=")
     )
 
 
@@ -393,6 +424,7 @@ def test_alchemy_calculation_is_personal_state_independent_and_read_only(session
 def test_v19x_reimport_preserves_numeric_ids_and_is_idempotent(session) -> None:
     def identities():
         return {
+            "alchemy_guide": session.get(Source, "alchemy-guide").id,
             "materials": {
                 row.key: row.id
                 for row in session.scalars(

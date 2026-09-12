@@ -398,12 +398,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.purpose::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content"
 - entity_id: "alchemy-onboarding-strategy"
@@ -478,12 +478,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.summary::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content"
 - entity_id: "alchemy-onboarding-strategy"
@@ -538,12 +538,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.dependency-chain::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "alchemy-onboarding-strategy.dependency-chain"
@@ -578,12 +578,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.imperial-and-output-decision::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "alchemy-onboarding-strategy.imperial-and-output-decision"
@@ -678,12 +678,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.ingredient-sourcing::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "alchemy-onboarding-strategy.ingredient-sourcing"
@@ -738,12 +738,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.purpose-choice::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "alchemy-onboarding-strategy.purpose-choice"
@@ -798,12 +798,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.recipe-validation::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "alchemy-onboarding-strategy.recipe-validation"
@@ -838,12 +838,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.section.common-mistakes::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_section"
 - entity_id: "alchemy-onboarding-strategy.section.common-mistakes"
@@ -918,12 +918,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.section.reverse-dependency::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_section"
 - entity_id: "alchemy-onboarding-strategy.section.reverse-dependency"
@@ -958,12 +958,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.section.supply-imperial::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_section"
 - entity_id: "alchemy-onboarding-strategy.section.supply-imperial"
@@ -1058,12 +1058,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.step.check-stock-space::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.check-stock-space"
@@ -1118,12 +1118,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.step.choose-final-output::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.choose-final-output"
@@ -1158,12 +1158,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.step.choose-outlet::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.choose-outlet"
@@ -1238,12 +1238,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.step.choose-repeat-volume::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.choose-repeat-volume"
@@ -1298,12 +1298,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.step.classify-shortages::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.classify-shortages"
@@ -1358,12 +1358,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.step.confirm-ratios::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.confirm-ratios"
@@ -1398,12 +1398,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.step.improve-one-bottleneck::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.improve-one-bottleneck"
@@ -1458,12 +1458,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.step.run-small-batch::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.run-small-batch"
@@ -1498,12 +1498,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.step.trace-intermediates::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.trace-intermediates"
@@ -1558,12 +1558,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-onboarding-strategy.claim.step.verify-recipe::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.verify-recipe"

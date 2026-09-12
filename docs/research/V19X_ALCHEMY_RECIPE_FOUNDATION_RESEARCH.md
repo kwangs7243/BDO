@@ -20,7 +20,7 @@ inventory, or a frontend feature.
 
 Processing remains a separate future domain. The packet supplied the official
 Processing guide reference
-<https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=98&utm_source=chatgpt.com>
+<https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=98>
 only to document why method, knowledge-condition, mass-processing,
 success-probability, and result-quantity semantics must not be forced into the
 current Recipe contract. It is not imported as V1.9X Recipe Evidence.
@@ -30,23 +30,24 @@ current Recipe contract. It is not imported as V1.9X Recipe Evidence.
 | Source | Authority in V1.9X |
 | --- | --- |
 | `alchemy-basic-guide` | Full-formulation, one-attempt/continuous-production, underfilled failure possibility and variable output semantics; never an individual exact formula |
-| `alchemy-advanced-guide` | Alchemy similarity, beginner skill vocabulary, Clear Liquid Reagent, Defense Elixir, Concentration Elixir and selected alternatives |
+| `alchemy-guide` | Existing Wiki 100 identity; Alchemy similarity, beginner skill vocabulary, Clear Liquid Reagent, Defense Elixir, Concentration Elixir and selected alternatives |
 | BDO Codex Recipe pages | Exact named formula, skill and option quantity only where the packet assigns ownership |
 | `inven-cooking-recipe-db` | Exact displayed formula cross-check; not skill or undocumented substitution authority |
 | `life-level-experience-guide` | Existing general skill-tier vocabulary provenance; not attached to individual Recipe claims |
 
-The packet called `alchemy-basic-guide` one of nine new Sources, but that
-stable ID and official URL already existed and were referenced by Content
-Evidence. V1.9X preserves and refreshes that identity instead of inserting a
-duplicate or rewriting historical Evidence. Therefore eight Source rows are
-new and the actual Source total is 221 rather than the packet's arithmetic
-target of 222.
+The initial packet incorrectly treated both official Alchemy guides as new.
+Repository audit found that `alchemy-basic-guide` (Wiki 99) and
+`alchemy-guide` (Wiki 100) already existed and were referenced by Content
+Evidence. V1.9X preserves and refreshes both stable identities instead of
+inserting tracking-parameter aliases or rewriting historical Evidence. Only
+seven BDO Codex Source rows are new, all with canonical tracking-free URLs,
+and the actual Source total is 220.
 
 ### Pure Powder conflict boundary
 
 The packet identifies the official advanced guide's Pure Powder row as
 conflicting with independent recipe databases. Therefore
-`alchemy-advanced-guide` owns only the Pure Powder `required_skill` claim.
+`alchemy-guide` owns only the Pure Powder `required_skill` claim.
 It owns neither the Recipe `ingredients` claim nor any Pure Powder
 `required_quantity` claim. No convenient value is promoted from the
 conflicting row.
@@ -101,7 +102,7 @@ claims.
 
 | Domain | V1.9W | V1.9X |
 | --- | ---: | ---: |
-| Source | 213 | 221 |
+| Source | 213 | 220 |
 | Content | 294 | 294 |
 | Material | 78 | 91 |
 | IngredientGroup / member | 7 / 35 | 7 / 35 |

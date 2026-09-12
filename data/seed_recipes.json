@@ -2869,7 +2869,7 @@
           "entity_type": "recipe",
           "entity_seed_key": "clear-liquid-reagent",
           "claim_key": "ingredients",
-          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -2878,7 +2878,7 @@
           "entity_type": "recipe",
           "entity_seed_key": "clear-liquid-reagent",
           "claim_key": "required_skill",
-          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648"],
+          "source_ids": ["alchemy-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -2896,7 +2896,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "clear-liquid-reagent.ingredient.water.option.purified-water",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -2905,7 +2905,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "clear-liquid-reagent.ingredient.water.option.distilled-water",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide"],
+          "source_ids": ["alchemy-guide"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -2914,7 +2914,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "clear-liquid-reagent.ingredient.salt.option.salt",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -2923,7 +2923,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "clear-liquid-reagent.ingredient.dawn-herb.option.dawn-herb",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -2932,7 +2932,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "clear-liquid-reagent.ingredient.wild-herb.option.wild-grass",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-47", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-clear-liquid-reagent-47", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -2941,7 +2941,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "clear-liquid-reagent.ingredient.wild-herb.option.weed",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-648"],
+          "source_ids": ["alchemy-guide", "codex-clear-liquid-reagent-648"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         }
@@ -3031,7 +3031,7 @@
           "entity_type": "recipe",
           "entity_seed_key": "pure-powder-reagent",
           "claim_key": "required_skill",
-          "source_ids": ["alchemy-advanced-guide", "codex-pure-powder-reagent-48", "codex-pure-powder-reagent-469"],
+          "source_ids": ["alchemy-guide", "codex-pure-powder-reagent-48", "codex-pure-powder-reagent-469"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -3160,7 +3160,7 @@
           "entity_type": "recipe",
           "entity_seed_key": "defense-elixir",
           "claim_key": "ingredients",
-          "source_ids": ["alchemy-advanced-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -3187,7 +3187,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "defense-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -3196,7 +3196,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "defense-elixir.ingredient.ash-sap.option.ash-sap",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -3205,7 +3205,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "defense-elixir.ingredient.pig-blood.option.pig-blood",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -3214,7 +3214,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "defense-elixir.ingredient.purified-water.option.purified-water",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         }
@@ -3295,7 +3295,7 @@
           "entity_type": "recipe",
           "entity_seed_key": "concentration-elixir",
           "claim_key": "ingredients",
-          "source_ids": ["alchemy-advanced-guide", "codex-concentration-elixir-19", "codex-concentration-elixir-473", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-concentration-elixir-19", "codex-concentration-elixir-473", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -3322,7 +3322,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "concentration-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-concentration-elixir-19", "codex-concentration-elixir-473", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-concentration-elixir-19", "codex-concentration-elixir-473", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -3331,7 +3331,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "concentration-elixir.ingredient.cloud-mushroom.option.cloud-mushroom",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-concentration-elixir-19", "codex-concentration-elixir-473", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-concentration-elixir-19", "codex-concentration-elixir-473", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -3340,7 +3340,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "concentration-elixir.ingredient.bear-blood.option.bear-blood",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-concentration-elixir-19", "codex-concentration-elixir-473", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-concentration-elixir-19", "codex-concentration-elixir-473", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -3349,7 +3349,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "concentration-elixir.ingredient.wild-herb.option.wild-grass",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-concentration-elixir-19", "inven-cooking-recipe-db"],
+          "source_ids": ["alchemy-guide", "codex-concentration-elixir-19", "inven-cooking-recipe-db"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         },
@@ -3358,7 +3358,7 @@
           "entity_type": "recipe_ingredient_option",
           "entity_seed_key": "concentration-elixir.ingredient.wild-herb.option.weed",
           "claim_key": "required_quantity",
-          "source_ids": ["alchemy-advanced-guide", "codex-concentration-elixir-473"],
+          "source_ids": ["alchemy-guide", "codex-concentration-elixir-473"],
           "verification_status": "verified",
           "last_verified_at": "2026-09-12"
         }

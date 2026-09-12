@@ -95,12 +95,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - evidence_seed_key: "alchemy-products-and-byproducts.claim.summary::alchemy-guide"
 - source_id: "alchemy-guide"
-- title: "연금"
+- title: "연금 고급 가이드"
 - url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content"
 - entity_id: "alchemy-products-and-byproducts"

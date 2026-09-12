@@ -8,13 +8,13 @@
 
 ## 현재 baseline
 
-- Source: 221
+- Source: 220
 - Content: 294 (모두 active)
 - 지식 역할: FACT 280 / STRATEGY 63 / MEASUREMENT 11
 - Project Tracker: Project 1 / Stage 4 / Carrack Material 9 / ProjectMaterial 9 / MaterialSource 9
 - Shared Material catalog: 91 active (기존 Carrack 9 포함)
 - Formulation Recipe: Recipe 19 (Cooking 15 / Alchemy 4) / IngredientGroup 7 / Members 35 / Slots 76 / Options 87 (모두 active, 19개 Recipe aggregate verified)
-- 테스트: backend 518 passed / frontend 57 passed
+- 테스트: backend 519 passed / frontend 57 passed
 - 주요 데이터 영역: Routine, Life Foundation / Deep Packs, Combat Foundation, Grind Spot, Boss / Black Shrine / World Boss, Atoraxxion / Last Gladiius Weekly, Account / Main Quest / Magnus Progression Foundation, Adventure Log Current Catalog, Fairy / Pets Foundation, Guild Boss Current System, Blood Altar 24-stage Current System
 
 ## 현재 제품 역할
@@ -188,12 +188,12 @@ uv run uvicorn app.main:app --reload
 
 ## 검증 명령과 결과
 
-2026-09-12 완료 확인 기준 backend 테스트는 518 passed, frontend 테스트는 57 passed다.
+2026-09-12 완료 확인 기준 backend 테스트는 519 passed, frontend 테스트는 57 passed다.
 
 ```powershell
 cd backend
 uv run pytest
-# 518 passed
+# 519 passed
 
 cd ../frontend
 npm run typecheck

@@ -141,7 +141,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.pure-powder-reagent.formula::codex-pure-powder-reagent-469"
 - source_id: "codex-pure-powder-reagent-469"
 - title: "순수한 가루 시약"
-- url: "https://bdocodex.com/kr/recipe/469/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/469/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -161,7 +161,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.pure-powder-reagent.formula::codex-pure-powder-reagent-48"
 - source_id: "codex-pure-powder-reagent-48"
 - title: "순수한 가루 시약"
-- url: "https://bdocodex.com/kr/recipe/48/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/48/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -216,12 +216,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.pure-powder-reagent.skill::alchemy-advanced-guide`
+### `recipe.pure-powder-reagent.skill::alchemy-guide`
 
-- evidence_seed_key: "recipe.pure-powder-reagent.skill::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.pure-powder-reagent.skill::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -241,7 +241,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.pure-powder-reagent.skill::codex-pure-powder-reagent-469"
 - source_id: "codex-pure-powder-reagent-469"
 - title: "순수한 가루 시약"
-- url: "https://bdocodex.com/kr/recipe/469/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/469/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -261,7 +261,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.pure-powder-reagent.skill::codex-pure-powder-reagent-48"
 - source_id: "codex-pure-powder-reagent-48"
 - title: "순수한 가루 시약"
-- url: "https://bdocodex.com/kr/recipe/48/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/48/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -281,7 +281,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.pure-powder-reagent.ingredient.silver-azalea.option.silver-azalea.quantity::codex-pure-powder-reagent-469"
 - source_id: "codex-pure-powder-reagent-469"
 - title: "순수한 가루 시약"
-- url: "https://bdocodex.com/kr/recipe/469/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/469/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -301,7 +301,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.pure-powder-reagent.ingredient.silver-azalea.option.silver-azalea.quantity::codex-pure-powder-reagent-48"
 - source_id: "codex-pure-powder-reagent-48"
 - title: "순수한 가루 시약"
-- url: "https://bdocodex.com/kr/recipe/48/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/48/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -341,7 +341,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.pure-powder-reagent.ingredient.sugar.option.sugar.quantity::codex-pure-powder-reagent-469"
 - source_id: "codex-pure-powder-reagent-469"
 - title: "순수한 가루 시약"
-- url: "https://bdocodex.com/kr/recipe/469/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/469/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -361,7 +361,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.pure-powder-reagent.ingredient.sugar.option.sugar.quantity::codex-pure-powder-reagent-48"
 - source_id: "codex-pure-powder-reagent-48"
 - title: "순수한 가루 시약"
-- url: "https://bdocodex.com/kr/recipe/48/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/48/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -401,7 +401,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.pure-powder-reagent.ingredient.water.option.purified-water.quantity::codex-pure-powder-reagent-469"
 - source_id: "codex-pure-powder-reagent-469"
 - title: "순수한 가루 시약"
-- url: "https://bdocodex.com/kr/recipe/469/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/469/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -421,7 +421,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.pure-powder-reagent.ingredient.water.option.purified-water.quantity::codex-pure-powder-reagent-48"
 - source_id: "codex-pure-powder-reagent-48"
 - title: "순수한 가루 시약"
-- url: "https://bdocodex.com/kr/recipe/48/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/48/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -461,7 +461,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.pure-powder-reagent.ingredient.wild-herb.option.weed.quantity::codex-pure-powder-reagent-469"
 - source_id: "codex-pure-powder-reagent-469"
 - title: "순수한 가루 시약"
-- url: "https://bdocodex.com/kr/recipe/469/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/469/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -481,7 +481,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.pure-powder-reagent.ingredient.wild-herb.option.wild-grass.quantity::codex-pure-powder-reagent-48"
 - source_id: "codex-pure-powder-reagent-48"
 - title: "순수한 가루 시약"
-- url: "https://bdocodex.com/kr/recipe/48/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/48/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null

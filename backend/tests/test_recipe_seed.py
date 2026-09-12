@@ -51,7 +51,7 @@ def test_recipe_catalog_exact_counts_and_formulas(session):
     for model, count in [(Material, 91), (IngredientGroup, 7), (IngredientGroupMember, 35),
                          (Recipe, 19), (RecipeIngredientSlot, 76), (RecipeIngredientOption, 87)]:
         assert session.scalar(select(func.count()).select_from(model).where(model.active.is_(True))) == count
-    assert session.scalar(select(func.count()).select_from(Source)) == 221
+    assert session.scalar(select(func.count()).select_from(Source)) == 220
     expected = {
         "beer": [[("grain", 5)], [("mineral-water", 6), ("purified-water", 3)],
                  [("leavening-agent", 2)], [("sugar", 1)]],

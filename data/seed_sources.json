@@ -698,11 +698,12 @@
   {
     "id": "alchemy-guide",
     "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100",
-    "title": "연금",
+    "title": "연금 고급 가이드",
     "publisher": "Pearl Abyss",
     "source_type": "official_guide",
-    "retrieved_at": "2026-09-03T12:00:00+09:00",
-    "region": "KR"
+    "retrieved_at": "2026-09-12T11:55:00+09:00",
+    "region": "KR",
+    "notes": "연금과 요리의 유사성, 맑은 액체 시약·방어의 비약·집중의 비약 및 일부 대체재 근거. 순수한 가루 시약 exact formula와 required_quantity는 공식 페이지 충돌 때문에 사용하지 않는다."
   },
   {
     "id": "alchemy-stone-guide",
@@ -1745,19 +1746,8 @@
     "notes": "프랭크 샌드위치의 전문 1, 두 소시지 option과 나머지 재료별 1회 수량 근거."
   },
   {
-    "id": "alchemy-advanced-guide",
-    "url": "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com",
-    "title": "연금 고급 가이드",
-    "publisher": "Pearl Abyss",
-    "source_type": "official_guide",
-    "published_at": null,
-    "retrieved_at": "2026-09-12T11:55:00+09:00",
-    "region": "KR",
-    "notes": "연금 배합 유사성, 초급 skill vocabulary, 맑은 액체 시약·방어의 비약·집중의 비약의 지정 배합과 일부 대체 재료 근거. 순수한 가루 시약의 exact formula와 required_quantity에는 공식 페이지 충돌 때문에 사용하지 않는다."
-  },
-  {
     "id": "codex-clear-liquid-reagent-47",
-    "url": "https://bdocodex.com/kr/recipe/47/?utm_source=chatgpt.com",
+    "url": "https://bdocodex.com/kr/recipe/47/",
     "title": "맑은 액체 시약",
     "publisher": "BDO Codex",
     "source_type": "third_party_database",
@@ -1768,7 +1758,7 @@
   },
   {
     "id": "codex-clear-liquid-reagent-648",
-    "url": "https://bdocodex.com/kr/recipe/648/?utm_source=chatgpt.com",
+    "url": "https://bdocodex.com/kr/recipe/648/",
     "title": "맑은 액체 시약",
     "publisher": "BDO Codex",
     "source_type": "third_party_database",
@@ -1779,7 +1769,7 @@
   },
   {
     "id": "codex-pure-powder-reagent-48",
-    "url": "https://bdocodex.com/kr/recipe/48/?utm_source=chatgpt.com",
+    "url": "https://bdocodex.com/kr/recipe/48/",
     "title": "순수한 가루 시약",
     "publisher": "BDO Codex",
     "source_type": "third_party_database",
@@ -1790,7 +1780,7 @@
   },
   {
     "id": "codex-pure-powder-reagent-469",
-    "url": "https://bdocodex.com/kr/recipe/469/?utm_source=chatgpt.com",
+    "url": "https://bdocodex.com/kr/recipe/469/",
     "title": "순수한 가루 시약",
     "publisher": "BDO Codex",
     "source_type": "third_party_database",
@@ -1801,7 +1791,7 @@
   },
   {
     "id": "codex-defense-elixir-27",
-    "url": "https://bdocodex.com/kr/recipe/27/?utm_source=chatgpt.com",
+    "url": "https://bdocodex.com/kr/recipe/27/",
     "title": "방어의 비약",
     "publisher": "BDO Codex",
     "source_type": "third_party_database",
@@ -1812,7 +1802,7 @@
   },
   {
     "id": "codex-concentration-elixir-19",
-    "url": "https://bdocodex.com/kr/recipe/19/?utm_source=chatgpt.com",
+    "url": "https://bdocodex.com/kr/recipe/19/",
     "title": "집중의 비약",
     "publisher": "BDO Codex",
     "source_type": "third_party_database",
@@ -1823,7 +1813,7 @@
   },
   {
     "id": "codex-concentration-elixir-473",
-    "url": "https://bdocodex.com/kr/recipe/473/?utm_source=chatgpt.com",
+    "url": "https://bdocodex.com/kr/recipe/473/",
     "title": "집중의 비약",
     "publisher": "BDO Codex",
     "source_type": "third_party_database",

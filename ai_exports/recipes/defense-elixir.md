@@ -143,12 +143,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 ### Current evidence
 
-### `recipe.defense-elixir.formula::alchemy-advanced-guide`
+### `recipe.defense-elixir.formula::alchemy-guide`
 
-- evidence_seed_key: "recipe.defense-elixir.formula::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.defense-elixir.formula::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -168,7 +168,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.defense-elixir.formula::codex-defense-elixir-27"
 - source_id: "codex-defense-elixir-27"
 - title: "방어의 비약"
-- url: "https://bdocodex.com/kr/recipe/27/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/27/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -228,7 +228,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.defense-elixir.skill::codex-defense-elixir-27"
 - source_id: "codex-defense-elixir-27"
 - title: "방어의 비약"
-- url: "https://bdocodex.com/kr/recipe/27/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/27/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -243,12 +243,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.defense-elixir.ingredient.ash-sap.option.ash-sap.quantity::alchemy-advanced-guide`
+### `recipe.defense-elixir.ingredient.ash-sap.option.ash-sap.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.defense-elixir.ingredient.ash-sap.option.ash-sap.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.defense-elixir.ingredient.ash-sap.option.ash-sap.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -268,7 +268,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.defense-elixir.ingredient.ash-sap.option.ash-sap.quantity::codex-defense-elixir-27"
 - source_id: "codex-defense-elixir-27"
 - title: "방어의 비약"
-- url: "https://bdocodex.com/kr/recipe/27/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/27/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -303,12 +303,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.defense-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity::alchemy-advanced-guide`
+### `recipe.defense-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.defense-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.defense-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -328,7 +328,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.defense-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity::codex-defense-elixir-27"
 - source_id: "codex-defense-elixir-27"
 - title: "방어의 비약"
-- url: "https://bdocodex.com/kr/recipe/27/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/27/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -363,12 +363,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.defense-elixir.ingredient.pig-blood.option.pig-blood.quantity::alchemy-advanced-guide`
+### `recipe.defense-elixir.ingredient.pig-blood.option.pig-blood.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.defense-elixir.ingredient.pig-blood.option.pig-blood.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.defense-elixir.ingredient.pig-blood.option.pig-blood.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -388,7 +388,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.defense-elixir.ingredient.pig-blood.option.pig-blood.quantity::codex-defense-elixir-27"
 - source_id: "codex-defense-elixir-27"
 - title: "방어의 비약"
-- url: "https://bdocodex.com/kr/recipe/27/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/27/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null
@@ -423,12 +423,12 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - active: true
 - is_active: true
 
-### `recipe.defense-elixir.ingredient.purified-water.option.purified-water.quantity::alchemy-advanced-guide`
+### `recipe.defense-elixir.ingredient.purified-water.option.purified-water.quantity::alchemy-guide`
 
-- evidence_seed_key: "recipe.defense-elixir.ingredient.purified-water.option.purified-water.quantity::alchemy-advanced-guide"
-- source_id: "alchemy-advanced-guide"
+- evidence_seed_key: "recipe.defense-elixir.ingredient.purified-water.option.purified-water.quantity::alchemy-guide"
+- source_id: "alchemy-guide"
 - title: "연금 고급 가이드"
-- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100&utm_source=chatgpt.com"
+- url: "https://www.kr.playblackdesert.com/ko-KR/Wiki?wikiNo=100"
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
@@ -448,7 +448,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - evidence_seed_key: "recipe.defense-elixir.ingredient.purified-water.option.purified-water.quantity::codex-defense-elixir-27"
 - source_id: "codex-defense-elixir-27"
 - title: "방어의 비약"
-- url: "https://bdocodex.com/kr/recipe/27/?utm_source=chatgpt.com"
+- url: "https://bdocodex.com/kr/recipe/27/"
 - publisher: "BDO Codex"
 - source_type: "third_party_database"
 - published_at: null

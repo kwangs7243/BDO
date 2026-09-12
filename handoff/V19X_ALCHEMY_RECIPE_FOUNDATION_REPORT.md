@@ -28,7 +28,7 @@ Added Recipes:
 
 | Domain | Before | After | Change |
 | --- | ---: | ---: | ---: |
-| Source | 213 | 221 | +8 |
+| Source | 213 | 220 | +7 |
 | Content | 294 | 294 | 0 |
 | FACT / STRATEGY / MEASUREMENT | 280 / 63 / 11 | 280 / 63 / 11 | 0 |
 | Content Relation | 521 | 521 | 0 |
@@ -51,26 +51,25 @@ All 294 Content rows remain active. AI export manifest schema remains version
 
 ## Source identity deviation
 
-The supplied packet counted `alchemy-basic-guide` among nine new Sources and
-therefore expected 222 total Sources. The repository already contained that
-exact stable Source ID and official Wiki 99 URL, and existing Content Evidence
-referenced it.
+The initial packet treated both official Alchemy guides as new. Repository
+audit found that `alchemy-basic-guide` (Wiki 99) and `alchemy-guide`
+(Wiki 100) already existed before V1.9X and were referenced by historical
+Content Evidence.
 
-Creating a duplicate row or renaming the historical identity would violate
-stable Source identity and history preservation. V1.9X therefore refreshes
-the existing Source's retrieval metadata and notes, then adds the remaining
-eight Sources. The canonical result is 221 unique Source IDs and 221 unique
-URLs. No game fact or replacement Source was invented to force the arithmetic
-target.
+V1.9X reuses and refreshes both stable official Source identities. The
+tracking-parameter alias `alchemy-advanced-guide` was removed, all new BDO
+Codex URLs were normalized without tracking parameters, and only seven BDO
+Codex Sources are new. The canonical result is 220 unique Source IDs and 220
+unique canonical URLs.
 
 ## Evidence boundaries
 
 - `alchemy-basic-guide` owns full-formulation and one-attempt semantics only,
   not individual exact formulas.
-- `alchemy-advanced-guide` owns the packet-approved formulas and selected
+- `alchemy-guide` owns the packet-approved formulas and selected
   alternatives for Clear Liquid Reagent, Defense Elixir, and Concentration
   Elixir.
-- For Pure Powder Reagent, `alchemy-advanced-guide` owns only
+- For Pure Powder Reagent, `alchemy-guide` owns only
   `required_skill`. It is excluded from the `ingredients` claim and every
   `required_quantity` claim because the packet identifies its exact formula
   row as conflicting.
@@ -123,17 +122,19 @@ Not implemented:
 
 ## Tests and validation
 
-- V1.9X focused semantic and corrected export regression:
-  `16 passed`
+- V1.9X focused semantic:
+  `14 passed`
+- Related Recipe/Material/Evidence/export regression:
+  `95 passed`
 - Backend full:
-  `518 passed, 1 existing Starlette deprecation warning`
+  `519 passed, 1 existing Starlette deprecation warning`
 - Frontend typecheck: passed
 - Frontend lint: passed
 - Frontend tests: `14 files / 57 passed`
 - Frontend build: passed
 - AI export write: `407 files`
 - AI export freshness: passed
-- Source IDs / URLs: `221 / 221 unique`
+- Source IDs / URLs: `220 / 220 unique`
 
 The V1.9X tests cover exact formulas and skill tiers, explicit OR semantics,
 Pure Powder Source exclusion, no blood substitution, process-aware read,
