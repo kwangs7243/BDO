@@ -458,9 +458,11 @@ class KnowledgeMaterialOut(BaseModel):
 class KnowledgeRecipeDependencyEdgeOut(BaseModel):
     producer_recipe_slug: str
     producer_recipe_name_ko: str
+    producer_process_type: str
     producer_verification_status: str
     consumer_recipe_slug: str
     consumer_recipe_name_ko: str
+    consumer_process_type: str
     consumer_verification_status: str
     material_key: str
     material_name_ko: str
@@ -522,6 +524,7 @@ class RecipeCalculationSlotOut(BaseModel):
 class RecipeCalculationOut(BaseModel):
     recipe_slug: str
     name_ko: str
+    process_type: str
     result_material_key: str
     result_material_name_ko: str
     result_unit: str

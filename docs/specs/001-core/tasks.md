@@ -1,6 +1,6 @@
 # Tasks — first implementation milestone
 
-> V1.9W 구현 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
+> V1.9X 구현 상태를 기준으로 현재 코드, seed, 테스트와 handoff에서 확인된 구현만 반영했다. 미완료 복합 항목에는 부분 구현 범위를 덧붙였으며, 이 문서는 다음 milestone 로드맵을 정의하지 않는다.
 
 > Product-priority note: completed consumer UI features remain supported, but new consumer-facing UI expansion is not an implicit next milestone. Canonical knowledge, evidence quality, deterministic domain logic, and future-compatible retrieval boundaries may be prioritized according to `docs/PRODUCT_DIRECTION.md`.
 
@@ -27,6 +27,7 @@
 - [x] V1.9U Intermediate Cooking Recipe and skill tier expansion — 구운 소시지·스테이크·수테차·미트/햄/프랭크 샌드위치를 추가해 verified Recipe 15개와 Material 78개로 확장하고 importer가 beginner부터 guru까지의 canonical tier를 검증. 기존 group·API·schema·frontend는 변경하지 않음
 - [x] V1.9V Direct Recipe Dependency Read Interface — canonical Recipe result Material과 explicit Material option identity를 기반으로 direct producer/consumer relation을 derived read model/API/export로 제공. IngredientGroup 확장, 재귀, output/yield와 inventory는 제외
 - [x] V1.9W Material Knowledge Read Surface — shared Material 78개를 first-class canonical API/search/AI export resource로 제공. Recipe producer/explicit usage, IngredientGroup membership/candidate usage, Project requirement를 기존 owner에서 파생하며 personal inventory, global acquisition, 재귀, yield와 economy는 제외
+- [x] V1.9X Alchemy Recipe Foundation — 기존 formulation Recipe pipeline이 `cooking`과 `alchemy`를 지원하고 연금 4종을 추가해 Recipe 19개, Material 91개로 확장. full formulation quantity, 계산·검색·direct dependency·Material knowledge·AI export를 재사용하며 Processing, 감소 투입 확률, output/yield, mastery, economy, optimizer와 frontend는 제외
 - [x] UI: Dashboard / Content explorer / Content detail
 - [x] UI: source badge with last verified
 - [x] UI: checklist state persistence
@@ -54,7 +55,7 @@ V1.9B 완료로 현재 정의된 Milestone B 항목은 모두 구현되었다.
 - [ ] adventure logs — V1.7D Foundation·이고르 바탈리·마가한의 서를 기반으로 V1.9L에서 공식 책장 10개 그룹과 상시 카탈로그, 대표 해금 조건·총량 보상·엠마 13장 progression을 반영했다. 전 장별 공략과 이벤트 Adventure Log Deep Pack은 미완료다.
 - [ ] Magnus — V1.7D에서 progression foundation과 주요 checkpoint는 구현했으나 퍼즐·지역별 상세를 포함한 Deep Pack은 미완료
 - [x] fairy/pets/workers/nodes — workers/nodes는 V1.6I, fairy/pets current foundation과 조건부 초기 설정 전략은 V1.9J에 반영
-- [ ] remaining life skills — V1.6F-H 생활 심화 seed와 V1.9C/E/F/G/H의 onboarding/strategy pack, V1.9Q/R의 Recipe 기반·검증, V1.9S batch 계산, V1.9T/U의 core·intermediate Recipe 총 15종, V1.9V direct dependency read는 반영되었다. 전체 recipe catalog/measurement/economy 심화와 재귀 생산 계획은 미완료
+- [ ] remaining life skills — V1.6F-H 생활 심화 seed와 V1.9C/E/F/G/H의 onboarding/strategy pack, V1.9Q/R의 Recipe 기반·검증, V1.9S batch 계산, V1.9T/U의 Cooking Recipe 15종, V1.9V direct dependency read, V1.9X의 Alchemy Recipe 4종은 반영되었다. 전체 recipe catalog, Processing 설계, measurement/economy 심화와 재귀 생산 계획은 미완료
 
 ## Definition of done for any content seed
 

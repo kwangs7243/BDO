@@ -60,9 +60,11 @@ def build_recipe_dependency_index(
                     edge = KnowledgeRecipeDependencyEdgeOut(
                         producer_recipe_slug=producer.slug,
                         producer_recipe_name_ko=producer.name_ko,
+                        producer_process_type=producer.process_type,
                         producer_verification_status=producer.verification_status,
                         consumer_recipe_slug=consumer.slug,
                         consumer_recipe_name_ko=consumer.name_ko,
+                        consumer_process_type=consumer.process_type,
                         consumer_verification_status=consumer.verification_status,
                         material_key=option.material_key,
                         material_name_ko=option.material_name_ko,

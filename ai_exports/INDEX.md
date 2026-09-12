@@ -329,13 +329,17 @@ Canonical source remains the BDO Companion seed/domain model.
 | 구운 소시지 | grilled-sausage | cooking | 구운 소시지 | verified | 2026-09-11 | [open](recipes/grilled-sausage.md) |
 | 드레싱 | dressing | cooking | 드레싱 | verified | 2026-09-11 | [open](recipes/dressing.md) |
 | 레드소스 | red-sauce | cooking | 레드소스 | verified | 2026-09-11 | [open](recipes/red-sauce.md) |
+| 맑은 액체 시약 | clear-liquid-reagent | alchemy | 맑은 액체 시약 | verified | 2026-09-12 | [open](recipes/clear-liquid-reagent.md) |
 | 맥주 | beer | cooking | 맥주 | verified | 2026-09-11 | [open](recipes/beer.md) |
 | 미트 샌드위치 | meat-sandwich | cooking | 미트 샌드위치 | verified | 2026-09-11 | [open](recipes/meat-sandwich.md) |
+| 방어의 비약 | defense-elixir | alchemy | 방어의 비약 | verified | 2026-09-12 | [open](recipes/defense-elixir.md) |
 | 새구이 | grilled-bird-meat | cooking | 새구이 | verified | 2026-09-11 | [open](recipes/grilled-bird-meat.md) |
 | 수테차 | sute-tea | cooking | 수테차 | verified | 2026-09-11 | [open](recipes/sute-tea.md) |
+| 순수한 가루 시약 | pure-powder-reagent | alchemy | 순수한 가루 시약 | verified | 2026-09-12 | [open](recipes/pure-powder-reagent.md) |
 | 스테이크 | steak | cooking | 스테이크 | verified | 2026-09-11 | [open](recipes/steak.md) |
 | 식초 | vinegar | cooking | 식초 | verified | 2026-09-11 | [open](recipes/vinegar.md) |
 | 오믈렛 | omelet | cooking | 오믈렛 | verified | 2026-09-11 | [open](recipes/omelet.md) |
+| 집중의 비약 | concentration-elixir | alchemy | 집중의 비약 | verified | 2026-09-12 | [open](recipes/concentration-elixir.md) |
 | 채소 절임 | pickled-vegetables | cooking | 채소 절임 | verified | 2026-09-11 | [open](recipes/pickled-vegetables.md) |
 | 프랭크 샌드위치 | frank-sandwich | cooking | 프랭크 샌드위치 | verified | 2026-09-11 | [open](recipes/frank-sandwich.md) |
 | 햄 샌드위치 | ham-sandwich | cooking | 햄 샌드위치 | verified | 2026-09-11 | [open](recipes/ham-sandwich.md) |
@@ -353,6 +357,8 @@ Canonical source remains the BDO Companion seed/domain model.
 | 감자 | potato | 개 | [open](materials/potato.md) |
 | 고구마 | sweet-potato | 개 | [open](materials/sweet-potato.md) |
 | 곰 고기 | bear-meat | 개 | [open](materials/bear-meat.md) |
+| 곰 피 | bear-blood | 개 | [open](materials/bear-blood.md) |
+| 구름 버섯 | cloud-mushroom | 개 | [open](materials/cloud-mushroom.md) |
 | 구운 소시지 | grilled-sausage | 개 | [open](materials/grilled-sausage.md) |
 | 너구리 고기 | raccoon-meat | 개 | [open](materials/raccoon-meat.md) |
 | 늑대 고기 | wolf-meat | 개 | [open](materials/wolf-meat.md) |
@@ -360,16 +366,20 @@ Canonical source remains the BDO Companion seed/domain model.
 | 달의 핏줄이 새겨진 아마포 | moon-vein-flax | 개 | [open](materials/moon-vein-flax.md) |
 | 닭고기 | chicken-meat | 개 | [open](materials/chicken-meat.md) |
 | 돼지 고기 | pork | 개 | [open](materials/pork.md) |
+| 돼지 피 | pig-blood | 개 | [open](materials/pig-blood.md) |
 | 드레싱 | dressing | 개 | [open](materials/dressing.md) |
 | 딸기 | strawberry | 개 | [open](materials/strawberry.md) |
 | 레드소스 | red-sauce | 개 | [open](materials/red-sauce.md) |
 | 마늘 | garlic | 개 | [open](materials/garlic.md) |
+| 맑은 액체 시약 | clear-liquid-reagent | 개 | [open](materials/clear-liquid-reagent.md) |
 | 맥주 | beer | 개 | [open](materials/beer.md) |
 | 면실유 | cottonseed-oil | 개 | [open](materials/cottonseed-oil.md) |
+| 물푸레나무 수액 | ash-sap | 개 | [open](materials/ash-sap.md) |
 | 미트 샌드위치 | meat-sandwich | 개 | [open](materials/meat-sandwich.md) |
 | 밀 | wheat | 개 | [open](materials/wheat.md) |
 | 바나나 | banana | 개 | [open](materials/banana.md) |
 | 발효제 | leavening-agent | 개 | [open](materials/leavening-agent.md) |
+| 방어의 비약 | defense-elixir | 개 | [open](materials/defense-elixir.md) |
 | 배 | pear | 개 | [open](materials/pear.md) |
 | 버터 | butter | 개 | [open](materials/butter.md) |
 | 베이스 소스 | base-sauce | 개 | [open](materials/base-sauce.md) |
@@ -382,13 +392,16 @@ Canonical source remains the BDO Companion seed/domain model.
 | 소 고기 | beef | 개 | [open](materials/beef.md) |
 | 소금 | salt | 개 | [open](materials/salt.md) |
 | 수테차 | sute-tea | 개 | [open](materials/sute-tea.md) |
+| 순수한 가루 시약 | pure-powder-reagent | 개 | [open](materials/pure-powder-reagent.md) |
 | 스테이크 | steak | 개 | [open](materials/steak.md) |
 | 식용벌꿀 | edible-honey | 개 | [open](materials/edible-honey.md) |
 | 식초 | vinegar | 개 | [open](materials/vinegar.md) |
 | 심해의 눈물 | tear-of-the-ocean | 개 | [open](materials/tear-of-the-ocean.md) |
+| 야생 들풀 | wild-grass | 개 | [open](materials/wild-grass.md) |
 | 양 고기 | sheep-meat | 개 | [open](materials/sheep-meat.md) |
 | 양배추 | cabbage | 개 | [open](materials/cabbage.md) |
 | 양파 | onion | 개 | [open](materials/onion.md) |
+| 여명초 | dawn-herb | 개 | [open](materials/dawn-herb.md) |
 | 여우 고기 | fox-meat | 개 | [open](materials/fox-meat.md) |
 | 오믈렛 | omelet | 개 | [open](materials/omelet.md) |
 | 옥수수 | corn | 개 | [open](materials/corn.md) |
@@ -396,10 +409,14 @@ Canonical source remains the BDO Companion seed/domain model.
 | 올리브 오일 | olive-oil | 개 | [open](materials/olive-oil.md) |
 | 요리용 생수 | mineral-water | 개 | [open](materials/mineral-water.md) |
 | 우유 | milk | 개 | [open](materials/milk.md) |
+| 은빛 철쭉 | silver-azalea | 개 | [open](materials/silver-azalea.md) |
+| 잡초 | weed | 개 | [open](materials/weed.md) |
 | 장미꽃 | rose | 개 | [open](materials/rose.md) |
 | 정제수 | purified-water | 개 | [open](materials/purified-water.md) |
 | 조리용 와인 | cooking-wine | 개 | [open](materials/cooking-wine.md) |
 | 족제비 고기 | weasel-meat | 개 | [open](materials/weasel-meat.md) |
+| 증류수 | distilled-water | 개 | [open](materials/distilled-water.md) |
+| 집중의 비약 | concentration-elixir | 개 | [open](materials/concentration-elixir.md) |
 | 짙은 파도빛이 감도는 규격 각목 | deep-tide-standardized-timber | 개 | [open](materials/deep-tide-standardized-timber.md) |
 | 채소 절임 | pickled-vegetables | 개 | [open](materials/pickled-vegetables.md) |
 | 체리 | cherry | 개 | [open](materials/cherry.md) |

@@ -19,7 +19,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - name_ko: "수테차"
 - unit: "개"
 
-## Cooking Requirement
+## Recipe Requirement
 
 - required_skill_tier: "skilled"
 - required_skill_level: 1
@@ -103,7 +103,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 ## Substitution Semantics
 
-- Ingredient quantities are per one cooking attempt.
+- Ingredient quantities are per one recipe attempt.
 - All active slots are required (AND).
 - Options inside one slot are alternatives (OR); select one allowed material.
 - IngredientGroup membership does not define a global quantity conversion.
@@ -126,9 +126,11 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 - producer_recipe_slug: "tea-with-fine-scent"
 - producer_recipe_name_ko: "향이 좋은 차"
+- producer_process_type: "cooking"
 - producer_verification_status: "verified"
 - consumer_recipe_slug: "sute-tea"
 - consumer_recipe_name_ko: "수테차"
+- consumer_process_type: "cooking"
 - consumer_verification_status: "verified"
 - material_key: "tea-with-fine-scent"
 - material_name_ko: "향이 좋은 차"

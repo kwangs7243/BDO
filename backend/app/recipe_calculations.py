@@ -60,6 +60,7 @@ def scale_recipe_requirements(
     return RecipeCalculationOut(
         recipe_slug=recipe.slug,
         name_ko=recipe.name_ko,
+        process_type=recipe.process_type,
         result_material_key=recipe.result_material_key,
         result_material_name_ko=recipe.result_material_name_ko,
         result_unit=recipe.result_unit,

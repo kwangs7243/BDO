@@ -158,3 +158,25 @@ not part of canonical Material knowledge.
 **Reason:** GPT consumers need one stable cross-domain lookup surface, but
 copying Recipe, Project, or IngredientGroup facts into Material-owned rows
 would create a second authority and stale duplication.
+
+## ADR-022 — Recipe supports formulation-style Cooking and Alchemy; Processing remains separate
+
+**Status:** Accepted 2026-09-12.
+
+**Decision:** Recipe represents the canonical full-input formulation for one
+attempt. Supported process types are `cooking` and `alchemy`; both reuse shared
+Material identity, slot AND / option OR, typed Evidence, canonical search,
+stateless scaling, direct dependency derivation, and Material knowledge.
+Alchemy `required_quantity` is the canonical full formulation quantity, not a
+minimum reduced-input amount that may succeed probabilistically.
+
+Processing remains outside Recipe because method, knowledge-condition,
+mass-processing, success-probability, and result-quantity semantics require an
+explicit future design. Output quantity, special-result probability, mastery
+effects, profitability, optimization, and recursive production planning are
+also outside this decision.
+
+**Reason:** Cooking and Alchemy share a verified full-formulation structure
+that the existing model can express without schema changes. Treating
+Processing or reduced-input Alchemy as equivalent would introduce semantics
+that current canonical data and deterministic calculations do not own.

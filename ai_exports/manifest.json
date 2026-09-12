@@ -2354,12 +2354,18 @@
       "verification_status": "verified"
     }
   ],
-  "material_count": 78,
+  "material_count": 91,
   "materials": [
     {
       "key": "apple",
       "name_ko": "사과",
       "path": "materials/apple.md",
+      "unit": "개"
+    },
+    {
+      "key": "ash-sap",
+      "name_ko": "물푸레나무 수액",
+      "path": "materials/ash-sap.md",
       "unit": "개"
     },
     {
@@ -2378,6 +2384,12 @@
       "key": "base-sauce",
       "name_ko": "베이스 소스",
       "path": "materials/base-sauce.md",
+      "unit": "개"
+    },
+    {
+      "key": "bear-blood",
+      "name_ko": "곰 피",
+      "path": "materials/bear-blood.md",
       "unit": "개"
     },
     {
@@ -2465,6 +2477,24 @@
       "unit": "개"
     },
     {
+      "key": "clear-liquid-reagent",
+      "name_ko": "맑은 액체 시약",
+      "path": "materials/clear-liquid-reagent.md",
+      "unit": "개"
+    },
+    {
+      "key": "cloud-mushroom",
+      "name_ko": "구름 버섯",
+      "path": "materials/cloud-mushroom.md",
+      "unit": "개"
+    },
+    {
+      "key": "concentration-elixir",
+      "name_ko": "집중의 비약",
+      "path": "materials/concentration-elixir.md",
+      "unit": "개"
+    },
+    {
       "key": "cooking-wine",
       "name_ko": "조리용 와인",
       "path": "materials/cooking-wine.md",
@@ -2483,6 +2513,12 @@
       "unit": "개"
     },
     {
+      "key": "dawn-herb",
+      "name_ko": "여명초",
+      "path": "materials/dawn-herb.md",
+      "unit": "개"
+    },
+    {
       "key": "deep-frying-oil",
       "name_ko": "튀김용 오일",
       "path": "materials/deep-frying-oil.md",
@@ -2498,6 +2534,18 @@
       "key": "deer-meat",
       "name_ko": "사슴 고기",
       "path": "materials/deer-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "defense-elixir",
+      "name_ko": "방어의 비약",
+      "path": "materials/defense-elixir.md",
+      "unit": "개"
+    },
+    {
+      "key": "distilled-water",
+      "name_ko": "증류수",
+      "path": "materials/distilled-water.md",
       "unit": "개"
     },
     {
@@ -2651,6 +2699,12 @@
       "unit": "개"
     },
     {
+      "key": "pig-blood",
+      "name_ko": "돼지 피",
+      "path": "materials/pig-blood.md",
+      "unit": "개"
+    },
+    {
       "key": "pineapple",
       "name_ko": "파인애플",
       "path": "materials/pineapple.md",
@@ -2672,6 +2726,12 @@
       "key": "pumpkin",
       "name_ko": "호박",
       "path": "materials/pumpkin.md",
+      "unit": "개"
+    },
+    {
+      "key": "pure-powder-reagent",
+      "name_ko": "순수한 가루 시약",
+      "path": "materials/pure-powder-reagent.md",
       "unit": "개"
     },
     {
@@ -2714,6 +2774,12 @@
       "key": "sheep-meat",
       "name_ko": "양 고기",
       "path": "materials/sheep-meat.md",
+      "unit": "개"
+    },
+    {
+      "key": "silver-azalea",
+      "name_ko": "은빛 철쭉",
+      "path": "materials/silver-azalea.md",
       "unit": "개"
     },
     {
@@ -2807,6 +2873,12 @@
       "unit": "개"
     },
     {
+      "key": "weed",
+      "name_ko": "잡초",
+      "path": "materials/weed.md",
+      "unit": "개"
+    },
+    {
       "key": "wheat",
       "name_ko": "밀",
       "path": "materials/wheat.md",
@@ -2816,6 +2888,12 @@
       "key": "white-sauce",
       "name_ko": "화이트소스",
       "path": "materials/white-sauce.md",
+      "unit": "개"
+    },
+    {
+      "key": "wild-grass",
+      "name_ko": "야생 들풀",
+      "path": "materials/wild-grass.md",
       "unit": "개"
     },
     {
@@ -2833,7 +2911,7 @@
       "slug": "carrack-advance"
     }
   ],
-  "recipe_count": 15,
+  "recipe_count": 19,
   "recipes": [
     {
       "last_verified_at": "2026-09-11",
@@ -2842,6 +2920,33 @@
       "process_type": "cooking",
       "result_material_key": "beer",
       "slug": "beer",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-12",
+      "name_ko": "맑은 액체 시약",
+      "path": "recipes/clear-liquid-reagent.md",
+      "process_type": "alchemy",
+      "result_material_key": "clear-liquid-reagent",
+      "slug": "clear-liquid-reagent",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-12",
+      "name_ko": "집중의 비약",
+      "path": "recipes/concentration-elixir.md",
+      "process_type": "alchemy",
+      "result_material_key": "concentration-elixir",
+      "slug": "concentration-elixir",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-12",
+      "name_ko": "방어의 비약",
+      "path": "recipes/defense-elixir.md",
+      "process_type": "alchemy",
+      "result_material_key": "defense-elixir",
+      "slug": "defense-elixir",
       "verification_status": "verified"
     },
     {
@@ -2914,6 +3019,15 @@
       "process_type": "cooking",
       "result_material_key": "pickled-vegetables",
       "slug": "pickled-vegetables",
+      "verification_status": "verified"
+    },
+    {
+      "last_verified_at": "2026-09-12",
+      "name_ko": "순수한 가루 시약",
+      "path": "recipes/pure-powder-reagent.md",
+      "process_type": "alchemy",
+      "result_material_key": "pure-powder-reagent",
+      "slug": "pure-powder-reagent",
       "verification_status": "verified"
     },
     {

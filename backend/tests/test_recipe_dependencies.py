@@ -59,6 +59,18 @@ EXPECTED_EDGES = {
         "grilled-sausage",
         "frank-sandwich.ingredient.sausage.option.grilled-sausage",
     ): (2.0, True),
+    (
+        "clear-liquid-reagent",
+        "defense-elixir",
+        "clear-liquid-reagent",
+        "defense-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent",
+    ): (1.0, False),
+    (
+        "clear-liquid-reagent",
+        "concentration-elixir",
+        "clear-liquid-reagent",
+        "concentration-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent",
+    ): (1.0, False),
 }
 
 
@@ -87,7 +99,7 @@ def _edge_identity(edge):
     )
 
 
-def test_current_catalog_has_exact_six_direct_material_edges(session):
+def test_current_catalog_has_exact_direct_material_edges(session):
     index = build_recipe_dependency_index(_recipes(session))
     edges = [
         edge
@@ -95,14 +107,19 @@ def test_current_catalog_has_exact_six_direct_material_edges(session):
         for edge in dependencies.direct_downstream
     ]
 
-    assert len(index) == 15
-    assert len(edges) == 6
+    assert len(index) == 19
+    assert len(edges) == 8
     assert {
         _edge_identity(edge): (edge.required_quantity, edge.is_alternative)
         for edge in edges
     } == EXPECTED_EDGES
     assert all(edge.producer_verification_status == "verified" for edge in edges)
     assert all(edge.consumer_verification_status == "verified" for edge in edges)
+    assert all(
+        edge.producer_process_type == edge.consumer_process_type == "alchemy"
+        for edge in edges
+        if edge.producer_recipe_slug == "clear-liquid-reagent"
+    )
 
 
 def test_expected_upstream_and_downstream_sets_are_exact(session):
@@ -121,10 +138,16 @@ def test_expected_upstream_and_downstream_sets_are_exact(session):
     assert upstream["sute-tea"] == ["tea-with-fine-scent"]
     assert upstream["ham-sandwich"] == ["grilled-sausage"]
     assert upstream["frank-sandwich"] == ["grilled-sausage", "red-sauce"]
+    assert upstream["defense-elixir"] == ["clear-liquid-reagent"]
+    assert upstream["concentration-elixir"] == ["clear-liquid-reagent"]
     assert downstream["vinegar"] == ["pickled-vegetables"]
     assert downstream["red-sauce"] == ["frank-sandwich", "steak"]
     assert downstream["tea-with-fine-scent"] == ["sute-tea"]
     assert downstream["grilled-sausage"] == ["frank-sandwich", "ham-sandwich"]
+    assert downstream["clear-liquid-reagent"] == [
+        "concentration-elixir",
+        "defense-elixir",
+    ]
 
     expected_upstream = {
         "pickled-vegetables",
@@ -132,12 +155,15 @@ def test_expected_upstream_and_downstream_sets_are_exact(session):
         "sute-tea",
         "ham-sandwich",
         "frank-sandwich",
+        "defense-elixir",
+        "concentration-elixir",
     }
     expected_downstream = {
         "vinegar",
         "red-sauce",
         "tea-with-fine-scent",
         "grilled-sausage",
+        "clear-liquid-reagent",
     }
     assert all(upstream[slug] == [] for slug in index.keys() - expected_upstream)
     assert all(downstream[slug] == [] for slug in index.keys() - expected_downstream)

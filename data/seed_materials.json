@@ -466,5 +466,83 @@
     "name_ko": "훈연 소시지",
     "unit": "개",
     "active": true
+  },
+  {
+    "key": "clear-liquid-reagent",
+    "name_ko": "맑은 액체 시약",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "pure-powder-reagent",
+    "name_ko": "순수한 가루 시약",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "defense-elixir",
+    "name_ko": "방어의 비약",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "concentration-elixir",
+    "name_ko": "집중의 비약",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "distilled-water",
+    "name_ko": "증류수",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "wild-grass",
+    "name_ko": "야생 들풀",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "weed",
+    "name_ko": "잡초",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "dawn-herb",
+    "name_ko": "여명초",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "silver-azalea",
+    "name_ko": "은빛 철쭉",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "ash-sap",
+    "name_ko": "물푸레나무 수액",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "pig-blood",
+    "name_ko": "돼지 피",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "cloud-mushroom",
+    "name_ko": "구름 버섯",
+    "unit": "개",
+    "active": true
+  },
+  {
+    "key": "bear-blood",
+    "name_ko": "곰 피",
+    "unit": "개",
+    "active": true
   }
 ]

@@ -1,4 +1,4 @@
-"""Validate and synchronize cooking definitions without touching personal state."""
+"""Validate and synchronize formulation Recipes without touching personal state."""
 from __future__ import annotations
 
 import json
@@ -13,7 +13,9 @@ from app.models import (Evidence, IngredientGroup, IngredientGroupMember, Materi
                         Recipe, RecipeIngredientSlot, RecipeIngredientOption, Source)
 
 
-COOKING_SKILL_TIERS = {
+SUPPORTED_RECIPE_PROCESS_TYPES = {"cooking", "alchemy"}
+
+RECIPE_SKILL_TIERS = {
     "beginner",
     "apprentice",
     "skilled",
@@ -22,6 +24,9 @@ COOKING_SKILL_TIERS = {
     "master",
     "guru",
 }
+
+# Backward-compatible import for V1.9U callers; both processes share the same tiers.
+COOKING_SKILL_TIERS = RECIPE_SKILL_TIERS
 
 
 class SeedRow(BaseModel):
@@ -103,16 +108,16 @@ class RecipeSeed(SeedRow):
 
     @field_validator("process_type")
     @classmethod
-    def cooking_only(cls, value):
-        if value != "cooking":
-            raise ValueError("V1.9Q supports only cooking")
+    def supported_process_type(cls, value):
+        if value not in SUPPORTED_RECIPE_PROCESS_TYPES:
+            raise ValueError("unsupported Recipe process type")
         return value
 
     @field_validator("required_skill_tier")
     @classmethod
     def skill_tier(cls, value):
-        if value is not None and value not in COOKING_SKILL_TIERS:
-            raise ValueError("unsupported cooking skill tier")
+        if value is not None and value not in RECIPE_SKILL_TIERS:
+            raise ValueError("unsupported Recipe skill tier")
         return value
 
 

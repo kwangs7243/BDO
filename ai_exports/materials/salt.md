@@ -17,6 +17,22 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 
 ## Explicit Recipe Usages
 
+### `clear-liquid-reagent.ingredient.salt.option.salt`
+
+- recipe_slug: "clear-liquid-reagent"
+- recipe_name_ko: "맑은 액체 시약"
+- process_type: "alchemy"
+- slot_seed_key: "clear-liquid-reagent.ingredient.salt"
+- slot_label: "소금"
+- slot_order_no: 2
+- option_seed_key: "clear-liquid-reagent.ingredient.salt.option.salt"
+- option_order_no: 1
+- required_quantity: 1.0
+- is_alternative: false
+- recipe_verification_status: "verified"
+- recipe_last_verified_at: "2026-09-12"
+- relative_path: "../recipes/clear-liquid-reagent.md"
+
 ### `dressing.ingredient.salt.option.salt`
 
 - recipe_slug: "dressing"

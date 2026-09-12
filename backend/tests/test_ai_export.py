@@ -63,9 +63,9 @@ def test_build_from_seed_uses_an_isolated_database() -> None:
 
     assert manifest["content_count"] == 294
     assert manifest["project_count"] == 1
-    assert manifest["recipe_count"] == 15
-    assert manifest["material_count"] == 78
-    assert len(exports) == 390
+    assert manifest["recipe_count"] == 19
+    assert manifest["material_count"] == 91
+    assert len(exports) == 407
 
 
 def test_manifest_counts_match_active_canonical_rows(export_context) -> None:
@@ -85,8 +85,8 @@ def test_manifest_counts_match_active_canonical_rows(export_context) -> None:
     assert manifest["project_count"] == len(active_projects) == 1
     assert len(manifest["contents"]) == 294
     assert len(manifest["projects"]) == 1
-    assert manifest["material_count"] == len(active_materials) == 78
-    assert len(manifest["materials"]) == 78
+    assert manifest["material_count"] == len(active_materials) == 91
+    assert len(manifest["materials"]) == 91
 
 
 def test_all_markdown_is_marked_generated(export_context) -> None:
@@ -95,7 +95,7 @@ def test_all_markdown_is_marked_generated(export_context) -> None:
         path: content for path, content in exports.items() if path.endswith(".md")
     }
 
-    assert len(markdown_files) == 389
+    assert len(markdown_files) == 406
     assert all(content.startswith(GENERATED_HEADER) for content in markdown_files.values())
 
 
@@ -329,7 +329,7 @@ def test_recipe_export_contract_and_counts(export_context):
     manifest = json.loads(exports["manifest.json"])
     active = list(session.scalars(select(Recipe.slug).where(Recipe.active.is_(True))))
     assert manifest["schema_version"] == 3
-    assert manifest["recipe_count"] == len(active) == 15
+    assert manifest["recipe_count"] == len(active) == 19
     assert len(exports) == (
         manifest["content_count"]
         + manifest["project_count"]
@@ -337,7 +337,7 @@ def test_recipe_export_contract_and_counts(export_context):
         + manifest["material_count"]
         + 2
     )
-    assert len([p for p in exports if p.startswith("recipes/")]) == 15
+    assert len([p for p in exports if p.startswith("recipes/")]) == 19
     assert "## Recipes" in exports["INDEX.md"]
     assert [r["slug"] for r in manifest["recipes"]] == sorted(active)
     for slug in (
@@ -355,13 +355,13 @@ def test_recipe_export_contract_and_counts(export_context):
     ):
         assert f"recipes/{slug}.md" in exports
     beer = exports["recipes/beer.md"]
-    for heading in ["Identity", "Result", "Cooking Requirement", "Ingredient Slots",
+    for heading in ["Identity", "Result", "Recipe Requirement", "Ingredient Slots",
                     "Substitution Semantics", "Direct Recipe Dependencies",
                     "Evidence and Sources"]:
         assert f"## {heading}" in beer
     for value in ["verified", "mineral-water", "purified-water",
                   "required_quantity: 6.0", "required_quantity: 3.0", "wheat / 밀", "potato / 감자",
-                  "per one cooking attempt", "Mixed option consumption is not inferred",
+                  "per one recipe attempt", "Mixed option consumption is not inferred",
                   "Result quantity is not guaranteed"]:
         assert value in beer
     assert "needs_review" not in beer

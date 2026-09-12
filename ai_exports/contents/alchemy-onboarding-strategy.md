@@ -463,7 +463,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content"
 - entity_id: "alchemy-onboarding-strategy"
@@ -523,7 +523,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "alchemy-onboarding-strategy.dependency-chain"
@@ -663,7 +663,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "alchemy-onboarding-strategy.ingredient-sourcing"
@@ -723,7 +723,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "alchemy-onboarding-strategy.purpose-choice"
@@ -783,7 +783,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_requirement"
 - entity_id: "alchemy-onboarding-strategy.recipe-validation"
@@ -823,7 +823,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_section"
 - entity_id: "alchemy-onboarding-strategy.section.common-mistakes"
@@ -903,7 +903,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_section"
 - entity_id: "alchemy-onboarding-strategy.section.reverse-dependency"
@@ -1043,7 +1043,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.check-stock-space"
@@ -1103,7 +1103,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.choose-final-output"
@@ -1223,7 +1223,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.choose-repeat-volume"
@@ -1283,7 +1283,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.classify-shortages"
@@ -1343,7 +1343,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.confirm-ratios"
@@ -1383,7 +1383,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.improve-one-bottleneck"
@@ -1443,7 +1443,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.run-small-batch"
@@ -1483,7 +1483,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.trace-intermediates"
@@ -1543,7 +1543,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content_step"
 - entity_id: "alchemy-onboarding-strategy.step.verify-recipe"

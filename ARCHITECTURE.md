@@ -88,15 +88,22 @@ Consumer UX expansion is not an implicit architecture requirement.
 
 FastAPI/domain modules include canonical content retrieval, the `knowledge` read service, the deterministic `ai_export` builder, period/reset computation, checklist state, Project and Recipe projection/calculation, Life projections, user/local state, research/evidence flows, and `prompt_bridge`. The knowledge service exposes deterministic lexical search and canonical-only Content/Project/Recipe/Material projections without reading personal-state tables; both stateless calculators consume those canonical projections, and the exporter consumes them through a temporary in-memory database.
 
-## Shared Material and Cooking Recipe foundation (V1.9Q)
+## Shared Material and formulation Recipe foundation (V1.9Q–V1.9X)
 
 `material_seed` synchronizes `seed_materials.json` before `project_seed` and `recipe_seed` resolve Material keys. Only the shared catalog archives missing materials. Without that file, historical embedded Project materials remain a partial compatibility input; supplying both authorities is an error. Neither domain importer owns user inventory.
 
-Recipe → IngredientSlot → IngredientOption expresses AND between slots and OR within a slot. An option references either Material or IngredientGroup; members reference shared Material rows. Groups contain no global quantity multiplier. Quantities mean one cooking attempt, not guaranteed output, mixed substitution or large-cooking batch size. Migration `20260910_0004` adds five tables; existing Material and personal-state schemas are unchanged.
+Recipe → IngredientSlot → IngredientOption expresses AND between slots and OR within a slot. An option references either Material or IngredientGroup; members reference shared Material rows. Groups contain no global quantity multiplier. Quantities mean one complete formulation attempt, not guaranteed output, mixed substitution or a reduced-input probabilistic attempt. Migration `20260910_0004` adds five tables; existing Material and personal-state schemas are unchanged.
 
 `GET /api/knowledge/recipes/{slug}` and recipe search use typed claim Evidence and stable keys. Exact identity ranks before nested ingredient/member matches, capped at three per result. Official group membership can be verified independently of formula verification. V1.9Q itself included no Recipe calculator, Recipe UI, PromptContextBundle extension or backup version change.
 
 V1.9T and V1.9U expand the same model to 15 verified Cooking Recipes without a schema change. The Recipe seed importer now validates the complete canonical tier vocabulary from `beginner` through `guru`; the database and API continue to store and expose the existing string field. Recipe result Materials may be reused as another Recipe's explicit input identity, but the calculator does not recursively expand dependencies.
+
+V1.9X generalizes the same formulation model to `cooking` and `alchemy` and
+adds four verified Alchemy Recipes without a schema change. Calculation
+responses and derived dependency edges expose process type explicitly.
+Alchemy quantities are full one-attempt formulations; reduced-input success,
+output quantity, special-result probability, level/mastery output effects,
+Processing, economy, and optimization are not modeled.
 
 ## Direct Recipe dependency read model (V1.9V)
 

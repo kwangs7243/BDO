@@ -19,7 +19,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - name_ko: "채소 절임"
 - unit: "개"
 
-## Cooking Requirement
+## Recipe Requirement
 
 - required_skill_tier: "apprentice"
 - required_skill_level: 1
@@ -102,7 +102,7 @@ Allowed current members:
 
 ## Substitution Semantics
 
-- Ingredient quantities are per one cooking attempt.
+- Ingredient quantities are per one recipe attempt.
 - All active slots are required (AND).
 - Options inside one slot are alternatives (OR); select one allowed material.
 - IngredientGroup membership does not define a global quantity conversion.
@@ -125,9 +125,11 @@ Allowed current members:
 
 - producer_recipe_slug: "vinegar"
 - producer_recipe_name_ko: "식초"
+- producer_process_type: "cooking"
 - producer_verification_status: "verified"
 - consumer_recipe_slug: "pickled-vegetables"
 - consumer_recipe_name_ko: "채소 절임"
+- consumer_process_type: "cooking"
 - consumer_verification_status: "verified"
 - material_key: "vinegar"
 - material_name_ko: "식초"

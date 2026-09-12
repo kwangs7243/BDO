@@ -34,9 +34,9 @@ def _client(session):
 def test_all_active_materials_are_projected_with_expected_relation_counts(session) -> None:
     materials = list_knowledge_materials(session)
 
-    assert len(materials) == 78
-    assert sum(len(item.produced_by_recipes) for item in materials) == 15
-    assert sum(len(item.explicit_recipe_usages) for item in materials) == 51
+    assert len(materials) == 91
+    assert sum(len(item.produced_by_recipes) for item in materials) == 19
+    assert sum(len(item.explicit_recipe_usages) for item in materials) == 71
     assert sum(len(item.ingredient_group_memberships) for item in materials) == 35
     assert sum(len(item.group_recipe_usages) for item in materials) == 99
     assert sum(len(item.project_requirements) for item in materials) == 9

@@ -121,22 +121,23 @@ def _ids(session, model, identity):
     return {getattr(row, identity): row.id for row in session.scalars(select(model))}
 
 
-def test_v19u_exact_counts_and_verified_evidence(session):
+def test_v19u_catalog_remains_present_and_verified_after_later_expansion(session):
     for model, expected in (
         (Material, 78), (IngredientGroup, 7), (IngredientGroupMember, 35),
         (Recipe, 15), (RecipeIngredientSlot, 60), (RecipeIngredientOption, 67),
     ):
-        assert session.scalar(select(func.count()).select_from(model).where(model.active.is_(True))) == expected
-    assert session.scalar(select(func.count()).select_from(Source)) == 213
+        assert session.scalar(select(func.count()).select_from(model).where(model.active.is_(True))) >= expected
+    assert session.scalar(select(func.count()).select_from(Source)) >= 213
     catalog = json.loads((DATA / "seed_recipes.json").read_text(encoding="utf-8"))
     claims = [e for owner in [*catalog["ingredient_groups"], *catalog["recipes"]] for e in owner["evidence"]]
-    assert len(claims) == len({e["seed_key"] for e in claims}) == 119
+    assert len(claims) == len({e["seed_key"] for e in claims})
+    assert len(claims) >= 119
     rows = list(session.scalars(select(Evidence).where(
         Evidence.entity_type.in_({"ingredient_group", "recipe", "recipe_ingredient_option"}),
         Evidence.active.is_(True),
     )))
     # Exact packet source sets expand to 91 new rows: 115 + 91 = 206.
-    assert len(rows) == 206
+    assert len(rows) >= 206
     assert all(row.verification_status == "verified" for row in rows)
     assert not any(row.verification_status == "needs_review" for row in rows)
 
@@ -198,7 +199,7 @@ def test_all_current_cooking_skill_tiers_are_accepted(tier):
 
 @pytest.mark.parametrize("tier", ["novice", "expert", "legend", "숙련", "전문", ""])
 def test_unknown_or_localized_cooking_skill_tiers_are_rejected(tier):
-    with pytest.raises(ValidationError, match="unsupported cooking skill tier"):
+    with pytest.raises(ValidationError, match="unsupported Recipe skill tier"):
         RecipeSeed(
             slug="tier-validation", name_ko="등급 검증", process_type="cooking",
             result_material_key="beer", required_skill_tier=tier,

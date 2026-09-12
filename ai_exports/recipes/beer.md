@@ -19,7 +19,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - name_ko: "맥주"
 - unit: "개"
 
-## Cooking Requirement
+## Recipe Requirement
 
 - required_skill_tier: "beginner"
 - required_skill_level: 1
@@ -112,7 +112,7 @@ Allowed current members:
 
 ## Substitution Semantics
 
-- Ingredient quantities are per one cooking attempt.
+- Ingredient quantities are per one recipe attempt.
 - All active slots are required (AND).
 - Options inside one slot are alternatives (OR); select one allowed material.
 - IngredientGroup membership does not define a global quantity conversion.

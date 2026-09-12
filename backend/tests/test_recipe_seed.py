@@ -48,10 +48,10 @@ def snapshot(session, models):
 
 
 def test_recipe_catalog_exact_counts_and_formulas(session):
-    for model, count in [(Material, 78), (IngredientGroup, 7), (IngredientGroupMember, 35),
-                         (Recipe, 15), (RecipeIngredientSlot, 60), (RecipeIngredientOption, 67)]:
+    for model, count in [(Material, 91), (IngredientGroup, 7), (IngredientGroupMember, 35),
+                         (Recipe, 19), (RecipeIngredientSlot, 76), (RecipeIngredientOption, 87)]:
         assert session.scalar(select(func.count()).select_from(model).where(model.active.is_(True))) == count
-    assert session.scalar(select(func.count()).select_from(Source)) == 213
+    assert session.scalar(select(func.count()).select_from(Source)) == 221
     expected = {
         "beer": [[("grain", 5)], [("mineral-water", 6), ("purified-water", 3)],
                  [("leavening-agent", 2)], [("sugar", 1)]],
@@ -98,9 +98,12 @@ def test_recipe_evidence_verification_and_source_boundaries(session):
             select(Evidence).where(Evidence.entity_type.in_(recipe_entity_types))
         )
     )
-    assert len(evidence) == 206
+    assert len(evidence) == 292
     assert all(row.verification_status == "verified" for row in evidence)
-    assert all(row.last_verified_at.isoformat() == "2026-09-11" for row in evidence)
+    assert {row.last_verified_at.isoformat() for row in evidence} == {
+        "2026-09-11",
+        "2026-09-12",
+    }
 
     official = session.get(Source, "cooking-grilled-bird-meat-official-2018")
     assert official is not None
@@ -195,7 +198,7 @@ def test_legacy_to_shared_material_transition_preserves_user_inventory(tmp_path)
         assert material_map(session)["beer"].active
         assert snapshot(session, (UserMaterialInventory,)) == inventory
         import_seed(session, DATA)
-        assert len(material_map(session)) == 78
+        assert len(material_map(session)) == 91
     engine.dispose()
 
 
@@ -248,7 +251,7 @@ def test_recipe_invalid_input_rejected_before_domain_changes(session, tmp_path, 
     elif case == "nan": option["required_quantity"] = float("nan")
     elif case == "xor-both": option["material_key"] = "wheat"
     elif case == "xor-neither": option.pop("ingredient_group_key")
-    elif case == "process": recipe["process_type"] = "alchemy"
+    elif case == "process": recipe["process_type"] = "processing"
     elif case == "skill": recipe["required_skill_level"] = 0
     elif case == "result": recipe["result_material_key"] = "missing"
     elif case == "source": recipe["evidence"][0]["source_ids"] = ["missing"]

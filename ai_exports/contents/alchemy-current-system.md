@@ -161,7 +161,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - publisher: "Pearl Abyss"
 - source_type: "official_guide"
 - published_at: null
-- retrieved_at: "2026-09-03T12:00:00+00:00"
+- retrieved_at: "2026-09-12T11:55:00+00:00"
 - region: "KR"
 - entity_type: "content"
 - entity_id: "alchemy-current-system"

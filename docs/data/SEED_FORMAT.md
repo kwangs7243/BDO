@@ -281,7 +281,7 @@ DB의 Evidence `seed_key`는 `{claim seed_key}::{source id}`로 만들어진다.
 
 `material_seed.sync_materials`가 key로 제자리 갱신한다. shared catalog에서 빠진 Material만 archive한다. 파일 자체가 없으면 기존 행을 archive하지 않는다. legacy embedded catalog는 부분 목록이므로 다른 도메인의 Material을 archive하지 않는다. Project importer는 전역 Material 동기화/삭제를 수행하지 않는다. Recipe와 Project 모두 반환된 공유 key map을 resolve한다. 표시명 변경은 key/ID/FK/개인 재고를 바꾸지 않는다. 실제 전체 목록은 41개이며 기존 Carrack 9개가 포함된다.
 
-## V1.9Q Recipe 입력 계약
+## V1.9Q/V1.9X Recipe 입력 계약
 
 정확한 validation 정의는 `backend/app/recipe_seed.py`의 Pydantic 모델이다. 알려지지 않은 Recipe 필드는 거부한다. 아래 `?`는 선택 필드다.
 
@@ -294,13 +294,13 @@ DB의 Evidence `seed_key`는 `{claim seed_key}::{source id}`로 만들어진다.
 | Option | `seed_key`, `required_quantity`, 정확히 하나의 `material_key` 또는 `ingredient_group_key` | `order_no=1`, `notes=null`, `active=true` |
 | Evidence | `seed_key`, `entity_type`, `entity_seed_key`, `claim_key`, `source_ids`, `last_verified_at` | `verification_status=unverified`, `note=null`, `active=true` |
 
-현재 process는 `cooking`만 지원하며 초기 skill tier는 `beginner`, `apprentice`다. level은 null 또는 양의 정수다. option quantity는 유한한 양수다. result/member/option 참조와 Source ID는 존재해야 한다. 중복 recipe slug/group key/member material/중첩 key/evidence key는 거부한다.
+현재 process는 formulation-style `cooking`, `alchemy`만 지원하며 skill tier는 `beginner`, `apprentice`, `skilled`, `professional`, `artisan`, `master`, `guru`다. Processing 계열 process는 지원하지 않는다. level은 null 또는 양의 정수다. option quantity는 유한한 양수다. result/member/option 참조와 Source ID는 존재해야 한다. 중복 recipe slug/group key/member material/중첩 key/evidence key는 거부한다.
 
 Stable key 예시: `beer`, `ingredient-group.grain.wheat`, `beer.water`, `beer.water.mineral-water`. Slot key는 Recipe slug, Option key는 Slot key, Member key는 `ingredient-group.{group key}.`로 시작한다. 같은 key는 기존 ID를 유지하며 누락 행은 archive한다. 부모가 비활성화되면 하위 row와 관련 Evidence도 비활성화한다. 동일 key 재등장은 기존 row를 재활성화한다. Recipe 파일 부재는 과거 seed import로 간주하여 기존 Recipe를 archive하지 않는다.
 
 Evidence target은 `recipe`(Recipe slug), `recipe_ingredient_slot`(Slot key), `recipe_ingredient_option`(Option key), `ingredient_group`(Group key)다. 해당 소유자의 `evidence` 배열에 기록하고 `(entity_type, entity_seed_key)`로 구분한다. DB Evidence stable key는 `{claim seed_key}::{source_id}`다. 정상 조회는 active 구조를 반환하며 Evidence의 inactive/superseded 이력은 따로 유지한다.
 
-수량은 **요리 1회 시도** 기준이다. 슬롯 간 AND, 같은 슬롯 옵션 간 OR이며 IngredientGroup은 멤버십만 나타낸다. 전역 multiplier, 고급/특상품 환산, 혼합 대체, 결과물 고정 수량, 대량 요리 10회 분량을 추론하지 않는다. 예를 들어 맥주의 물 슬롯은 `mineral-water:6` 또는 `purified-water:3`으로 별도 옵션이다. 전체 실행 가능한 예시는 `data/seed_recipes.json`의 네 Recipe를 사용한다.
+수량은 **Recipe의 완전한 1회 배합** 기준이다. 슬롯 간 AND, 같은 슬롯 옵션 간 OR이며 IngredientGroup은 멤버십만 나타낸다. 전역 multiplier, 고급/특상품 환산, 혼합 대체, 결과물 고정 수량, 감소 투입 성공 확률을 추론하지 않는다. 예를 들어 맥주의 물 슬롯은 `mineral-water:6` 또는 `purified-water:3`, 집중의 비약 약초 슬롯은 `wild-grass:2` 또는 `weed:8`인 별도 option이다. 연금 수량은 성공 가능성이 있는 최소 투입량이 아니라 canonical full formulation이다.
 
 공식 현행 가이드의 그룹 멤버십·1회 시도 의미는 verified, 공식 현행 exact formula 확인이 부족한 배합·option quantity는 needs_review로 유지한다. conflict/superseded는 편한 값을 선택해 verified로 승격하지 않는다. 날짜는 확인한 날을 사용하며 모르는 발행일은 null로 둔다.
 

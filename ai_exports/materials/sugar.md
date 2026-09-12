@@ -49,6 +49,22 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - recipe_last_verified_at: "2026-09-11"
 - relative_path: "../recipes/pickled-vegetables.md"
 
+### `pure-powder-reagent.ingredient.sugar.option.sugar`
+
+- recipe_slug: "pure-powder-reagent"
+- recipe_name_ko: "순수한 가루 시약"
+- process_type: "alchemy"
+- slot_seed_key: "pure-powder-reagent.ingredient.sugar"
+- slot_label: "설탕"
+- slot_order_no: 2
+- option_seed_key: "pure-powder-reagent.ingredient.sugar.option.sugar"
+- option_order_no: 1
+- required_quantity: 1.0
+- is_alternative: false
+- recipe_verification_status: "verified"
+- recipe_last_verified_at: "2026-09-12"
+- relative_path: "../recipes/pure-powder-reagent.md"
+
 ### `red-sauce.ingredient.sugar.option.sugar`
 
 - recipe_slug: "red-sauce"

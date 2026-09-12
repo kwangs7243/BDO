@@ -33,6 +33,54 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - recipe_last_verified_at: "2026-09-11"
 - relative_path: "../recipes/beer.md"
 
+### `clear-liquid-reagent.ingredient.water.option.purified-water`
+
+- recipe_slug: "clear-liquid-reagent"
+- recipe_name_ko: "맑은 액체 시약"
+- process_type: "alchemy"
+- slot_seed_key: "clear-liquid-reagent.ingredient.water"
+- slot_label: "물"
+- slot_order_no: 1
+- option_seed_key: "clear-liquid-reagent.ingredient.water.option.purified-water"
+- option_order_no: 1
+- required_quantity: 1.0
+- is_alternative: true
+- recipe_verification_status: "verified"
+- recipe_last_verified_at: "2026-09-12"
+- relative_path: "../recipes/clear-liquid-reagent.md"
+
+### `defense-elixir.ingredient.purified-water.option.purified-water`
+
+- recipe_slug: "defense-elixir"
+- recipe_name_ko: "방어의 비약"
+- process_type: "alchemy"
+- slot_seed_key: "defense-elixir.ingredient.purified-water"
+- slot_label: "정제수"
+- slot_order_no: 4
+- option_seed_key: "defense-elixir.ingredient.purified-water.option.purified-water"
+- option_order_no: 1
+- required_quantity: 3.0
+- is_alternative: false
+- recipe_verification_status: "verified"
+- recipe_last_verified_at: "2026-09-12"
+- relative_path: "../recipes/defense-elixir.md"
+
+### `pure-powder-reagent.ingredient.water.option.purified-water`
+
+- recipe_slug: "pure-powder-reagent"
+- recipe_name_ko: "순수한 가루 시약"
+- process_type: "alchemy"
+- slot_seed_key: "pure-powder-reagent.ingredient.water"
+- slot_label: "정제수"
+- slot_order_no: 1
+- option_seed_key: "pure-powder-reagent.ingredient.water.option.purified-water"
+- option_order_no: 1
+- required_quantity: 1.0
+- is_alternative: false
+- recipe_verification_status: "verified"
+- recipe_last_verified_at: "2026-09-12"
+- relative_path: "../recipes/pure-powder-reagent.md"
+
 ### `red-sauce.ingredient.water.option.purified-water`
 
 - recipe_slug: "red-sauce"

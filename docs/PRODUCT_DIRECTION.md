@@ -19,7 +19,7 @@ Continue to preserve and expand:
 - Requirements / Steps / Rewards / Sections / Relations
 - Schedule and reset semantics
 - Projects and canonical dependency/material definitions
-- shared Material catalog and structured Cooking Recipe definitions (V1.9Q foundation)
+- shared Material catalog and structured Cooking/Alchemy Recipe definitions (V1.9Q and V1.9X foundations)
 - first-class Material canonical read/search/export projection (V1.9W)
 - Source / claim-level Evidence
 - verification status
@@ -65,6 +65,13 @@ usage, group membership, group-candidate usage, and Project requirement
 relationships from existing owners. It supports repeated Material-centered
 lookup by GPT and future thin adapters, but it is not a frontend UI milestone
 and does not create a global acquisition, inventory, yield, or economy model.
+
+V1.9X extends the existing formulation-style Recipe pipeline to four verified
+Alchemy Recipes while preserving the same canonical read, stateless
+calculation, dependency, Material knowledge, search, and export boundaries.
+It does not treat Processing or reduced-input probabilistic Alchemy as the
+same domain and does not add output/yield, mastery, economy, optimizer,
+personal-state, or frontend behavior.
 
 ## 4. Personal-state ownership
 

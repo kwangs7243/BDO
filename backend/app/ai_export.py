@@ -430,12 +430,14 @@ def _recipe_dependency_blocks(
                     [
                         ("producer_recipe_slug", edge.producer_recipe_slug),
                         ("producer_recipe_name_ko", edge.producer_recipe_name_ko),
+                        ("producer_process_type", edge.producer_process_type),
                         (
                             "producer_verification_status",
                             edge.producer_verification_status,
                         ),
                         ("consumer_recipe_slug", edge.consumer_recipe_slug),
                         ("consumer_recipe_name_ko", edge.consumer_recipe_name_ko),
+                        ("consumer_process_type", edge.consumer_process_type),
                         (
                             "consumer_verification_status",
                             edge.consumer_verification_status,
@@ -471,7 +473,7 @@ def render_recipe_markdown(
     _section(lines, "Result", [_fields([
         ("material_key", recipe.result_material_key),
         ("name_ko", recipe.result_material_name_ko), ("unit", recipe.result_unit)])])
-    _section(lines, "Cooking Requirement", [_fields([
+    _section(lines, "Recipe Requirement", [_fields([
         ("required_skill_tier", recipe.required_skill_tier),
         ("required_skill_level", recipe.required_skill_level)])])
     blocks = []
@@ -496,8 +498,8 @@ def render_recipe_markdown(
                 group_sources[group.key] = group.sources
         blocks.append("")
     _section(lines, "Ingredient Slots", blocks)
-    _section(lines, "Substitution Semantics", [
-        "- Ingredient quantities are per one cooking attempt.",
+    semantics = [
+        "- Ingredient quantities are per one recipe attempt.",
         "- All active slots are required (AND).",
         "- Options inside one slot are alternatives (OR); select one allowed material.",
         "- IngredientGroup membership does not define a global quantity conversion.",
@@ -505,7 +507,15 @@ def render_recipe_markdown(
         "- Mixed option consumption is not inferred.",
         "- Result quantity is not guaranteed by this Recipe definition.",
         "- High-quality/special multipliers and yield probabilities are not defined.",
-    ])
+    ]
+    if recipe.process_type == "alchemy":
+        semantics.extend([
+            "- required_quantity is the canonical full formulation quantity for one attempt.",
+            "- Reduced-input probabilistic success is not modeled.",
+            "- Output quantity and special-result probability are not modeled.",
+            "- Alchemy level/mastery output effects are not modeled.",
+        ])
+    _section(lines, "Substitution Semantics", semantics)
     dependency_lines = [
         "- Only explicit Material options create dependency edges.",
         "- IngredientGroup membership is not expanded.",

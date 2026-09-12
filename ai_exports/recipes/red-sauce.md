@@ -19,7 +19,7 @@ Regenerate with: cd backend && uv run python -m app.ai_export write
 - name_ko: "레드소스"
 - unit: "개"
 
-## Cooking Requirement
+## Recipe Requirement
 
 - required_skill_tier: "beginner"
 - required_skill_level: 1
@@ -117,7 +117,7 @@ Allowed current members:
 
 ## Substitution Semantics
 
-- Ingredient quantities are per one cooking attempt.
+- Ingredient quantities are per one recipe attempt.
 - All active slots are required (AND).
 - Options inside one slot are alternatives (OR); select one allowed material.
 - IngredientGroup membership does not define a global quantity conversion.
@@ -144,9 +144,11 @@ Allowed current members:
 
 - producer_recipe_slug: "red-sauce"
 - producer_recipe_name_ko: "레드소스"
+- producer_process_type: "cooking"
 - producer_verification_status: "verified"
 - consumer_recipe_slug: "frank-sandwich"
 - consumer_recipe_name_ko: "프랭크 샌드위치"
+- consumer_process_type: "cooking"
 - consumer_verification_status: "verified"
 - material_key: "red-sauce"
 - material_name_ko: "레드소스"
@@ -161,9 +163,11 @@ Allowed current members:
 
 - producer_recipe_slug: "red-sauce"
 - producer_recipe_name_ko: "레드소스"
+- producer_process_type: "cooking"
 - producer_verification_status: "verified"
 - consumer_recipe_slug: "steak"
 - consumer_recipe_name_ko: "스테이크"
+- consumer_process_type: "cooking"
 - consumer_verification_status: "verified"
 - material_key: "red-sauce"
 - material_name_ko: "레드소스"

@@ -2787,6 +2787,582 @@
           "note": "해당 Recipe option의 1회 필요 수량으로만 사용하며 전역 환산을 만들지 않는다."
         }
       ]
+    },
+    {
+      "slug": "clear-liquid-reagent",
+      "name_ko": "맑은 액체 시약",
+      "process_type": "alchemy",
+      "result_material_key": "clear-liquid-reagent",
+      "summary": "연금 1회 시도 기준 맑은 액체 시약의 완전 배합. 감소 투입 성공 확률과 결과 수량은 모델링하지 않는다.",
+      "required_skill_tier": "beginner",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-12",
+      "ingredients": [
+        {
+          "seed_key": "clear-liquid-reagent.ingredient.water",
+          "label": "물",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "clear-liquid-reagent.ingredient.water.option.purified-water",
+              "material_key": "purified-water",
+              "required_quantity": 1,
+              "order_no": 1
+            },
+            {
+              "seed_key": "clear-liquid-reagent.ingredient.water.option.distilled-water",
+              "material_key": "distilled-water",
+              "required_quantity": 1,
+              "order_no": 2
+            }
+          ]
+        },
+        {
+          "seed_key": "clear-liquid-reagent.ingredient.salt",
+          "label": "소금",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "clear-liquid-reagent.ingredient.salt.option.salt",
+              "material_key": "salt",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "clear-liquid-reagent.ingredient.dawn-herb",
+          "label": "여명초",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "clear-liquid-reagent.ingredient.dawn-herb.option.dawn-herb",
+              "material_key": "dawn-herb",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "clear-liquid-reagent.ingredient.wild-herb",
+          "label": "야생 약초",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "clear-liquid-reagent.ingredient.wild-herb.option.wild-grass",
+              "material_key": "wild-grass",
+              "required_quantity": 1,
+              "order_no": 1
+            },
+            {
+              "seed_key": "clear-liquid-reagent.ingredient.wild-herb.option.weed",
+              "material_key": "weed",
+              "required_quantity": 1,
+              "order_no": 2
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.clear-liquid-reagent.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "clear-liquid-reagent",
+          "claim_key": "ingredients",
+          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.clear-liquid-reagent.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "clear-liquid-reagent",
+          "claim_key": "required_skill",
+          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.clear-liquid-reagent.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "clear-liquid-reagent",
+          "claim_key": "per_attempt",
+          "source_ids": ["alchemy-basic-guide"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.clear-liquid-reagent.ingredient.water.option.purified-water.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "clear-liquid-reagent.ingredient.water.option.purified-water",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.clear-liquid-reagent.ingredient.water.option.distilled-water.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "clear-liquid-reagent.ingredient.water.option.distilled-water",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.clear-liquid-reagent.ingredient.salt.option.salt.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "clear-liquid-reagent.ingredient.salt.option.salt",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.clear-liquid-reagent.ingredient.dawn-herb.option.dawn-herb.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "clear-liquid-reagent.ingredient.dawn-herb.option.dawn-herb",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-47", "codex-clear-liquid-reagent-648", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.clear-liquid-reagent.ingredient.wild-herb.option.wild-grass.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "clear-liquid-reagent.ingredient.wild-herb.option.wild-grass",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-47", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.clear-liquid-reagent.ingredient.wild-herb.option.weed.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "clear-liquid-reagent.ingredient.wild-herb.option.weed",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-clear-liquid-reagent-648"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        }
+      ]
+    },
+    {
+      "slug": "pure-powder-reagent",
+      "name_ko": "순수한 가루 시약",
+      "process_type": "alchemy",
+      "result_material_key": "pure-powder-reagent",
+      "summary": "연금 1회 시도 기준 순수한 가루 시약의 완전 배합. 공식 고급 가이드의 충돌하는 정확 배합은 근거로 사용하지 않는다.",
+      "required_skill_tier": "beginner",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-12",
+      "ingredients": [
+        {
+          "seed_key": "pure-powder-reagent.ingredient.water",
+          "label": "정제수",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "pure-powder-reagent.ingredient.water.option.purified-water",
+              "material_key": "purified-water",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "pure-powder-reagent.ingredient.sugar",
+          "label": "설탕",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "pure-powder-reagent.ingredient.sugar.option.sugar",
+              "material_key": "sugar",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "pure-powder-reagent.ingredient.silver-azalea",
+          "label": "은빛 철쭉",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "pure-powder-reagent.ingredient.silver-azalea.option.silver-azalea",
+              "material_key": "silver-azalea",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "pure-powder-reagent.ingredient.wild-herb",
+          "label": "야생 약초",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "pure-powder-reagent.ingredient.wild-herb.option.wild-grass",
+              "material_key": "wild-grass",
+              "required_quantity": 1,
+              "order_no": 1
+            },
+            {
+              "seed_key": "pure-powder-reagent.ingredient.wild-herb.option.weed",
+              "material_key": "weed",
+              "required_quantity": 1,
+              "order_no": 2
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.pure-powder-reagent.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "pure-powder-reagent",
+          "claim_key": "ingredients",
+          "source_ids": ["codex-pure-powder-reagent-48", "codex-pure-powder-reagent-469", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.pure-powder-reagent.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "pure-powder-reagent",
+          "claim_key": "required_skill",
+          "source_ids": ["alchemy-advanced-guide", "codex-pure-powder-reagent-48", "codex-pure-powder-reagent-469"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.pure-powder-reagent.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "pure-powder-reagent",
+          "claim_key": "per_attempt",
+          "source_ids": ["alchemy-basic-guide"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.pure-powder-reagent.ingredient.water.option.purified-water.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "pure-powder-reagent.ingredient.water.option.purified-water",
+          "claim_key": "required_quantity",
+          "source_ids": ["codex-pure-powder-reagent-48", "codex-pure-powder-reagent-469", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.pure-powder-reagent.ingredient.sugar.option.sugar.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "pure-powder-reagent.ingredient.sugar.option.sugar",
+          "claim_key": "required_quantity",
+          "source_ids": ["codex-pure-powder-reagent-48", "codex-pure-powder-reagent-469", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.pure-powder-reagent.ingredient.silver-azalea.option.silver-azalea.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "pure-powder-reagent.ingredient.silver-azalea.option.silver-azalea",
+          "claim_key": "required_quantity",
+          "source_ids": ["codex-pure-powder-reagent-48", "codex-pure-powder-reagent-469", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.pure-powder-reagent.ingredient.wild-herb.option.wild-grass.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "pure-powder-reagent.ingredient.wild-herb.option.wild-grass",
+          "claim_key": "required_quantity",
+          "source_ids": ["codex-pure-powder-reagent-48", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.pure-powder-reagent.ingredient.wild-herb.option.weed.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "pure-powder-reagent.ingredient.wild-herb.option.weed",
+          "claim_key": "required_quantity",
+          "source_ids": ["codex-pure-powder-reagent-469"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        }
+      ]
+    },
+    {
+      "slug": "defense-elixir",
+      "name_ko": "방어의 비약",
+      "process_type": "alchemy",
+      "result_material_key": "defense-elixir",
+      "summary": "연금 1회 시도 기준 방어의 비약의 완전 배합. 혈액 재료의 자동 대체 관계는 만들지 않는다.",
+      "required_skill_tier": "beginner",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-12",
+      "ingredients": [
+        {
+          "seed_key": "defense-elixir.ingredient.clear-liquid-reagent",
+          "label": "맑은 액체 시약",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "defense-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent",
+              "material_key": "clear-liquid-reagent",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "defense-elixir.ingredient.ash-sap",
+          "label": "물푸레나무 수액",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "defense-elixir.ingredient.ash-sap.option.ash-sap",
+              "material_key": "ash-sap",
+              "required_quantity": 6,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "defense-elixir.ingredient.pig-blood",
+          "label": "돼지 피",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "defense-elixir.ingredient.pig-blood.option.pig-blood",
+              "material_key": "pig-blood",
+              "required_quantity": 5,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "defense-elixir.ingredient.purified-water",
+          "label": "정제수",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "defense-elixir.ingredient.purified-water.option.purified-water",
+              "material_key": "purified-water",
+              "required_quantity": 3,
+              "order_no": 1
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.defense-elixir.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "defense-elixir",
+          "claim_key": "ingredients",
+          "source_ids": ["alchemy-advanced-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.defense-elixir.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "defense-elixir",
+          "claim_key": "required_skill",
+          "source_ids": ["codex-defense-elixir-27"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.defense-elixir.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "defense-elixir",
+          "claim_key": "per_attempt",
+          "source_ids": ["alchemy-basic-guide"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.defense-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "defense-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.defense-elixir.ingredient.ash-sap.option.ash-sap.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "defense-elixir.ingredient.ash-sap.option.ash-sap",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.defense-elixir.ingredient.pig-blood.option.pig-blood.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "defense-elixir.ingredient.pig-blood.option.pig-blood",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.defense-elixir.ingredient.purified-water.option.purified-water.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "defense-elixir.ingredient.purified-water.option.purified-water",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-defense-elixir-27", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        }
+      ]
+    },
+    {
+      "slug": "concentration-elixir",
+      "name_ko": "집중의 비약",
+      "process_type": "alchemy",
+      "result_material_key": "concentration-elixir",
+      "summary": "연금 1회 시도 기준 집중의 비약의 완전 배합. 야생 들풀 2와 잡초 8은 Recipe 내부 OR option이다.",
+      "required_skill_tier": "beginner",
+      "required_skill_level": 1,
+      "last_verified_at": "2026-09-12",
+      "ingredients": [
+        {
+          "seed_key": "concentration-elixir.ingredient.clear-liquid-reagent",
+          "label": "맑은 액체 시약",
+          "order_no": 1,
+          "options": [
+            {
+              "seed_key": "concentration-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent",
+              "material_key": "clear-liquid-reagent",
+              "required_quantity": 1,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "concentration-elixir.ingredient.cloud-mushroom",
+          "label": "구름 버섯",
+          "order_no": 2,
+          "options": [
+            {
+              "seed_key": "concentration-elixir.ingredient.cloud-mushroom.option.cloud-mushroom",
+              "material_key": "cloud-mushroom",
+              "required_quantity": 3,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "concentration-elixir.ingredient.bear-blood",
+          "label": "곰 피",
+          "order_no": 3,
+          "options": [
+            {
+              "seed_key": "concentration-elixir.ingredient.bear-blood.option.bear-blood",
+              "material_key": "bear-blood",
+              "required_quantity": 3,
+              "order_no": 1
+            }
+          ]
+        },
+        {
+          "seed_key": "concentration-elixir.ingredient.wild-herb",
+          "label": "야생 약초",
+          "order_no": 4,
+          "options": [
+            {
+              "seed_key": "concentration-elixir.ingredient.wild-herb.option.wild-grass",
+              "material_key": "wild-grass",
+              "required_quantity": 2,
+              "order_no": 1
+            },
+            {
+              "seed_key": "concentration-elixir.ingredient.wild-herb.option.weed",
+              "material_key": "weed",
+              "required_quantity": 8,
+              "order_no": 2
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "seed_key": "recipe.concentration-elixir.formula",
+          "entity_type": "recipe",
+          "entity_seed_key": "concentration-elixir",
+          "claim_key": "ingredients",
+          "source_ids": ["alchemy-advanced-guide", "codex-concentration-elixir-19", "codex-concentration-elixir-473", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.concentration-elixir.skill",
+          "entity_type": "recipe",
+          "entity_seed_key": "concentration-elixir",
+          "claim_key": "required_skill",
+          "source_ids": ["codex-concentration-elixir-19", "codex-concentration-elixir-473"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.concentration-elixir.attempt",
+          "entity_type": "recipe",
+          "entity_seed_key": "concentration-elixir",
+          "claim_key": "per_attempt",
+          "source_ids": ["alchemy-basic-guide"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.concentration-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "concentration-elixir.ingredient.clear-liquid-reagent.option.clear-liquid-reagent",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-concentration-elixir-19", "codex-concentration-elixir-473", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.concentration-elixir.ingredient.cloud-mushroom.option.cloud-mushroom.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "concentration-elixir.ingredient.cloud-mushroom.option.cloud-mushroom",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-concentration-elixir-19", "codex-concentration-elixir-473", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.concentration-elixir.ingredient.bear-blood.option.bear-blood.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "concentration-elixir.ingredient.bear-blood.option.bear-blood",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-concentration-elixir-19", "codex-concentration-elixir-473", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.concentration-elixir.ingredient.wild-herb.option.wild-grass.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "concentration-elixir.ingredient.wild-herb.option.wild-grass",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-concentration-elixir-19", "inven-cooking-recipe-db"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        },
+        {
+          "seed_key": "recipe.concentration-elixir.ingredient.wild-herb.option.weed.quantity",
+          "entity_type": "recipe_ingredient_option",
+          "entity_seed_key": "concentration-elixir.ingredient.wild-herb.option.weed",
+          "claim_key": "required_quantity",
+          "source_ids": ["alchemy-advanced-guide", "codex-concentration-elixir-473"],
+          "verification_status": "verified",
+          "last_verified_at": "2026-09-12"
+        }
+      ]
     }
   ]
 }
